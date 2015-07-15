@@ -6,4 +6,4 @@ A blank pattern library starter kit with a simple responsive grid inspired by BB
 - Portrait tablets get 47 x 16px columns
 - Mobiles and browsers that don’t support media queries get 100% wide columns
 
-5947sixteen = 59col, 47cols with 16px used for baseline and column widths (that double as gutters)
+5947sixteen = 59 column and 47 column vertical grids with 16px used for baseline and column widths (that double as gutters)
