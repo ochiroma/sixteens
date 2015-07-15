@@ -1,0 +1,64 @@
+html, body {
+  margin: 0;
+  padding: 0; }
+
+.wrapper {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .wrapper {
+      width: 752px; } }
+  @media (min-width: 992px) {
+    .wrapper {
+      width: 944px; } }
+
+.col-wrap {
+  overflow: hidden;
+  width: 100%; }
+  @media (min-width: 768px) {
+    .col-wrap {
+      width: 768px;
+      margin-left: -16px; } }
+  @media (min-width: 992px) {
+    .col-wrap {
+      width: 960px;
+      margin-left: -16px; } }
+
+.col {
+  overflow: hidden;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+  float: left; }
+  @media (min-width: 768px) {
+    .col {
+      margin-left: 16px;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0; }
+      .col--md-one {
+        width: 752px; }
+      .col--md-half {
+        width: 368px; }
+      .col--md-third {
+        width: 240px; }
+      .col--md-quarter {
+        width: 176px; } }
+  @media (min-width: 992px) {
+    .col {
+      margin-left: 16px;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0; }
+      .col--lg-one {
+        width: 944px; }
+      .col--lg-half {
+        width: 464px; }
+      .col--lg-third {
+        width: 304px; }
+      .col--lg-quarter {
+        width: 224px; } }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,189 @@
+//_grid.scss
+
+
+//--[vars]--
+
+$baseline: 16px;
+$gutter: 16px;
+$cols: 16px;
+
+$large-complex-grid-cols: 59;
+$medium-complex-grid-cols: 47;
+
+$large: $large-complex-grid-cols * $gutter;
+$medium: $medium-complex-grid-cols * $gutter;
+
+//simple cols
+$large-cols-one: $large-complex-grid-cols * $cols;
+$large-cols-half: (($large-complex-grid-cols - 1) / 2) * $cols;
+$large-cols-third: (($large-complex-grid-cols - 2) / 3) * $cols;
+$large-cols-quarter: (($large-complex-grid-cols - 3) / 4) * $cols;
+
+$medium-cols-one: $medium-complex-grid-cols * $cols;
+$medium-cols-half: (($medium-complex-grid-cols - 1) / 2) * $cols;
+$medium-cols-third: (($medium-complex-grid-cols - 2) / 3) * $cols;
+$medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
+
+//--[vars end]--
+
+
+
+
+
+
+//--[mixins]--
+
+// Generate the large columns
+@mixin make-lg-column($columns) {
+	position: relative;
+	min-height: 1px;
+	margin-left:  ($gutter);
+	float: left;
+
+	// @media (min-width: $screen-md-min) {
+	// 	float: left;
+	// 	width: percentage(($columns / $grid-columns));
+	// }
+}
+
+
+@mixin breakpoint($class) {
+  @if $class == md {
+    @media (min-width: 768px) { @content; }
+  }
+ 
+  @else if $class == lg {
+    @media (min-width: 992px) { @content; }
+  }
+ 
+  // @else {
+  //   @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  // }
+}
+
+//--[mixins end]--
+
+
+
+
+
+
+//--[classes]--
+.wrapper {
+	overflow: hidden;
+	width: 100%;
+	margin:0 auto;
+
+	@include breakpoint(md) {
+		width: ($medium);
+	}
+
+	@include breakpoint(lg) {
+		width: ($large);
+	}
+
+	
+}
+
+
+.col-wrap{
+	overflow: hidden;
+	width: 100%;
+	
+
+	@include breakpoint(md) {
+		width: ($medium + $gutter);
+		margin-left: -$gutter;
+	}
+
+	@include breakpoint(lg) {
+		width: ($large + $gutter);
+		margin-left: -$gutter;
+	}
+
+	
+}
+
+
+.col {
+	overflow: hidden;
+	width: 100%;
+	padding-left: $baseline;
+	padding-right: $baseline;
+	box-sizing: border-box;
+	float: left;
+
+	@include breakpoint(md) {
+		margin-left: $baseline;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+
+		&--md {
+			&-one {
+				width: $medium-cols-one;
+			}
+		}
+
+		&--md {
+			&-half {
+				width: $medium-cols-half;
+			}
+		}
+
+		&--md {
+			&-third {
+				width: $medium-cols-third;
+			}
+		}
+
+		&--md {
+			&-quarter {
+				width: $medium-cols-quarter;
+			}
+		}
+
+	}
+
+	@include breakpoint(lg) {
+		margin-left: $baseline;
+		margin-right: 0;
+		padding-left: 0;
+		padding-right: 0;
+
+		&--lg {
+			&-one {
+				width: $large-cols-one;
+			}
+		}
+
+		&--lg {
+			&-half {
+				width: $large-cols-half;
+			}
+		}
+
+		&--lg {
+			&-third {
+				width: $large-cols-third;
+			}
+		}
+
+		&--lg {
+			&-quarter {
+				width: $large-cols-quarter;
+			}
+		}
+
+	}
+
+
+
+	
+
+
+	// &--padded { padding: $baseline $gutter; }
+}
+
+//--[classes end]--
+
