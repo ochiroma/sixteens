@@ -3,26 +3,28 @@
 
 //--[vars]--
 
-$baseline: 16px;
+// $baseline: 16px;
+
+$col: 16px;
 $gutter: 16px;
-$cols: 16px;
+
 
 $large-complex-grid-cols: 59;
 $medium-complex-grid-cols: 47;
 
-$large: $large-complex-grid-cols * $gutter;
-$medium: $medium-complex-grid-cols * $gutter;
+$large: $large-complex-grid-cols * $col;
+$medium: $medium-complex-grid-cols * $col;
 
 //simple cols
-$large-cols-one: $large-complex-grid-cols * $cols;
-$large-cols-half: (($large-complex-grid-cols - 1) / 2) * $cols;
-$large-cols-third: (($large-complex-grid-cols - 2) / 3) * $cols;
-$large-cols-quarter: (($large-complex-grid-cols - 3) / 4) * $cols;
+$large-cols-one: $large-complex-grid-cols * $col;
+$large-cols-half: (($large-complex-grid-cols - 1) / 2) * $col;
+$large-cols-third: (($large-complex-grid-cols - 2) / 3) * $col;
+$large-cols-quarter: (($large-complex-grid-cols - 3) / 4) * $col;
 
-$medium-cols-one: $medium-complex-grid-cols * $cols;
-$medium-cols-half: (($medium-complex-grid-cols - 1) / 2) * $cols;
-$medium-cols-third: (($medium-complex-grid-cols - 2) / 3) * $cols;
-$medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
+$medium-cols-one: $medium-complex-grid-cols * $col;
+$medium-cols-half: (($medium-complex-grid-cols - 1) / 2) * $col;
+$medium-cols-third: (($medium-complex-grid-cols - 2) / 3) * $col;
+$medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 //--[vars end]--
 
@@ -59,6 +61,20 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
   // @else {
   //   @warn "Breakpoint mixin supports: xs, sm, md, lg";
   // }
+}
+
+
+@mixin large-cols-complex {
+  @for $i from 1 through $large-complex-grid-cols {
+  .col--lg-#{$i} { width: $col * $i }
+  }
+}
+
+
+@mixin medium-cols-complex {
+  @for $i from 1 through $medium-complex-grid-cols {
+  .col--md-#{$i} { width: $col * $i }
+  }
 }
 
 //--[mixins end]--
@@ -108,13 +124,13 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
 .col {
 	overflow: hidden;
 	width: 100%;
-	padding-left: $baseline;
-	padding-right: $baseline;
+	padding-left: $gutter;
+	padding-right: $gutter;
 	box-sizing: border-box;
 	float: left;
 
 	@include breakpoint(md) {
-		margin-left: $baseline;
+		margin-left: $gutter;
 		margin-right: 0;
 		padding-left: 0;
 		padding-right: 0;
@@ -143,10 +159,12 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
 			}
 		}
 
+		@include medium-cols-complex;
+
 	}
 
 	@include breakpoint(lg) {
-		margin-left: $baseline;
+		margin-left: $gutter;
 		margin-right: 0;
 		padding-left: 0;
 		padding-right: 0;
@@ -175,15 +193,16 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $cols;
 			}
 		}
 
+		@include large-cols-complex;
+
 	}
-
-
 
 	
 
 
 	// &--padded { padding: $baseline $gutter; }
 }
+
 
 //--[classes end]--
 

@@ -1,0 +1,56 @@
+//_type.scss
+
+
+//--[vars]--
+$baseline: 8px;
+
+
+$base-font-family: sans-serif;
+$base-font-size: 14px;
+$base-line-height: $baseline * 3;
+$base-font-weight: 400;
+
+//--[vars end]--
+
+
+
+body {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	font-weight: $base-font-weight;
+	line-height: $base-line-height;
+}
+
+h1 {
+	//
+}
+
+h2 {
+	//
+}
+
+h3 {
+	//
+}
+
+h4 {
+	//
+}
+
+h5 {
+	//
+}
+
+h6 {
+	//
+}
+
+p {
+	//
+}
+
+cite {
+	//
+}
+
+
