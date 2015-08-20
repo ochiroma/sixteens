@@ -66,14 +66,14 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 @mixin large-cols-complex {
   @for $i from 1 through $large-complex-grid-cols {
-  .col--lg-#{$i} { width: $col * $i }
+  &--lg-#{$i} { width: $col * $i }
   }
 }
 
 
 @mixin medium-cols-complex {
   @for $i from 1 through $medium-complex-grid-cols {
-  .col--md-#{$i} { width: $col * $i }
+  &--md-#{$i} { width: $col * $i }
   }
 }
 
