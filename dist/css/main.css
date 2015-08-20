@@ -46,8 +46,10 @@ html, body {
         width: 752px; }
       .col--md-half {
         width: 368px; }
-      .col--md-third {
+      .col--md-one-third {
         width: 240px; }
+      .col--md-two-thirds {
+        width: 496px; }
       .col--md-quarter {
         width: 176px; }
       .col--md-1 {
@@ -153,8 +155,10 @@ html, body {
         width: 944px; }
       .col--lg-half {
         width: 464px; }
-      .col--lg-third {
+      .col--lg-one-third {
         width: 304px; }
+      .col--lg-two-thirds {
+        width: 624px; }
       .col--lg-quarter {
         width: 224px; }
       .col--lg-1 {

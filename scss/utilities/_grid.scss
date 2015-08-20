@@ -18,12 +18,14 @@ $medium: $medium-complex-grid-cols * $col;
 //simple cols
 $large-cols-one: $large-complex-grid-cols * $col;
 $large-cols-half: (($large-complex-grid-cols - 1) / 2) * $col;
-$large-cols-third: (($large-complex-grid-cols - 2) / 3) * $col;
+$large-cols-one-third: (($large-complex-grid-cols - 2) / 3) * $col;
+$large-cols-two-thirds: (($large-complex-grid-cols - 1) * $col) - $large-cols-one-third;
 $large-cols-quarter: (($large-complex-grid-cols - 3) / 4) * $col;
 
 $medium-cols-one: $medium-complex-grid-cols * $col;
 $medium-cols-half: (($medium-complex-grid-cols - 1) / 2) * $col;
-$medium-cols-third: (($medium-complex-grid-cols - 2) / 3) * $col;
+$medium-cols-one-third: (($medium-complex-grid-cols - 2) / 3) * $col;
+$medium-cols-two-thirds: (($medium-complex-grid-cols - 1) * $col )- $medium-cols-one-third;
 $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 //--[vars end]--
@@ -152,8 +154,14 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		}
 
 		&--md {
-			&-third {
-				width: $medium-cols-third;
+			&-one-third {
+				width: $medium-cols-one-third;
+			}
+		}
+
+		&--md {
+			&-two-thirds {
+				width: $medium-cols-two-thirds;
 			}
 		}
 
@@ -187,8 +195,13 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		}
 
 		&--lg {
-			&-third {
-				width: $large-cols-third;
+			&-one-third {
+				width: $large-cols-one-third;
+			}
+		}
+		&--lg {
+			&-two-thirds {
+				width: $large-cols-two-thirds;
 			}
 		}
 
