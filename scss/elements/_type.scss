@@ -9,6 +9,7 @@ $base-font-family: 'Open Sans', sans-serif;
 $base-font-size: 14px;
 $base-line-height: $baseline * 3;
 $base-font-weight: 400;
+$base-text-colour: $ship-gray;
 
 //--[vars end]--
 
@@ -19,6 +20,7 @@ body {
 	font-size: $base-font-size;
 	font-weight: $base-font-weight;
 	line-height: $base-line-height;
+	color: $base-text-colour;
 }
 
 h1 {
@@ -71,6 +73,14 @@ p {
 
 cite {
 	//
+}
+
+a {
+	text-decoration: none;
+	color: $matisse;
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 
