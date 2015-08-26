@@ -68,15 +68,21 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 @mixin large-cols-complex {
   @for $i from 1 through $large-complex-grid-cols {
-  &--lg-#{$i} { width: $col * $i }
+  &--lg-#{$i} { 
+  	width: $col * $i;
+  	margin: 0;
+   }
   }
 }
 
 
 @mixin medium-cols-complex {
   @for $i from 1 through $medium-complex-grid-cols {
-  &--md-#{$i} { width: $col * $i }
+  &--md-#{$i} { 
+  	width: $col * $i;
+  	margin: 0;
   }
+ }
 }
 
 //--[mixins end]--
@@ -123,6 +129,39 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 	}
 
 	
+}
+
+.col-span {
+	&--lg {
+		@include breakpoint(lg) {
+			&-thirds {
+				.col { 
+					&:nth-child(3n+4) {
+	      				clear: left;
+	      			}
+	  			}
+			}
+		}
+	}
+
+	&--md {
+		@include breakpoint(md) {
+			&-thirds {
+				.col { 
+					&:nth-child(3n+4) {
+	      				clear: left;
+	      			}
+	  			}
+			}
+			&-half {
+				.col {
+					&:nth-child(2n+3) {
+						clear:left;
+					}
+				}
+			}
+		}
+	}
 }
 
 

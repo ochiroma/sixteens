@@ -4,3 +4,52 @@
 	background-color: #F93;
 }
 
+.primary-nav {
+
+	
+	&__list {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+		overflow: hidden;
+
+
+	}
+
+	&__item {
+		margin: 0;
+		padding: 0;
+		float: left;
+
+		&:last-child .primary-nav__link {
+			border-right: 1px solid $thunder;
+		}
+	}
+
+	&__link {
+		color: $iron-light;
+		text-decoration: none;
+		display: inline-block;
+		padding: 7px $col 8px $col;
+		border-left: 1px solid $thunder;
+
+		@include breakpoint(md) {
+			height: $baseline * 14;
+		}
+
+		@include breakpoint(lg) {
+			height: $baseline * 8;
+		}
+		
+	}
+
+	&__active {
+		background-color: $thunder;
+	}
+
+	//TODO clean up this content markup
+	&__secondary-content {
+		display: none;
+	}
+
+}
