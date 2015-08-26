@@ -34,8 +34,6 @@ html, body {
 .col {
   overflow: hidden;
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
   float: left; }
   @media (min-width: 768px) {
     .col {

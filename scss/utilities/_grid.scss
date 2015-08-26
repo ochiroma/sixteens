@@ -129,8 +129,8 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 .col {
 	overflow: hidden;
 	width: 100%;
-	padding-left: $gutter;
-	padding-right: $gutter;
+	//padding-left: $gutter;
+	//padding-right: $gutter;
 	// box-sizing: border-box;
 	float: left;
 
