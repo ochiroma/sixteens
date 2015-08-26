@@ -5,7 +5,7 @@
 $baseline: 8px;
 
 
-$base-font-family: sans-serif;
+$base-font-family: 'Open Sans', sans-serif;
 $base-font-size: 14px;
 $base-line-height: $baseline * 3;
 $base-font-weight: 400;
@@ -22,15 +22,30 @@ body {
 }
 
 h1 {
-	//
+	font-size: 35px;
+	font-weight: 300;
+	line-height: 48px;
+	margin: ($baseline * 6) 0;
+	padding: 2px 0 6px 0;
+	// background: red;
 }
 
 h2 {
-	//
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 24px;
+	margin: ($baseline * 6) 0;
+	padding: 2px 0 6px 0;
+	// background: red;
 }
 
 h3 {
-	//
+	font-size: 21px;
+	font-weight: 300;
+	line-height: 24px;
+	margin: ($baseline * 6) 0;
+	padding: 3px 0 5px 0;
+	// background: red;
 }
 
 h4 {
@@ -46,7 +61,12 @@ h6 {
 }
 
 p {
-	//
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 24px;
+	margin: ($baseline * 2) 0;
+    padding: 6px 0 10px 0;
+	// background: green;
 }
 
 cite {

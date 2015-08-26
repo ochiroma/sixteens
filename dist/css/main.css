@@ -279,9 +279,37 @@ html, body {
         width: 944px; } }
 
 body {
-  font-family: sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 24px; }
+
+h1 {
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 48px;
+  margin: 48px 0;
+  padding: 2px 0 6px 0; }
+
+h2 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 48px 0;
+  padding: 2px 0 6px 0; }
+
+h3 {
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 48px 0;
+  padding: 3px 0 5px 0; }
+
+p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 16px 0;
+  padding: 6px 0 10px 0; }
 
 /*# sourceMappingURL=main.css.map */
