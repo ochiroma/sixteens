@@ -1,7 +1,12 @@
 //main.scss
+@import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/grid";
 @import "utilities/grid-type";
 
 
 @import "elements/type";
+
+
+@import "components/header";
+@import "components/slates";

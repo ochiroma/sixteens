@@ -312,4 +312,26 @@ p {
   margin: 16px 0;
   padding: 6px 0 10px 0; }
 
+.background--banner {
+  background-color: #F93; }
+
+.slate--thunder {
+  background-color: #323132;
+  color: #FFFFFF; }
+.slate--ship-gray {
+  background-color: #414042;
+  color: #FFFFFF; }
+.slate--abbey {
+  background-color: #58595B; }
+.slate--iron {
+  background-color: #D0D2D3; }
+.slate--iron-light {
+  background-color: #E5E6E7; }
+.slate--mercury {
+  background-color: #E5E5E5; }
+.slate--gallery {
+  background-color: #EAEAEA; }
+.slate--aluminium {
+  background-color: #A6A8AB; }
+
 /*# sourceMappingURL=main.css.map */

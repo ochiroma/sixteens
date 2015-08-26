@@ -1,0 +1,39 @@
+// slates
+
+.slate {
+
+	&--thunder {
+		background-color: #323132;
+		color:	$white;
+	}
+
+	&--ship-gray {
+		background-color: #414042;
+		color: $white;
+	}
+
+	&--abbey {
+		background-color: #58595B;
+	}
+
+	&--iron {
+		background-color: #D0D2D3;
+	}
+
+	&--iron-light {
+		background-color: #E5E6E7;
+	}
+	
+	&--mercury {
+		background-color: #E5E5E5;
+	}
+	
+	&--gallery {
+		background-color: #EAEAEA;
+	}
+
+	&--aluminium {
+		background-color: #A6A8AB;
+	}
+
+}
