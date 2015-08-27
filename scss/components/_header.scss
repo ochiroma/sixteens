@@ -10,7 +10,7 @@
 	border-top: 1px solid $thunder;
 	margin-top: -1px;	//compensate for border-top
 	
-	
+
 	&__list {
 		list-style: none;
 		padding-left: 0;
@@ -62,7 +62,7 @@
 	border-top: 1px solid $thunder;
 	margin-top: -1px;	//compensate for border-top
 	background-color: $ship-gray;
-	font-size: $base-font-size + 2;
+	font-size: 21px;
 	
 	&__form {
 		color: $iron-light;
@@ -70,21 +70,21 @@
 	}
 
 	&__label {
-		padding: 10px $col 6px $col;
+		padding: 12px $col 12px $col;
 		background-color: $abbey;
 	}
 
 	&__input {
-		font-size: $base-font-size + 2;
+		font-size: 21px;
 		border: none;
-		padding: 13px $col 9px $col;
+		padding: 12px $col 12px $col;
 		//background-color: $iron-light
 	}
 
 	&__button {
-		font-size: $base-font-size + 2;
+		font-size: 21px;
 		border: none;
-		padding: 13px $col 9px $col;
+		padding: 12px $col 12px $col;
 		background-color: $mercury;
 	}
 
