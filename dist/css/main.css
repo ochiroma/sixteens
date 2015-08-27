@@ -428,6 +428,9 @@ p {
   margin: 16px 0;
   padding: 6px 0 10px 0; }
 
+ul, ol {
+  margin: 16px 0; }
+
 li {
   font-size: 14px;
   font-weight: 300;
@@ -516,15 +519,15 @@ a {
   padding: 6px 0 10px 0; }
 
 .quick-links__title {
-  margin: 16px 0 0 0; }
+  margin: 24px 0 0 0; }
 .quick-links__list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 16px 0;
   padding: 0; }
 .quick-links__item {
   display: inline-block;
   margin: 0;
-  padding: 6px 0 10px 0;
+  padding: 11px 0 5px 0;
   line-height: 16px; }
   .quick-links__item:after {
     content: '|';
@@ -534,7 +537,44 @@ a {
     padding: 0px 0 0 0px; }
 
 .tile {
-  background-color: #D0D2D3;
+  background-color: #EAEAEA;
   padding: 6px 16px 10px 16px; }
+  .tile--nav-block {
+    background-color: #E5E5E5;
+    padding: 0;
+    margin-top: 0;
+    overflow: hidden;
+    height: 272px; }
+    .tile--nav-block:before {
+      content: "";
+      float: left;
+      width: 5px;
+      height: 272px; }
+    .tile--nav-block > * {
+      float: right;
+      width: 100%;
+      margin-left: -5px !important; }
+    .tile--nav-block:after {
+      content: "\02026";
+      float: right;
+      position: relative;
+      top: -32px;
+      left: 100%;
+      width: 100%;
+      margin-left: -100%;
+      padding-right: 5px;
+      padding-bottom: 24px;
+      text-align: left;
+      text-indent: 16px;
+      background: #E5E5E5; }
+    .tile--nav-block__title {
+      height: 80px;
+      margin: 16px 0;
+      padding: 3px 16px 7px 16px; }
+    .tile--nav-block__content {
+      background-color: #E5E5E5;
+      border-top: 1px solid #D0D2D3;
+      margin: 16px 0 0 0;
+      padding: 13px 16px 16px 16px; }
 
 /*# sourceMappingURL=main.css.map */

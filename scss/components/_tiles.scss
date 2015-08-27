@@ -1,6 +1,35 @@
 // tiles.scss
 
 .tile {
-	background-color: $iron;
+	background-color: $gallery;
 	padding: 6px $col 10px $col;
+
+	&--nav-block {
+		background-color: $mercury;
+		padding: 0;
+		margin-top: 0;
+		// position: relative;
+
+		@include multiline-ellipsis(272px, $col, $mercury);
+
+		&__title {
+			height: 80px;
+			margin: ($baseline * 2) 0;
+			padding: 3px $col 7px $col;
+			// position: relative;
+		}
+
+		&__content {
+			// height: 160px;
+			background-color: $mercury;
+			border-top:1px solid $iron;
+			margin: ($baseline * 2) 0 0 0;
+			padding: 13px $col 16px $col;
+
+			
+
+		}
+
+	}
+
 }
