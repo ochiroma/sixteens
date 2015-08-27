@@ -22,9 +22,31 @@
 		margin: 0;
 		padding: 0;
 		float: left;
+		cursor: pointer;
 
 		&:last-child .primary-nav__link {
 			border-right: 1px solid $thunder;
+		}
+
+		//children show on hover
+		&:hover > .primary-nav__child-list {
+			display: block;
+			top: 120px;
+		}
+
+		//set hover styling
+		&:hover > a {
+			background-color: $iron-light;
+			color: $abbey;
+			text-decoration: none;
+		}
+		&:hover > .primary-nav__child-list, &:focus > .primary-nav__child-list {
+			background-color: $iron-light;
+			color: $abbey;
+			text-decoration: none;
+			border-left: 1px solid $thunder;
+			border-right: 1px solid $thunder;
+			border-bottom: 1px solid $thunder;
 		}
 	}
 
@@ -42,17 +64,51 @@
 		@include breakpoint(lg) {
 			height: $baseline * 8;
 		}
+
+		// &:hover, &:focus {
+		// 	background-color: $iron-light;
+		// 	color: $abbey;
+		// 	text-decoration: none;
+		// }
 		
 	}
 
 	&__active {
 		background-color: $thunder;
-		//border-bottom: 1px solid $abbey;
 	}
 
 	//TODO clean up or remove this content from HTML
 	&__secondary-content {
 		display: none;
+	}
+
+	
+	
+	//NAVIGATION CHILDREN
+
+	&__child-list {
+		list-style: none;
+		color: $white;
+		display: none;
+		position: absolute;
+		padding: 0;
+		z-index: 10;
+		//left: -99999px;
+	}
+
+	&__child-item {
+		//padding-left: 0;
+		//margin: 0;
+		&:hover {
+			background-color: $iron;
+			color: $abbey;
+			text-decoration: none;
+		}
+	}
+
+	&__child-link {
+		background-color: $iron-light;
+		color: $abbey;
 	}
 
 }
