@@ -13,9 +13,9 @@
 		@include multiline-ellipsis(272px, $col, $mercury);
 
 		&__title {
-			height: 80px;
-			margin: ($baseline * 2) 0;
-			padding: 3px $col 7px $col;
+			min-height: 56px;
+			margin: ($baseline * 2) 0 0 0;
+			padding: 3px $col 5px $col;
 			// position: relative;
 		}
 
