@@ -10,7 +10,7 @@
 		margin-top: 0;
 		// position: relative;
 
-		@include multiline-ellipsis(272px, $col, $mercury);
+		@include multiline-ellipsis(280px, $col, $mercury);
 
 		&__title {
 			min-height: 56px;
