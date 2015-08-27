@@ -515,6 +515,24 @@ a {
 .nav-tile-holder__item {
   padding: 6px 0 10px 0; }
 
+.quick-links__title {
+  margin: 16px 0 0 0; }
+.quick-links__list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+.quick-links__item {
+  display: inline-block;
+  margin: 0;
+  padding: 6px 0 10px 0;
+  line-height: 16px; }
+  .quick-links__item:after {
+    content: '|';
+    padding: 0px 0 0 8px; }
+  .quick-links__item:last-child:after {
+    content: '';
+    padding: 0px 0 0 0px; }
+
 .tile {
   background-color: #D0D2D3;
   padding: 6px 16px 10px 16px; }
