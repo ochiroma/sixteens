@@ -6,14 +6,16 @@
 
 .primary-nav {
 
+	background-color: $abbey;
+	border-top: 1px solid $thunder;
+	margin-top: -1px;	//compensate for border-top
+	
 	
 	&__list {
 		list-style: none;
 		padding-left: 0;
 		margin: 0;
 		overflow: hidden;
-
-
 	}
 
 	&__item {
@@ -45,11 +47,45 @@
 
 	&__active {
 		background-color: $thunder;
+		//border-bottom: 1px solid $abbey;
 	}
 
-	//TODO clean up this content markup
+	//TODO clean up or remove this content from HTML
 	&__secondary-content {
 		display: none;
+	}
+
+}
+
+.search {
+
+	border-top: 1px solid $thunder;
+	margin-top: -1px;	//compensate for border-top
+	background-color: $ship-gray;
+	font-size: $base-font-size + 2;
+	
+	&__form {
+		color: $iron-light;
+		padding: $col*1.5 0 $col*1.5 $col;
+	}
+
+	&__label {
+		padding: 10px $col 6px $col;
+		background-color: $abbey;
+	}
+
+	&__input {
+		font-size: $base-font-size + 2;
+		border: none;
+		padding: 13px $col 9px $col;
+		//background-color: $iron-light
+	}
+
+	&__button {
+		font-size: $base-font-size + 2;
+		border: none;
+		padding: 13px $col 9px $col;
+		background-color: $mercury;
 	}
 
 }
