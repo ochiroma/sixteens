@@ -31,7 +31,7 @@
 		//children show on hover
 		&:hover > .primary-nav__child-list {
 			display: block;
-			top: 120px;
+			top: 136px;
 		}
 
 		//set hover styling
@@ -40,14 +40,15 @@
 			color: $abbey;
 			text-decoration: none;
 		}
-		&:hover > .primary-nav__child-list, &:focus > .primary-nav__child-list {
+		&:hover > ul, &:focus > ul {
 			background-color: $iron-light;
 			color: $abbey;
 			text-decoration: none;
-			border-left: 1px solid $thunder;
-			border-right: 1px solid $thunder;
-			border-bottom: 1px solid $thunder;
+			border-left: 1px solid $iron;
+			border-right: 1px solid $iron;
+			border-bottom: 1px solid $iron;
 		}
+		
 	}
 
 	&__link {
@@ -65,11 +66,9 @@
 			height: $baseline * 8;
 		}
 
-		// &:hover, &:focus {
-		// 	background-color: $iron-light;
-		// 	color: $abbey;
-		// 	text-decoration: none;
-		// }
+		&:hover {
+			border-left: 1px solid $iron;
+		}
 		
 	}
 
@@ -93,12 +92,11 @@
 		position: absolute;
 		padding: 0;
 		z-index: 10;
-		//left: -99999px;
+		//left: -99999px; //possibly use instead of display:none - accessible to screen readers
 	}
 
 	&__child-item {
-		//padding-left: 0;
-		//margin: 0;
+
 		&:hover {
 			background-color: $iron;
 			color: $abbey;
@@ -118,7 +116,7 @@
 	border-top: 1px solid $thunder;
 	margin-top: -1px;	//compensate for border-top
 	background-color: $ship-gray;
-	font-size: 21px;
+	font-size: 17px;
 	
 	&__form {
 		color: $iron-light;
@@ -131,16 +129,15 @@
 	}
 
 	&__input {
-		font-size: 21px;
+		font-size: 17px;
 		border: none;
-		padding: 12px $col 12px $col;
-		//background-color: $iron-light
+		padding: 14px $col 14px $col;
 	}
 
 	&__button {
-		font-size: 21px;
+		font-size: 17px;
 		border: none;
-		padding: 12px $col 12px $col;
+		padding: 14px $col 14px $col;
 		background-color: $mercury;
 	}
 
