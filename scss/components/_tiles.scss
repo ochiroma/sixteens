@@ -95,7 +95,8 @@
 		}
 
 		&__list {
-			margin: 0 0 0 ($col * 2);
+			// margin: 0 0 0 ($col * 2);
+			padding-right: $col;
 		}
 
 		&__item {
@@ -126,8 +127,14 @@
 	}
 
 	&--series-list-block {
-		background-color: $white;
-		padding: 0 $col;
+
+		padding: 0;
+
+		&__item {
+			background-color: $white;
+			padding: 0 $col;
+			list-style: none;
+		}
 
 		&__title {
 			margin: ($baseline * 2) 0 0 0;
