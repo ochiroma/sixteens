@@ -1,1 +1,19 @@
 //_buttons.scss
+
+.btn {
+  display: inline-block;
+  width: auto;
+
+  background-color: $matisse;
+  padding: 15px $col 17px $col;
+  color: $white;
+  border: 0 none;
+  text-align: center;
+  text-decoration: none;
+
+  &--full-width {
+    display: block;
+
+  }
+
+}
