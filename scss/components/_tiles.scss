@@ -112,7 +112,6 @@
 		&__more {
 			display: block;
 			padding: 15px $col 17px $col;
-			//line-height: 16px;
 			width: 100%;
 			margin: 0;
 			background-color: $iron-light;
@@ -127,24 +126,25 @@
 	}
 
 	&--series-list-block {
-
 		padding: 0;
+		margin-top: 0;
 
 		&__item {
 			background-color: $white;
 			padding: 0 $col;
 			list-style: none;
+			margin-top: 0;
 		}
 
 		&__title {
 			margin: ($baseline * 2) 0 0 0;
-			padding: 3px $col 5px $col;
+			padding: 5px $col 11px $col;
 			// position: relative;
 		}
 
 		&__content {
 			margin: 0;
-			padding: 0 $col $col $col;
+			padding: 6px $col 18px $col;
 
 		}
 
@@ -156,8 +156,6 @@
 
 			font-weight: 600;
 			font-size: 21px;
-			// padding: 6px 0 0 0;
-
 		}
 
 		&__definition {
@@ -168,12 +166,34 @@
 			&:after {
 				content: "\00a0";
 			}
-
 		}
 
 
 		&__description {
 			margin: 0 $baseline;
+		}
+
+	}
+
+	&--list {
+		padding: 0;
+		margin-top: 0;
+
+		&__item {
+			border-bottom: 1px solid $iron-light;
+			padding: 0 $col;
+			list-style: none;
+			margin-top: 0;
+		}
+
+		&__title {
+			margin: ($baseline * 2) 0 0 0;
+			padding: 5px 0 11px 0;
+		}
+
+		&__content {
+			margin: 0;
+			padding: 6px 0 18px 0;
 		}
 
 	}
