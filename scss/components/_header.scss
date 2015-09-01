@@ -7,7 +7,7 @@
 
 	background-color: $abbey;
 	border-top: 1px solid $thunder;
-	//margin-top: -1px;	//compensate for border-top
+	margin-top: -1px;	//compensate for border-top
 	
 
 	&__list {
@@ -25,7 +25,7 @@
 		//border-left: 1px solid $thunder;
 		//margin-left: -1px; //compensate for border-left
 
-		&:last-child .primary-nav__link {
+		&:last-child a {
 			border-right: 1px solid $thunder;
 		}
 
@@ -36,18 +36,15 @@
 			background-color: $iron-light;
 			color: $abbey;
 			text-decoration: none;
-			border-left: 1px solid $iron;
-			border-right: 1px solid $iron;
-			border-bottom: 1px solid $iron;
 
 			left: auto; //resets child-items to appear on-screen
 
 			@include breakpoint(md) {
-				top: 240px;
+				top: 231px;
 			}
 
 			@include breakpoint(lg) {
-				top: 192px;	
+				top: 183px;	
 			}
 		}
 
@@ -91,12 +88,6 @@
 		}
 	}
 
-	//TODO clean up or remove this content from HTML
-	&__secondary-content {
-		display: none;
-	}
-
-	
 	
 	//NAVIGATION CHILDREN
 
@@ -107,13 +98,16 @@
 		position: absolute;
 		padding: 0;
 		z-index: 10;
-		left: -99999px; //used instead of display:none because it's accessible to screen readers
+		left: -99999px; //used instead of display:none so it's accessible to screen readers
+		border-left: 1px solid $iron;
+		border-right: 1px solid $iron;
+		border-bottom: 1px solid $iron;
 	}
 
 	&__child-item {
+		display: block;
 		margin: 0;
-
-		padding: 10px 0 14px $col;
+		padding: 0;	
 		
 		&:hover {
 			background-color: $iron;
@@ -125,6 +119,9 @@
 	}
 
 	&__child-link {
+		display: block;
+		//height: $baseline * 5;
+		padding: 14px 0 10px $col;
 		color: $abbey;
 
 		&:hover {
@@ -139,7 +136,7 @@
 	border-top: 1px solid $thunder;
 	margin-top: -1px;	//compensate for border-top
 	background-color: $ship-gray;
-	font-size: 17px;
+	font-size: 21px;
 	
 	&__form {
 		color: $iron-light;
@@ -152,15 +149,15 @@
 	}
 
 	&__input {
-		font-size: 17px;
+		font-size: 21px;
 		border: none;
-		padding: 14px $col 14px $col;
+		padding: 12px $col 12px $col;
 	}
 
 	&__button {
-		font-size: 17px;
+		font-size: 21px;
 		border: none;
-		padding: 14px $col 14px $col;
+		padding: 12px $col 12px $col;
 		background-color: $matisse;
 		color: $iron-light;
 	}
@@ -195,7 +192,8 @@
 // Logo
 .main-logo {
 	display: block;
-	width: 246px;
+	height: 44px;
+	//width: 246px;
 }
 
 
@@ -223,9 +221,21 @@
 	}
 
 	&__item {
-		display: inline-block;
+		//display: inline-block;
+		float: left;
 		margin: 0;
-		padding: 6px 0 1px 16px
+		padding: 0;
+
+		&:last-child a {
+			padding-right: 0px;
+			border-right: 0px solid;
+		}
+
+	}
+
+	&__link {
+		padding: 0 8px 0 8px;
+		border-right: 1px solid $iron-light;
 	}
 
 }
