@@ -1,11 +1,15 @@
 section {
-  margin-bottom: $baseline * 6;
+  padding-bottom: $baseline * 6;
 }
 
 .section-title {
-  margin-bottom: $baseline;
+  margin-top: $baseline * 6;
+  margin-bottom: 0;
 }
 
 .section-subtitle {
-  margin: $baseline 0;
+
+    margin-top: $col;
+    margin-bottom: $baseline;
+
 }

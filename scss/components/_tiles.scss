@@ -10,7 +10,7 @@
 		margin-top: 0;
 		// position: relative;
 
-		@include multiline-ellipsis(272px, $col, $mercury);
+		@include multiline-ellipsis(280px, $col, $mercury);
 
 		&__title {
 			min-height: 56px;
@@ -199,3 +199,44 @@
 	}
 
 }
+
+
+
+
+// --------------
+
+.tiles {
+	&__holder {}
+	&__list {}
+	&__item {
+		&--image-type {}
+		&--list-type {}
+	}
+
+
+	&__title-h2 {}
+	&__title-h3 {}
+	&__title-h4 {}
+	&__content {}
+	&__image {
+		&__home-quarter {}
+		&__home-half {}
+		&__highlighted {}
+		&__list-type {}
+	}
+	&__figure {}
+	&__unit {}
+	&__pre-unit {}
+	&__published {}
+	&__updated {}
+	&__list {}
+	&__read-more {}
+
+}
+
+
+
+
+
+
+

@@ -37,7 +37,7 @@ h2 {
 	font-weight: 300;
 	line-height: 24px;
 	margin: ($baseline * 6) 0;
-	padding: 2px 0 6px 0;
+	    padding: 3px 0 5px 0;
 	// background: red;
 }
 
@@ -78,6 +78,7 @@ p {
 
 ul, ol {
 	margin: ($baseline * 2) 0;
+	// padding: 0 ($baseline * 2);
 }
 
 li {
