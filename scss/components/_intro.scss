@@ -1,0 +1,25 @@
+//_page.scss
+
+.page {
+	&-header {}
+	&-intro {
+		background: $gallery;
+
+		&__title {
+			margin-top: ($baseline * 5);
+			margin-bottom: ($baseline * 0);
+		}
+		&__content {
+			font-size: 21px;
+			margin-top: ($baseline * 0);
+			margin-bottom: ($baseline * 10);
+			padding: 7px 0 9px 0;
+			line-height: 32px;
+		}
+	}
+	&-content {
+		border-top: 1px solid $iron;
+		margin-top: -1px;
+	}
+	&-footer {}
+}
