@@ -23,17 +23,23 @@
 	&--iron-light {
 		background-color: #E5E6E7;
 	}
-	
+
 	&--mercury {
 		background-color: #E5E5E5;
 	}
-	
+
 	&--gallery {
 		background-color: #EAEAEA;
 	}
 
 	&--aluminium {
 		background-color: #A6A8AB;
+
+	}
+
+	&--alabaster {
+		background-color: $alabaster;
+		
 	}
 
 }
