@@ -5,13 +5,14 @@
   width: auto;
 
   background-color: $matisse;
-  padding: 15px $col 17px $col;
+  padding: 7px $col 9px $col;
   color: $white;
   border: 0 none;
   text-align: center;
   text-decoration: none;
 
   &--full-width {
+    padding: 15px $col 17px $col;
     display: block;
 
   }

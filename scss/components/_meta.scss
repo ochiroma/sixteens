@@ -1,0 +1,30 @@
+//_meta.scss
+
+.meta {
+	&-wrap {
+		background: $mercury;
+		// border-top: 1px solid $iron;
+		// margin-top: -1px;
+		padding-top: ($baseline * 3);
+		// padding-bottom: ($baseline * 3);
+	}
+
+	&__item {
+		// border-right: 1px solid $iron;
+		padding-left: $col;
+		margin-top: 0;
+		margin-bottom: ($baseline * 3);
+
+		@include breakpoint(md) {
+			border-right: 1px solid $iron;
+		}
+		@include breakpoint(lg) {
+			border-right: 1px solid $iron;
+		}
+	}
+	&__image {
+		height: 48px;
+		float: left;
+		margin-right: 16px;
+	}
+}

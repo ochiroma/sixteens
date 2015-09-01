@@ -20,14 +20,17 @@
 		background: $mercury;
 		border-top: 1px solid $iron;
 		margin-top: -1px;
+		padding-top: ($baseline * 3);
 	}
 
 	&-secondary {
-		margin-top: ($baseline * 3);
+		// margin-top: ($baseline * 3);
 		margin-bottom: ($baseline * 3);
 
-		&--border-right {
-			border-right: 1px solid $iron;
+		&--border-right-lg {
+			@include breakpoint(lg) {
+				border-right: 1px solid $iron;
+			}
 		}
 
 		&__title {
