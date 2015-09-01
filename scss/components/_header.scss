@@ -40,7 +40,7 @@
 			border-right: 1px solid $iron;
 			border-bottom: 1px solid $iron;
 
-			display: block;
+			left: auto; //resets child-items to appear on-screen
 
 			@include breakpoint(md) {
 				top: 240px;
@@ -103,11 +103,11 @@
 	&__child-list {
 		list-style: none;
 		color: $white;
-		display: none;
+		//display: none;
 		position: absolute;
 		padding: 0;
 		z-index: 10;
-		//left: -99999px; //possibly use instead of display:none - accessible to screen readers
+		left: -99999px; //used instead of display:none because it's accessible to screen readers
 	}
 
 	&__child-item {
@@ -166,7 +166,7 @@
 	}
 
 	&__icon {
-		//TODO add icon img
+		//TODO add icon
 	}
 
 }
