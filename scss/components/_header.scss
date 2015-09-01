@@ -22,6 +22,8 @@
 		padding: 0;
 		float: left;
 		cursor: pointer;
+		//border-left: 1px solid $thunder;
+		//margin-left: -1px; //compensate for border-left
 
 		&:last-child .primary-nav__link {
 			border-right: 1px solid $thunder;
@@ -49,6 +51,11 @@
 			}
 		}
 
+		//border colour change when hovering over child ul
+		&:hover > a, &:focus > a {
+			border-left: 1px solid $iron;
+		}
+
 		//set hover styling
 		&:hover > a, &:focus > a {
 			background-color: $iron-light;
@@ -65,6 +72,7 @@
 		padding: 7px $col 8px $col;
 		border-left: 1px solid $thunder;
 
+
 		@include breakpoint(md) {
 			height: $baseline * 14;
 		}
@@ -77,6 +85,10 @@
 
 	&__active {
 		background-color: $thunder;
+
+		& > a {
+			color: $iron-light;
+		}
 	}
 
 	//TODO clean up or remove this content from HTML
@@ -99,17 +111,25 @@
 	}
 
 	&__child-item {
+		margin: 0;
 
+		padding: 10px 0 14px $col;
+		
 		&:hover {
 			background-color: $iron;
-			color: $abbey;
-			text-decoration: none;
+
+			& > a {
+				color: $abbey;
+			}
 		}
 	}
 
 	&__child-link {
-		background-color: $iron-light;
 		color: $abbey;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 
 }
@@ -141,7 +161,12 @@
 		font-size: 17px;
 		border: none;
 		padding: 14px $col 14px $col;
-		background-color: $mercury;
+		background-color: $matisse;
+		color: $iron-light;
+	}
+
+	&__icon {
+		//TODO add icon img
 	}
 
 }
