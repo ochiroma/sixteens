@@ -1,14 +1,13 @@
 // _header.scss
 
-.background--banner {
-	background-color: #F93;
-}
+
+// PRIMARY NAVIGATION
 
 .primary-nav {
 
 	background-color: $abbey;
 	border-top: 1px solid $thunder;
-	margin-top: -1px;	//compensate for border-top
+	//margin-top: -1px;	//compensate for border-top
 	
 
 	&__list {
@@ -28,18 +27,9 @@
 			border-right: 1px solid $thunder;
 		}
 
-		//children show on hover
-		&:hover > .primary-nav__child-list {
-			display: block;
-			top: 136px;
-		}
 
-		//set hover styling
-		&:hover > a {
-			background-color: $iron-light;
-			color: $abbey;
-			text-decoration: none;
-		}
+
+		//children show on hover
 		&:hover > ul, &:focus > ul {
 			background-color: $iron-light;
 			color: $abbey;
@@ -47,6 +37,23 @@
 			border-left: 1px solid $iron;
 			border-right: 1px solid $iron;
 			border-bottom: 1px solid $iron;
+
+			display: block;
+
+			@include breakpoint(md) {
+				top: 240px;
+			}
+
+			@include breakpoint(lg) {
+				top: 192px;	
+			}
+		}
+
+		//set hover styling
+		&:hover > a, &:focus > a {
+			background-color: $iron-light;
+			color: $abbey;
+			text-decoration: none;
 		}
 		
 	}
@@ -66,10 +73,6 @@
 			height: $baseline * 8;
 		}
 
-		&:hover {
-			border-left: 1px solid $iron;
-		}
-		
 	}
 
 	&__active {
@@ -139,6 +142,65 @@
 		border: none;
 		padding: 14px $col 14px $col;
 		background-color: $mercury;
+	}
+
+}
+
+
+// BETA BANNER
+
+.beta-banner {
+	background-color: #F93;
+
+	&__para {
+		margin: 0;
+		padding: 6px 0 10px 0;
+	}
+
+}
+
+
+// HEADER - LOGO, LANGUAGE SELECTION AND SECONDARY NAV LINKS
+
+// Header
+.header {
+	padding: $col 0;
+}
+
+// Logo
+.main-logo {
+	display: block;
+	width: 282px;
+}
+
+
+// Language selection
+.language {
+	
+	&__form {
+		float: right;
+	}
+
+	&__select {
+		border: 0;
+	}
+}
+
+
+// Seconday navigation list
+.secondary-nav {
+
+	&__list {
+		float: right;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	&__item {
+		display: inline-block;
+		margin: 0;
+		padding: 6px 0 0 16px
 	}
 
 }
