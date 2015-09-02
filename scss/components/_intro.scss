@@ -20,6 +20,10 @@
 	&-content {
 		border-top: 1px solid $iron;
 		margin-top: -1px;
+
+		&__main-content {
+			overflow: visible;
+		}
 	}
 	&-footer {}
 }
