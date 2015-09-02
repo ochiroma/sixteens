@@ -5,8 +5,8 @@
   "main": "",
   "scripts": {
     "clean": "",
-    "build-css": "npm-sass ./scss/main.scss > ./dist/css/main.css",
-    "postinstall": "npm run build-css"
+    "build-css-in-babbage": "npm-sass ./node_modules/sixteens/scss/main.scss > ./node_modules/sixteens/dist/css/main.css",
+    "postinstall": "npm run build-css-in-babbage"
   },
   "repository": {
     "type": "git",
