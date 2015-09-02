@@ -22,9 +22,10 @@ section {
 
       position: relative;
       margin-left: ($col * -3);
-      padding-left: 6px;
-      width: ($col * 3);
-      display: inline-block;
+      //padding-left: 6px;
+      //width: ($col * 3);
+      display: block;
+      float: left;
 
     }
 
@@ -37,10 +38,6 @@ section {
       position: relative;
 
 
-      h2 {
-        margin-left: -6px;
-      }
-
       p {
         margin-top: 0;
       }
@@ -49,9 +46,8 @@ section {
         margin-top: 0;
       }
 
-      .markdown-chart-container, .markdown-table-container {
-        border-left: solid $col $mercury;
-        padding-left: $col;
+      img {
+        width: 100%;
       }
 
       li {
@@ -62,6 +58,31 @@ section {
           margin: 0;
           padding: 0;
         }
+
+      }
+
+      .markdown-chart-container, .markdown-table-container {
+        border-left: solid $col $mercury;
+        padding-left: $col;
+        margin-bottom: ($baseline * 4);
+
+          ol {
+            margin-top: 0;
+            counter-reset: toc;
+
+          }
+
+          li {
+            list-style: none;
+            position: relative;
+
+            &:before {
+              content: counter(toc) ". ";
+              counter-increment: toc;
+              position: absolute;
+              left: -$col;
+            }
+          }
 
       }
 
