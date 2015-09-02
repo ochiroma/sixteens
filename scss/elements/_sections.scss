@@ -2,14 +2,71 @@ section {
   padding-bottom: $baseline * 6;
 }
 
-.section-title {
-  margin-top: $baseline * 6;
-  margin-bottom: 0;
-}
+.section {
 
-.section-subtitle {
+  &__title {
+    margin-top: $baseline * 6;
+    margin-bottom: 0;
+  }
+
+  &__subtitle {
 
     margin-top: $col;
     margin-bottom: $baseline;
+
+  }
+
+  &__content {
+
+    &-number {
+
+      position: relative;
+      margin-left: ($col * -3);
+      padding-left: 6px;
+      width: ($col * 3);
+      display: inline-block;
+
+    }
+
+    &--markdown {
+      padding: 0 0 0 ($col * 3);
+      @include breakpoint(lg) {
+    		margin-right: ($col * 4);
+    	}
+
+      position: relative;
+
+
+      h2 {
+        margin-left: -6px;
+      }
+
+      p {
+        margin-top: 0;
+      }
+
+      ul {
+        margin-top: 0;
+      }
+
+      .markdown-chart-container, .markdown-table-container {
+        border-left: solid $col $mercury;
+        padding-left: $col;
+      }
+
+      li {
+        margin: 0;
+        padding: $baseline 0 $baseline $col;
+
+        p {
+          margin: 0;
+          padding: 0;
+        }
+
+      }
+
+    }
+
+  }
 
 }
