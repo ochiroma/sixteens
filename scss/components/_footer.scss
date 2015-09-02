@@ -1,6 +1,11 @@
-//footer
+//footer.scss
 
-.footer {
+.footer-nav {
+	padding: 0 0 $col*2.5 0;
+
+	&__heading {
+		margin-bottom: 0;
+	}
 
 	&__list {
 		list-style: none;
@@ -9,15 +14,21 @@
 	}
 
 	&__item {
-		padding: 6px 0 10px 0;
+		margin: 0;
+		padding: 6px 0 2px 0;
 	}
 
-	&__license-img {
-		display: inline-block;
-	}
+}
 
-	&__license-text {
-		display: inline-block;
-	}
+.footer-license {
+	padding: $col*2 0 $col 0;
 
+		&__img {
+			display: inline-block;
+		}
+
+		&__text {
+			display: inline-block;
+			margin: $col 0 $col $col;
+		}
 }
