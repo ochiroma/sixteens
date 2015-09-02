@@ -3,44 +3,42 @@
 .slate {
 
 	&--thunder {
-		background-color: #323132;
+		background-color: $thunder;
 		color:	$iron-light;
 	}
 
 	&--ship-gray {
-		background-color: #414042;
+		background-color: $ship-gray;
 		color: $iron-light;
 	}
 
 	&--abbey {
-		background-color: #58595B;
+		background-color: $abbey;
 		color:	$iron-light;
 	}
 
 	&--iron {
-		background-color: #D0D2D3;
+		background-color: $iron;
 	}
 
 	&--iron-light {
-		background-color: #E5E6E7;
+		background-color: $iron-light;
 	}
 
 	&--mercury {
-		background-color: #E5E5E5;
+		background-color: $mercury;
 	}
 
 	&--gallery {
-		background-color: #EAEAEA;
+		background-color: $gallery;
 	}
 
 	&--aluminium {
-		background-color: #A6A8AB;
-
+		background-color: $aluminium;
 	}
 
 	&--alabaster {
 		background-color: $alabaster;
-		
 	}
 
 }
