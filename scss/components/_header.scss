@@ -8,6 +8,14 @@
 	background-color: $abbey;
 	border-top: 1px solid $thunder;
 	margin-top: -1px;	//compensate for border-top
+	// height: 65px;
+	@include breakpoint(md) {
+		height: 113px;
+	}
+
+	@include breakpoint(lg) {
+		height: 65px;
+	}
 	
 
 	&__list {
@@ -149,6 +157,14 @@
 	margin-top: -1px;	//compensate for border-top
 	background-color: $ship-gray;
 	font-size: 21px;
+	// height: 65px;
+	@include breakpoint(md) {
+		height: 97px;
+	}
+
+	@include breakpoint(lg) {
+		height: 97px;
+	}
 	
 	&__form {
 		font-family: $base-font-family;
