@@ -165,6 +165,7 @@
 		color: $ship-gray;
 		border: none;
 		padding: 12px $col 8px $col;
+		height: ($baseline * 6)
 	}
 
 	&__button {
