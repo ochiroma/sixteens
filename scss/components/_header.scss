@@ -139,27 +139,43 @@
 	font-size: 21px;
 	
 	&__form {
+		font-family: $base-font-family;
+		font-weight: $base-font-weight;
+		line-height: $base-line-height;
 		color: $iron-light;
 		padding: $col*1.5 0 $col*1.5 $col;
 	}
 
 	&__label {
+		font-family: $base-font-family;
+		font-weight: $base-font-weight;
+		line-height: $base-line-height;
+		font-size: 21px;
+		color: $iron-light;
 		padding: 12px $col 12px $col;
 		background-color: $abbey;
 	}
 
 	&__input {
+		font-family: $base-font-family;
+		font-weight: $base-font-weight;
+		line-height: $base-line-height;
+		font-style: italic;
 		font-size: 21px;
+		color: $ship-gray;
 		border: none;
-		padding: 12px $col 12px $col;
+		padding: 12px $col 8px $col;
 	}
 
 	&__button {
+		font-family: $base-font-family;
+		font-weight: $base-font-weight;
+		line-height: $base-line-height;
 		font-size: 21px;
+		color: $iron-light;
 		border: none;
 		padding: 12px $col 12px $col;
 		background-color: $matisse;
-		color: $iron-light;
 	}
 
 	&__icon {
