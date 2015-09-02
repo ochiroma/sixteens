@@ -98,7 +98,7 @@
 
 		&__list {
 			// margin: 0 0 0 ($col * 2);
-			padding-right: $col;
+			padding: 0 ($col * 2);
 		}
 
 		&__item {
