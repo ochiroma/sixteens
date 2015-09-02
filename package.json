@@ -5,7 +5,8 @@
   "main": "",
   "scripts": {
     "clean": "",
-    "build-css": "npm-sass ./scss/main.scss > ./dist/css/main.css"
+    "build-css": "npm-sass ./scss/main.scss > ./dist/css/main.css",
+    "postinstall": "npm run build-css"
   },
   "repository": {
     "type": "git",
