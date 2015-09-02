@@ -1,0 +1,23 @@
+//footer
+
+.footer {
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__item {
+		padding: 6px 0 10px 0;
+	}
+
+	&__license-img {
+		display: inline-block;
+	}
+
+	&__license-text {
+		display: inline-block;
+	}
+
+}
