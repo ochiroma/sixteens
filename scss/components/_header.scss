@@ -30,6 +30,13 @@
 		padding: 0;
 		float: left;
 		cursor: pointer;
+		height: ($baseline * 8);
+		@include breakpoint(md) {
+			height: ($baseline * 14);
+		}
+		@include breakpoint(lg) {
+			height: ($baseline * 8);
+		}
 		//border-left: 1px solid $thunder;
 		//margin-left: -1px; //compensate for border-left
 
