@@ -45,7 +45,7 @@ h3 {
 	font-size: 21px;
 	font-weight: 300;
 	line-height: 24px;
-	margin: ($baseline * 6) 0;
+	margin: ($baseline * 2) 0 0 0;
 	padding: 3px 0 5px 0;
 	// background: red;
 }
@@ -54,17 +54,21 @@ h4 {
 	font-size: 17px;
 	font-weight: 400;
 	line-height: 24px;
-	margin: ($baseline * 6) 0;
+	margin: ($baseline * 2) 0;
 	padding: 3px 0 5px 0;
 	// background: red;
 }
 
 h5 {
-	//
+	font-size: 16px;
+	font-weight: 400;
+	margin: ($baseline * 2) 0;
 }
 
 h6 {
-	//
+	font-size: 14px;
+	font-weight: 400;
+	margin: ($baseline * 2) 0 0 0;
 }
 
 p {
