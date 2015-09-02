@@ -1,22 +1,28 @@
 //_tables-and-data.scss
 
 // table of contents
-.table-of-contents-ordered-list {
+.table-of-contents {
 
-  @include breakpoint(lg) {
-    -webkit-column-count: 2;
-    -moz-column-count: 2;
-    -ms-column-count: 2;
-    column-count: 2;
-
+  &__title {
+    // remove some margin
   }
 
-  border-bottom: 1px solid $iron;
-  padding: 0 0 ($baseline * 2) 0;
+  &__list {
+    border-bottom: 1px solid $iron;
+    padding: 0 0 ($baseline * 2) 0;
+    margin-top: 15px;
+
+    @include breakpoint(lg) {
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      -ms-column-count: 2;
+      column-count: 2;
+    }
+  }
 
   &__item {
-    margin-left: 24px;
-    padding: 4px 0 4px 0;
+    margin: 0 0 0 ($baseline * 3);
+    padding: 0;
     -webkit-column-break-inside:avoid;
     -moz-column-break-inside:avoid;
     -o-column-break-inside:avoid;
