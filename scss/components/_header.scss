@@ -33,8 +33,11 @@
 
 		//children show on hover
 		&:hover > ul, &:focus > ul {
-			background-color: $iron-light;
-			color: $abbey;
+			// background-color: $iron-light;
+			// color: $abbey;
+			background-color: $thunder;
+			color: $iron-light;
+			
 			text-decoration: none;
 
 			left: auto; //resets child-items to appear on-screen
@@ -50,14 +53,23 @@
 
 		//border colour change when hovering over child ul
 		&:hover > a, &:focus > a {
-			border-left: 1px solid $iron;
+			border-left: 1px solid $thunder;
 		}
 
 		//set hover styling
 		&:hover > a, &:focus > a {
-			background-color: $iron-light;
-			color: $abbey;
+			background-color: $thunder;
+			color: $iron-light;
 			text-decoration: none;
+		}
+
+		&--active {
+			background-color: $salem;
+			border-bottom: 1px solid $thunder;
+
+			& > a {
+				color: $iron-light;
+			}
 		}
 		
 	}
@@ -80,13 +92,7 @@
 
 	}
 
-	&__active {
-		background-color: $thunder;
-
-		& > a {
-			color: $iron-light;
-		}
-	}
+	
 
 	
 	//NAVIGATION CHILDREN
@@ -99,9 +105,9 @@
 		padding: 0;
 		z-index: 10;
 		left: -99999px; //used instead of display:none so it's accessible to screen readers
-		border-left: 1px solid $iron;
-		border-right: 1px solid $iron;
-		border-bottom: 1px solid $iron;
+		border-left: 1px solid $thunder;
+		border-right: 1px solid $thunder;
+		border-bottom: 1px solid $thunder;
 	}
 
 	&__child-item {
@@ -116,6 +122,10 @@
 				color: $abbey;
 			}
 		}
+
+		&--active {
+			background-color: $salem;
+		}
 	}
 
 	&__child-link {
@@ -123,6 +133,8 @@
 		//height: $baseline * 5;
 		padding: 15px 0 9px $col;
 		color: $abbey;
+		padding: 14px 0 10px $col;
+		color: $iron-light;
 
 		&:hover {
 			text-decoration: none;
