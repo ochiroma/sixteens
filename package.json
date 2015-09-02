@@ -1,0 +1,19 @@
+{
+  "name": "sixteens",
+  "version": "0.0.1",
+  "description": "Pattern library for ons website",
+  "main": "",
+  "scripts": {
+    "clean": "",
+    "build-css": "npm-sass ./scss/main.scss > ./dist/css/main.css",
+    "postinstall": "npm run build-css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ONSdigital/sixteens.git"
+  },
+  "license": "Open Government License v2.0",
+  "devDependencies": {
+    "npm-sass": "latest"
+  }
+}
