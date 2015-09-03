@@ -238,13 +238,14 @@
 
 // Header
 .header {
-	padding: $col 0;
+	padding: 14px 0 18px 0;
 }
 
 // Logo
 .main-logo {
 	display: block;
-	height: 44px;
+	height: 39px;
+    margin-top: 2px;
 	//width: 246px;
 }
 
@@ -258,6 +259,9 @@
 
 	&__select {
 		border: 0;
+		background: $mercury;
+		// -webkit-appearance: none;
+		// -webkit-border-radius: 0px;
 	}
 }
 
