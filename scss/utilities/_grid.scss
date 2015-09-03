@@ -37,6 +37,8 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 //--[mixins]--
 
+// Breakpoint mixin in _breakpoints.scss
+
 // Generate the large columns
 @mixin make-lg-column($columns) {
 	position: relative;
@@ -48,21 +50,6 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 	// 	float: left;
 	// 	width: percentage(($columns / $grid-columns));
 	// }
-}
-
-
-@mixin breakpoint($class) {
-  @if $class == md {
-    @media (min-width: 768px) { @content; }
-  }
- 
-  @else if $class == lg {
-    @media (min-width: 992px) { @content; }
-  }
- 
-  // @else {
-  //   @warn "Breakpoint mixin supports: xs, sm, md, lg";
-  // }
 }
 
 

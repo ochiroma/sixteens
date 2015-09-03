@@ -6,10 +6,10 @@
 .primary-nav {
 
 	background-color: $abbey;
-	border-top: 1px solid $thunder;
-	margin-top: -1px;	//compensate for border-top
-	// height: 65px;
+
 	@include breakpoint(md) {
+		border-top: 1px solid $thunder;
+		margin-top: -1px;	//compensate for border-top
 		height: 113px;
 	}
 
@@ -23,41 +23,44 @@
 		padding-left: 0;
 		margin: 0;
 		overflow: hidden;
+
+		@include breakpoint(sm) {
+			padding: 0 0 $baseline 0;
+		}
 	}
 
 	&__item {
 		margin: 0;
 		padding: 0;
-		float: left;
 		cursor: pointer;
-		height: ($baseline * 8);
+		cursor: hand; //IE8 support
+
 		@include breakpoint(md) {
+			//border-left: 1px solid $thunder;
+			//margin-left: -1px; //compensate for border-left
+			float: left;
 			height: ($baseline * 14);
+
+				&:last-child a {
+				border-right: 1px solid $thunder;
+			}
 		}
+
 		@include breakpoint(lg) {
 			height: ($baseline * 8);
 		}
-		//border-left: 1px solid $thunder;
-		//margin-left: -1px; //compensate for border-left
-
-		&:last-child a {
-			border-right: 1px solid $thunder;
-		}
-
 
 
 		//children show on hover
 		&:hover > ul, &:focus > ul {
-			// background-color: $iron-light;
-			// color: $abbey;
-			background-color: $thunder;
-			color: $iron-light;
-			
-			text-decoration: none;
-
-			left: auto; //resets child-items to appear on-screen
 
 			@include breakpoint(md) {
+				// background-color: $iron-light;
+				// color: $abbey;
+				background-color: $thunder;
+				color: $iron-light;
+				text-decoration: none;
+				left: auto; //resets child-items to appear on-screen
 				top: 224px;
 			}
 
@@ -66,38 +69,49 @@
 			}
 		}
 
-		//border colour change when hovering over child ul
-		&:hover > a, &:focus > a {
-			border-left: 1px solid $thunder;
-		}
 
 		//set hover styling
 		&:hover > a, &:focus > a {
-			background-color: $thunder;
-			color: $iron-light;
-			text-decoration: none;
+			@include breakpoint(md) {
+				border-left: 1px solid $thunder;
+				background-color: $thunder;
+				color: $iron-light;
+				text-decoration: none;
+			}
 		}
 
 		&--active {
 			background-color: $salem;
-			border-bottom: 1px solid $thunder;
+
+			@include breakpoint(md) {
+				border-bottom: 1px solid $thunder;
+			}
 
 			& > a {
 				color: $iron-light;
 			}
 		}
-		
+
 	}
 
 	&__link {
 		color: $iron-light;
 		text-decoration: none;
-		display: inline-block;
-		padding: 7px $col 8px $col;
-		border-left: 1px solid $thunder;
 
+		@include breakpoint(sm) {
+			height: 48px;
+			padding: 14px 0 10px 0;
+			//margin: $baseline 0 $baseline 0;
+
+			// &:last-child {
+			// 	margin: $baseline/2 0 $baseline/2 0;
+			// }
+		}
 
 		@include breakpoint(md) {
+			display: inline-block;
+			padding: 7px $baseline*2 8px $baseline*2;
+			border-left: 1px solid $thunder;
 			height: $baseline * 14;
 		}
 
@@ -115,26 +129,40 @@
 	&__child-list {
 		list-style: none;
 		color: $white;
-		//display: none;
-		position: absolute;
-		padding: 0;
-		z-index: 10;
-		left: -99999px; //used instead of display:none so it's accessible to screen readers
-		border-left: 1px solid $thunder;
-		border-right: 1px solid $thunder;
-		border-bottom: 1px solid $thunder;
+		margin: 0;
+
+		@include breakpoint(sm) {
+			// position: absolute;
+			// left: -99999px;
+			display: none;
+			padding: 0;
+		}
+
+		@include breakpoint(md) {
+			//display: none;
+			position: absolute;
+			padding: 0;
+			z-index: 10;
+			left: -99999px; //used instead of display:none so it's accessible to screen readers
+			border-left: 1px solid $thunder;
+			border-right: 1px solid $thunder;
+			border-bottom: 1px solid $thunder;
+		}
 	}
 
 	&__child-item {
 		display: block;
 		margin: 0;
-		padding: 0;	
-		
-		&:hover {
-			background-color: $iron;
+		padding: 0;
 
-			& > a {
-				color: $abbey;
+		@include breakpoint(md) {
+		
+			&:hover {
+				background-color: $iron;
+
+				& > a {
+					color: $abbey;
+				}
 			}
 		}
 
@@ -145,18 +173,37 @@
 
 	&__child-link {
 		display: block;
-		//height: $baseline * 5;
-		padding: 15px 0 9px $col;
-		color: $abbey;
-		padding: 14px 0 10px $col;
 		color: $iron-light;
 
-		&:hover {
-			text-decoration: none;
+		@include breakpoint(sm) {
+			height: 40px;
+			//border-bottom: 1px solid $thunder;
+			padding: 6px 0 2px $col;
+			//margin: $baseline 0 $baseline 0;
+		}
+
+		@include breakpoint(md) {
+			//height: $baseline * 5;
+			padding: 15px 0 9px $col;
+
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
-
 }
+
+
+//JQUERY EXPANDABLE MOBILE MENU
+
+.js-expandable-active {
+	& > ul {
+		display: block;
+	}
+}
+
+
+//SEARCH
 
 .search {
 
@@ -165,6 +212,7 @@
 	background-color: $ship-gray;
 	font-size: 21px;
 	// height: 65px;
+
 	@include breakpoint(md) {
 		height: 97px;
 	}
@@ -178,7 +226,11 @@
 		font-weight: $base-font-weight;
 		line-height: $base-line-height;
 		color: $iron-light;
-		padding: $col*1.5 0 $col*1.5 $col;
+		padding: $baseline*3 0 $baseline*3 $baseline*2;
+
+		@include breakpoint(sm) {
+			padding: $baseline 0;
+		}
 	}
 
 	&__label {
@@ -189,6 +241,10 @@
 		color: $iron-light;
 		padding: 12px $col 12px $col;
 		background-color: $abbey;
+
+		@include breakpoint(sm) {
+			display: none;
+		}
 	}
 
 	&__input {
@@ -200,7 +256,12 @@
 		color: $ship-gray;
 		border: none;
 		padding: 12px $col 8px $col;
-		height: ($baseline * 6)
+		height: ($baseline * 6);
+
+		@include breakpoint(sm) {
+			width: 75%;
+			font-size: 17px;
+		}
 	}
 
 	&__button {
@@ -212,6 +273,11 @@
 		border: none;
 		padding: 12px $col 12px $col;
 		background-color: $matisse;
+
+		@include breakpoint(sm) {
+			width: 25%;
+			font-size: 17px;
+		}
 	}
 
 	&__icon {
@@ -244,9 +310,17 @@
 // Logo
 .main-logo {
 	display: block;
-	height: 39px;
-    margin-top: 2px;
-	//width: 246px;
+
+	@include breakpoint(sm) {
+		height: 48px;
+		padding: 2px 0 6px 0; //off-grid on mobile otherwise
+	}
+
+	@include breakpoint(md) {
+		height: 39px;
+	    margin-top: 2px;
+		//width: 246px;
+	}
 }
 
 
@@ -254,7 +328,13 @@
 .language {
 	
 	&__form {
-		float: right;
+		@include breakpoint(sm){
+			padding-top: $baseline;
+		}
+
+		@include breakpoint(md) {
+			float: right;
+		}
 	}
 
 	&__select {
@@ -268,6 +348,10 @@
 
 // Seconday navigation list
 .secondary-nav {
+
+	@include breakpoint(sm) {
+		display: none;
+	}
 
 	&__list {
 		float: right;
