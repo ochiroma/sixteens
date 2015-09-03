@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean": "",
-    "build-css": "./node_modules/npm-sass/bin/npm-sass ./scss/main.scss > ./dist/css/main.css",
+    "build-css": "mkdir -pv dist/css  && ./node_modules/npm-sass/bin/npm-sass ./scss/main.scss > ./dist/css/main.css",
     "postinstall": "npm run build-css"
   },
   "repository": {
