@@ -58,11 +58,11 @@
 			left: auto; //resets child-items to appear on-screen
 
 			@include breakpoint(md) {
-				top: 231px;
+				top: 224px;
 			}
 
 			@include breakpoint(lg) {
-				top: 183px;	
+				top: 176px;	
 			}
 		}
 
