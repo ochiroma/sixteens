@@ -58,11 +58,11 @@
 			left: auto; //resets child-items to appear on-screen
 
 			@include breakpoint(md) {
-				top: 231px;
+				top: 224px;
 			}
 
 			@include breakpoint(lg) {
-				top: 183px;	
+				top: 176px;	
 			}
 		}
 
@@ -238,7 +238,7 @@
 
 // Header
 .header {
-	padding: 14px 0 18px 0;
+	padding: 14px 0 10px 0;
 }
 
 // Logo

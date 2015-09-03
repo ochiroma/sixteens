@@ -25,12 +25,12 @@
 		background: $mercury;
 		border-top: 1px solid $iron;
 		margin-top: -1px;
-		padding-top: ($baseline * 3);
+		padding-top: ($baseline * 2);
 	}
 
 	&-secondary {
 		// margin-top: ($baseline * 3);
-		margin-bottom: ($baseline * 3);
+		margin-bottom: ($baseline * 2);
 
 		&--border-right-lg {
 			@include breakpoint(lg) {
