@@ -1,206 +1,206 @@
 // tiles.scss
 
-.tile {
-	background-color: $gallery;
-	//padding: 6px $col 10px $col;
+// .tile {
+// 	background-color: $gallery;
+// 	//padding: 6px $col 10px $col;
+//
+// 	&--nav-block {
+// 		background-color: $mercury;
+// 		padding: 0;
+// 		margin-top: 0;
+// 		// position: relative;
+//
+// 		@include multiline-ellipsis(280px, $col, $mercury);
+//
+// 		&__title {
+// 			min-height: 56px;
+// 			margin: ($baseline * 2) 0 0 0;
+// 			padding: 3px $col 5px $col;
+// 			// position: relative;
+// 		}
+//
+// 		&__content {
+// 			// height: 160px;
+// 			background-color: $mercury;
+// 			border-top:1px solid $iron;
+// 			margin: ($baseline * 2) 0 0 0;
+// 			padding: 13px $col 16px $col;
+//
+// 		}
+//
+// 	}
+//
+// 	&--headline-block {
+// 		background-color: $mercury;
+// 		padding: 0;
+// 		margin: 0 0 $col 0;
+//
+// 		&__sparkline {
+// 			width: 100%;
+// 			height: 288px;
+// 			max-height: 288px;
+// 			background-color: $white;
+// 			border: $mercury 1px solid;
+// 			border-bottom: none;
+// 		}
+//
+// 		&__image-container {
+// 			width: 100%;
+// 			height: 288px;
+// 			max-height: 288px;
+// 		}
+//
+// 		&__title {
+// 			margin: ($baseline * 2) 0 0 0;
+// 			padding: 3px $col 5px $col;
+// 			// position: relative;
+// 		}
+//
+// 		&__sub-title {
+// 			margin: 0;
+// 			padding: 4px $col 2px $col;
+// 			// position: relative;
+// 		}
+//
+// 		&__content {
+// 			margin: 0;
+// 			padding: 0 $col $col $col;
+//
+// 		}
+//
+// 		&__keynote {
+// 			padding: 6px 0 0 0;
+//
+// 		}
+//
+// 		&__figure-container {
+// 			margin: 18px 0;
+// 		}
+//
+// 		&__preunit, &__figure, &__unit {
+// 			font-size: 36px;
+// 			font-weight: 600;
+// 			padding: 6px 0 0 0;
+// 		}
+//
+// 		&__date {
+// 			font-size: 21px;
+// 			padding-top: 6px;
+// 		}
+//
+// 		&__definition {
+//
+// 		}
+//
+// 		&__description {
+// 			margin: 0;
+// 		}
+//
+// 		&__list {
+// 			// margin: 0 0 0 ($col * 2);
+// 			padding: 0 ($col * 2);
+// 		}
+//
+// 		&__item {
+// 			list-style: disc;
+// 			padding: 0;
+//
+// 			&:first-child {
+// 				margin-top: $baseline;
+// 			}
+//
+// 		}
+//
+// 		&__more {
+// 			display: block;
+// 			padding: 15px $col 17px $col;
+// 			width: 100%;
+// 			margin: 0;
+// 			background-color: $iron-light;
+// 			border-top: 2px solid $iron;
+//
+// 			&:hover {
+// 				background-color: $iron;
+// 			}
+//
+// 		}
+//
+// 	}
 
-	&--nav-block {
-		background-color: $mercury;
-		padding: 0;
-		margin-top: 0;
-		// position: relative;
+	// &--series-list-block {
+	// 	padding: 0;
+	// 	margin-top: 0;
+	//
+	// 	&__item {
+	// 		background-color: $white;
+	// 		padding: 0 $col;
+	// 		list-style: none;
+	// 		margin-top: 0;
+	// 	}
+	//
+	// 	&__title {
+	// 		margin: ($baseline * 2) 0 0 0;
+	// 		padding: 5px $col 11px $col;
+	// 		// position: relative;
+	// 	}
+	//
+	// 	&__content {
+	// 		margin: 0;
+	// 		padding: 6px $col 18px $col;
+	//
+	// 	}
+	//
+	// 	&__figure-container {
+	// 		padding: 20px 0 2px 0;
+	// 	}
+	//
+	// 	&__preunit, &__figure, &__unit {
+	//
+	// 		font-weight: 600;
+	// 		font-size: 21px;
+	// 	}
+	//
+	// 	&__definition {
+	// 		float: left;
+  //   	clear: left;
+  //   	width: auto;
+	//
+	// 		&:after {
+	// 			content: "\00a0";
+	// 		}
+	// 	}
+	//
+	//
+	// 	&__description {
+	// 		margin: 0 $baseline;
+	// 	}
+	//
+	// }
+	//
+	// &--list {
+	// 	padding: 0;
+	// 	margin-top: 0;
+	//
+	// 	&__item {
+	// 		border-bottom: 1px solid $iron-light;
+	// 		padding: 0 $col;
+	// 		list-style: none;
+	// 		margin-top: -1px;
+	// 	}
+	//
+	// 	&__title {
+	// 		margin: ($baseline * 2) 0 0 0;
+	// 		padding: 5px 0 11px 0;
+	// 	}
+	//
+	// 	&__content {
+	// 		margin: 0;
+	// 		padding: 0 0 ($baseline * 3) 0;
+	// 	}
+	//
+	// }
 
-		@include multiline-ellipsis(280px, $col, $mercury);
-
-		&__title {
-			min-height: 56px;
-			margin: ($baseline * 2) 0 0 0;
-			padding: 3px $col 5px $col;
-			// position: relative;
-		}
-
-		&__content {
-			// height: 160px;
-			background-color: $mercury;
-			border-top:1px solid $iron;
-			margin: ($baseline * 2) 0 0 0;
-			padding: 13px $col 16px $col;
-
-		}
-
-	}
-
-	&--headline-block {
-		background-color: $mercury;
-		padding: 0;
-		margin: 0 0 $col 0;
-
-		&__sparkline {
-			width: 100%;
-			height: 288px;
-			max-height: 288px;
-			background-color: $white;
-			border: $mercury 1px solid;
-			border-bottom: none;
-		}
-
-		&__image-container {
-			width: 100%;
-			height: 288px;
-			max-height: 288px;
-		}
-
-		&__title {
-			margin: ($baseline * 2) 0 0 0;
-			padding: 3px $col 5px $col;
-			// position: relative;
-		}
-
-		&__sub-title {
-			margin: 0;
-			padding: 4px $col 2px $col;
-			// position: relative;
-		}
-
-		&__content {
-			margin: 0;
-			padding: 0 $col $col $col;
-
-		}
-
-		&__keynote {
-			padding: 6px 0 0 0;
-
-		}
-
-		&__figure-container {
-			margin: 18px 0;
-		}
-
-		&__preunit, &__figure, &__unit {
-			font-size: 36px;
-			font-weight: 600;
-			padding: 6px 0 0 0;
-		}
-
-		&__date {
-			font-size: 21px;
-			padding-top: 6px;
-		}
-
-		&__definition {
-
-		}
-
-		&__description {
-			margin: 0;
-		}
-
-		&__list {
-			// margin: 0 0 0 ($col * 2);
-			padding: 0 ($col * 2);
-		}
-
-		&__item {
-			list-style: disc;
-			padding: 0;
-
-			&:first-child {
-				margin-top: $baseline;
-			}
-
-		}
-
-		&__more {
-			display: block;
-			padding: 15px $col 17px $col;
-			width: 100%;
-			margin: 0;
-			background-color: $iron-light;
-			border-top: 2px solid $iron;
-
-			&:hover {
-				background-color: $iron;
-			}
-
-		}
-
-	}
-
-	&--series-list-block {
-		padding: 0;
-		margin-top: 0;
-
-		&__item {
-			background-color: $white;
-			padding: 0 $col;
-			list-style: none;
-			margin-top: 0;
-		}
-
-		&__title {
-			margin: ($baseline * 2) 0 0 0;
-			padding: 5px $col 11px $col;
-			// position: relative;
-		}
-
-		&__content {
-			margin: 0;
-			padding: 6px $col 18px $col;
-
-		}
-
-		&__figure-container {
-			padding: 20px 0 2px 0;
-		}
-
-		&__preunit, &__figure, &__unit {
-
-			font-weight: 600;
-			font-size: 21px;
-		}
-
-		&__definition {
-			float: left;
-    	clear: left;
-    	width: auto;
-
-			&:after {
-				content: "\00a0";
-			}
-		}
-
-
-		&__description {
-			margin: 0 $baseline;
-		}
-
-	}
-
-	&--list {
-		padding: 0;
-		margin-top: 0;
-
-		&__item {
-			border-bottom: 1px solid $iron-light;
-			padding: 0 $col;
-			list-style: none;
-			margin-top: -1px;
-		}
-
-		&__title {
-			margin: ($baseline * 2) 0 0 0;
-			padding: 5px 0 11px 0;
-		}
-
-		&__content {
-			margin: 0;
-			padding: 0 0 ($baseline * 3) 0;
-		}
-
-	}
-
-}
+//}
 
 
 
@@ -220,13 +220,25 @@
 		//margin-top: 0;
 
 		&--image-type-headline {
+			// background-color: transparent;
 			padding: 0;
-			@include multiline-ellipsis(616px, $col, $mercury);
+			// @include multiline-ellipsis(616px, $col, $mercury);
 		}
 		&--image-type {
 
 		}
-		&--list-type {}
+		&--list-type {
+			background-color: $white;
+			padding: ($baseline * 2) 0;
+			list-style: none;
+			margin-top: 0;
+		}
+		&--list-type-simple {
+			padding: ($baseline * 2) 0;
+			list-style: none;
+			margin-top: -1px;
+			border-bottom: 1px solid $iron-light;
+		}
 		&--nav-type {}
 		&--nav-type-fixed {
 			padding: 0;
@@ -235,33 +247,95 @@
 		}
 	}
 
-
+	&__items-title-h2 {}
 	&__title-h2 {}
 	&__title-h3 {
-		min-height: ($baseline * 10);
 		margin: 0;
-		padding: 19px $col 13px $col;
-		background-color: $gallery;
+		padding: 20px $col 4px $col;
+
+		&--nav {
+			min-height: ($baseline * 10);
+			background-color: $gallery;
+		}
 	}
-	&__title-h4 {}
-	&__content {
-		background-color: $mercury;
-		border-top:1px solid $iron;
+	&__title-h4 {
 		margin: 0;
-		padding: 13px $col 16px $col;
+		padding: 6px $col 2px $col;
+		// position: relative;
+	}
+	&__keynote {
+		padding: 7px 0 1px 0;
+
+	}
+	&__content {
+		margin: 0;
+		padding: 0 $col $col $col;
+
+		&--nav {
+			background-color: $mercury;
+			border-top:1px solid $iron;
+			margin: 0;
+			padding: 13px $col 16px $col;
+		}
 	}
 	&__image {
-		&__home-quarter {}
-		&__home-half {}
-		&__highlighted {}
-		&__list-type {}
+		width: 100%;
+		height: 288px;
+		max-height: 288px;
+
+		&--home-quarter {}
+		&--home-half {}
+		&--headline {}
+		&--headline-sparkline {
+			background-color: $white;
+			border: $mercury 1px solid;
+			border-bottom: none;
+			margin-top: -1px;
+		}
+		&--list-type {}
 	}
-	&__figure {}
-	&__unit {}
-	&__pre-unit {}
+	&__figure, &__unit, &__preunit {
+		display: inline-block;
+		font-size: 36px;
+		font-weight: 600;
+		padding: 17px 0 7px 0;
+
+		&--list {
+			padding: 5px 0 3px 0;
+			font-size: 21px;
+		}
+	}
+	&__date {
+		font-size: 21px;
+		padding: 5px 0 3px 0;
+	}
+	&__label {
+		float: left;
+  	clear: left;
+  	width: auto;
+
+		&:after {
+			content: "\00a0";
+		}
+	}
 	&__published {}
 	&__updated {}
-	&__list {}
-	&__read-more {}
+	&__content-list {
+		padding: 0 ($col * 2);
+		margin: $baseline 0 ($baseline * 2) 0;
+
+		li {
+			margin: 0;
+		}
+	}
+	&__read-more {
+		display: block;
+		padding: 15px $col 17px $col;
+		width: 100%;
+		margin: 0;
+		background-color: $iron-light;
+		border-top: 1px solid $iron;
+		margin-top: -1px;
+	}
 
 }
