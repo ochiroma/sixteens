@@ -7,6 +7,11 @@
 
 	background-color: $abbey;
 
+	@include breakpoint(sm) {
+		border-top: 1px solid $thunder;
+		margin-top: -1px;
+	}
+
 	@include breakpoint(md) {
 		border-top: 1px solid $thunder;
 		margin-top: -1px;	//compensate for border-top
@@ -25,7 +30,7 @@
 		overflow: hidden;
 
 		@include breakpoint(sm) {
-			padding: 0 0 $baseline $col;
+			padding: 0 0 $baseline 0;
 		}
 	}
 
@@ -81,9 +86,14 @@
 		}
 
 		&--active {
-			background-color: $salem;
+			@include breakpoint(sm) {
+				& > a {
+					background-color: $salem;
+				}
+			}
 
 			@include breakpoint(md) {
+				background-color: $salem;
 				border-bottom: 1px solid $thunder;
 			}
 
@@ -100,7 +110,7 @@
 
 		@include breakpoint(sm) {
 			height: 48px;
-			padding: 14px 0 10px 0;
+			padding: 14px 0 10px $col;
 			//margin: $baseline 0 $baseline 0;
 
 			// &:last-child {
@@ -205,6 +215,11 @@
 
 .js-expandable-active {
 	@include breakpoint(sm) {
+		& > a {
+			background-color: $thunder;
+			//border-bottom: 1px solid $thunder;
+		}
+
 		& > ul {
 			display: block;
 		}
@@ -233,22 +248,77 @@
 
 		&-active {
 			& > a {
-			&:before {
-				position: absolute;
-				color: $iron-light;
-				content: '-';
-				left: $col;
+				&:before {
+					position: absolute;
+					color: $iron-light;
+					content: '-';
+					left: $col;
+				}
 			}
-		}
 		}
 	}
 }
 
-//Menu and search controls
+
+//Menu and search controls - TODO rewrite with mobile
 .nav--controls {
 	list-style: none;
+	margin: 0;
+	padding: 0;
 
 	@include breakpoint(md) {
+		display: none;
+	}
+
+	&__item {
+		padding: 0;
+		margin: 0;
+	}
+
+	&__menu {
+		background-color: $ship-gray;
+		font-size: 17px;
+		float: left;
+		width: 50%;
+		//padding-left: $col;
+		padding: $baseline*2 $col;
+		color: $iron-light;
+		border-right: 1px solid $thunder;
+	}
+
+	&__search {
+		background-color: $ship-gray;
+		font-size: 17px;
+		float: left;
+		width: 50%;
+		//padding-left: $col;
+		padding: $baseline*2 $col;
+		color: $iron-light;
+		// border-bottom: 1px solid $ship-gray;
+		// margin-bottom: -1px;
+	}
+}
+
+.menu-is-expanded {
+	& > a {
+		background-color: $abbey;
+	}
+}
+
+.search-is-expanded {
+	& > a {
+		background-color: $abbey;
+	}
+}
+
+.nav-main--hidden {
+	@include breakpoint(sm) {
+		display: none;
+	}
+}
+
+.nav-search--hidden {
+	@include breakpoint(sm) {
 		display: none;
 	}
 }
@@ -263,6 +333,10 @@
 	background-color: $ship-gray;
 	font-size: 21px;
 	// height: 65px;
+
+	@include breakpoint(sm) {
+		background-color: $abbey;
+	}
 
 	@include breakpoint(md) {
 		height: 97px;
