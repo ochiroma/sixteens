@@ -25,7 +25,7 @@
 		overflow: hidden;
 
 		@include breakpoint(sm) {
-			padding: 0 0 $baseline 0;
+			padding: 0 0 $baseline $col;
 		}
 	}
 
@@ -134,7 +134,8 @@
 		@include breakpoint(sm) {
 			// position: absolute;
 			// left: -99999px;
-			display: none;
+			//display: none; //done with js-nav-hidden class
+			background-color: $ship-gray;
 			padding: 0;
 		}
 
@@ -176,9 +177,9 @@
 		color: $iron-light;
 
 		@include breakpoint(sm) {
-			height: 40px;
+			height: 48px;
 			//border-bottom: 1px solid $thunder;
-			padding: 6px 0 2px $col;
+			padding: 14px 0 12px $col;
 			//margin: $baseline 0 $baseline 0;
 		}
 
@@ -194,11 +195,61 @@
 }
 
 
-//JQUERY EXPANDABLE MOBILE MENU
+//JQUERY EXPANDABLE MOBILE MENU - temporary until we write our own JS in new library
+
+.js-nav-hidden {
+	@include breakpoint(sm) {
+		display: none;
+	}
+}
 
 .js-expandable-active {
-	& > ul {
-		display: block;
+	@include breakpoint(sm) {
+		& > ul {
+			display: block;
+		}
+	}
+}
+
+.nav__top-level-duplicate {
+	@extend .primary-nav__child-item;
+
+	& > a {
+		@extend .primary-nav__child-link;
+	}
+}
+
+//Add plus symbol - class used for JS too
+.js-expandable {
+	@include breakpoint(sm) {
+		& > a {
+			&:before {
+				position: absolute;
+				color: $iron-light;
+				content: '+';
+				left: $col;
+			}
+		}
+
+		&-active {
+			& > a {
+			&:before {
+				position: absolute;
+				color: $iron-light;
+				content: '-';
+				left: $col;
+			}
+		}
+		}
+	}
+}
+
+//Menu and search controls
+.nav--controls {
+	list-style: none;
+
+	@include breakpoint(md) {
+		display: none;
 	}
 }
 
