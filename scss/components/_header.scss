@@ -249,10 +249,7 @@
 		&-active {
 			& > a {
 				&:before {
-					position: absolute;
-					color: $iron-light;
-					content: '-';
-					left: $col;
+					content: '';
 				}
 			}
 		}
