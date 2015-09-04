@@ -10,3 +10,27 @@
 	overflow: hidden;
 	clip: rect(0 0 0 0);
 }
+
+// margins
+.margin-top {
+	margin-top: ($baseline * 2);
+}
+
+.margin-right {
+	margin-right: $col;
+}
+
+.margin-bottom {
+	margin-bottom: ($baseline * 2);
+}
+
+.margin-left {
+	margin-left: $col;
+}
+.flush {
+	margin: 0 !important;
+}
+.flush-col {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
