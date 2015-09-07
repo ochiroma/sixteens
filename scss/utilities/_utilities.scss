@@ -13,19 +13,19 @@
 
 // margins
 .margin-top {
-	margin-top: ($baseline * 2);
+	margin-top: ($baseline * 2) !important;
 }
 
 .margin-right {
-	margin-right: $col;
+	margin-right: $col !important;
 }
 
 .margin-bottom {
-	margin-bottom: ($baseline * 2);
+	margin-bottom: ($baseline * 2) !important;
 }
 
 .margin-left {
-	margin-left: $col;
+	margin-left: $col !important;
 }
 
 .flush {
