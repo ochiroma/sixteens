@@ -27,10 +27,20 @@
 .margin-left {
 	margin-left: $col;
 }
+
 .flush {
 	margin: 0 !important;
 }
+
 .flush-col {
 	margin-left: 0 !important;
 	margin-right: 0 !important;
+}
+
+.flush-bottom {
+	margin-bottom: 0 !important;
+}
+
+.flush-top {
+	margin-top: 0 !important;
 }
