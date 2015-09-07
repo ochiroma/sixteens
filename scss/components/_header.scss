@@ -227,6 +227,10 @@
 	& > a {
 		@extend .primary-nav__child-link;
 	}
+
+	@include breakpoint(md) {
+		display: none;
+	}
 }
 
 //Add plus symbol - class used for JS too
