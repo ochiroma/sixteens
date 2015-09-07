@@ -1,0 +1,38 @@
+//_accordions.scss
+
+.accordion {
+	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+	border-bottom: 2px solid $iron;
+	margin-bottom: -2px;
+	padding-bottom: 0;
+
+	//Keeping 'title' so JS from old PL still works. Should be element; heading
+	.accordion__title {
+		margin: 0;
+		padding: 11px 0 13px 0;
+		cursor: pointer;
+		cursor: hand; //IE8 fix
+	}
+
+	&:first-of-type {
+    	border-top: 2px solid $iron;
+    	margin-top: -2px;
+  	}
+
+  	&.is-collapsed {
+  		//height: $baseline * 6; //Stop borders taking whole page off-grid - need better solution
+
+  		.accordion__content {
+			display: none;
+		}
+	}
+
+	&.is-expanded {
+		.accordion__content {
+			display: block;
+		}
+	}
+
+}
