@@ -381,7 +381,7 @@
 		@include breakpoint(sm) {
 			width: 80%;
 			font-size: 14px;
-			padding: 12px 0 8px 0;
+			padding: 12px $col/2 8px $col/2;
 
 		}
 	}
@@ -399,6 +399,8 @@
 		@include breakpoint(sm) {
 			width: 20%;
 			font-size: 14px;
+			padding-left: $col/2;
+			padding-right: $col/2;
 		}
 	}
 
