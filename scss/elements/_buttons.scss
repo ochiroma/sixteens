@@ -5,9 +5,10 @@ button {
 }
 
 .btn {
+    font-size: 14px;
   display: inline-block;
   width: auto;
-
+  cursor: pointer;
   background-color: $matisse;
   padding: 7px $col 9px $col;
   color: $white;
@@ -21,4 +22,86 @@ button {
 
   }
 
+}
+
+
+// .btn--primary {
+//   font-family: $font-bold;
+//   color: $white;
+//   background: $link-color;
+//
+//   &:visited {
+//     color: $white;
+//   }
+//
+//   &:hover,
+//   &:focus {
+//     color: $white;
+//     background-color: darken($link-color, 12.5%);
+//   }
+//
+//   &:focus {
+//     box-shadow: 0 0 9px 3px $orange;
+//   }
+// }
+
+.btn--secondary {
+  color: $white;
+  background-color: $ship-gray;
+
+
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $thunder;
+  }
+}
+
+.btn--secondary--active {
+  background-color: $salem;
+
+  &,
+  &:visited,
+  &:hover {
+    // color: $black;
+  }
+
+  &:hover,
+  &:focus {
+    // background: darken($grey-light, 20%);
+    // background: radial-gradient(ellipse at center, darken(#d5d6d2, 10%) 0%, darken(#c8c9c4, 10%) 100%);
+  }
+}
+.btn--secondary--disabled,
+.btn--secondary--disabled:hover {
+  color: $abbey;
+  background-color: $iron;
+}
+
+.btn--thin {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.btn--thick{}
+.btn--narrow {}
+.btn--wide{}
+
+
+.btn-group {
+
+
+  .btn {
+    float: left;
+    margin: 0;
+    border-right: 1px solid $iron;
+
+    &:last-child {
+        border: none;
+    }
+
+    }
+
+    input {
+        display: none;
+    }
 }
