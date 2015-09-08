@@ -1,0 +1,16 @@
+//_inputs-and-lables.scss
+
+label {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.labels {
+
+    &--chart {
+        font-size: 12px;
+    }
+
+}
