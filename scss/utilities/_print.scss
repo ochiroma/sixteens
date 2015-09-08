@@ -1,1 +1,119 @@
 //_print.scss
+
+@media print {
+
+  // UTILITY PRINT CLASSES
+
+  .print {
+
+  	&--hide {
+  		display: none !important;
+  	}
+
+    &--break-before {
+      page-break-before: always;
+    }
+
+    &--break-after {
+      page-break-after: always;
+    }
+
+    &--avoid-break {
+      page-break-inside: avoid;
+    }
+
+    &--links {
+
+      /* Append 'http://www.ons.gov.uk/' to internal links using a relative path */
+      a[href]:after {
+        content: " (http://www.ons.gov.uk" attr(href) ")";
+        word-wrap: break-word;
+      }
+      abbr[title]:after {
+        content: " (" attr(title) ")";
+      }
+      
+      /* Stop links starting with https or http being appended with ons url */
+      a[href^="https://"]:after,
+      a[href^="http://"]:after,
+      a[href^="www."]:after {
+        content: " (" attr(href) ")";
+        word-wrap: break-word;
+      }
+      abbr[title^="https://"]:after,
+      abbr[title^="http://"]:after,
+      abbr[title^="www."]:after {
+        content: " (" attr(title) ")";
+      }
+
+      /*
+       * Don't show links for images, javascript, internal links or email addresses
+       */
+      .ir a:after,
+      a[href^="javascript:"]:after,
+      a[href^="#"]:after,
+      a[href^="mailto:"]:after {
+        content: "";
+      }
+    }
+  }
+
+  //GLOBAL PRINT SETTINGS
+
+	* {
+    color: #000 !important; /* Black prints faster: h5bp.com/s */
+    //overflow: initial !important;
+    //height: auto !important;
+    text-shadow: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+
+  article {
+    @extend .print--links;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group; /* h5bp.com/t */
+  }
+
+  tr,
+  img,
+  section,
+  address {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .accordion__content {
+    display: block !important;
+  }
+
+}
