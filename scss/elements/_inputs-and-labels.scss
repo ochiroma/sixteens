@@ -1,16 +1,24 @@
-//_inputs-and-lables.scss
+//_inputs-and-labels.scss
 
 label {
+    //Attempt to fix inputs not taking font size and family
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-size: 14px;
     line-height: 24px;
 }
 
-.labels {
+.label {
 
+	&--inline {
+		display: inline;
+	}
+
+	//Attempt to fix inputs not taking font size and family
     &--chart {
         font-size: 12px;
     }
+
+
 
 }

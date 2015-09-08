@@ -5,7 +5,8 @@ button {
 }
 
 .btn {
-    font-size: 14px;
+  font-family: $base-font-family;
+  font-size: 14px;
   display: inline-block;
   width: auto;
   cursor: pointer;
@@ -82,9 +83,14 @@ button {
     padding-top: 0;
     padding-bottom: 0;
 }
-.btn--thick{}
+.btn--thick{
+    padding-top: 11px;
+    padding-bottom: 13px;
+}
 .btn--narrow {}
-.btn--wide{}
+.btn--wide{
+    width: $col * 16;
+}
 
 
 .btn-group {

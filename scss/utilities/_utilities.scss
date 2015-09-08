@@ -14,18 +14,34 @@
 // margins
 .margin-top {
 	margin-top: ($baseline * 2) !important;
+
+	&--half {
+		margin-top: ($baseline) !important;
+	}
 }
 
 .margin-right {
 	margin-right: $col !important;
+
+	&--half {
+		margin-right: ($col / 2) !important;
+	}
 }
 
 .margin-bottom {
 	margin-bottom: ($baseline * 2) !important;
+
+	&--half {
+		margin-bottom: ($baseline) !important;
+	}
 }
 
 .margin-left {
 	margin-left: $col !important;
+
+	&--half {
+		margin-left: ($col / 2) !important;
+	}
 }
 
 .flush {
@@ -47,4 +63,12 @@
 
 .inline {
 	display: inline !important;
+}
+
+.float-right {
+	float: right !important;
+}
+
+.float-left {
+	float: left !important
 }
