@@ -87,3 +87,13 @@
 .float-left {
 	float: left !important
 }
+
+// javascript
+
+.no-js .nojs-hidden, .nojs-hidden {
+  display: none !important;
+}
+
+.js .js-hidden, .js-hidden  {
+  display: none !important;
+}
