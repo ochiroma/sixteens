@@ -12,36 +12,41 @@
 }
 
 // margins
-.margin-top {
-	margin-top: ($baseline * 2) !important;
 
-	&--half {
-		margin-top: ($baseline) !important;
+.margin {
+
+	&-top {
+		margin-top: ($baseline * 2) !important;
+
+		&--half {
+			margin-top: ($baseline) !important;
+		}
 	}
-}
 
-.margin-right {
-	margin-right: $col !important;
+	&-right {
+		margin-right: $col !important;
 
-	&--half {
-		margin-right: ($col / 2) !important;
+		&--half {
+			margin-right: ($col / 2) !important;
+		}
 	}
-}
 
-.margin-bottom {
-	margin-bottom: ($baseline * 2) !important;
+	&-bottom {
+		margin-bottom: ($baseline * 2) !important;
 
-	&--half {
-		margin-bottom: ($baseline) !important;
+		&--half {
+			margin-bottom: ($baseline) !important;
+		}
 	}
-}
 
-.margin-left {
-	margin-left: $col !important;
+	&-left {
+		margin-left: $col !important;
 
-	&--half {
-		margin-left: ($col / 2) !important;
+		&--half {
+			margin-left: ($col / 2) !important;
+		}
 	}
+
 }
 
 .flush {
@@ -61,9 +66,19 @@
 	margin-top: 0 !important;
 }
 
+
+//display
+
 .inline {
 	display: inline !important;
 }
+
+.hide {
+	display: none !important;
+}
+
+
+//float
 
 .float-right {
 	float: right !important;
