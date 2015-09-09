@@ -17,12 +17,75 @@ button {
   text-align: center;
   text-decoration: none;
 
+
+  &--secondary {
+    color: $white;
+    background-color: $ship-gray;
+
+
+    &:hover,
+    &:focus {
+      color: $white;
+      background-color: $thunder;
+    }
+
+
+      &--active {
+        background-color: $salem;
+
+        &,
+        &:visited,
+        &:hover {
+          // color: $black;
+        }
+
+        &:hover,
+        &:focus {
+          // background: darken($grey-light, 20%);
+          // background: radial-gradient(ellipse at center, darken(#d5d6d2, 10%) 0%, darken(#c8c9c4, 10%) 100%);
+        }
+      }
+      &--disabled,
+      &--disabled:hover {
+        color: $abbey;
+        background-color: $iron;
+      }
+  }
+
+  &--thin {
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+
+  &--thick{
+      padding-top: 11px;
+      padding-bottom: 13px;
+  }
+  &--narrow {}
+
+  &--wide{
+      width: $col * 16;
+  }
+
   &--full-width {
     padding: 15px $col 17px $col;
     display: block;
-
   }
 
+  &--chart-control {
+      width: ($col * 6);
+      padding: 0;
+
+      &--all {
+          width: ($col * 5);
+      }
+  }
+
+}
+
+
+.chart-area__controls__custom--active {
+  background-color: $thunder;
 }
 
 
@@ -46,51 +109,8 @@ button {
 //   }
 // }
 
-.btn--secondary {
-  color: $white;
-  background-color: $ship-gray;
 
 
-  &:hover,
-  &:focus {
-    color: $white;
-    background-color: $thunder;
-  }
-}
-
-.btn--secondary--active {
-  background-color: $salem;
-
-  &,
-  &:visited,
-  &:hover {
-    // color: $black;
-  }
-
-  &:hover,
-  &:focus {
-    // background: darken($grey-light, 20%);
-    // background: radial-gradient(ellipse at center, darken(#d5d6d2, 10%) 0%, darken(#c8c9c4, 10%) 100%);
-  }
-}
-.btn--secondary--disabled,
-.btn--secondary--disabled:hover {
-  color: $abbey;
-  background-color: $iron;
-}
-
-.btn--thin {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-.btn--thick{
-    padding-top: 11px;
-    padding-bottom: 13px;
-}
-.btn--narrow {}
-.btn--wide{
-    width: $col * 16;
-}
 
 
 .btn-group {
