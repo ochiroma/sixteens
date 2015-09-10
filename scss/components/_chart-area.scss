@@ -1,0 +1,76 @@
+//_charrt-area.scss
+
+.chart-area {
+
+    &__controls__custom--active {
+        margin-top: ($baseline * 5);
+        background-color: $abbey;
+        // overflow: hidden;
+
+        &:before {
+            content: "";
+            width: 0;
+	        height: 0;
+	        border-left: 15px solid transparent;
+	        border-right: 15px solid transparent;
+	        border-bottom: 15px solid $abbey;
+            position: relative;
+            top: -35px;
+            right: -225px;
+
+            @include breakpoint(lg) {
+                right: -305px;
+            }
+
+
+        }
+
+        // p {
+        //     margin: 0;
+        //     padding: 6px 0 2px 0;
+        //     color: $iron-light;
+        // }
+
+        fieldset {
+            width: ($col * 10);
+            display: block;
+            float: left;
+            border: 0;
+            padding: 0;
+            margin: 0 0 ($baseline * 2) 0;
+        }
+
+        legend {
+            color: $iron-light;
+            padding: 6px 0 2px 0;
+        }
+
+    }
+
+    &__controls__custom__container {
+        overflow: hidden;
+        padding: 0 $col;
+        color: $iron-light;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__controls__custom__errors {
+        background-color: $poppy;
+
+        p {
+            margin: 0;
+            padding: 6px $col 10px $col;
+            color: $white;
+        }
+    }
+
+    &__timeseries {
+        * {
+            font-family: $base-font-family;
+        }
+    }
+
+}
