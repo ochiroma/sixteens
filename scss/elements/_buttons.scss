@@ -20,7 +20,7 @@ button {
 
   &--secondary {
     color: $white;
-    background-color: $ship-gray;
+    background-color: $abbey;
 
 
     &:hover,
@@ -36,7 +36,8 @@ button {
         &,
         &:visited,
         &:hover {
-          // color: $black;
+            background-color: $salem;
+            cursor: default;
         }
 
         &:hover,
@@ -49,6 +50,7 @@ button {
       &--disabled:hover {
         color: $abbey;
         background-color: $iron;
+        cursor: default;
       }
   }
 
@@ -73,20 +75,22 @@ button {
   }
 
   &--chart-control {
-      width: ($col * 6);
+      width: ($col * 4);
       padding: 0;
+      font-size: 12px;
+
+      @include breakpoint(lg) {
+          width: ($col * 6);
+      }
 
       &--all {
           width: ($col * 5);
       }
+
   }
 
 }
 
-
-.chart-area__controls__custom--active {
-  background-color: $thunder;
-}
 
 
 // .btn--primary {
