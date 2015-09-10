@@ -75,6 +75,12 @@
 
 .hide {
 	display: none !important;
+
+	&--mobile {
+		@include breakpoint(sm) {
+			display: none !important;
+		}
+	}
 }
 
 

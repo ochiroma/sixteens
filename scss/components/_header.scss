@@ -25,7 +25,7 @@
 		overflow: hidden;
 
 		@include breakpoint(sm) {
-			padding: 0 0 $baseline 0;
+			padding: $baseline 0 $baseline 0;
 		}
 	}
 
@@ -214,15 +214,20 @@
 				display: block;
 				padding: 0;
 				margin: 0;
-				//height: $baseline * 6;
+				height: $baseline * 6;
+				cursor: pointer;
 			}	
 		}
 
 		&__link {
 			@include breakpoint(sm) {
-				background-color: $iron;
+				display: block;
+				height: $baseline * 6;
+				padding: 14px 0 10px $col;
+				//background-color: $iron;
+				//color: $ship-gray;
 				//margin: ($baseline * 2) 0;
-				padding: ($baseline * 2) 0 ($baseline * 2) $col;
+				//padding: 14px 0 10px $col;
 				color: $iron-light;
 			}
 		}
@@ -466,7 +471,7 @@
 	display: block;
 
 	@include breakpoint(sm) {
-		height: 48px;
+		height: $baseline * 6;
 		padding: 2px 0 6px 0; //off-grid on mobile otherwise
 	}
 
@@ -480,6 +485,9 @@
 
 // Language selection
 .language {
+	@include breakpoint(sm){
+		display: none; //until functionality is ready
+	}
 	
 	&__form {
 		@include breakpoint(sm){
