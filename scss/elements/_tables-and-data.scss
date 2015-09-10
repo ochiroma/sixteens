@@ -38,7 +38,6 @@ table {
       &__wrap {
         //display: none;
         //height: 7.2rem;
-        //transition: all 0.4s ease;
         overflow: hidden;
         background: $iron-light;
         //color: $iron-light;
@@ -58,7 +57,9 @@ table {
       }
 
         &__heading {
-            margin: 0 0 ($baseline) 0;
+            @include breakpoint(md) {
+                margin: 0 0 ($baseline) 0;
+            }
         }
 
         &__select {

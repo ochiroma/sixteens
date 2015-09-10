@@ -1,1 +1,7 @@
 //_icons.scss
+
+//For use in unique situations where icons are automatically added but not wanted and a global solution isn't viable
+.hide-icon:after, .hide-icon:before {
+  content: "" !important;
+  display: none !important;
+}
