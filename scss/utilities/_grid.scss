@@ -197,6 +197,14 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 			}
 		}
 
+		&--md {
+			&-full-width {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+		//call complex cols last so the css gets generated last and they take precedence 
 		@include medium-cols-complex;
 
 	}
@@ -237,10 +245,18 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 			}
 		}
 
+		&--lg {
+			&-full-width {
+				width: 100%;
+				margin: 0;
+			}
+		}
+		
+
+		//call complex cols last so the css gets generated last and they take precedence 
 		@include large-cols-complex;
 
 	}
-
 	
 
 

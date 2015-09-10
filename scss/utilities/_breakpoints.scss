@@ -16,6 +16,10 @@
 			@media (min-width: 768px) { @content; }
 		}
 
+		@else if $class == md-max {
+			@media (max-width: 768px) { @content; }
+		}
+
 		@else if $class == lg {
 			@media (min-width: 992px) { @content; }
 		}

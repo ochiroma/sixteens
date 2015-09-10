@@ -209,7 +209,19 @@
 
 .tiles {
 	&__holder {}
-	&__block {}
+	&__block {
+		
+		margin-top: ($baseline * 2);
+		margin-bottom: ($baseline * 2);
+		
+		&-no-mar-top{
+			margin-top: 0;
+		}
+
+		&-no-mar-bottom{
+			margin-bottom: 0;
+		}
+	}
 	&__list {
 		padding: 0;
 	}
@@ -229,6 +241,65 @@
 		}
 		&--image-type {
 
+		}
+		&--image-type-fixed {
+
+			// .sparkline-holder, .image-holder {
+			// 	width: 100%;
+			// 	position: absolute;
+			// 	top: 0;
+			// 	left: 0;
+			// 	background: $white;
+			// 	border: 1px solid $mercury;
+			// }
+
+			&-46-rows {
+				padding: 0;
+				height: $baseline * 46;
+				position: relative;
+				padding-top: 192px;
+				// @include multiline-ellipsis(($baseline * 46), $col, $mercury);
+
+				.sparkline-holder, .image-holder {
+					height: 192px;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: $white;
+					border: 1px solid $mercury;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
+
+			&-30-rows {
+				padding: 0;
+				height: $baseline * 30;
+				position: relative;
+				padding-top: 112px;
+				// @include multiline-ellipsis(($baseline * 46), $col, $mercury);
+
+				.sparkline-holder, .image-holder {
+					height: 112px;
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+					background: $white;
+					border: 1px solid $mercury;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
 		}
 		&--list-type {
 			background-color: $white;
@@ -251,8 +322,16 @@
 		}
 	}
 
-	&__items-title-h2 {}
-	&__title-h2 {}
+	&__title-dt {
+		font-size: 21px;
+		padding: 12px 0;
+		// padding: 0 $col;
+	}
+	&__title-h2 {
+		margin: 0;
+		padding: 20px $col 4px $col;
+	}
+
 	&__title-h3 {
 		margin: 0;
 		padding: 20px $col 4px $col;
@@ -274,7 +353,8 @@
 	&__content {
 		margin: 0;
 		padding: 0 $col $col $col;
-		display: inline-block;
+		overflow: hidden;
+		// display: inline-block;
 
 		&--nav {
 			background-color: $mercury;
@@ -300,7 +380,14 @@
 		// 		padding: 0;
 		// 	}
 		// }
+
+		// &--image-type {
+		// 	&---14-col {
+		// 		&--30-row {}
+		// 	}
+		// }
 	}
+
 	// &__content-listed {
 	// 	// margin: 0;
 	// 	// padding: 0 $col $col $col;
