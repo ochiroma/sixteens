@@ -67,6 +67,44 @@
 }
 
 
+//padding
+
+.padding {
+
+	&-top {
+		padding-top: ($baseline * 2) !important;
+
+		&--half {
+			padding-top: ($baseline) !important;
+		}
+	}
+
+	&-right {
+		padding-right: $col !important;
+
+		&--half {
+			padding-right: ($col / 2) !important;
+		}
+	}
+
+	&-bottom {
+		padding-bottom: ($baseline * 2) !important;
+
+		&--half {
+			padding-bottom: ($baseline) !important;
+		}
+	}
+
+	&-left {
+		padding-left: $col !important;
+
+		&--half {
+			padding-left: ($col / 2) !important;
+		}
+	}
+}
+
+
 //display
 
 .inline {
