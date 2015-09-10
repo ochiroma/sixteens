@@ -41,7 +41,8 @@ table {
         //transition: all 0.4s ease;
         overflow: hidden;
         background: $iron-light;
-        border-bottom: 1px solid #CCCCCC;
+        //color: $iron-light;
+        border-bottom: 2px solid $iron;
         position: fixed;
         top: 0;
         left: 0;
