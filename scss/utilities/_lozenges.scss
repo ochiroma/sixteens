@@ -1,0 +1,15 @@
+//_lozenges.scss
+
+.lozenge {
+
+	height: $baseline * 5;
+	display: inline-block;
+	border: 2px solid $iron;
+	//text-transform: capitalize;
+	padding: 4px $col 4px $col;
+	//padding: ($baseline / 2) ($col / 2);
+	color: $abbey;
+	//font-size: 14px;
+	//font-weight: bold;
+
+}

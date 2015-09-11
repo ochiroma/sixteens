@@ -19,6 +19,22 @@ label {
         font-size: 12px;
     }
 
+}
 
+.search-filter {
+
+    &__form {
+        padding: $col;
+    }
+
+    &__button {
+
+        &--clear {
+            @include breakpoint(lg) {
+                float: right;
+            }
+        }
+
+    }
 
 }

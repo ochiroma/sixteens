@@ -11,6 +11,7 @@
 	clip: rect(0 0 0 0);
 }
 
+
 // margins
 
 .margin {
@@ -67,7 +68,7 @@
 }
 
 
-//padding
+// padding
 
 .padding {
 
@@ -105,7 +106,7 @@
 }
 
 
-//display
+// display
 
 .inline {
 	display: inline !important;
@@ -122,7 +123,7 @@
 }
 
 
-//float
+// float
 
 .float-right {
 	float: right !important;
@@ -132,6 +133,7 @@
 	float: left !important
 }
 
+
 // javascript
 
 .no-js .nojs-hidden, .nojs-hidden {
@@ -140,4 +142,15 @@
 
 .js .js-hidden, .js-hidden  {
   display: none !important;
+}
+
+
+// clear
+
+.clear-left {
+	clear: left !important;
+}
+
+.clear-right {
+	clear: right !important;
 }
