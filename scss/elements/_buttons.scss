@@ -54,6 +54,10 @@ button {
       }
   }
 
+  &--small {
+      font-size: 12px;
+  }
+
   &--thin {
       padding-top: 0;
       padding-bottom: 0;
@@ -63,7 +67,10 @@ button {
       padding-top: 11px;
       padding-bottom: 13px;
   }
-  &--narrow {}
+  &--narrow {
+      padding-left: ($col / 2);
+      padding-right: ($col / 2);
+  }
 
   &--wide{
       width: $col * 16;
