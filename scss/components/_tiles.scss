@@ -323,8 +323,8 @@
 	}
 
 	&__title-dt {
-		font-size: 21px;
-		padding: 12px 0;
+		font-size: 17px;
+		padding: 13px 0 11px 0;
 		// padding: 0 $col;
 	}
 	&__title-h2 {
@@ -334,6 +334,12 @@
 		&--nav {
 			min-height: ($baseline * 10);
 			background-color: $gallery;
+		}
+
+		&--home {
+			font-size: 17px;
+			margin: 0;
+			padding: 13px $col 11px $col;
 		}
 
 	}
@@ -440,10 +446,20 @@
 			padding: 5px 0 3px 0;
 			font-size: 21px;
 		}
+
+		&--home {
+			font-size: 24px;
+			font-weight: 600;
+			padding: 3px 0 5px 0;
+		}
 	}
 	&__date {
 		font-size: 21px;
 		padding: 5px 0 3px 0;
+
+		&--home {
+			display: block;
+		}
 	}
 	&__label {
 		float: left;
