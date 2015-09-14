@@ -422,6 +422,12 @@
 			border-bottom: none;
 			margin-top: -1px;
 		}
+		&--search-sparkline {
+			background-color: $white;
+			border: $mercury 1px solid;
+			height: 248px;
+			max-height: 248px;
+		}
 		&--list-type {}
 	}
 	&__figure, &__unit, &__preunit {
