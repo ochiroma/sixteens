@@ -210,10 +210,10 @@
 .tiles {
 	&__holder {}
 	&__block {
-		
+
 		margin-top: ($baseline * 2);
 		margin-bottom: ($baseline * 2);
-		
+
 		&-no-mar-top{
 			margin-top: 0;
 		}
@@ -330,6 +330,12 @@
 	&__title-h2 {
 		margin: 0;
 		padding: 20px $col 4px $col;
+
+		&--nav {
+			min-height: ($baseline * 10);
+			background-color: $gallery;
+		}
+
 	}
 
 	&__title-h3 {
