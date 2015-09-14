@@ -11,4 +11,14 @@
 		}
 	}
 
+	&--inline {
+		display: inline-block;
+
+		li {
+    		display: inline-block;
+    		margin: 0 $col 0 0;
+		}
+	}
+
+
 }
