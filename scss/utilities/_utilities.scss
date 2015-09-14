@@ -22,6 +22,10 @@
 		&--half {
 			margin-top: ($baseline) !important;
 		}
+
+		&--double {
+			margin-top: ($baseline * 4) !important;
+		}
 	}
 
 	&-right {
@@ -29,6 +33,10 @@
 
 		&--half {
 			margin-right: ($col / 2) !important;
+		}
+
+		&--double {
+			margin-right: ($col * 2) !important;
 		}
 	}
 
@@ -38,6 +46,10 @@
 		&--half {
 			margin-bottom: ($baseline) !important;
 		}
+
+		&--double {
+			margin-bottom: ($baseline * 4) !important;
+		}
 	}
 
 	&-left {
@@ -45,6 +57,9 @@
 
 		&--half {
 			margin-left: ($col / 2) !important;
+		}
+		&--double {
+			margin-left: ($col * 2) !important;
 		}
 	}
 
@@ -94,6 +109,7 @@
 		&--half {
 			padding-bottom: ($baseline) !important;
 		}
+
 	}
 
 	&-left {
@@ -110,6 +126,10 @@
 
 .inline {
 	display: inline !important;
+}
+
+.inline-block {
+	display: inline-block !important;
 }
 
 .hide {
