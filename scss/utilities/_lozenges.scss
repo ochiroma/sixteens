@@ -2,13 +2,14 @@
 
 .lozenge {
 
-	height: $baseline * 5;
+	height: $baseline * 4;
 	display: inline-block;
 	border: 2px solid $iron;
 	//text-transform: capitalize;
-	padding: 4px $col 4px $col;
+	padding: 4px ($col / 2);
 	//padding: ($baseline / 2) ($col / 2);
 	color: $abbey;
+	font-size: 12px;
 	//font-size: 14px;
 	//font-weight: bold;
 
