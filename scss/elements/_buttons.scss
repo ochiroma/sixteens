@@ -61,6 +61,7 @@ button {
   &--thin {
       padding-top: 0;
       padding-bottom: 0;
+      height: 24px //fix for button tags
   }
 
   &--thick{
@@ -79,6 +80,7 @@ button {
   &--full-width {
     padding: 15px $col 17px $col;
     display: block;
+    width: 100%;
   }
 
   &--chart-control {
