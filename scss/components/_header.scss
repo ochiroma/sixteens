@@ -24,10 +24,6 @@
 		margin: 0;
 		overflow: hidden;
 
-		@if $old-ie == true {
-			border-right: 1px solid	$thunder;
-		}
-
 		@include breakpoint(sm) {
 			padding: $baseline 0 0 0;
 		}
