@@ -39,8 +39,24 @@ label {
 
 }
 
+#filters {
+
+
+    input[type='text'], input[type='search'], {
+        background-color: white;
+        width: 100%;
+        border: 1px solid $iron;
+        padding: ($baseline * 2) ($col / 2);
+    }
+
+    // select {
+    //     background-color: red;
+    // }
+
+}
+
 .sort-results {
 
     padding: 46px 0 0 0;
-    
+
 }
