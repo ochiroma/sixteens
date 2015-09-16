@@ -185,3 +185,9 @@
 .clear-right {
 	clear: right !important;
 }
+
+// hiding polyfill placeholder - temporary fix for IE8/9
+
+.placeholder {
+	display:none;
+}
