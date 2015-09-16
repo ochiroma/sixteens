@@ -142,6 +142,17 @@
 	}
 }
 
+@if $old-ie == true {
+
+	.old-ie {
+
+		&--display-block {
+			display: block !important;
+		}
+
+	}
+
+}
 
 // float
 

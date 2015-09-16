@@ -12,4 +12,10 @@ html, body {
 
 body {
 	background-color: white;
+
+	@if $old-ie == true {
+		min-width: 960px;
+
+	}
+
 }

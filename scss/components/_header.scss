@@ -16,7 +16,7 @@
 	@include breakpoint(lg) {
 		height: 65px;
 	}
-	
+
 
 	&__list {
 		list-style: none;
@@ -27,6 +27,8 @@
 		@include breakpoint(sm) {
 			padding: $baseline 0 0 0;
 		}
+
+		padding: 0; // fix for IE8 
 	}
 
 	&__item {
@@ -69,7 +71,7 @@
 			}
 
 			@include breakpoint(lg) {
-				top: 176px;	
+				top: 176px;
 			}
 		}
 
@@ -130,9 +132,9 @@
 
 	}
 
-	
 
-	
+
+
 	//NAVIGATION CHILDREN
 
 	&__child-list {
@@ -166,7 +168,7 @@
 		padding: 0;
 
 		@include breakpoint(md) {
-		
+
 			&:hover {
 				background-color: $iron;
 
@@ -202,7 +204,7 @@
 		}
 	}
 
-	
+
 	// SECONDARY NAV CONTENT - ONLY SHOW ON MOBILE
 
 	&--secondary {
@@ -228,7 +230,7 @@
 				margin: 0;
 				height: $baseline * 6;
 				cursor: pointer;
-			}	
+			}
 		}
 
 		&__link {
@@ -358,12 +360,14 @@
 	@include breakpoint(sm) {
 		display: none;
 	}
+	display: block;
 }
 
 .nav-search--hidden {
 	@include breakpoint(sm) {
 		display: none;
 	}
+	display: block;
 }
 
 
@@ -387,7 +391,7 @@
 	@include breakpoint(lg) {
 		height: 97px;
 	}
-	
+
 	&__form {
 		font-family: $base-font-family;
 		font-weight: $base-font-weight;
@@ -500,7 +504,7 @@
 	@include breakpoint(sm){
 		display: none; //until functionality is ready
 	}
-	
+
 	&__form {
 		@include breakpoint(sm){
 			padding-top: $baseline;
