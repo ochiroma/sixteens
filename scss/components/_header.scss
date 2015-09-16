@@ -24,11 +24,15 @@
 		margin: 0;
 		overflow: hidden;
 
+		@if $old-ie == true {
+			border-right: 1px solid	$thunder;
+		}
+
 		@include breakpoint(sm) {
 			padding: $baseline 0 0 0;
 		}
 
-		padding: 0; // fix for IE8 
+		padding: 0; // fix for IE8
 	}
 
 	&__item {
@@ -291,6 +295,11 @@
 				color: $iron-light;
 				content: '+';
 				left: $col;
+
+				@if $old-ie == true {
+					content: '';
+
+				}
 			}
 		}
 
