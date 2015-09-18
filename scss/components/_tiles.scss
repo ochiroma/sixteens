@@ -234,6 +234,11 @@
 			margin: 0 0 ($baseline * 2) 0;
 		}
 
+		&--hover {
+			background-color: $ship-gray;
+			color: $white;
+		}
+
 		&--image-type-headline {
 			// background-color: transparent;
 			padding: 0;
@@ -274,6 +279,12 @@
 						width: 100%;
 						height: auto;
 					}
+
+					&--hover {
+						background-color: $silver;
+						border-color: $ship-gray;
+					}
+
 				}
 			}
 
@@ -298,6 +309,11 @@
 						width: 100%;
 						height: auto;
 					}
+
+					&--hover {
+						background-color: $silver;
+						border-color: $ship-gray;
+					}
 				}
 			}
 		}
@@ -306,6 +322,11 @@
 			padding: ($baseline * 2) 0;
 			list-style: none;
 			margin-top: 0;
+
+			&-hover {
+				background-color: $ship-gray;
+			}
+
 		}
 		&--list-type-simple {
 			padding: ($baseline * 2) 0;
@@ -313,6 +334,12 @@
 			margin-top: -1px;
 			border-bottom: 1px solid $iron;
 			width: 100%;
+
+			&-hover {
+				background-color: $iron-light;
+				border-color: $abbey;
+			}
+
 		}
 		&--nav-type {}
 		&--nav-type-fixed {
@@ -326,6 +353,12 @@
 		font-size: 17px;
 		padding: 13px 0 11px 0;
 		// padding: 0 $col;
+
+		&--hover {
+			a {
+				color: $white;
+			}
+		}
 	}
 	&__title-h2 {
 		margin: 0;
@@ -340,6 +373,13 @@
 			font-size: 17px;
 			margin: 0;
 			padding: 13px $col 11px $col;
+
+			&-hover {
+
+				a {
+					color: $white;
+				}
+			}
 		}
 
 	}
@@ -348,15 +388,37 @@
 		margin: 0;
 		padding: 20px $col 4px $col;
 
+		&--hover {
+			a {
+				color: $white;
+			}
+		}
+
 		&--nav {
 			min-height: ($baseline * 10);
 			background-color: $gallery;
+
+			&-hover {
+				color: $white;
+				background-color: $nevada;
+
+				a {
+					color: $white;
+				}
+			}
 		}
 	}
 	&__title-h4 {
 		margin: 0;
 		padding: 6px $col 2px $col;
 		// position: relative;
+
+		&--hover {
+			a {
+				color: $white;
+			}
+		}
+
 	}
 	&__keynote {
 		padding: 7px 0 1px 0;
@@ -374,6 +436,16 @@
 			margin: 0;
 			padding: 13px $col 18px $col;
 			width: 100%;
+
+			&-hover {
+				background-color: $ship-gray;
+				border-color: $thunder;
+				color: $white;
+
+				a {
+					color: $white;
+				}
+			}
 
 			// ul {
 			// 	padding: 0;
@@ -428,6 +500,12 @@
 			border: $mercury 1px solid;
 			border-bottom: none;
 			margin-top: -1px;
+
+			&-hover {
+				background-color: $silver;
+				border-color: $ship-gray;
+			}
+
 		}
 		&--search-sparkline {
 			background-color: $white;
@@ -489,6 +567,12 @@
 		background-color: $iron-light;
 		border-top: 1px solid $iron;
 		margin-top: -1px;
+
+		&--hover {
+			background-color: $nevada;
+			border-color: $thunder;
+			color: $white;
+		}
 	}
 
 }
