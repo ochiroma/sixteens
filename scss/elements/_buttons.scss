@@ -10,22 +10,31 @@ button {
   display: inline-block;
   width: auto;
   cursor: pointer;
-  background-color: $matisse;
   padding: 7px $col 9px $col;
-  color: $white;
+
   border: 0 none;
   text-align: center;
   text-decoration: none;
 
+  &--primary {
+      background-color: $matisse;
+      color: $white;
+
+      &:hover,
+      &:focus {
+          background-color: $blumine;
+      }
+
+  }
+
 
   &--secondary {
-    color: $white;
     background-color: $abbey;
+    color: $white;
 
 
     &:hover,
     &:focus {
-      color: $white;
       background-color: $thunder;
     }
 
@@ -33,25 +42,44 @@ button {
       &--active {
         background-color: $salem;
 
-        &,
-        &:visited,
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: $salem;
             cursor: default;
         }
 
-        &:hover,
-        &:focus {
-          // background: darken($grey-light, 20%);
-          // background: radial-gradient(ellipse at center, darken(#d5d6d2, 10%) 0%, darken(#c8c9c4, 10%) 100%);
-        }
       }
+
       &--disabled,
       &--disabled:hover {
         color: $abbey;
         background-color: $iron;
         cursor: default;
       }
+
+  }
+
+  &--plain {
+      background-color: $white;
+      color: $matisse;
+
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+
+      &__active {
+          color: $base-text-colour;
+          cursor: default;
+
+          &:hover,
+          &:focus {
+            background-color: $white;
+            color: $base-text-colour;
+          }
+
+      }
+
   }
 
   &--small {
@@ -65,7 +93,7 @@ button {
       height: 24px; //fix for button tags
   }
 
-  &--thick{
+  &--thick {
       padding-top: 11px;
       padding-bottom: 13px;
   }
@@ -103,6 +131,7 @@ button {
     display: block;
   }
 
+
 }
 
 
@@ -133,15 +162,14 @@ button {
 
 .btn-group {
 
-
   .btn {
     float: left;
     margin: 0;
     border-right: 1px solid $iron;
 
-    &:last-child {
-        border: none;
-    }
+        &:last-child {
+            border: none;
+        }
 
     }
 
