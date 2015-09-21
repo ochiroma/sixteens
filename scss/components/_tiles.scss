@@ -346,6 +346,14 @@
 			padding: 0;
 			@include multiline-ellipsis(248px, $col, $mercury);
 
+			&-hover {
+
+				&:after {
+					background-color: $ship-gray;
+				}
+
+			}
+
 		}
 	}
 
