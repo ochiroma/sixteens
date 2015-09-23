@@ -1,15 +1,20 @@
 //_alert.scss
 
 .alert {
-	background: $abbey;
+	background-color: $abbey;
 	padding: ($baseline * 2) 0 ($baseline * 3) 0;
+  	color:	$iron-light;
 
-	&__content {
+  	&__title {
 		font-size: 21px;
 		line-height: 24px;
-		color:	$iron-light;
 		margin-top: 0;
 		margin-bottom: ($baseline * 1);
 		padding: 3px 0 5px 0;
+	}
+
+	&__content {
+		font-size: 14px;
+	  	margin: 0;
 	}
 }
