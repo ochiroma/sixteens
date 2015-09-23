@@ -1,0 +1,40 @@
+// _tabs.scss
+
+.tab {
+
+    background-color: $gallery;
+
+    &__item {
+
+        font-size: 17px;
+        padding: 21px 0 0 0;
+        height: ($baseline * 8);
+        //margin-right: $col;
+        display: block;
+
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            border-bottom: 3px solid $abbey;
+            text-decoration: none;
+        }
+
+        &--active {
+
+            border-bottom: 3px solid $abbey;
+            color: $abbey;
+
+            &:hover,
+            &:focus {
+                cursor: default;
+            }
+
+
+        }
+
+
+    }
+
+
+}
