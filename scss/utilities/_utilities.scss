@@ -191,3 +191,12 @@
 .placeholder {
 	display:none;
 }
+
+
+// overflow
+
+.overflow {
+    &--hidden {
+      overflow: hidden !important;
+    }
+}
