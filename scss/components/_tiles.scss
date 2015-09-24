@@ -375,6 +375,15 @@
 		&--nav {
 			min-height: ($baseline * 10);
 			background-color: $gallery;
+
+		  &-hover {
+			color: $white;
+			background-color: $nevada;
+
+			a {
+			  color: $white;
+			}
+		  }
 		}
 
 		&--home {
