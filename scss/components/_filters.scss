@@ -2,8 +2,6 @@
 
 .filters {
 
-    padding: 2px 0 6px 0;
-
     &__title {
         margin: 0;
     }
@@ -11,7 +9,9 @@
 
     &__field {
         padding: 7px 0 1px 0;
+        margin: 0;
     }
+
 
 
 }
