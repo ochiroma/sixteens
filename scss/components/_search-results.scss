@@ -1,0 +1,33 @@
+//_search results.scss
+
+.search-results {
+
+    float: left;
+
+    &__item {
+        margin: 0 0 ($baseline * 4) 0;
+
+    }
+
+    &__title {
+
+    }
+
+    &__meta {
+        padding: 0;
+        color: $salem;
+        font-size: 12px;
+        margin: 0;
+    }
+
+    &__summary {
+
+
+        p {
+            margin: 0;
+            padding: 6px 0 2px 0;
+        }
+
+    }
+
+}
