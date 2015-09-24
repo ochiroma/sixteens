@@ -441,9 +441,23 @@
 		&--nav {
 			background-color: $mercury;
 			border-top:1px solid $iron;
-			margin: 0;
-			padding: 13px $col 18px $col;
+			margin: -1px 0 0 0;
+			padding: $baseline $col ($baseline * 2) $col;
 			width: 100%;
+
+			h3,
+			h4 {
+				margin: 0;
+			}
+
+			p {
+				padding: 6px 0 2px 0;
+				margin: 0;
+			}
+
+			address {
+				padding: 7px 0 1px 0;
+			}
 
 			&-hover {
 				background-color: $ship-gray;
