@@ -7,6 +7,10 @@
 		margin-top: -1px;
 		padding-top: ($baseline * 3);
 		// padding-bottom: ($baseline * 3);
+
+		h2 {
+		  	font-size: 21px;
+		}
 	}
 
 	&__item {
@@ -23,6 +27,7 @@
 			border-right: 1px solid $iron;
 		}
 	}
+
 	&__image {
 		height: 48px;
 		float: left;
