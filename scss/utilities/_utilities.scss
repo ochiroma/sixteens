@@ -1,5 +1,18 @@
 //_utilities.scss
 
+
+
+//hiding
+
+// Hide from both screenreaders and browsers: h5bp.com/u
+.hidden {
+	display: none !important;
+	height: 0;
+	margin: 0;
+	visibility: hidden;
+}
+
+// Hide only visually, but have it available for screenreaders: h5bp.com/v
 .visuallyhidden {
 	position: absolute;
 	width: 1px;
@@ -9,6 +22,17 @@
 	border: 0;
 	overflow: hidden;
 	clip: rect(0 0 0 0);
+
+  	// Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p
+  	&.focusable:active,
+	&.focusable:focus {
+		position: static;
+		width: auto;
+		height: auto;
+		margin: 0;
+		overflow: visible;
+		clip: auto;
+	}
 }
 
 

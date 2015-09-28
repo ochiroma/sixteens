@@ -529,7 +529,7 @@
 }
 
 
-// Seconday navigation list
+// Secondary navigation list
 .secondary-nav {
 
 	@include breakpoint(sm) {
@@ -561,4 +561,23 @@
 		border-right: 1px solid $iron-light;
 	}
 
+}
+
+
+// Beta banner
+.skiplink {
+
+	&:focus {
+		position: relative !important;
+		top: 0;
+		right: 0;
+		left: 0;
+		z-index: 700;
+		display: block;
+		text-decoration: none;
+		border: 0;
+		outline: none;
+		padding: 6px 0 10px 0;
+		font-size: 14px;
+	}
 }
