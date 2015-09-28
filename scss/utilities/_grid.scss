@@ -55,7 +55,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 @mixin large-cols-complex {
   @for $i from 1 through $large-complex-grid-cols {
-  &--lg-#{$i} { 
+  &--lg-#{$i} {
   	width: $col * $i;
   	margin: 0;
    }
@@ -65,7 +65,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 @mixin medium-cols-complex {
   @for $i from 1 through $medium-complex-grid-cols {
-  &--md-#{$i} { 
+  &--md-#{$i} {
   	width: $col * $i;
   	margin: 0;
   }
@@ -96,14 +96,14 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		padding: 0;
 	}
 
-	
+
 }
 
 
 .col-wrap{
 	overflow: hidden;
 	width: 100%;
-	
+
 
 	@include breakpoint(md) {
 		width: ($medium + $gutter);
@@ -115,18 +115,25 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		margin-left: -$gutter;
 	}
 
-	
+
 }
 
 .col-span {
 	&--lg {
 		@include breakpoint(lg) {
 			&-thirds {
-				.col { 
+				.col {
 					&:nth-child(3n+4) {
 	      				clear: left;
 	      			}
 	  			}
+			}
+			&-half {
+				.col {
+					&:nth-child(2n+3) {
+						clear:left;
+					}
+				}
 			}
 		}
 	}
@@ -134,7 +141,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 	&--md {
 		@include breakpoint(md) {
 			&-thirds {
-				.col { 
+				.col {
 					&:nth-child(3n+4) {
 	      				clear: left;
 	      			}
@@ -204,7 +211,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 			}
 		}
 
-		//call complex cols last so the css gets generated last and they take precedence 
+		//call complex cols last so the css gets generated last and they take precedence
 		@include medium-cols-complex;
 
 	}
@@ -251,13 +258,13 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 				margin: 0;
 			}
 		}
-		
 
-		//call complex cols last so the css gets generated last and they take precedence 
+
+		//call complex cols last so the css gets generated last and they take precedence
 		@include large-cols-complex;
 
 	}
-	
+
 
 
 	// &--padded { padding: $baseline $gutter; }
@@ -265,4 +272,3 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 
 //--[classes end]--
-
