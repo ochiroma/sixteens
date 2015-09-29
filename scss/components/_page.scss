@@ -40,3 +40,12 @@
 	}
 	&-footer {}
 }
+
+.highlighted {
+
+	&-wrap {
+		border-top: 1px solid $iron;
+		margin-top: -1px;
+	}
+
+}
