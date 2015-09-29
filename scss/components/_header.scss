@@ -97,7 +97,7 @@
 			}
 
 			& > a {
-				color: $iron-light;
+				color: $white;
 			}
 		}
 
@@ -440,7 +440,7 @@
 		font-weight: $base-font-weight;
 		line-height: $base-line-height;
 		font-size: 17px;
-		color: $iron-light;
+		color: $white;
 		border: none;
 		padding: 4px $col 4px $col;
 		background-color: $matisse;
@@ -568,7 +568,6 @@
 		z-index: 700;
 		display: block;
 		border: 0;
-		outline: none;
 		padding: 6px 0 10px 0;
 		font-size: 14px;
 	}
