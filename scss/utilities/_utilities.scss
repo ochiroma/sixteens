@@ -51,8 +51,14 @@
 			margin-top: ($baseline * 4) !important;
 		}
 
-		&--tripple {
+		&--triple {
 			margin-top: ($baseline * 6) !important;
+
+			&-lg {
+				@include breakpoint(lg) {
+					margin-top: ($baseline * 6) !important;
+				}
+			}
 		}
 	}
 
