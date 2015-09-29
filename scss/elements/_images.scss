@@ -7,3 +7,14 @@ a img {
 .image-responsive {
   width: 100%;
 }
+
+
+// Accessibility fixes
+//a:focus > img {
+//    outline: $matisse dotted 1px;
+//}
+//
+//a:focus > img.main-logo {
+//    outline: $matisse dotted 1px;
+//    margin: 2px 0 2px 0; //without extra margin outline doesn't show
+//}
