@@ -72,6 +72,22 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
  }
 }
 
+@mixin large-cols-offset {
+  @for $i from 1 through $large-complex-grid-cols {
+  &--lg-offset-#{$i} {
+  	margin-left: $col * $i;
+   }
+  }
+}
+
+@mixin medium-cols-offset {
+  @for $i from 1 through $large-complex-grid-cols {
+  &--md-offset-#{$i} {
+  	margin-left: $col * $i;
+   }
+  }
+}
+
 //--[mixins end]--
 
 
@@ -213,6 +229,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 		//call complex cols last so the css gets generated last and they take precedence
 		@include medium-cols-complex;
+		@include medium-cols-offset;
 
 	}
 
@@ -262,6 +279,7 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 		//call complex cols last so the css gets generated last and they take precedence
 		@include large-cols-complex;
+		@include large-cols-offset;
 
 	}
 
