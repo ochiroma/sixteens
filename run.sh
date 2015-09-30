@@ -1,1 +1,1 @@
-python -m SimpleHTTPServer 9000
+npm install && python -m SimpleHTTPServer 9000
