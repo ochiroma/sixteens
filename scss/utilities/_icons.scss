@@ -1,7 +1,73 @@
 //_icons.scss
 
-//For use in unique situations where icons are automatically added but not wanted and a global solution isn't viable
-.hide-icon:after, .hide-icon:before {
-  content: "" !important;
-  display: none !important;
+
+.icon {
+	display: inline-block;
+	background:url('../img/icon-sprite.png') no-repeat;
+	height: 32px;
+	width: 40px; //Should be 32px but compensating for calendar icon being too wide
+
+	&-arrow-up {
+		background-position: -16px 2px;
+
+		&--light {
+			background-position: -80px 2px;
+		}
+	}
+
+	&-arrow-down {
+		background-position: -16px -34px;
+
+		&--light {
+			background-position: -80px -34px;
+		}
+	}
+
+	&-print {
+		background-position: -16px -80px;
+
+		&--light {
+			background-position: -80px -80px;
+		}
+	}
+
+	//TODO External icon 1px to0 low
+	&-external {
+		background-position: -16px -130px;
+
+		&--light {
+			background-position: -80px -130px;
+		}
+	}
+
+	&-download {
+		background-position: -16px -178px;
+
+		&--light {
+			background-position: -80px -178px;
+		}
+	}
+
+	//TODO Calendar icon 1px too wide
+	&-calendar {
+		background-position: -16px -218px;
+
+		&--light {
+			background-position: -80px -218px;
+		}
+	}
+
+	&-rss {
+		background-position: -16px -274px;
+
+		&--light {
+			background-position: -80px -274px;
+		}
+	}
 }
+
+//For use in unique situations where icons are automatically added but not wanted and a global solution isn't viable
+//.hide-icon:after, .hide-icon:before {
+//  content: "" !important;
+//  display: none !important;
+//}
