@@ -61,7 +61,7 @@
 
 			@include breakpoint(md) {
 				background-color: $thunder;
-				color: $iron-light;
+				color: $white;
 				text-decoration: none;
 				left: auto; //resets child-items to appear on-screen
 				top: 224px;
@@ -78,7 +78,7 @@
             @include breakpoint(md) {
                 border-left: 1px solid $thunder;
                 background-color: $thunder;
-                color: $iron-light;
+                color: $white;
                 text-decoration: none;
             }
         }
@@ -174,7 +174,7 @@
 
 	&__child-link {
 		display: block;
-		color: $iron-light;
+		color: $white;
 
 		@include breakpoint(sm) {
 			height: 48px;
@@ -455,11 +455,22 @@
 // BETA BANNER
 
 .beta-banner {
-	background-color: #F93;
+	background-color: $beta;
 
-	&__para {
+	&__content {
 		margin: 0;
 		padding: 7px 0 9px 0;
+
+		& > a {
+			color: $ship-gray;
+			text-decoration: underline;
+
+			&:hover,
+			&:focus {
+				color: $thunder;
+			}
+
+		}
 	}
 
 }
@@ -484,7 +495,6 @@
 	@include breakpoint(md) {
 		height: 39px;
 	    margin-top: 2px;
-		//width: 246px;
 	}
 }
 
