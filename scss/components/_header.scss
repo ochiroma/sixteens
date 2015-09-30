@@ -20,7 +20,7 @@
 
 	&__list {
 		list-style: none;
-		padding-left: 0;
+		//padding-left: 0;
 		margin: 0;
 		overflow: hidden;
 
@@ -167,17 +167,6 @@
 		margin: 0;
 		padding: 0;
 
-		@include breakpoint(md) {
-
-			&:hover {
-				background-color: $iron;
-
-				& > a {
-					color: $abbey;
-				}
-			}
-		}
-
 		&--active {
 			background-color: $salem;
 		}
@@ -195,8 +184,11 @@
 		@include breakpoint(md) {
 			padding: 15px 0 9px $col;
 
-			&:hover {
+			&:hover,
+			&:focus {
+				background-color: $iron;
 				text-decoration: none;
+				color: $abbey;
 			}
 		}
 	}
