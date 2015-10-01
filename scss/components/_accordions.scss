@@ -31,15 +31,32 @@
 
   	&.is-collapsed {
 
-  		.accordion__content {
+  		.accordion__content,
+		.icon-arrow-up {
 			display: none;
+		}
+
+		.icon-arrow-down {
+			display: block;
+			float: right;
 		}
 	}
 
 	&.is-expanded {
+
 		.accordion__content {
 			display: block;
 		}
+
+		.icon-arrow-up {
+			display: block;
+			float: right;
+		}
+		
+		.icon-arrow-down {
+			display: none;
+		}
+
 	}
 
 }
