@@ -45,7 +45,7 @@
 			float: left;
 			height: ($baseline * 14);
 
-				&:last-child a {
+				&:nth-child(6) a {
 				border-right: 1px solid $thunder;
 			}
 		}
