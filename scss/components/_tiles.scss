@@ -380,6 +380,11 @@
 			}
 
 		}
+
+
+		@if $old-ie == true {
+			margin: 0 0 ($baseline * 2) $col;
+		}
 	}
 
 	&__title-dt {
