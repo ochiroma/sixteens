@@ -1,5 +1,24 @@
 //_inputs-and-labels.scss
 
+
+// RESET FIELDSET AND LEGEND - credit to http://thatemil.com/blog/2015/01/03/reset-your-fieldset/
+legend {
+	padding: 0;
+	display: table;
+}
+
+fieldset {
+	border: 0;
+	padding: 0.01em 0 0 0;
+	margin: 0;
+	min-width: 0;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+	display: table-cell;
+}
+
+
 label {
     //Attempt to fix inputs not taking font size and family
     font-family: "Open Sans", sans-serif;
