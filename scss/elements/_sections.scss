@@ -1,99 +1,106 @@
 section {
-  padding-bottom: $baseline * 6;
+	padding-bottom: $baseline * 6;
 }
 
 .section {
 
-  &__title {
-    margin-top: $baseline * 6;
-    margin-bottom: 0;
-  }
+	&__title {
+		margin-top: $baseline * 6;
+		margin-bottom: 0;
+	}
 
-  &__subtitle {
+	&__subtitle {
 
-    margin-top: $col;
-    margin-bottom: $baseline;
+		margin-top: $col;
+		margin-bottom: $baseline;
 
-  }
+	}
 
-  &__content {
+	&__content {
 
-    &-number {
+		&-number {
 
-      position: relative;
-      margin-left: ($col * -3);
-      //padding-left: 6px;
-      //width: ($col * 3);
-      display: block;
-      float: left;
+			position: relative;
+			margin-left: ($col * -3);
+			//padding-left: 6px;
+			//width: ($col * 3);
+			display: block;
+			float: left;
 
-    }
+		}
 
-    &--markdown {
-      padding: 0 0 0 ($col * 3);
-      @include breakpoint(lg) {
-    		margin-right: ($col * 4);
-    	}
+		&--markdown {
+			padding: 0 0 0 ($col * 3);
+			@include breakpoint(lg) {
+				margin-right: ($col * 4);
+			}
 
-      position: relative;
+			position: relative;
 
 
-      p {
-        margin-top: 0;
-      }
+			p {
+				margin-top: 0;
+			}
 
-      ul {
-        margin-top: 0;
-      }
+			ul {
+				margin-top: 0;
+			}
 
-      img {
-        width: 100%;
-      }
+			img {
+				width: 100%;
+			}
 
-      li {
-        margin: 0;
-        // padding: $baseline 0 $baseline $col;
+			li {
+				margin: 0;
+				// padding: $baseline 0 $baseline $col;
 
-        p {
-          margin: 0;
-          padding: 0;
-        }
 
-      }
+				// li with only one p shouldn't have padding (spacing looks excessive)
+				p:first-of-type {
+					margin: 0;
+					padding: 0;
+				}
 
-      .markdown-chart-container, .markdown-table-container {
-        border-left: solid $col $mercury;
-        padding-left: $col;
-        margin-bottom: ($baseline * 4);
+				// to offset above styling second p in an li should have extra margin on the top (giving it the same styling as an ordinary p)
+				p:nth-of-type(2) {
+					@extend p;
+					margin-top: ($baseline * 2);
+				}
 
-          ol {
-            margin-top: 0;
-            counter-reset: toc;
+			}
 
-          }
+			.markdown-chart-container, .markdown-table-container {
+				border-left: solid $col $mercury;
+				padding-left: $col;
+				margin-bottom: ($baseline * 4);
 
-          li {
-            list-style: none;
-            position: relative;
+				ol {
+					margin-top: 0;
+					counter-reset: toc;
+				}
 
-            &:before {
-              content: counter(toc) ". ";
-              counter-increment: toc;
-              position: absolute;
-              left: -$col;
-            }
-          }
+				li {
+					list-style: none;
+					position: relative;
 
-      }
+					&:before {
+						content: counter(toc) ". ";
+						counter-increment: toc;
+						position: absolute;
+						left: -$col;
+					}
+				}
 
-    }
+			}
 
-    &--static-markdown {
-        @extend .section__content--markdown;
-        padding-left: 0;
+		}
 
-    }
+		&--static-markdown {
+			@extend .section__content--markdown;
+			padding-left: 0;
 
-  }
+		}
+
+	}
 
 }
