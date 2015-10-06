@@ -8,53 +8,65 @@
 	margin-bottom: -2px;
 	padding-bottom: 0;
 
-	//Keeping 'title' so JS from old PL still works. Should be element; heading
+
+	//Keeping 'title' so JS from old PL still works.
 	&__title {
 		margin: 0;
-		padding: 11px 0 13px 0;
+		padding: 11px 32px 13px 0;
 		cursor: pointer;
 		cursor: hand; //IE8 fix
 	}
 
-	&__icon {
-		float: right;
-	}
 
 	&:first-of-type {
     	border-top: 2px solid $iron;
     	margin-top: ($baseline * 2)-2px;
   	}
 
+
   	&:last-of-type {
   		margin-bottom: $baseline * 2;
   	}
 
+
   	&.is-collapsed {
 
-  		.accordion__content,
-		.icon-arrow-up {
-			display: none;
+		.accordion__title {
+
+			// Arrow icon
+			&:after {
+				position: absolute;
+				right: 0;
+				top: 10px;
+				content: "";
+				@extend .icon;
+				@extend .icon-arrow-down;
+			}
 		}
 
-		.icon-arrow-down {
-			display: block;
-			float: right;
+  		.accordion__content {
+			display: none;
 		}
 	}
 
+
 	&.is-expanded {
+
+		.accordion__title {
+
+			// Arrow icon
+			&:after {
+				position: absolute;
+				right: 0;
+				top: 10px;
+				content: "";
+				@extend .icon;
+				@extend .icon-arrow-up;
+			}
+		}
 
 		.accordion__content {
 			display: block;
-		}
-
-		.icon-arrow-up {
-			display: block;
-			float: right;
-		}
-		
-		.icon-arrow-down {
-			display: none;
 		}
 
 	}
