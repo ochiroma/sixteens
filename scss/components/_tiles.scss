@@ -402,6 +402,15 @@
 		margin: 0;
 		padding: 20px $col 4px $col;
 
+		&--hover {
+			color: $white;
+			background-color: $ship-gray;
+
+			a {
+				color: $white;
+			}
+		}
+
 		&--nav {
 			min-height: ($baseline * 10);
 			background-color: $gallery;
@@ -476,6 +485,16 @@
 		padding: 0 $col $col $col;
 		overflow: hidden;
 		// display: inline-block;
+
+		&--hover {
+			background-color: $ship-gray;
+			border-color: $thunder;
+			color: $white;
+
+			a {
+				color: $white;
+			}
+		}
 
 		&--nav {
 			background-color: $mercury;
