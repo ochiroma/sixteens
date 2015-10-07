@@ -2,16 +2,21 @@
 
 .flexbox {
 
-	// Direct children become same height
-	&__wrap {
+	//Children all same height
+	&__item {
 		display: flex;
-		display: -webkit-flex;
 
-		// Makes child grow to fit all free space
-		& > .flexbox__item {
-			flex: 1 0 auto;
+		&--column {
+			display: flex;
+			flex-direction: column;
 		}
+	}
 
+	&__bottom {
+		//display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
+		//flex: 1 0 auto;
 	}
 
 }
