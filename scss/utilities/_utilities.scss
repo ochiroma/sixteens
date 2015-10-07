@@ -49,6 +49,10 @@
 .margin {
 
 	&-top {
+
+		&--negative-one-fix {
+			margin-top: -1px !important;
+		}
 		margin-top: ($baseline * 2) !important;
 
 		&--half {
