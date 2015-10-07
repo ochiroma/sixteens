@@ -690,10 +690,14 @@
 			display: block;
 		}
 	}
-	&__label {
+	&__dl {
+		margin-top: -1px;
+	}
+
+	&__dt {
 		float: left;
-  	clear: left;
-  	width: auto;
+		clear: left;
+		width: auto;
 
 		&:after {
 			content: "\00a0";
