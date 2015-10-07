@@ -38,6 +38,12 @@
 			}
 		}
 
+		&--border-left-lg {
+			@include breakpoint(lg) {
+				border-left: 1px solid $iron;
+			}
+		}
+
 		&__title {
 			margin: 0 0 0 0;
 		}
