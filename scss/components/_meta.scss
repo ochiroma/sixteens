@@ -11,6 +11,17 @@
 		h2 {
 		  	font-size: 21px;
 		}
+
+		address {
+			padding: 6px 0 2px 0;
+		}
+
+		&--gallery {
+			background: $gallery;
+			border-top: 1px solid $iron;
+			margin-top: -1px;
+			position: relative;
+		}
 	}
 
 	&__item {
@@ -33,4 +44,5 @@
 		float: left;
 		margin-right: 16px;
 	}
+
 }
