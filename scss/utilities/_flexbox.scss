@@ -1,0 +1,17 @@
+// flexbox.scss
+
+.flexbox {
+
+	// Direct children become same height
+	&__wrap {
+		display: flex;
+		display: -webkit-flex;
+
+		// Makes child grow to fit all free space
+		& > .flexbox__item {
+			flex: 1 0 auto;
+		}
+
+	}
+
+}
