@@ -128,36 +128,22 @@ button {
   }
 
   &--block {
-    display: block;
+      display: block;
   }
 
 
+    &--simple {
+        padding: 10px 0 6px 0;
+        color: $matisse;
+        background-color: transparent;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+    }
+
 }
-
-
-
-// .btn--primary {
-//   font-family: $font-bold;
-//   color: $white;
-//   background: $link-color;
-//
-//   &:visited {
-//     color: $white;
-//   }
-//
-//   &:hover,
-//   &:focus {
-//     color: $white;
-//     background-color: darken($link-color, 12.5%);
-//   }
-//
-//   &:focus {
-//     box-shadow: 0 0 9px 3px $orange;
-//   }
-// }
-
-
-
 
 
 .btn-group {
