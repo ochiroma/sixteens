@@ -5,8 +5,8 @@
   "main": "",
   "scripts": {
     "clean": "",
-    "build-css": "mkdir -pv dist/css  && ./node_modules/npm-sass/bin/npm-sass ./scss/main.scss > ./dist/css/main.css",
-    "build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/npm-sass/bin/npm-sass ./scss/old-ie.scss > ./dist/css/old-ie.css",
+    "build-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css",
+    "build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css",
     "postinstall": "npm run build-css && npm run build-old-ie-css"
   },
   "repository": {
@@ -15,6 +15,6 @@
   },
   "license": "Open Government License v2.0",
   "dependencies": {
-    "npm-sass": "latest"
+    "node-sass": "latest"
   }
 }
