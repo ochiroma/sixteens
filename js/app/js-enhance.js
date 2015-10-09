@@ -49,6 +49,7 @@ $(function() {
         jsEnhanceMobileTables();
 
 		jsEnhanceRemoveFocus();
+		jsEnhanceChartFocus();
 
         // prototypeModalButtons();
 
@@ -648,5 +649,31 @@ $(function() {
 		//run function on all elements/classes that have a focus state
 		removeFocus("a");
 		removeFocus(".accordion__title");
+		removeFocus(".timeseries__chart");
 	}
+
+	function jsEnhanceChartFocus() {
+
+		$('.btn--chart-control input').focusin(function() {
+			//console.log('hello');
+
+			var inputGroup = $(this).closest('.btn-group');
+			console.log(inputGroup);
+
+			$(inputGroup).addClass('input--focus');
+
+			$(inputGroup).focus();
+
+		});
+
+		$('.btn--chart-control input').focusout(function() {
+			var inputGroup = $(this).closest('.btn-group');
+			console.log("focus out");
+
+			$(inputGroup).removeClass('input--focus');
+
+		});
+
+	}
+
 });

@@ -46,6 +46,16 @@ label {
     height: 32px;
     border: 1px solid $iron;
     padding: ($baseline) ($col / 2);
+
+	&--focus {
+		outline: 1px dashed $nevada;
+		outline-offset: -1px;
+
+		//box-shadow: 0px 0px 6px 5px $nevada;
+		//-webkit-box-shadow: 0px 0px 6px 5px $nevada;
+		//-moz-box-shadow: 0px 1px 3px $abbey;
+
+	}
 }
 
 .select {
