@@ -38,82 +38,153 @@
 
 // margins
 
-@mixin margins {
-  @for $i from 1 through 8 { //
-  &-top-lg--#{$i} {
-  	margin-top: ($baseline * $i) !important;
-   }
-  }
+@mixin margins-util {
+    .margin {
+        @for $i from 1 through 8 { //
+            &-top {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-top: ($baseline * $i) !important;
+                    }
+                }
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-top: ($baseline * $i) !important;
+                    }
+                }
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
+                        margin-top: ($baseline * $i) !important;
+                    }
+                }
+            }
+            &-bottom {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-bottom: ($baseline * $i) !important;
+                    }
+                }
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-bottom: ($baseline * $i) !important;
+                    }
+                }
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
+                        margin-bottom: ($baseline * $i) !important;
+                    }
+                }
+            }
+        }
+
+        @for $i from 1 through 59 { //
+            &-left {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-left: ($col * $i) !important;
+                    }
+                }
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-left: ($col * $i) !important;
+                    }
+                }
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
+                        margin-left: ($col * $i) !important;
+                    }
+                }
+            }
+            &-right {
+                @include breakpoint(lg) {
+                    &-lg--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+                @include breakpoint(md) {
+                    &-md--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+                @include breakpoint(sm) {
+                    &-sm--#{$i} {
+                        margin-right: ($col * $i) !important;
+                    }
+                }
+            }
+        }
+    }
 }
+
 
 .margin {
 
-	&-top {
+    &-top {
 
-		&--negative-one-fix {
-			margin-top: -1px !important;
-		}
-		margin-top: ($baseline * 2) !important;
+        &--negative-one-fix {
+            margin-top: -1px !important;
+        }
+        margin-top: ($baseline * 2) !important;
 
-		&--half {
-			margin-top: ($baseline) !important;
-		}
+        &--half {
+            margin-top: ($baseline) !important;
+        }
 
-		&--double {
-			margin-top: ($baseline * 4) !important;
-		}
+        &--double {
+            margin-top: ($baseline * 4) !important;
+        }
 
-		&--triple {
-			margin-top: ($baseline * 6) !important;
+        &--triple {
+            margin-top: ($baseline * 6) !important;
 
-			&-lg {
-				@include breakpoint(lg) {
-					margin-top: ($baseline * 6) !important;
-				}
-			}
-		}
-	}
+            &-lg {
+                @include breakpoint(lg) {
+                    margin-top: ($baseline * 6) !important;
+                }
+            }
+        }
+    }
 
-	&-right {
-		margin-right: $col !important;
+    &-right {
+        margin-right: $col !important;
 
-		&--half {
-			margin-right: ($col / 2) !important;
-		}
+        &--half {
+            margin-right: ($col / 2) !important;
+        }
 
-		&--double {
-			margin-right: ($col * 2) !important;
-		}
-	}
+        &--double {
+            margin-right: ($col * 2) !important;
+        }
+    }
 
-	&-bottom {
-		margin-bottom: ($baseline * 2) !important;
+    &-bottom {
+        margin-bottom: ($baseline * 2) !important;
 
-		&--half {
-			margin-bottom: ($baseline) !important;
-		}
+        &--half {
+            margin-bottom: ($baseline) !important;
+        }
 
-		&--double {
-			margin-bottom: ($baseline * 4) !important;
-		}
-	}
+        &--double {
+            margin-bottom: ($baseline * 4) !important;
+        }
+    }
 
-	&-left {
-		margin-left: $col !important;
+    &-left {
+        margin-left: $col !important;
 
-		&--half {
-			margin-left: ($col / 2) !important;
-		}
-		&--double {
-			margin-left: ($col * 2) !important;
-		}
-	}
-
-	@include breakpoint(lg) {
-		@include margins;
-	}
+        &--half {
+            margin-left: ($col / 2) !important;
+        }
+        &--double {
+            margin-left: ($col * 2) !important;
+        }
+    }
 
 }
+
+@include margins-util;
+
+
 
 .flush {
 	margin: 0 !important;
