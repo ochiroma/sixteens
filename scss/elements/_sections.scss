@@ -83,7 +83,7 @@ section {
 				margin-bottom: ($baseline * 4);
 
 				ol {
-					margin-top: 0;
+					margin: 0;
 					counter-reset: toc;
 				}
 
@@ -106,6 +106,10 @@ section {
 		&--static-markdown {
 			@extend .section__content--markdown;
 			padding-left: 0;
+
+			ol {
+				margin: $col 0 $col $col;
+			}
 
 		}
 
