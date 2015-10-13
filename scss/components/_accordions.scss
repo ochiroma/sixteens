@@ -41,7 +41,7 @@
 				top: 10px;
 				content: "";
 				@extend .icon;
-				@extend .icon-arrow-down;
+				@extend .icon-arrow-down--dark;
 			}
 		}
 
@@ -62,7 +62,7 @@
 				top: 10px;
 				content: "";
 				@extend .icon;
-				@extend .icon-arrow-up;
+				@extend .icon-arrow-up--dark;
 			}
 		}
 
