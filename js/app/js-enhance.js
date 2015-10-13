@@ -642,29 +642,68 @@ $(function() {
 		//function to remove focus on click
 		function removeFocus(elem) {
 			$(elem).click(function() {
+				//var target =  "#" + $(this).attr("for");
+				//console.log("clicked = "+this);
+				//console.log("target = "+target);
+
 				this.blur();
 			});
 		}
 
-		//run function on all elements/classes that have a focus state
+		//run function on following elements/classes that have a focus state
 		removeFocus("a");
 		removeFocus(".accordion__title");
 		removeFocus(".timeseries__chart");
-		removeFocus(".btn--chart-control input");
 	}
+
 
 	//Adds focus to highcharts filters when tabbed through
 	function jsEnhanceChartFocus() {
+		//TODO Javascript considers arrow keydowns as a 'click' so can't use normal removeFocus function to stop focus on click (it breaks keyboard navigation by adding blur on arrow keydown).
 
-		$('.btn--chart-control input').focusin(function() {
-			var radioGroup = $(this).closest('div[role="radiogroup"]');
-			$(radioGroup).addClass('input--focus');
-		});
+		//$('.btn--chart-control input').focusin(function() {
+		//	var radioGroup = $(this).closest('div[role="radiogroup"]');
+		//	$(radioGroup).addClass('input--focus');
+		//});
+		//
+		//$('.btn--chart-control input').focusout(function() {
+		//	var radioGroup = $(this).closest('div[role="radiogroup"]');
+		//	$(radioGroup).removeClass('input--focus');
+		//});
 
-		$('.btn--chart-control input').focusout(function() {
-			var radioGroup = $(this).closest('div[role="radiogroup"]');
-			$(radioGroup).removeClass('input--focus');
-		});
+
+		//Attempt to fix this problem but detects click as keyboard arrow click after you've focussed on it via keyboard
+
+		//var leftArrow = 37;
+		//var upArrow = 38;
+		//var rightArrow = 39;
+		//var downArrow = 40;
+		//
+		//$('.btn--chart-control input').keydown(function(e){
+		//
+		//	//detect whether input has been focused on using mouse or keyboard
+		//	var keydownType = e.keyCode;
+		//	console.log("keycode = " + keydownType);
+		//
+		//	//if triggered by arrow keys from keyboard run functions to add class on focus
+		//	if (keydownType == leftArrow || keydownType == rightArrow) {
+		//
+		//		$('.btn--chart-control input').focusin(function() {
+		//
+		//			console.log("Keyboardy");
+		//			var radioGroup = $(this).closest('div[role="radiogroup"]');
+		//			$(radioGroup).addClass('input--focus');
+		//		});
+		//
+		//		$('.btn--chart-control input').focusout(function() {
+		//			var radioGroup = $(this).closest('div[role="radiogroup"]');
+		//			$(radioGroup).removeClass('input--focus');
+		//		});
+		//
+		//	} else {
+		//		console.log("Clicky");
+		//	}
+		//});
 
 	}
 
