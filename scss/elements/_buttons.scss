@@ -14,7 +14,7 @@ button {
 
   border: 0 none;
   text-align: center;
-  text-decoration: none;
+  text-decoration: none !important;
 
   &--primary {
       background-color: $matisse;
