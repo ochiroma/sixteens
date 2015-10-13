@@ -1,9 +1,9 @@
 //progressive enhancement (jQuery)
 
 $(function() {
-// jQuery(window).load(function() {
+    // jQuery(window).load(function() {
 
-    var browserNotSupported = (function () {
+    var browserNotSupported = (function() {
         var div = document.createElement('DIV');
         // http://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx
         div.innerHTML = '<!--[if lte IE 7]><I></I><![endif]-->';
@@ -33,11 +33,11 @@ $(function() {
         jsEnhanceSparkline();
         jsEnhancePrint();
         jsEnhanceNumberSeparator();
-        jsEnhanceMarkdownCharts();
 
         jsEnhancePrintCompendium();
         jsEnhanceBoxHeight();
         jsEnhanceBoxHeightResize();
+        jsEnhanceMarkdownCharts();
         //jsEnhanceTriggerAnalyticsEvent();
         jsEnhanceDownloadAnalytics();
         jsEnhanceAnchorAnalytics();
@@ -48,8 +48,8 @@ $(function() {
 
         jsEnhanceMobileTables();
 
-		jsEnhanceRemoveFocus();
-		jsEnhanceChartFocus();
+        jsEnhanceRemoveFocus();
+        jsEnhanceChartFocus();
 
         // prototypeModalButtons();
 
@@ -60,8 +60,8 @@ $(function() {
 
         // set jsEnhanced cookie for server side optimisations.
         var expires = new Date();
-        expires.setDate(expires.getDate() + (10*365)); // 10 years
-        document.cookie='jsEnhanced=true;expires=' + expires.toUTCString() + ';path=/';
+        expires.setDate(expires.getDate() + (10 * 365)); // 10 years
+        document.cookie = 'jsEnhanced=true;expires=' + expires.toUTCString() + ';path=/';
 
 
         setTimeout(function() {
@@ -123,60 +123,60 @@ $(function() {
     }
 
     function jsEnhanceClickableDiv() {
-      // get any content with clickable-wrap class
-      var clickableDiv = $('.clickable-wrap');
-      var hoverHashTable = {};
-      hoverHashTable['tiles__item'] = ['tiles__item--hover'];
-      hoverHashTable['tiles__item--list-type'] = ['tiles__item--list-type-hover'];
-      hoverHashTable['tiles__item--list-type-simple'] = ['tiles__item--list-type-simple-hover'];
-      hoverHashTable['tiles__item--nav-type-fixed'] = ['tiles__item--nav-type-fixed-hover'];
-      hoverHashTable['tiles__content'] = ['tiles__content--hover'];
-      hoverHashTable['sparkline-holder'] = ['sparkline-holder--hover'];
-      hoverHashTable['image-holder'] = ['image-holder--hover'];
-      hoverHashTable['tiles__image--headline'] = ['tiles__image--headline-hover'];
-      hoverHashTable['tiles__image--headline-sparkline'] = ['tiles__image--headline-sparkline-hover'];
-      hoverHashTable['tiles__title-dt'] = ['tiles__title-dt--hover'];
-      hoverHashTable['tiles__title-h3'] = ['tiles__title-h3--hover'];
-      hoverHashTable['tiles__title-h2'] = ['tiles__title-h2--hover'];
-      hoverHashTable['tiles__title-h2--home'] = ['tiles__title-h2--home-hover'];
-      hoverHashTable['tiles__title-h3--nav'] = ['tiles__title-h3--nav-hover'];
-      hoverHashTable['tiles__title-h2--nav'] = ['tiles__title-h2--nav-hover'];
-      hoverHashTable['tiles__title-h4'] = ['tiles__title-h4--hover'];
-      hoverHashTable['tiles__content'] = ['tiles__content--hover'];
-      hoverHashTable['tiles__content--nav'] = ['tiles__content--nav-hover'];
-      hoverHashTable['tiles__extra'] = ['tiles__extra--hover'];
-      hoverHashTable['tiles__image--search-sparkline'] = ['tiles__image--search-sparkline-hover'];
+        // get any content with clickable-wrap class
+        var clickableDiv = $('.clickable-wrap');
+        var hoverHashTable = {};
+        hoverHashTable['tiles__item'] = ['tiles__item--hover'];
+        hoverHashTable['tiles__item--list-type'] = ['tiles__item--list-type-hover'];
+        hoverHashTable['tiles__item--list-type-simple'] = ['tiles__item--list-type-simple-hover'];
+        hoverHashTable['tiles__item--nav-type-fixed'] = ['tiles__item--nav-type-fixed-hover'];
+        hoverHashTable['tiles__content'] = ['tiles__content--hover'];
+        hoverHashTable['sparkline-holder'] = ['sparkline-holder--hover'];
+        hoverHashTable['image-holder'] = ['image-holder--hover'];
+        hoverHashTable['tiles__image--headline'] = ['tiles__image--headline-hover'];
+        hoverHashTable['tiles__image--headline-sparkline'] = ['tiles__image--headline-sparkline-hover'];
+        hoverHashTable['tiles__title-dt'] = ['tiles__title-dt--hover'];
+        hoverHashTable['tiles__title-h3'] = ['tiles__title-h3--hover'];
+        hoverHashTable['tiles__title-h2'] = ['tiles__title-h2--hover'];
+        hoverHashTable['tiles__title-h2--home'] = ['tiles__title-h2--home-hover'];
+        hoverHashTable['tiles__title-h3--nav'] = ['tiles__title-h3--nav-hover'];
+        hoverHashTable['tiles__title-h2--nav'] = ['tiles__title-h2--nav-hover'];
+        hoverHashTable['tiles__title-h4'] = ['tiles__title-h4--hover'];
+        hoverHashTable['tiles__content'] = ['tiles__content--hover'];
+        hoverHashTable['tiles__content--nav'] = ['tiles__content--nav-hover'];
+        hoverHashTable['tiles__extra'] = ['tiles__extra--hover'];
+        hoverHashTable['tiles__image--search-sparkline'] = ['tiles__image--search-sparkline-hover'];
 
-      // on click grab the first link of the content and go there
-      $(clickableDiv).click(function() {
-        var link = $('a:first', this).attr('href');
-        window.location = link;
-      });
+        // on click grab the first link of the content and go there
+        $(clickableDiv).click(function() {
+            var link = $('a:first', this).attr('href');
+            window.location = link;
+        });
 
-      // on hover change the cursor so that it looks clickable
-      $(clickableDiv).css({
-          'cursor': 'pointer'
-      });
+        // on hover change the cursor so that it looks clickable
+        $(clickableDiv).css({
+            'cursor': 'pointer'
+        });
 
         //add class to change background colour
         function addHoverClass(elem) {
             $.each(hoverHashTable, function(className, hoverClassName) {
-                $(elem).find('.'+className).addClass(hoverClassName[0]);
+                $(elem).find('.' + className).addClass(hoverClassName[0]);
             });
         }
 
         //remove class to toggle background to origin colour
         function removeHoverClass(elem) {
             $.each(hoverHashTable, function(className, hoverClassName) {
-                $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
+                $(elem).find('.' + hoverClassName[0]).removeClass(hoverClassName[0]);
             });
         }
 
         // change the background colour on hover
-        $(clickableDiv).hover(function () {
+        $(clickableDiv).hover(function() {
                 addHoverClass(this);
             },
-            function () {
+            function() {
                 removeHoverClass(this);
             }
         );
@@ -187,7 +187,7 @@ $(function() {
                 var elem = $(this).closest(clickableDiv);
                 addHoverClass(elem);
 
-                $(this).focusout(function(){
+                $(this).focusout(function() {
                     removeHoverClass(elem);
                 });
             }
@@ -208,29 +208,29 @@ $(function() {
         //    }
         //);
 
-      //$(clickableDiv).hover(function() {
-      //  var elem = $(this);
-      //    console.log('elem = ' + elem);
-      //  $.each(hoverHashTable, function(className, hoverClassName) {
-      //      // $(elem).find('.'+className).css('background-color', 'red');
-      //      $(elem).find('.'+className).addClass(hoverClassName[0]);
-      //  });
-      //}, function() {
-      //  var elem = $(this);
-      //    console.log('elem = ' + elem);
-      //  $.each(hoverHashTable, function(className, hoverClassName) {
-      //      $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
-      //  });
-      //});
+        //$(clickableDiv).hover(function() {
+        //  var elem = $(this);
+        //    console.log('elem = ' + elem);
+        //  $.each(hoverHashTable, function(className, hoverClassName) {
+        //      // $(elem).find('.'+className).css('background-color', 'red');
+        //      $(elem).find('.'+className).addClass(hoverClassName[0]);
+        //  });
+        //}, function() {
+        //  var elem = $(this);
+        //    console.log('elem = ' + elem);
+        //  $.each(hoverHashTable, function(className, hoverClassName) {
+        //      $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
+        //  });
+        //});
 
-      // check if there's a nav--block-landing to remove :after class
-    //   if ($('.nav--block-landing')) {
-    //       $(clickableDiv).hover(function() {
-    //         $('.nav--block-landing').addClass('nav--block-landing--remove');
-    //       }, function() {
-    //         $('.nav--block-landing').removeClass('nav--block-landing--remove');
-    //       });
-    //     }
+        // check if there's a nav--block-landing to remove :after class
+        //   if ($('.nav--block-landing')) {
+        //       $(clickableDiv).hover(function() {
+        //         $('.nav--block-landing').addClass('nav--block-landing--remove');
+        //       }, function() {
+        //         $('.nav--block-landing').removeClass('nav--block-landing--remove');
+        //       });
+        //     }
     }
 
 
@@ -241,11 +241,11 @@ $(function() {
             return;
         }
 
-         chartContainer.each(function() {
+        chartContainer.each(function() {
             var $this = $(this);
             var uri = $this.data('uri');
             $this.empty();
-            $.getJSON(uri+'/data', function(timeseries) {
+            $.getJSON(uri + '/data', function(timeseries) {
                 renderLineChart(timeseries);
             }).fail(function(d, textStatus, error) {
                 // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
@@ -253,7 +253,7 @@ $(function() {
         });
     }
 
-     function jsEnhanceSparkline() {
+    function jsEnhanceSparkline() {
 
         var chartContainer = $(".sparkline");
         if (!chartContainer.length) {
@@ -263,7 +263,7 @@ $(function() {
             var $this = $(this);
             var uri = $this.data('uri');
             $this.empty();
-            $.getJSON(uri+'/data?series', function(timeseries) {
+            $.getJSON(uri + '/data?series', function(timeseries) {
                 // console.log("Successfuly read timseries data");
                 renderSparkline(timeseries, $this);
             }).fail(function(d, textStatus, error) {
@@ -273,7 +273,7 @@ $(function() {
     }
 
     function stripTrailingSlash(str) {
-        if(str.substr(-1) === '/') {
+        if (str.substr(-1) === '/') {
             return str.substr(0, str.length - 1);
         }
         return str;
@@ -295,20 +295,18 @@ $(function() {
         chartContainer.each(function() {
             var $this = $(this);
             var id = $this.attr('id');
-            var uri = $this.data('uri');
             $this.empty();
-
-            if (uri.indexOf('/') !== 0) {
-                uri = '/' + uri;
+            var data = window[id];
+            if (data) {
+                data.chart.renderTo = id;
+                new Highcharts.Chart(data);
             }
 
-            renderChartForUri(uri, id);
         });
     }
 
     function jsEnhancePrint() {
-    $('#jsEnhancePrint').click(function()
-        {
+        $('#jsEnhancePrint').click(function() {
             window.print();
             return false;
         });
@@ -316,16 +314,16 @@ $(function() {
 
 
     function jsEnhanceNumberSeparator() {
-      // Adapted from http://stackoverflow.com/questions/14075014/jquery-function-to-to-format-number-with-commas-and-decimal
-      $( ".stat__figure-enhance" ).each(function( index ) {
-        //console.log( index + ": " + $( this ).text() );
-        var number = $( this ).text();
-        var n= number.toString().split(".");
-        //Comma-fies the first part
-        n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        // //Combines the two sections
-        $( this ).text(n.join("."));
-      });
+        // Adapted from http://stackoverflow.com/questions/14075014/jquery-function-to-to-format-number-with-commas-and-decimal
+        $(".stat__figure-enhance").each(function(index) {
+            //console.log( index + ": " + $( this ).text() );
+            var number = $(this).text();
+            var n = number.toString().split(".");
+            //Comma-fies the first part
+            n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // //Combines the two sections
+            $(this).text(n.join("."));
+        });
     }
 
     function jsEnhancePrintCompendium() {
@@ -342,7 +340,7 @@ $(function() {
                 var childIntro = ('.page-intro');
                 var childContent = ('.page-content');
 
-                $.get(url, function(data){
+                $.get(url, function(data) {
                     $(data).find(childIntro).addClass('print--break-before').appendTo('#compendium-print' + index);
                     $(data).find(childContent).appendTo('#compendium-print' + index);
                 })
@@ -363,11 +361,11 @@ $(function() {
     function jsEnhanceBoxHeight() {
         if ($(window).width() > 608) {
             var highestBox = 0;
-            $('.equal-height').each(function(){
+            $('.equal-height').each(function() {
 
-                if($(this).height() > highestBox) {
-                   highestBox = $(this).height();
-               }
+                if ($(this).height() > highestBox) {
+                    highestBox = $(this).height();
+                }
             });
 
             $('.equal-height').height(highestBox);
@@ -376,7 +374,7 @@ $(function() {
 
     //Resets the box heights on resize
     function jsEnhanceBoxHeightResize() {
-        $( window ).resize(function() {
+        $(window).resize(function() {
             $('.equal-height').height('auto');
             jsEnhanceBoxHeight();
         });
@@ -385,12 +383,12 @@ $(function() {
     function jsEnhanceIframedTables() {
         $('iframe').each(function(i) {
             // markdown-table-container
-            if($(this).contents().find('div').hasClass('markdown-table-container')) {
+            if ($(this).contents().find('div').hasClass('markdown-table-container')) {
                 // console.log('iframe with table found');
                 $(this).contents().find('iframe').remove();
                 $(this).contents().find('script').remove();
-                $(this).contents().find('*').css('width','auto');
-                $(this).contents().find('*').css('height','auto');
+                $(this).contents().find('*').css('width', 'auto');
+                $(this).contents().find('*').css('height', 'auto');
 
                 // var iframedtable =  $(this).contents().find('table');
 
@@ -399,7 +397,7 @@ $(function() {
                 // $('<div class="table-wrapper">' + iframecontent + '</div>').insertAfter($(this));
                 $(iframecontent).insertAfter($(this));
                 $(this).remove();
-             }
+            }
         });
     }
 
@@ -434,19 +432,19 @@ $(function() {
     //Track file downloads in analytics
     function jsEnhanceDownloadAnalytics() {
         //Track generated file downloads (eg chart xlsx download)
-        $('.download-analytics').click(function(){
+        $('.download-analytics').click(function() {
             var downloadType = $(this).parent().attr('action');
             var path = $('#pagePath').text();
             var downloadTitle = $('#title').text();
             var downloadFormat = $(this).attr('value');
 
-            if(downloadType == '/file') {
+            if (downloadType == '/file') {
                 var downloadType = '/download';
                 var downloadFormat = 'xls';
             }
 
             // Charts don't contain file type information so 'png' hardcoded
-            if(downloadType == '/chartimage') {
+            if (downloadType == '/chartimage') {
                 downloadFormat = 'png';
             }
 
@@ -456,25 +454,25 @@ $(function() {
         });
 
         //Track uploaded file downloads
-        $('.file-download-analytics').click(function(){
+        $('.file-download-analytics').click(function() {
             var fileName = $(this).attr('href').split('=')[1];
-            var page = '/download?' + fileName ;
+            var page = '/download?' + fileName;
 
             jsEnhanceTriggerAnalyticsEvent(page);
         });
 
         //Track click on 'print full report' link
-        $('.print-analytics').click(function(){
-        	var path = $('#pagePath').text();
-        	var page = '/print?uri=' + path;
+        $('.print-analytics').click(function() {
+            var path = $('#pagePath').text();
+            var page = '/print?uri=' + path;
 
-        	jsEnhanceTriggerAnalyticsEvent(page);
+            jsEnhanceTriggerAnalyticsEvent(page);
         });
     }
 
-    function jsEnhanceAnchorAnalytics(){
+    function jsEnhanceAnchorAnalytics() {
         //Trigger analytics pageview on click of any # anchor
-        $("a[href*='#']").click(function(e){
+        $("a[href*='#']").click(function(e) {
             var hash = $(this).attr('href');
             var page = window.location.pathname + hash;
             jsEnhanceTriggerAnalyticsEvent(page);
@@ -492,9 +490,9 @@ $(function() {
 
         function eachAnchor(anchors) {
 
-            $(anchors).each(function(){
-				var href = $(this).attr("href");
-				var hostname = getHostname(href);
+            $(anchors).each(function() {
+                var href = $(this).attr("href");
+                var hostname = getHostname(href);
 
                 if (hostname) {
                     if (hostname !== document.domain && hostname.indexOf('ons.gov.uk') == -1) {
@@ -510,7 +508,7 @@ $(function() {
 
 
     function jsEnhanceTableOfContents() {
-        if($('body').contents().find('*').hasClass('page-content__main-content')) {
+        if ($('body').contents().find('*').hasClass('page-content__main-content')) {
 
             //remove html and body height 100% to allow jquery scroll functions to work properly
             $('html, body').css('height', 'auto');
@@ -526,17 +524,17 @@ $(function() {
             var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
 
             $(tocSelectList).append($('<option/>', {
-                    value: '',
-                    text : '-- Select a section --'
-                }));
+                value: '',
+                text: '-- Select a section --'
+            }));
 
-            $('#toc li a').each(function(i){
+            $('#toc li a').each(function(i) {
                 i = i + 1;
                 var text = i + '. ' + $(this).text();
                 var href = $(this).attr('href');
                 $(tocSelectList).append($('<option/>', {
                     value: href,
-                    text : text
+                    text: text
                 }));
             });
 
@@ -550,15 +548,17 @@ $(function() {
                     // expands section if accordion
                     var section = $(location);
                     if (section.hasClass('is-collapsed')) {
-                      section.removeClass('is-collapsed').addClass('is-expanded');
+                        section.removeClass('is-collapsed').addClass('is-expanded');
                     }
 
                     var functionTrigger = true;
 
                     //animates scroll and offsets page to counteract sticky nav
-                    $('html, body').animate({ scrollTop: $(location).offset().top - 105}, 1000, function(){
+                    $('html, body').animate({
+                        scrollTop: $(location).offset().top - 105
+                    }, 1000, function() {
                         //stops function running twice - once for 'html' and another for 'body'
-                        if(functionTrigger) {
+                        if (functionTrigger) {
                             //adds location hash to url without causing page to jump to it - credit to http://lea.verou.me/2011/05/change-url-hash-without-page-jump/
                             if (history.pushState) {
                                 history.pushState(null, null, location);
@@ -579,7 +579,6 @@ $(function() {
 
 
 
-
             // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate
             function stickyTOC() {
                 var contentStart = $('.page-content__main-content').offset().top;
@@ -588,12 +587,12 @@ $(function() {
                 if (scrollTop > contentStart) {
                     $('#toc').addClass('table-of-contents-ordered-list-hide');
                     // $('#toc').removeClass('table-of-contents-ordered-list');
-                    $('.page-content__main-content').css('padding-top','96px');
+                    $('.page-content__main-content').css('padding-top', '96px');
                     $('.table-of-contents--sticky__wrap').show();
                 } else {
                     // $('#toc').addClass('table-of-contents-ordered-list');
                     $('#toc').removeClass('table-of-contents-ordered-list-hide');
-                    $('.page-content__main-content').css('padding-top','0');
+                    $('.page-content__main-content').css('padding-top', '0');
                     $('.table-of-contents--sticky__wrap').hide();
                 }
             }
@@ -609,15 +608,15 @@ $(function() {
     function jsEnhanceScrollToSection() {
 
         //Offsets page to make room for sticky nav if arrive on page directly at section
-        $(window).load(function(){
-			var contentClass = '.page-content__main-content';
+        $(window).load(function() {
+            var contentClass = '.page-content__main-content';
 
             if (location.hash && $(contentClass).length > 0) {
                 var contentStart = $(contentClass).offset().top;
                 var scrollTop = $(window).scrollTop();
 
                 if (scrollTop > contentStart) {
-					$(location.hash).offset().top - 100;
+                    $(location.hash).offset().top - 100;
                 }
             }
         });
@@ -628,7 +627,9 @@ $(function() {
 
             var target = this.hash;
 
-            $('html, body').animate({scrollTop: $(target).offset().top}, 1000, function(){
+            $('html, body').animate({
+                scrollTop: $(target).offset().top
+            }, 1000, function() {
                 location.hash = target;
 
                 //TODO Fix root cause of IE offsetting. Temporary fix:
@@ -637,74 +638,74 @@ $(function() {
         });
     }
 
-	function jsEnhanceRemoveFocus() {
+    function jsEnhanceRemoveFocus() {
 
-		//function to remove focus on click
-		function removeFocus(elem) {
-			$(elem).click(function() {
-				//var target =  "#" + $(this).attr("for");
-				//console.log("clicked = "+this);
-				//console.log("target = "+target);
+        //function to remove focus on click
+        function removeFocus(elem) {
+            $(elem).click(function() {
+                //var target =  "#" + $(this).attr("for");
+                //console.log("clicked = "+this);
+                //console.log("target = "+target);
 
-				this.blur();
-			});
-		}
+                this.blur();
+            });
+        }
 
-		//run function on following elements/classes that have a focus state
-		removeFocus("a");
-		removeFocus(".accordion__title");
-		removeFocus(".timeseries__chart");
-	}
-
-
-	//Adds focus to highcharts filters when tabbed through
-	function jsEnhanceChartFocus() {
-		//TODO Javascript considers arrow keydowns as a 'click' so can't use normal removeFocus function to stop focus on click (it breaks keyboard navigation by adding blur on arrow keydown).
-
-		//$('.btn--chart-control input').focusin(function() {
-		//	var radioGroup = $(this).closest('div[role="radiogroup"]');
-		//	$(radioGroup).addClass('input--focus');
-		//});
-		//
-		//$('.btn--chart-control input').focusout(function() {
-		//	var radioGroup = $(this).closest('div[role="radiogroup"]');
-		//	$(radioGroup).removeClass('input--focus');
-		//});
+        //run function on following elements/classes that have a focus state
+        removeFocus("a");
+        removeFocus(".accordion__title");
+        removeFocus(".timeseries__chart");
+    }
 
 
-		//Attempt to fix this problem but detects click as keyboard arrow click after you've focussed on it via keyboard
+    //Adds focus to highcharts filters when tabbed through
+    function jsEnhanceChartFocus() {
+        //TODO Javascript considers arrow keydowns as a 'click' so can't use normal removeFocus function to stop focus on click (it breaks keyboard navigation by adding blur on arrow keydown).
 
-		//var leftArrow = 37;
-		//var upArrow = 38;
-		//var rightArrow = 39;
-		//var downArrow = 40;
-		//
-		//$('.btn--chart-control input').keydown(function(e){
-		//
-		//	//detect whether input has been focused on using mouse or keyboard
-		//	var keydownType = e.keyCode;
-		//	console.log("keycode = " + keydownType);
-		//
-		//	//if triggered by arrow keys from keyboard run functions to add class on focus
-		//	if (keydownType == leftArrow || keydownType == rightArrow) {
-		//
-		//		$('.btn--chart-control input').focusin(function() {
-		//
-		//			console.log("Keyboardy");
-		//			var radioGroup = $(this).closest('div[role="radiogroup"]');
-		//			$(radioGroup).addClass('input--focus');
-		//		});
-		//
-		//		$('.btn--chart-control input').focusout(function() {
-		//			var radioGroup = $(this).closest('div[role="radiogroup"]');
-		//			$(radioGroup).removeClass('input--focus');
-		//		});
-		//
-		//	} else {
-		//		console.log("Clicky");
-		//	}
-		//});
+        //$('.btn--chart-control input').focusin(function() {
+        //	var radioGroup = $(this).closest('div[role="radiogroup"]');
+        //	$(radioGroup).addClass('input--focus');
+        //});
+        //
+        //$('.btn--chart-control input').focusout(function() {
+        //	var radioGroup = $(this).closest('div[role="radiogroup"]');
+        //	$(radioGroup).removeClass('input--focus');
+        //});
 
-	}
+
+        //Attempt to fix this problem but detects click as keyboard arrow click after you've focussed on it via keyboard
+
+        //var leftArrow = 37;
+        //var upArrow = 38;
+        //var rightArrow = 39;
+        //var downArrow = 40;
+        //
+        //$('.btn--chart-control input').keydown(function(e){
+        //
+        //	//detect whether input has been focused on using mouse or keyboard
+        //	var keydownType = e.keyCode;
+        //	console.log("keycode = " + keydownType);
+        //
+        //	//if triggered by arrow keys from keyboard run functions to add class on focus
+        //	if (keydownType == leftArrow || keydownType == rightArrow) {
+        //
+        //		$('.btn--chart-control input').focusin(function() {
+        //
+        //			console.log("Keyboardy");
+        //			var radioGroup = $(this).closest('div[role="radiogroup"]');
+        //			$(radioGroup).addClass('input--focus');
+        //		});
+        //
+        //		$('.btn--chart-control input').focusout(function() {
+        //			var radioGroup = $(this).closest('div[role="radiogroup"]');
+        //			$(radioGroup).removeClass('input--focus');
+        //		});
+        //
+        //	} else {
+        //		console.log("Clicky");
+        //	}
+        //});
+
+    }
 
 });
