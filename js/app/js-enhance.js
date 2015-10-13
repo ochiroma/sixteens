@@ -650,28 +650,20 @@ $(function() {
 		removeFocus("a");
 		removeFocus(".accordion__title");
 		removeFocus(".timeseries__chart");
+		removeFocus(".btn--chart-control input");
 	}
 
+	//Adds focus to highcharts filters when tabbed through
 	function jsEnhanceChartFocus() {
 
 		$('.btn--chart-control input').focusin(function() {
-			//console.log('hello');
-
-			var inputGroup = $(this).closest('.btn-group');
-			console.log(inputGroup);
-
-			$(inputGroup).addClass('input--focus');
-
-			$(inputGroup).focus();
-
+			var radioGroup = $(this).closest('div[role="radiogroup"]');
+			$(radioGroup).addClass('input--focus');
 		});
 
 		$('.btn--chart-control input').focusout(function() {
-			var inputGroup = $(this).closest('.btn-group');
-			console.log("focus out");
-
-			$(inputGroup).removeClass('input--focus');
-
+			var radioGroup = $(this).closest('div[role="radiogroup"]');
+			$(radioGroup).removeClass('input--focus');
 		});
 
 	}
