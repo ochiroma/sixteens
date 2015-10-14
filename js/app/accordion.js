@@ -73,12 +73,11 @@ $(document).on('ready', function() {
 
 	// If page-load links to footnote, expand accordion and scroll to it
 	//expandAccordion();
-	//window.location = $(this).attr('href');
-
-	// Expand footnotes section if it's collapsed and you click on footnote anchor
-	$('.expand-accordion').on('click', function() {
-		expandAccordion();
-		window.location = $(this).attr('href');
-	});
+	//
+	//// Expand footnotes section if it's collapsed and you click on footnote anchor
+	//$('.expand-accordion').on('click', function() {
+	//	expandAccordion();
+	//	window.location = $(this).attr('href');
+	//});
 
 });
