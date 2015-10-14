@@ -272,13 +272,13 @@ $(function() {
         });
     }
 
-    //TODO possibly no longer used - to be tested
-	function stripTrailingSlash(str) {
-        if(str.substr(-1) === '/') {
-            return str.substr(0, str.length - 1);
-        }
-        return str;
-    }
+    //TODO No longer used - test and then delete
+	//function stripTrailingSlash(str) {
+    //    if(str.substr(-1) === '/') {
+    //        return str.substr(0, str.length - 1);
+    //    }
+    //    return str;
+    //}
 
     function jsEnhanceMarkdownCharts() {
 
@@ -384,27 +384,27 @@ $(function() {
     }
 
 
-	//TODO Possibly no longer used - to be tested
-	function jsEnhanceIframedTables() {
-        $('iframe').each(function(i) {
-            // markdown-table-container
-            if($(this).contents().find('div').hasClass('markdown-table-container')) {
-                // console.log('iframe with table found');
-                $(this).contents().find('iframe').remove();
-                $(this).contents().find('script').remove();
-                $(this).contents().find('*').css('width','auto');
-                $(this).contents().find('*').css('height','auto');
-
-                // var iframedtable =  $(this).contents().find('table');
-
-                var iframecontent = $(this).contents().find('body').html();
-
-                // $('<div class="table-wrapper">' + iframecontent + '</div>').insertAfter($(this));
-                $(iframecontent).insertAfter($(this));
-                $(this).remove();
-             }
-        });
-    }
+	//TODO No longer used - test and then delete
+	//function jsEnhanceIframedTables() {
+     //   $('iframe').each(function(i) {
+     //       // markdown-table-container
+     //       if($(this).contents().find('div').hasClass('markdown-table-container')) {
+     //           // console.log('iframe with table found');
+     //           $(this).contents().find('iframe').remove();
+     //           $(this).contents().find('script').remove();
+     //           $(this).contents().find('*').css('width','auto');
+     //           $(this).contents().find('*').css('height','auto');
+	//
+     //           // var iframedtable =  $(this).contents().find('table');
+	//
+     //           var iframecontent = $(this).contents().find('body').html();
+	//
+     //           // $('<div class="table-wrapper">' + iframecontent + '</div>').insertAfter($(this));
+     //           $(iframecontent).insertAfter($(this));
+     //           $(this).remove();
+     //        }
+     //   });
+	//}
 
     function jsEnhanceMobileTables() {
         //<span class=" icon-table" role="presentation"></span>
