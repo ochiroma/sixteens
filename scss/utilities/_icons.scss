@@ -1,5 +1,15 @@
 //_icons.scss
 
+//Mixing to create a small version of each icon. Add parameter for background-position to get 2px version of icon
+@mixin small-icon($horizontal, $vertical) {
+	background-position: $horizontal $vertical;
+	zoom:0.5;
+	-moz-transform:scale(0.5);
+	-moz-transform-origin: 0 0;
+}
+
+
+
 
 .icon {
 	display: inline-block;
@@ -7,65 +17,193 @@
 	height: 32px;
 	width: 32px;
 
+
 	&-arrow-up {
-		background-position: -17px -11px;
+
+		&--dark {
+			background-position: -144px -10px;
+
+			&-small {
+				@include small-icon(-16px, -10px);
+			}
+		}
 
 		&--light {
-			background-position: -80px -11px;
+			background-position: -208px -10px;
+
+			&-small {
+				@include small-icon(-80px, -10px);
+			}
 		}
 	}
+
 
 	&-arrow-down {
-		background-position: -17px -44px;
+
+		&--dark {
+			background-position: -144px -44px;
+
+			&-small {
+				@include small-icon(-16px, -44px);
+			}
+		}
 
 		&--light {
-			background-position: -80px -44px;
+			background-position: -208px -44px;
+
+			&-small {
+				@include small-icon(-80px, -44px);
+			}
 		}
 	}
+
 
 	&-print {
-		background-position: -16px -80px;
-		width: 40px; //Should be 32px but compensating for calendar icon being too wide
+
+		&--dark {
+			background-position: -143px -81px;
+			width: 40px; //icon needs more width or else it cuts off one side
+
+			&-small {
+				@include small-icon(-15px, -80px);
+				width: 40px;
+			}
+		}
 
 		&--light {
-			background-position: -80px -80px;
-			width: 40px; //Should be 32px but compensating for calendar icon being too wide
+			background-position: -208px -81px;
+			width: 40px;
+
+			&-small {
+				@include small-icon(-79px, -80px);
+				width: 40px;
+			}
 		}
 	}
 
-	//TODO External icon 1px too low
+
 	&-external {
-		background-position: -16px -130px;
+
+		&--dark {
+			background-position: -143px -130px;
+
+			&-small {
+				@include small-icon(-15px, -130px);
+			}
+		}
 
 		&--light {
-			background-position: -80px -130px;
+			background-position: -208px -130px;
+
+			&-small {
+				@include small-icon(-79px, -130px);
+			}
 		}
 	}
+
 
 	&-download {
-		background-position: -16px -178px;
+
+		&--dark {
+			background-position: -143px -178px;
+
+			&-small {
+				@include small-icon(-16px, -178px);
+			}
+		}
 
 		&--light {
-			background-position: -80px -178px;
+			background-position: -208px -178px;
+
+			&-small {
+				@include small-icon(-80px, -178px);
+			}
 		}
 	}
 
-	//TODO Calendar icon 1px too wide
+
 	&-calendar {
-		background-position: -16px -218px;
+		&--dark {
+			background-position: -143px -225px;
+			width: 40px; //icon needs more width or else it cuts off one side
+
+			&-small {
+				@include small-icon(-15px, -225px);
+				width: 40px;
+			}
+		}
 
 		&--light {
-			background-position: -80px -218px;
+			background-position: -207px -225px;
+			width: 40px;
+
+			&-small {
+				@include small-icon(-79px, -225px);
+				width: 40px;
+			}
 		}
 	}
+
 
 	&-rss {
-		background-position: -16px -274px;
+
+		&--dark {
+			background-position: -143px -272px;
+
+			&-small {
+				@include small-icon(-16px, -272px);
+			}
+		}
 
 		&--light {
-			background-position: -80px -274px;
+			background-position: -208px -272px;
+
+			&-small {
+				@include small-icon(-80px, -272px);
+			}
 		}
 	}
+
+
+	&-menu {
+
+		&--dark {
+			background-position: -142px -329px;
+
+			&-small {
+				@include small-icon(-16px, -330px);
+			}
+		}
+
+		&--light {
+			background-position: -208px -329px;
+
+			&-small {
+				@include small-icon(-80px, -330px);
+			}
+		}
+
+	}
+
+
+	&-search {
+
+		&--dark {
+			background-position: -16px -380px;
+			height: 21px;
+			width: 24px;
+			//no small modifier required
+		}
+
+		&--light {
+			background-position: -74px -386px;
+			height: 32px;
+			width: 24px
+			//no small modifier required
+		}
+
+	}
+
 
 	&--hide:after {
 		//For use in situations where icons are automatically added but not wanted and a global solution isn't viable
@@ -79,10 +217,7 @@
 //Add external link icon (:not excludes domains)
 a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):after, a[href^="https://"]:not([href*="carboni.uk"]):not([href*="carb.onl"]):not([href*="lifeinteal"]):after {
 	@extend .icon;
-	@extend .icon-external;
-	zoom:0.5;
-	-moz-transform:scale(0.5);
-	-moz-transform-origin: 0 0;
+	@extend .icon-external--dark-small;
 	content: "";
 	margin-left: 8px;
 }

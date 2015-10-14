@@ -418,6 +418,7 @@
 		border: none;
 		padding: 6px $col 4px $col;
 		height: ($baseline * 4);
+		-webkit-appearance: none; //fix for safari not displaying input with correct height
 
 		@include breakpoint(sm) {
 			width: 80%;
@@ -434,8 +435,11 @@
 		font-size: 17px;
 		color: $white;
 		border: none;
-		padding: 4px $col 4px $col;
+		padding: 0;
+		//padding: 4px ($col / 2) 1px ($col / 2);
 		background-color: $matisse;
+		height: ($baseline * 4);
+
 
 		@include breakpoint(sm) {
 			width: 20%;
