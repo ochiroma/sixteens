@@ -272,7 +272,8 @@ $(function() {
         });
     }
 
-    function stripTrailingSlash(str) {
+    //TODO possibly no longer used - to be tested
+	function stripTrailingSlash(str) {
         if(str.substr(-1) === '/') {
             return str.substr(0, str.length - 1);
         }
@@ -382,7 +383,9 @@ $(function() {
         });
     }
 
-    function jsEnhanceIframedTables() {
+
+	//TODO Possibly no longer used - to be tested
+	function jsEnhanceIframedTables() {
         $('iframe').each(function(i) {
             // markdown-table-container
             if($(this).contents().find('div').hasClass('markdown-table-container')) {
