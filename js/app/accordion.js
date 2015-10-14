@@ -60,6 +60,7 @@ $(document).on('ready', function() {
 		}
 	}
 
+
 	// Expands accordion according to # at end of uri
 	function expandAccordion() {
 		if (location.hash) {
@@ -71,13 +72,13 @@ $(document).on('ready', function() {
 		}
 	}
 
+	// Expand footnotes section if it's collapsed and you click on footnote anchor
+	$('.expand-accordion').on('click', function() {
+		window.location = $(this).attr('href');
+		expandAccordion();
+	});
+
 	// If page-load links to footnote, expand accordion and scroll to it
-	//expandAccordion();
-	//
-	//// Expand footnotes section if it's collapsed and you click on footnote anchor
-	//$('.expand-accordion').on('click', function() {
-	//	expandAccordion();
-	//	window.location = $(this).attr('href');
-	//});
+	expandAccordion();
 
 });
