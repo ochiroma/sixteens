@@ -17,6 +17,10 @@
 	height: 32px;
 	width: 32px;
 
+	@media print {
+		display: none;
+	}
+
 
 	&-arrow-up {
 

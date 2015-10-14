@@ -1,5 +1,42 @@
 //_print.scss
 
+
+//MIXIN - displays the url of a link when printed
+@mixin print-links {
+	//Append 'http://www.ons.gov.uk/' to internal links using a relative path
+	a[href]:after {
+		content: " (http://www.ons.gov.uk" attr(href) ")";
+		word-wrap: break-word;
+	}
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	//Stop links starting with https or http being appended with ons url
+	a[href^="https://"]:after,
+	a[href^="http://"]:after,
+	a[href^="www."]:after {
+		content: " (" attr(href) ")";
+		word-wrap: break-word;
+	}
+	abbr[title^="https://"]:after,
+	abbr[title^="http://"]:after,
+	abbr[title^="www."]:after {
+		content: " (" attr(title) ")";
+	}
+
+
+	//Don't show links for images, javascript, internal links or email addresses
+	.ir a:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after,
+	a[href^="mailto:"]:after {
+		content: "";
+	}
+}
+
+
+
 @page {
 	margin: 1cm;
 }
@@ -29,7 +66,7 @@
 
 
 	article {
-		@extend .print--links;
+		@include print-links;
 	}
 
 	pre,
@@ -91,38 +128,7 @@
 		}
 
 		&--links {
-
-			/* Append 'http://www.ons.gov.uk/' to internal links using a relative path */
-			a[href]:after {
-				content: " (http://www.ons.gov.uk" attr(href) ")";
-				word-wrap: break-word;
-			}
-			abbr[title]:after {
-				content: " (" attr(title) ")";
-			}
-
-			/* Stop links starting with https or http being appended with ons url */
-			a[href^="https://"]:after,
-			a[href^="http://"]:after,
-			a[href^="www."]:after {
-				content: " (" attr(href) ")";
-				word-wrap: break-word;
-			}
-			abbr[title^="https://"]:after,
-			abbr[title^="http://"]:after,
-			abbr[title^="www."]:after {
-				content: " (" attr(title) ")";
-			}
-
-			/*
-			   * Don't show links for images, javascript, internal links or email addresses
-			   */
-			.ir a:after,
-			a[href^="javascript:"]:after,
-			a[href^="#"]:after,
-			a[href^="mailto:"]:after {
-				content: "";
-			}
+			@include print-links
 		}
 	}
 
