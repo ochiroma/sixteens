@@ -17,6 +17,10 @@
 	height: 32px;
 	width: 32px;
 
+	@media print {
+		display: none;
+	}
+
 
 	&-arrow-up {
 
@@ -190,15 +194,11 @@
 
 		&--dark {
 			background-position: -16px -380px;
-			height: 21px;
-			width: 24px;
 			//no small modifier required
 		}
 
 		&--light {
 			background-position: -74px -386px;
-			height: 32px;
-			width: 24px
 			//no small modifier required
 		}
 
