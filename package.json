@@ -1,22 +1,32 @@
 {
-  "name": "sixteens",
-  "version": "0.0.1",
-  "description": "Pattern library for ons website",
-  "main": "",
-  "scripts": {
-    "clean": "",
-    "build-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css",
-    "build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css",
-    "build-js": "mkdir -pv dist/js  && ./node_modules/uglify-js/bin/uglifyjs js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/js-enhance.js --compress --mangle -o dist/js/main.js",
-    "postinstall": "npm run build-css && npm run build-old-ie-css && npm run build-js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ONSdigital/sixteens.git"
-  },
-  "license": "Open Government License v2.0",
-  "dependencies": {
-    "node-sass": "latest",
-    "uglify-js": "latest"
-  }
+	"name": "sixteens",
+	"version": "0.0.1",
+	"description": "Pattern library for ONS website",
+	"main": "",
+	"config": {"js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/accordion.js js/app/js-enhance.js"},
+	"scripts": {
+		"clean": "",
+		"build-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css",
+		"build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css",
+		"build-js": "mkdir -pv dist/js  && ./node_modules/uglify-js/bin/uglifyjs $npm_package_config_js --compress --mangle -o dist/js/main.js",
+		"build": "npm run build-css && npm run build-old-ie-css && npm run build-js",
+		"postinstall": "npm run build",
+		"watch-css": "onchange 'scss' -- npm run build-css",
+		"watch-js": "catw -v $npm_package_config_js -o dist/js/main.js",
+		"server": "python -m SimpleHTTPServer 9000",
+		"dev": "npm run watch-css & npm run watch-js & npm run server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:ONSdigital/sixteens.git"
+	},
+	"license": "Open Government License v2.0",
+	"dependencies": {
+		"node-sass": "latest",
+		"uglify-js": "latest"
+	},
+	"devDependencies": {
+		"catw": "latest",
+		"onchange": "latest"
+	}
 }
