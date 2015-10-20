@@ -308,12 +308,14 @@ $(function() {
                     },
                     function() {
                       var chartConfig = window["chart-" + chartId];
+                      console.debug("Rendering chart:" + chartId);
+                      console.debug(chartConfig);
                       if (chartConfig) {
                         chartConfig.chart.renderTo = id;
                         new Highcharts.Chart(chartConfig);
                         delete window["chart-" + chartId];//clear data from window object after rendering
                       }
-                    }, "script"));
+                    }, "script");
         });
     }
 
