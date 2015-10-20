@@ -52,6 +52,7 @@
 		text-shadow: none !important;
 		background: transparent !important;
 		box-shadow: none !important;
+		border: none;
 	}
 
 	//Forces whole grid to 100% width
@@ -130,6 +131,22 @@
 		&--links {
 			@include print-links
 		}
+
+		&--only {
+			display: block !important;
+		}
 	}
 
+}
+
+@media screen {
+
+	.print {
+
+		//Only show in print
+		&--only {
+			display: none;
+		}
+
+	}
 }

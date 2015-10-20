@@ -461,6 +461,10 @@
 .beta-banner {
 	background-color: $beta;
 
+	@media print {
+		display: none;
+	}
+
 	&__content {
 		margin: 0;
 		padding: 7px 0 9px 0;
