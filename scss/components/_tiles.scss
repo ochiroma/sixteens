@@ -242,6 +242,7 @@
 		&--image-type-headline {
 			// background-color: transparent;
 			padding: 0;
+			margin-top: $baseline;
 			// @include multiline-ellipsis(616px, $col, $mercury);
 		}
 		&--image-type {
@@ -633,6 +634,7 @@
 		&--headline {
 			border: $abbey 1px solid;
 			position: relative;
+			margin-top: -1px;
 
 			&-hover {
 				// background-color: $silver;
@@ -658,6 +660,7 @@
 			border: $mercury 1px solid;
 			border-bottom: none;
 			margin-top: -1px;
+			//margin-bottom: -1px;
 			position: relative;
 
 
@@ -749,7 +752,9 @@
 	&__updated {}
 	&__content-list {
 		padding: 0 ($col * 2);
-		margin: $baseline 0 ($baseline * 2) 0;
+		//margin: $baseline 0 ($baseline * 2) 0;
+		//margin: ($baseline + 1px) 0 ($baseline + 7) 0;
+		margin: 9px 0 15px 0;
 
 		li {
 			margin: 0;
