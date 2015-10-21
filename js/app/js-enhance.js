@@ -296,13 +296,26 @@ $(function() {
         chartContainer.each(function() {
             var $this = $(this);
             var id = $this.attr('id');
+            var chartUri = $this.data('uri');
+            var chartId = $this.data('filename');
+            var chartWidth = $this.width();
             $this.empty();
-            var data = window[id];
-            if (data) {
-                data.chart.renderTo = id;
-                new Highcharts.Chart(data);
-            }
 
+            //Read chart configuration from server using container's width
+            var jqxhr = $.get("/chartconfig", {
+                      uri: chartUri,
+                      width: chartWidth
+                    },
+                    function() {
+                      var chartConfig = window["chart-" + chartId];
+                      console.debug("Rendering chart:" + chartId);
+                      console.debug(chartConfig);
+                      if (chartConfig) {
+                        chartConfig.chart.renderTo = id;
+                        new Highcharts.Chart(chartConfig);
+                        delete window["chart-" + chartId];//clear data from window object after rendering
+                      }
+                    }, "script");
         });
     }
 

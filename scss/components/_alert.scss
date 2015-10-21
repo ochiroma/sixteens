@@ -5,6 +5,10 @@
 	padding: ($baseline * 2) 0 ($baseline * 3) 0;
   	color:	$iron-light;
 
+	@media print {
+		display: none;
+	}
+
   	&__title {
 		font-size: 21px;
 		line-height: 24px;
