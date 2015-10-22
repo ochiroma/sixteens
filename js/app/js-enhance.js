@@ -308,8 +308,6 @@ $(function() {
                     },
                     function() {
                       var chartConfig = window["chart-" + chartId];
-                      console.debug("Rendering chart:" + chartId);
-                      console.debug(chartConfig);
                       if (chartConfig) {
                         chartConfig.chart.renderTo = id;
                         new Highcharts.Chart(chartConfig);
