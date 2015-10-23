@@ -12,6 +12,7 @@ var renderLineChart = function(timeseries) {
 	var currentFilter = 'all'; //10yr, 5yr, all, custom
 	var table = $('[data-table]');
 	var customDownloads = $('[data-chart-custom]');
+	var sortArray = []; //To store data on render for use in table sort
 
 	initialize();
 
@@ -117,6 +118,7 @@ var renderLineChart = function(timeseries) {
 			show(customDownloads);
 
 		}
+		sortArray = []; //Remove any previously selected data from array when new frequency selected
 		render();
 		// console.log("filter end");
 	}
@@ -128,20 +130,28 @@ var renderLineChart = function(timeseries) {
 		} else {
 			hide(chartContainer);
 			renderTable();
+			inverse = true; //Used to default table sort function to correct order
 		}
 	}
 
 	function renderTable() {
+		//Find empty table body to add data to
 		var tbody = table.find('tbody');
+		//Empty that tbody of its current contents
 		tbody.empty();
+
 		for (i = 0; i < currentData.values.length; i++) {
 			current = currentData.values[i];
 			tr = $(document.createElement('tr'));
 			tbody.append(tr);
 			tr.append('<td>' + current.name + '</td>');
 			tr.append('<td>' + current.y + '</td>');
+
+			//Populate array for sorting function with date and value
+			sortArray.push({'date' : current.name, 'value' : current.y});
 		}
 		show(table);
+
 	}
 
 
@@ -451,6 +461,24 @@ var renderLineChart = function(timeseries) {
 				displayTitle = currentDisplay[0].toUpperCase() + currentDisplay.slice(1);
 				$('#title-type').text(displayTitle );
 
+
+				//Bind click event handlebars to table headings
+
+				var tableHeaders = $('#table thead').find('th');
+				//Get header click and assign which column to sort by
+				$(tableHeaders).off().click(function() {
+					var column = $(this).text();
+					if (column == 'Period') {
+						column = 'date';
+					} else if (column == 'Value') {
+						column = 'value';
+					}
+
+					//Call sorting function and parse through population data array and which column it needs to sort by
+					triggerSort(sortArray, column);
+
+				});
+
 			});
 		}
 
@@ -512,6 +540,8 @@ var renderLineChart = function(timeseries) {
 				$('[data-chart-controls-from-month]', element).find('option[value="' + pad(fromMonth, 2) + '"]').attr('selected', true);
 				$('[data-chart-controls-from-quarter]', element).find('option[value="' + fromQuarter + '"]').attr('selected', true);
 				$('[data-chart-controls-from-year]', element).find('option[value="' + fromYear + '"]').attr('selected', true);
+
+				console.log(filterValue); //TO BE DELETED
 
 				filter();
 			});

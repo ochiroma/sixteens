@@ -11,10 +11,25 @@ dd {
   margin: 0;
 }
 
-// Timeseries page table
-.tablesaw {
+// Time series data table
+#table {
 
 	th {
 		text-align: left;
+		cursor: pointer;
+	}
+
+	tbody {
+
+		tr {
+
+			&:hover,
+			&:focus {
+				background-color: $white;
+
+			}
+
+		}
+
 	}
 }
