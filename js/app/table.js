@@ -4,50 +4,32 @@
 
 //TEST TO SHOW WHAT DATA IS BEING PUSHED AT EACH CHART/TABLE CHANGE
 
-var callCount = 0;
-
-function dataTest(array) {
-	callCount++;
-	console.log("/** (" + callCount + ") START GETTING DATA **/");
-	$.each(array, function (index){
-		console.log(array[index]);
-	})
-	console.log("/** (" + callCount + ") FINISHED GETTING DATA **/");
-}
+//var callCount = 0;
+//
+//function logArray(array) {
+//	callCount++;
+//	console.log("/** (" + callCount + ") START GETTING DATA **/");
+//	$.each(array, function (index){
+//		console.log(array[index]);
+//	})
+//	console.log("/** (" + callCount + ") FINISHED GETTING DATA **/");
+//}
 
 //END OF TEST CODE
 
 
 function triggerSort(array, column) {
 
-	////Find table headers
-	//var tableHeaders = $('#table thead').find('th');
-	//
-	////Get header click and assign which column to sort by
-	//$(tableHeaders).off().click(function() {
-	//	var column = $(this).text();
-	//	if (column == 'Period') {
-	//		column = 'date';
-	//	} else if (column == 'Value') {
-	//		column = 'value';
-	//	}
-	//
-	//	//dataTest(array);
-
-
 	//Sort array of table data
 	array.sort(sortTable(column));
 
-	//console.log(array);
-
 	//Swaps whether inverse is true or not, so it always does the opposite from the previous click
 	inverse = !inverse;
-	console.log("Invert order = " + inverse);
 
 	//Rebuild the table
 	buildTable(array);
 
-	dataTest(array);
+	//logArray(array);
 
 }
 
@@ -84,12 +66,4 @@ function sortTable(column) {
 		}
 
 	}
-}
-
-//Set inverse to true so on first click it orders ascending
-inverse = true;
-
-function resetSort() {
-	inverse = true;
-	var arrayDate = [];
 }
