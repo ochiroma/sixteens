@@ -118,7 +118,7 @@ var renderLineChart = function(timeseries) {
 			show(customDownloads);
 
 		}
-		sortArray = []; //Remove any previously selected data from array when new frequency selected
+		sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
 		render();
 		// console.log("filter end");
 	}
@@ -142,13 +142,11 @@ var renderLineChart = function(timeseries) {
 
 		for (i = 0; i < currentData.values.length; i++) {
 			current = currentData.values[i];
-			tr = $(document.createElement('tr'));
-			tbody.append(tr);
-			tr.append('<td>' + current.name + '</td>');
-			tr.append('<td>' + current.y + '</td>');
-
-			//Populate array for sorting function with date and value
 			sortArray.push({'date' : current.name, 'value' : current.y});
+			tr = $(document.createElement('tr')).addClass('table__row');
+			tbody.append(tr);
+			tr.append('<td class="table__data">' + current.name + '</td>');
+			tr.append('<td class="table__data">' + current.y + '</td>');
 		}
 		show(table);
 
@@ -463,19 +461,35 @@ var renderLineChart = function(timeseries) {
 
 
 				//Bind click event handlebars to table headings
-
-				var tableHeaders = $('#table thead').find('th');
+				var tableHeaders = $('.table thead').find('th');
 				//Get header click and assign which column to sort by
 				$(tableHeaders).off().click(function() {
+
+					//If inverse then toggle whether asc or desc class is added
+					if (inverse == true) {
+						sortedClass = 'sorted-asc';
+					} else if (inverse == false) {
+						sortedClass = 'sorted-desc';
+					}
+
+					//Remove any existing classes from sorting
+					tableHeaders.removeClass('sorted-asc sorted-desc');
+
+					//Add sortedClass
+					$(this).addClass(sortedClass);
+
 					var column = $(this).text();
 					if (column == 'Period') {
 						column = 'date';
+						//this.addClass(sortedClass);
 					} else if (column == 'Value') {
 						column = 'value';
+						//this.addClass(sortedClass);
+
 					}
 
-					//Call sorting function and parse through population data array and which column it needs to sort by
-					triggerSort(sortArray, column);
+					//Call sorting function and parse through population data array, which column it needs to sort by, and what the current frequency is
+					triggerSort(sortArray, column, currentFrequency);
 
 				});
 
@@ -540,8 +554,6 @@ var renderLineChart = function(timeseries) {
 				$('[data-chart-controls-from-month]', element).find('option[value="' + pad(fromMonth, 2) + '"]').attr('selected', true);
 				$('[data-chart-controls-from-quarter]', element).find('option[value="' + fromQuarter + '"]').attr('selected', true);
 				$('[data-chart-controls-from-year]', element).find('option[value="' + fromYear + '"]').attr('selected', true);
-
-				console.log(filterValue); //TO BE DELETED
 
 				filter();
 			});

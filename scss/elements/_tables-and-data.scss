@@ -1,27 +1,40 @@
 //_tables-and-data.scss
 table {
-  min-width: 100%;
+  	min-width: 100%;
+	border-spacing: 0;
 }
 
 dl {
-  margin: 0;
+  	margin: 0;
 }
 
 dd {
-  margin: 0;
+  	margin: 0;
 }
 
 // Time series data table
-#table {
+.table {
 
 	th {
 		text-align: left;
 		cursor: pointer;
+		width: 50%;
+	}
+
+	td,
+	th {
+		&:first-of-type {
+			width: $col * 34;
+		}
+
+		width: $col * 23;
 	}
 
 	tbody {
 
 		tr {
+
+			height: $baseline * 4;
 
 			&:hover,
 			&:focus {
@@ -31,5 +44,28 @@ dd {
 
 		}
 
+	}
+
+	&__header {
+		padding: 4px 0 4px 0;
+		border-bottom: 1px solid $silver;
+		margin-bottom: -1px;
+	}
+
+	.sorted {
+
+		&-asc:after {
+			@extend .icon;
+			@extend .icon-arrow-up--dark-small;
+			content: "";
+			margin-left: $col;
+		}
+
+		&-desc:after {
+			@extend .icon;
+			@extend .icon-arrow-down--dark-small;
+			content: "";
+			margin-left: $col;
+		}
 	}
 }
