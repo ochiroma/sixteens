@@ -5,8 +5,17 @@
 	&-intro {
 		background: $gallery;
 
+		&__type {
+			display: block;
+			font-size: 21px;
+			font-weight: 300;
+			color: $salem;
+			font-style: italic;
+
+		}
+
 		&__title {
-			margin-top: ($baseline * 3);
+			margin-top: ($baseline * 2);
 			margin-bottom: ($baseline * 0);
 
 			&--home-big {

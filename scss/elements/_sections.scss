@@ -116,6 +116,7 @@ section {
 		&--static-markdown {
 			@extend .section__content--markdown;
 			padding-left: 0;
+			margin-top: ($baseline * 3);
 
 			ol {
 				margin: $col 0 $col $col;
