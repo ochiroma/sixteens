@@ -94,9 +94,10 @@ button {
   }
 
   &--thick {
-      padding-top: 11px;
-      padding-bottom: 13px;
+      padding-top: 14px;
+      padding-bottom: 18px;
   }
+
   &--narrow {
       padding-left: ($col / 2);
       padding-right: ($col / 2);
@@ -107,7 +108,7 @@ button {
   }
 
   &--full-width {
-    padding: 15px $col 17px $col;
+
     display: block;
     width: 100%;
   }
