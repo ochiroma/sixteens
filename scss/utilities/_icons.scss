@@ -28,7 +28,7 @@
 			background-position: -144px -10px;
 
 			&-small {
-				@include small-icon(-16px, -10px);
+				@include small-icon(-16px, -2px);
 			}
 		}
 
@@ -36,7 +36,7 @@
 			background-position: -208px -10px;
 
 			&-small {
-				@include small-icon(-80px, -10px);
+				@include small-icon(-80px, -2px);
 			}
 		}
 	}
@@ -48,7 +48,7 @@
 			background-position: -144px -44px;
 
 			&-small {
-				@include small-icon(-16px, -44px);
+				@include small-icon(-16px, -34px);
 			}
 		}
 
@@ -56,7 +56,7 @@
 			background-position: -208px -44px;
 
 			&-small {
-				@include small-icon(-80px, -44px);
+				@include small-icon(-80px, -34px);
 			}
 		}
 	}

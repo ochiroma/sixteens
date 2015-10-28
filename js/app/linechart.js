@@ -12,6 +12,7 @@ var renderLineChart = function(timeseries) {
 	var currentFilter = 'all'; //10yr, 5yr, all, custom
 	var table = $('[data-table]');
 	var customDownloads = $('[data-chart-custom]');
+	var sortArray = []; //To store data on render for use in table sort
 
 	initialize();
 
@@ -117,6 +118,7 @@ var renderLineChart = function(timeseries) {
 			show(customDownloads);
 
 		}
+		sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
 		render();
 		// console.log("filter end");
 	}
@@ -128,20 +130,26 @@ var renderLineChart = function(timeseries) {
 		} else {
 			hide(chartContainer);
 			renderTable();
+			inverse = true; //Used to default table sort function to correct order
 		}
 	}
 
 	function renderTable() {
+		//Find empty table body to add data to
 		var tbody = table.find('tbody');
+		//Empty that tbody of its current contents
 		tbody.empty();
+
 		for (i = 0; i < currentData.values.length; i++) {
 			current = currentData.values[i];
-			tr = $(document.createElement('tr'));
+			sortArray.push({'date' : current.name, 'value' : current.y});
+			tr = $(document.createElement('tr')).addClass('table__row');
 			tbody.append(tr);
-			tr.append('<td>' + current.name + '</td>');
-			tr.append('<td>' + current.y + '</td>');
+			tr.append('<td class="table__data">' + current.name + '</td>');
+			tr.append('<td class="table__data">' + current.y + '</td>');
 		}
 		show(table);
+
 	}
 
 
@@ -450,6 +458,40 @@ var renderLineChart = function(timeseries) {
 				// Capitalise the first character
 				displayTitle = currentDisplay[0].toUpperCase() + currentDisplay.slice(1);
 				$('#title-type').text(displayTitle );
+
+
+				//Bind click event handlebars to table headings
+				var tableHeaders = $('.table thead').find('th');
+				//Get header click and assign which column to sort by
+				$(tableHeaders).off().click(function() {
+
+					//If inverse then toggle whether asc or desc class is added
+					if (inverse == true) {
+						sortedClass = 'sorted-asc';
+					} else if (inverse == false) {
+						sortedClass = 'sorted-desc';
+					}
+
+					//Remove any existing classes from sorting
+					tableHeaders.removeClass('sorted-asc sorted-desc');
+
+					//Add sortedClass
+					$(this).addClass(sortedClass);
+
+					var column = $(this).text();
+					if (column == 'Period') {
+						column = 'date';
+						//this.addClass(sortedClass);
+					} else if (column == 'Value') {
+						column = 'value';
+						//this.addClass(sortedClass);
+
+					}
+
+					//Call sorting function and parse through population data array, which column it needs to sort by, and what the current frequency is
+					triggerSort(sortArray, column, currentFrequency);
+
+				});
 
 			});
 		}
