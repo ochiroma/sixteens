@@ -2,6 +2,24 @@
 table {
   	min-width: 100%;
 	border-spacing: 0;
+	border-collapse: collapse;
+	background-color: white;
+}
+tr:not(:last-of-type) {
+	border-bottom: solid 1px $iron;
+}
+
+tbody > tr:hover {
+	background-color: $abbey;
+	color: white;
+}
+th {
+	padding: 6px 0 10px $col;
+	text-align: left;
+	background-color: $iron;
+}
+td {
+	padding: 6px 0 10px $col;
 }
 
 dl {
