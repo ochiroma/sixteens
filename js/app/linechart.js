@@ -717,6 +717,9 @@ function removeHiddenInputs() {
 
 $('.dlCustomData').submit(function(){
 
+	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
+	selectedFrequency = selectedFrequency.trim();
+
 	//Grab all the custom date values
 	fromYear = $('[data-chart-controls-from-year]').val();
 	fromQuarter = $('[data-chart-controls-from-quarter]').val();
@@ -725,32 +728,29 @@ $('.dlCustomData').submit(function(){
 	toQuarter = $('[data-chart-controls-to-quarter]').val();
 	toMonth = $('[data-chart-controls-to-month]').val();
 
-	// get the selected frequency
-	selectedFrequency = $( ".btn--secondary--active.frequency-select" ).text();
-	selectedFrequency = selectedFrequency.trim();
-
+	
 	switch (selectedFrequency) {
-		case 'Monthly':
+		case 'months':
 			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" />';
+			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="months"/>';
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
 			$( ".dlCustomData" ).append(str);
 			break;
 
-		case 'Quarterly':
+		case 'quarters':
 			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" />';
+			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="quarters"/>';
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
 			$( ".dlCustomData" ).append(str);
 			break;
 
-		case 'Yearly':
+		case 'years':
 			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" />';
+			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="years"/>';
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
