@@ -26,6 +26,8 @@ $(function() {
         $('.js-enhance--hide').hide();
         $('.nojs-hidden').removeClass('nojs-hidden');
 
+        var path = $('#pagePath').text();
+
         //The order of these functions being called is important...
         jsEnhanceULNavToSelectNav();
         jsEnhanceClickableDiv();
@@ -33,13 +35,13 @@ $(function() {
         jsEnhanceSparkline();
         jsEnhancePrint();
         jsEnhanceNumberSeparator();
-        jsEnhanceMarkdownCharts();
+        jsEnhanceMarkdownCharts(path);
 
         jsEnhancePrintCompendium();
         jsEnhanceBoxHeight();
         jsEnhanceBoxHeightResize();
         //jsEnhanceTriggerAnalyticsEvent();
-        jsEnhanceDownloadAnalytics();
+        jsEnhanceDownloadAnalytics(path);
         jsEnhanceAnchorAnalytics();
         jsEnhanceExternalLinks();
 
@@ -280,7 +282,7 @@ $(function() {
     //    return str;
     //}
 
-    function jsEnhanceMarkdownCharts() {
+    function jsEnhanceMarkdownCharts(path) {
 
         Highcharts.setOptions({
             lang: {
@@ -296,9 +298,9 @@ $(function() {
         chartContainer.each(function() {
             var $this = $(this);
             var id = $this.attr('id');
-            var chartUri = $this.data('uri');
             var chartId = $this.data('filename');
             var chartWidth = $this.width();
+            var chartUri = path + '/' + chartId; //= $this.data('uri');
             $this.empty();
 
             //Read chart configuration from server using container's width
@@ -445,11 +447,10 @@ $(function() {
     }
 
     //Track file downloads in analytics
-    function jsEnhanceDownloadAnalytics() {
+    function jsEnhanceDownloadAnalytics(path) {
         //Track generated file downloads (eg chart xlsx download)
         $('.download-analytics').click(function(){
             var downloadType = $(this).parent().attr('action');
-            var path = $('#pagePath').text();
             var downloadTitle = $('#title').text();
             var downloadFormat = $(this).attr('value');
 
