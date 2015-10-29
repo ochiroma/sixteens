@@ -713,6 +713,7 @@ function removeHiddenInputs() {
 	$( "input[name='toMonth']" ).remove();
 	$( "input[name='toQuarter']" ).remove();
 	$( "input[name='toYear']" ).remove();
+	$( "input[name='frequency']" ).remove();
 }
 
 $('.dlCustomData').submit(function(){
