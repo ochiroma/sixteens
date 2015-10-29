@@ -36,11 +36,40 @@
 }
 
 
+
+//height
+@mixin height-util {
+    .height {
+        @for $i from 0 through 50 { //
+            &--#{$i} {
+                height: ($baseline * $i) !important;
+            }
+            @include breakpoint(lg) {
+                &-lg--#{$i} {
+                    height: ($baseline * $i) !important;
+                }
+            }
+            @include breakpoint(md) {
+                &-md--#{$i} {
+                    height: ($baseline * $i) !important;
+                }
+            }
+            @include breakpoint(sm) {
+                &-sm--#{$i} {
+                    height: ($baseline * $i) !important;
+                }
+            }
+        }
+    }
+}
+@include height-util;
+
+
 // margins
 
 @mixin margins-util {
     .margin {
-        @for $i from 1 through 8 { //
+        @for $i from 0 through 8 { //
             &-top {
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
@@ -77,7 +106,7 @@
             }
         }
 
-        @for $i from 1 through 59 { //
+        @for $i from 0 through 59 { //
             &-left {
                 @include breakpoint(lg) {
                     &-lg--#{$i} {

@@ -13,6 +13,7 @@ $old-ie: false;
 @import "utilities/print";  //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
 @import "utilities/flexbox";
+@import "utilities/borders";
 
 
 @import "elements/type";

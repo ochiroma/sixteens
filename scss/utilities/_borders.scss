@@ -1,0 +1,37 @@
+// borders
+
+
+
+
+
+// @mixin borders-util {
+// 	.border {
+// 		@for $i from 1 through length($colours) {
+// 			&-top {}
+// 				@include breakpoint(lg) {
+// 		            &--lg {
+// 		                // border-top: 1px solid colour nth($colour, ) !important;
+// 		                border-top: 1px solid red !important;
+// 		            }
+// 		        }
+// 		        // @include breakpoint(md) {
+// 		        //     &--md-#{$i} {
+// 		        //         border-top: 1px solid colour nth($colour, ) !important;
+// 		        //     }
+// 		        // }
+// 		        // @include breakpoint(sm) {
+// 		        //     &--sm-#{$i} {
+// 		        //         border-top: 1px solid colour nth($colour, ) !important;
+// 		        //     }
+// 		        // }
+// 		    }
+// 		}
+// 	}     
+// }
+
+// @include borders-util;
+
+
+.border-test{
+	 border: 1px solid red !important;
+}
