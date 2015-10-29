@@ -2,24 +2,6 @@
 table {
   	min-width: 100%;
 	border-spacing: 0;
-	border-collapse: collapse;
-	background-color: white;
-}
-tr:not(:last-of-type) {
-	border-bottom: solid 1px $iron;
-}
-
-tbody > tr:hover {
-	background-color: $abbey;
-	color: white;
-}
-th {
-	padding: 6px 0 10px $col;
-	text-align: left;
-	background-color: $iron;
-}
-td {
-	padding: 6px 0 10px $col;
 }
 
 dl {
@@ -31,24 +13,27 @@ dd {
 }
 
 // Time series data table
-.table {
+.table-advanced {
+
+	border-collapse: collapse;
+	background-color: white;
 
 	th {
 		text-align: left;
-		cursor: pointer;
-		width: 50%;
-	}
-
-	td,
-	th {
-		&:first-of-type {
-			width: $col * 34;
-		}
-
-		width: $col * 23;
+		padding: 6px 0 10px $col;
+		text-align: left;
+		background-color: $iron;
 	}
 
 	tbody {
+
+		td {
+			padding: 6px 0 10px $col;
+		}
+
+		tr:not(:last-of-type) {
+			border-bottom: solid 1px $iron;
+		}
 
 		tr {
 
@@ -56,7 +41,8 @@ dd {
 
 			&:hover,
 			&:focus {
-				background-color: $white;
+				background-color: $abbey;
+				color: white;
 
 			}
 
