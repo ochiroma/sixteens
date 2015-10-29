@@ -61,6 +61,7 @@ dd {
 		&-asc:after {
 			@extend .icon;
 			@extend .icon-arrow-up--dark-small;
+			position: absolute;
 			content: "";
 			margin-left: $col;
 		}
@@ -68,6 +69,7 @@ dd {
 		&-desc:after {
 			@extend .icon;
 			@extend .icon-arrow-down--dark-small;
+			position: absolute;
 			content: "";
 			margin-left: $col;
 		}
