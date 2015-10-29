@@ -461,7 +461,7 @@ var renderLineChart = function(timeseries) {
 
 
 				//Bind click event handlebars to table headings
-				var tableHeaders = $('.table thead').find('th');
+				var tableHeaders = $('.table thead').find('.js-sort-header');
 				//Get header click and assign which column to sort by
 				$(tableHeaders).off().click(function() {
 
