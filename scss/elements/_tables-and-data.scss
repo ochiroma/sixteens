@@ -1,15 +1,15 @@
 //_tables-and-data.scss
 table {
-  	min-width: 100%;
+	min-width: 100%;
 	border-spacing: 0;
 }
 
 dl {
-  	margin: 0;
+	margin: 0;
 }
 
 dd {
-  	margin: 0;
+	margin: 0;
 }
 
 // Time series data table
@@ -61,6 +61,7 @@ dd {
 		&-asc:after {
 			@extend .icon;
 			@extend .icon-arrow-up--dark-small;
+			position: absolute;
 			content: "";
 			margin-left: $col;
 		}
@@ -68,6 +69,7 @@ dd {
 		&-desc:after {
 			@extend .icon;
 			@extend .icon-arrow-down--dark-small;
+			position: absolute;
 			content: "";
 			margin-left: $col;
 		}

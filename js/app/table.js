@@ -62,7 +62,7 @@ function sortTable(column) {
 
 //Get the data array and build the table body from it - TODO Should reuse renderTable function in linechart.js if possible
 function buildTable(array) {
-	var tbody = $('.table').find('tbody');
+	var tbody = $('.js-table-sort').find('tbody');
 	$(tbody).empty();
 
 	//Defines which class to add to header so styling can be hooked onto it
@@ -77,8 +77,8 @@ function buildTable(array) {
 		current = array[i];
 		tr = $(document.createElement('tr')).addClass('table__row');
 		tbody.append(tr);
-		tr.append('<td class="table__data">' + current.date + '</td>');
-		tr.append('<td class="table__data">' + current.value + '</td>');
+		tr.append('<td class="js-table-sort__data">' + current.date + '</td>');
+		tr.append('<td class="js-table-sort__data">' + current.value + '</td>');
 	}
 }
 
