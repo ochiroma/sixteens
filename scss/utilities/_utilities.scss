@@ -332,3 +332,14 @@
       overflow: hidden !important;
     }
 }
+
+
+// Set anything with aria-hidden attributes to correct display state
+
+[aria-hidden*=true] {
+	display: none;
+}
+
+[aria-hidden*=false] {
+	display: block;
+}
