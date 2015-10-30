@@ -65,20 +65,48 @@ function buildTable(array) {
 	var tbody = $('.js-table-sort').find('tbody');
 	$(tbody).empty();
 
-	//Defines which class to add to header so styling can be hooked onto it
-	if (inverse == true) {
-		headerClass = 'sorted--desc';
-	} else {
-		headerClass = 'sorted--asc';
-	}
-
 	for (i = 0; i < array.length; i++) {
-		//console.log(array[i]);
 		current = array[i];
 		tr = $(document.createElement('tr')).addClass('table__row');
 		tbody.append(tr);
 		tr.append('<td class="js-table-sort__data">' + current.date + '</td>');
 		tr.append('<td class="js-table-sort__data">' + current.value + '</td>');
+	}
+}
+
+//Set the sort styling - ie the arrow is attached to the correct header and in the correction direction
+function sortStyling(type) {
+
+	//Find table headers
+	var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header');
+
+	//Removes the arrow from current sorted header
+	tableHeaders.removeClass('sorted-asc sorted-desc');
+
+	//If 'reset' passed to function then it'll return the styling to default
+	if (type == 'reset') {
+
+		//Find default header to reset to
+		var defaultTableHeader = $(tableHeaders).filter('th:contains("Period")');
+
+		//Reset arrow to appear on 'period' and show as ascending;
+		$(defaultTableHeader).addClass('sorted-desc');
+
+	} else {
+
+		//Instead of reset, column name is passed into function and that column has sorted styling added to it
+		var column = type;
+
+		//If inverse then toggle whether asc or desc class is added
+		if (inverse === true) {
+			sortedClass = 'sorted-asc';
+		} else if (inverse === false) {
+			sortedClass = 'sorted-desc';
+		}
+
+		//Add sortedClass
+		column.addClass(sortedClass);
+
 	}
 }
 
