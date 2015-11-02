@@ -132,7 +132,7 @@
 			width: 40px; //icon needs more width or else it cuts off one side
 
 			&-small {
-				@include small-icon(-15px, -225px);
+				@include small-icon(-14px, -226px);
 				width: 40px;
 			}
 		}
@@ -142,7 +142,7 @@
 			width: 40px;
 
 			&-small {
-				@include small-icon(-79px, -225px);
+				@include small-icon(-78px, -226px);
 				width: 40px;
 			}
 		}
