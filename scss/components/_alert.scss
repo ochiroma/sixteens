@@ -46,7 +46,8 @@
 		}
 
 		&__title {
-			padding-left: ($col * 4);
+			display: inline-block;
+			padding-left: ($col * 5);
 			margin: $baseline 0;
 		}
 
