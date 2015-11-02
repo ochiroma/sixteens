@@ -29,6 +29,7 @@ dd {
 
 		td {
 			padding: 6px 0 10px $col;
+			vertical-align: baseline;
 		}
 
 		tr:not(:last-of-type) {
@@ -43,6 +44,20 @@ dd {
 			&:focus {
 				background-color: $abbey;
 				color: white;
+
+
+				// Change the colour of arrow buttons for show/hide sections within highlighted table rows
+
+				// down arrow when not expanded
+				button[aria-expanded=false]:after {
+					@extend .icon-arrow-down--light;
+				}
+
+				// up arrow when not expanded
+				button[aria-expanded=true]:after {
+					@extend .icon-arrow-up--light;
+				}
+
 
 			}
 
