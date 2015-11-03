@@ -31,6 +31,10 @@
 
 .show-hide {
 
+    &:focus {
+        border: 2px solid $thunder;
+    }
+
 	button {
 		position: relative;
 	}
@@ -99,12 +103,17 @@
 	}
 
 	&__content {
-		margin: ($baseline * 2) ($col * 5) 0 ($col * 5);
-		padding: 0 0 ($baseline * 2) 0;
+
+		//padding: 0 0 ($baseline * 2) 0;
+        padding-left: 0;
 		border-bottom: 1px solid $aluminium;
 
+        //@include breakpoint(md) {
+        //    margin-right: ($col * 5);
+        //}
+
 		&:last-of-type {
-			padding: 0;
+			//padding: 0;
 			border: none;
 		}
 	}

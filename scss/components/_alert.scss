@@ -52,7 +52,14 @@
 		}
 
 		&__content {
-			margin: $baseline 0 0 ($col * 5);
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 5;
+            }
 		}
 	}
 }
