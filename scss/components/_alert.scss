@@ -46,13 +46,13 @@
 		}
 
 		&__title {
-			display: inline-block;
+			//display: inline-block;
 			padding-left: ($col * 5);
 			margin: $baseline 0;
 		}
 
 		&__content {
-			margin: $baseline 0 0 ($col * 4);
+			margin: $baseline 0 0 ($col * 5);
 		}
 	}
 }
