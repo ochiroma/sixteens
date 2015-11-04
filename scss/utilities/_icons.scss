@@ -126,27 +126,27 @@
 	}
 
 
-	&-calendar {
-		&--dark {
-			background-position: -143px -225px;
-			width: 40px; //icon needs more width or else it cuts off one side
+    &-calendar {
+        &--dark {
+            background-position: -143px -225px;
+            width: 40px; //icon needs more width or else it cuts off one side
 
-			&-small {
-				@include small-icon(-14px, -226px);
-				width: 40px;
-			}
-		}
+            &-small {
+                @include small-icon(-14px, -226px);
+                width: 40px;
+            }
+        }
 
-		&--light {
-			background-position: -207px -225px;
-			width: 40px;
+        &--light {
+            background-position: -207px -225px;
+            width: 40px;
 
-			&-small {
-				@include small-icon(-78px, -226px);
-				width: 40px;
-			}
-		}
-	}
+            &-small {
+                @include small-icon(-78px, -226px);
+                width: 40px;
+            }
+        }
+    }
 
 
 	&-rss {

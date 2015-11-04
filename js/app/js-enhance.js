@@ -518,7 +518,7 @@ $(function() {
 
             });
         }
-        eachAnchor('a[href^="http://"]');
+        eachAnchor('a[href^="http://"]:not([href*="loop11.com"])');
         eachAnchor('a[href^="https://"]');
     }
 
