@@ -1,0 +1,13 @@
+// mixin for generating background colour classes
+
+@mixin background-util {
+    .background {
+        @each $colour, $colourcode in $colours {
+            &--#{$colour} {
+                background-color: $colourcode;
+            }
+        }
+    }
+}
+
+@include background-util;
