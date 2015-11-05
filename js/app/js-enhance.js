@@ -300,7 +300,7 @@ $(function() {
             var id = $this.attr('id');
             var chartId = $this.data('filename');
             var chartWidth = $this.width();
-            var chartUri = path + '/' + chartId; //= $this.data('uri');
+            var chartUri = $this.data('uri'); //= $this.data('uri');
             $this.empty();
 
             //Read chart configuration from server using container's width
