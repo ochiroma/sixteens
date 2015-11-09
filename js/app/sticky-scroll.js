@@ -56,6 +56,7 @@ var controller = new ScrollMagic.Controller();
 //    .setClassToggle("#high4", "side-bar__active") // add class toggle
 //    .addTo(controller)
 //    .triggerHook(0.9)
+
 //    .duration(400);
 //new ScrollMagic.Scene({triggerElement: "#publications"})
 //    .setClassToggle("#high5", "side-bar__active") // add class toggle
@@ -66,12 +67,22 @@ var controller = new ScrollMagic.Controller();
 
 
 $.each($(".section-container"), function(index) {
-    console.log($(this).height());
-    var title = $(this).find(".section-title").attr('id');
-    console.log(title);
-    new ScrollMagic.Scene({triggerElement: "#" + title})
+
+    var sectionHeight = $(this).height();
+    var sectionTitle = $(this).find(".section-title").attr('id');
+    var triggerPoint = 0.2;
+
+    if (index < 1) {
+        triggerPoint = 0.8;
+        sectionHeight = sectionHeight * 1.85;
+    }
+
+    console.log(sectionHeight);
+
+    // set up the scene
+    new ScrollMagic.Scene({triggerElement: "#" + sectionTitle})
         .setClassToggle("#high" + (index + 1), "side-bar__active") // add class toggle
         .addTo(controller)
-        .triggerHook(0.9)
-        .duration($("#" + title + "-container").height() + 20)
+        .triggerHook(triggerPoint)
+        .duration(sectionHeight);
 });
