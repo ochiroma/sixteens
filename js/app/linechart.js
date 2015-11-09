@@ -160,14 +160,15 @@ var renderLineChart = function(timeseries) {
 		//console.log(currentData);
 		chart.series[0].data = currentData.values;
 		chart.xAxis.tickInterval = tickInterval(currentData.values.length);
-		var min = currentData.min;
-		if (min < 0) {
-			min = min - 1;
-		} else {
-			min = 0;
+		if(!timeseries.description.isIndex) {
+			var min = currentData.min;
+			if (min < 0) {
+				min = min - 1;
+			} else {
+				min = 0;
+			}
+			chart.yAxis.min = min;
 		}
-
-		chart.yAxis.min = min;
 		show(chartContainer);
 		chartContainer.highcharts(chart);
 	}
