@@ -17,8 +17,6 @@ $(function() {
         offset     = $sidebar.offset(),
         topPadding = 50;
 
-    console.log(offset);
-
 
     $window.scroll(function() {
         if ($window.scrollTop() > offset.top) {
@@ -35,27 +33,45 @@ $(function() {
 });
 
 // init controller
-
 var controller = new ScrollMagic.Controller();
 
-// build scenes
-new ScrollMagic.Scene({triggerElement: "#highlights"})
-    .setClassToggle("#high1", "side-bar__active") // add class toggle
-    .addTo(controller)
-    .duration(750);
-new ScrollMagic.Scene({triggerElement: "#timeseries"})
-    .setClassToggle("#high2", "side-bar__active") // add class toggle
-    .addTo(controller)
-    .duration(1350);
-new ScrollMagic.Scene({triggerElement: "#datasets"})
-    .setClassToggle("#high3", "side-bar__active") // add class toggle
-    .addTo(controller)
-    .duration(1100);
-new ScrollMagic.Scene({triggerElement: "#commissioned"})
-    .setClassToggle("#high4", "side-bar__active") // add class toggle
-    .addTo(controller)
-    .duration(150);
-new ScrollMagic.Scene({triggerElement: "#publications"})
-    .setClassToggle("#high5", "side-bar__active") // add class toggle
-    .addTo(controller)
-    .duration(1000);
+//// build scenes
+//new ScrollMagic.Scene({triggerElement: "#highlights"})
+//    .setClassToggle("#high1", "side-bar__active") // add class toggle
+//    .addTo(controller)
+//    .triggerHook(0.9)
+//    .duration($("#highlight-container").height())
+//console.log($("#highlight-container").height());
+//new ScrollMagic.Scene({triggerElement: "#timeseries"})
+//    .setClassToggle("#high2", "side-bar__active") // add class toggle
+//    .addTo(controller)
+//    .triggerHook(0.9)
+//    .duration($("#timeseries-container").height())
+//new ScrollMagic.Scene({triggerElement: "#datasets"})
+//    .setClassToggle("#high3", "side-bar__active") // add class toggle
+//    .addTo(controller)
+//    .triggerHook(0.9)
+//    .duration(1100);
+//new ScrollMagic.Scene({triggerElement: "#commissioned"})
+//    .setClassToggle("#high4", "side-bar__active") // add class toggle
+//    .addTo(controller)
+//    .triggerHook(0.9)
+//    .duration(400);
+//new ScrollMagic.Scene({triggerElement: "#publications"})
+//    .setClassToggle("#high5", "side-bar__active") // add class toggle
+//    .addTo(controller)
+//    .triggerHook(0.9)
+//    .offset(300)
+//    .duration(1000);
+
+
+$.each($(".section-container"), function(index) {
+    console.log($(this).height());
+    var title = $(this).find(".section-title").attr('id');
+    console.log(title);
+    new ScrollMagic.Scene({triggerElement: "#" + title})
+        .setClassToggle("#high" + (index + 1), "side-bar__active") // add class toggle
+        .addTo(controller)
+        .triggerHook(0.9)
+        .duration($("#" + title + "-container").height() + 20)
+});
