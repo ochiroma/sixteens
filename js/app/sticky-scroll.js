@@ -2,87 +2,100 @@
  * Created by jon on 05/11/2015.
  */
 
-//$('.js-sticky-scroll .js-sticky-scroll__title').each(function (){
-//
-//    var title = $(this);
-//
-//    console.log(title);
-//
-//});
-
 $(function() {
 
-    var $sidebar   = $(".js-sticky-sidebar"),
-        $window    = $(window),
-        offset     = $sidebar.offset(),
-        topPadding = 50;
+    if ($('.js-sticky-sidebar').length > 0) {
+
+        var $sidebar = $(".js-sticky-sidebar"),
+            $window = $(window),
+            offset = $sidebar.offset(),
+            topPadding = 50;
 
 
-    $window.scroll(function() {
-        if ($window.scrollTop() > offset.top) {
-            $sidebar.css({
-                marginTop: $window.scrollTop() - offset.top + topPadding
-            });
-        } else {
-            $sidebar.stop().animate({
-                marginTop: 0
-            });
-        }
-    });
+        $window.scroll(function () {
+            if ($window.scrollTop() > offset.top) {
+                $sidebar.css({
+                    marginTop: $window.scrollTop() - offset.top + topPadding
+                });
+            } else {
+                $sidebar.stop().animate({
+                    marginTop: 0
+                });
+            }
+        });
+
+    }
 
 });
 
-// init controller
-var controller = new ScrollMagic.Controller();
+$.fn.isOnScreen = function(){
 
-//// build scenes
-//new ScrollMagic.Scene({triggerElement: "#highlights"})
-//    .setClassToggle("#high1", "side-bar__active") // add class toggle
-//    .addTo(controller)
-//    .triggerHook(0.9)
-//    .duration($("#highlight-container").height())
-//console.log($("#highlight-container").height());
-//new ScrollMagic.Scene({triggerElement: "#timeseries"})
-//    .setClassToggle("#high2", "side-bar__active") // add class toggle
-//    .addTo(controller)
-//    .triggerHook(0.9)
-//    .duration($("#timeseries-container").height())
-//new ScrollMagic.Scene({triggerElement: "#datasets"})
-//    .setClassToggle("#high3", "side-bar__active") // add class toggle
-//    .addTo(controller)
-//    .triggerHook(0.9)
-//    .duration(1100);
-//new ScrollMagic.Scene({triggerElement: "#commissioned"})
-//    .setClassToggle("#high4", "side-bar__active") // add class toggle
-//    .addTo(controller)
-//    .triggerHook(0.9)
+    var win = $(window);
 
-//    .duration(400);
-//new ScrollMagic.Scene({triggerElement: "#publications"})
-//    .setClassToggle("#high5", "side-bar__active") // add class toggle
-//    .addTo(controller)
-//    .triggerHook(0.9)
-//    .offset(300)
-//    .duration(1000);
+    var viewport = {
+        top : win.scrollTop(),
+        left : win.scrollLeft()
+    };
+    viewport.right = viewport.left + win.width();
+    viewport.bottom = viewport.top + win.height();
+
+    var bounds = this.offset();
+    bounds.right = bounds.left + this.outerWidth();
+    bounds.bottom = bounds.top + this.outerHeight();
+
+    return (!(viewport.right < bounds.left || viewport.left > bounds.right || viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+};
 
 
-$.each($(".section-container"), function(index) {
 
-    var sectionHeight = $(this).height();
-    var sectionTitle = $(this).find(".section-title").attr('id');
-    var triggerPoint = 0.2;
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop();
+        var scrollBottom = scrollTop + $(window).height();
 
-    if (index < 1) {
-        triggerPoint = 0.8;
-        sectionHeight = sectionHeight * 1.85;
-    }
+        $.each($(".section-container"), function() {
 
-    console.log(sectionHeight);
+            var section = $(this),
+                sectionHeight = section.height(),
+                sectionName = section.attr('id'),
+                sectionTitle = section.find('h2').attr('id'),
+                offsetTop = section.offset().top,
+                offsetBottom = section.offset().top + section.height();
 
-    // set up the scene
-    new ScrollMagic.Scene({triggerElement: "#" + sectionTitle})
-        .setClassToggle("#high" + (index + 1), "side-bar__active") // add class toggle
-        .addTo(controller)
-        .triggerHook(triggerPoint)
-        .duration(sectionHeight);
+
+
+            if ($(this).isOnScreen()) {
+                var percentage = 0;
+
+                if (scrollTop >= offsetTop && scrollTop < offsetBottom) {
+                    percentage = ((offsetBottom - scrollTop) / sectionHeight) * 100;
+                } else if (scrollBottom > offsetTop && scrollBottom < offsetBottom) {
+                    percentage = ((scrollBottom - offsetTop) / sectionHeight) * 100;
+                    //console.log("(offsetTop: " + offsetTop + "- scrollBottom: " + scrollBottom + ") / sectionHeight: " + sectionHeight)
+                } else if ((scrollTop > offsetTop && scrollBottom < offsetBottom) || (scrollTop < offsetTop && scrollBottom > offsetBottom)) {
+                    percentage = 100;
+                } else {
+                    percentage = 0;
+                }
+
+            } else {
+
+                percentage = 0;
+
+            }
+
+            //console.log($(this).attr('id') + " - " + sectionHeight + ": " + percentage);
+            //console.log(sectionTitle);
+
+            bgTransparency = percentage / 100;
+            //bgTransparency = bgTransparency.toFixed(1);
+
+
+            $.each($(".side-bar__item"), function() {
+                $("#" + sectionTitle + "-menu-item").css({'background-color': 'rgba(187,189,191,' + bgTransparency, "border-radius": "8px 0 0 8px"});
+
+            });
+
+    });
+
 });
