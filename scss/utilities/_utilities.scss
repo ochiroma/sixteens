@@ -99,6 +99,9 @@
     &-left {
         margin-left: $col !important;
 
+        &--negative-one-fix {
+            margin-left: -1px !important;
+        }
         &--half {
             margin-left: ($col / 2) !important;
         }
