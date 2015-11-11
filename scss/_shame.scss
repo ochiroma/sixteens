@@ -44,6 +44,10 @@
             margin: 0;
             padding: 6px 0 2px 0;
         }
+        dd,
+        dt {
+            display: inline-block;
+        }
 
         .stand-out {
             font-size: 36px;
@@ -84,4 +88,18 @@
         background-color: lighten($matisse, 50%);
         font-weight: 400;
     }
+}
+
+.affix {
+    position: fixed;
+    top: 0;
+
+    @include breakpoint(md) {
+        width: ($col * 13);
+    }
+
+    @include breakpoint(lg) {
+         width: ($col * 17);
+     }
+
 }
