@@ -30,6 +30,9 @@ $(function() {
             offset: {
                 top: function () {
                     return (this.top = $('header').outerHeight(true) + $('.page-intro').outerHeight(true))
+                },
+                bottom: function () {
+                    return (this.bottom = $('footer').outerHeight(true))
                 }
             }
         });
@@ -93,7 +96,7 @@ $.fn.isOnScreen = function(){
 
 
 
-$(window).scroll(function() {
+$(window).on("load scroll",function() {
     var scrollTop = $(window).scrollTop();
     var scrollBottom = scrollTop + $(window).height();
 
