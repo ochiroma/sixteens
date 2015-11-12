@@ -20,6 +20,11 @@
 	&__content {
 		font-size: 14px;
 		margin: 0;
+
+		&--large {
+			font-size: 17px;
+			margin: 0;
+		}
 	}
 
 	&__date {
