@@ -3,14 +3,14 @@
 .alert {
 	background-color: $abbey;
 	padding: ($baseline * 2) 0 ($baseline * 3) 0;
-  	color:	$iron-light;
+	color: $iron;
 
 	@media print {
 		display: none;
 	}
 
-  	&__title {
-		font-size: 21px;
+	&__title {
+		font-size: 24px;
 		line-height: 24px;
 		margin-top: 0;
 		margin-bottom: ($baseline * 1);
@@ -19,11 +19,124 @@
 
 	&__content {
 		font-size: 14px;
-	  	margin: 0;
+		margin: 0;
 
 		&--large {
 			font-size: 17px;
 			margin: 0;
 		}
 	}
+
+	&__date {
+		padding: 5px 0 10px 0;
+		margin: 0;
+		font-size: 17px
+	}
+
+	&--warning {
+
+		padding: $baseline 0;
+
+		&__icon {
+			position: absolute;
+			height: ($baseline * 6);
+			width: ($col * 3);
+			border-radius: $col * 2;
+			display: inline-block;
+			border: 2px solid $beta;
+			color: $beta;
+			font-size: 26px;
+			padding: 10px 18px;
+			margin: 0 14px 0 18px;
+		}
+
+		&__title {
+			//display: inline-block;
+			padding-left: ($col * 5);
+			margin: $baseline 0;
+		}
+
+		&__content {
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 5;
+            }
+		}
+	}
 }
+
+	// show and hide (used for corrections and notices)
+	//&--show-hide {
+	//
+	//	border-top: 1px solid $iron;
+	//	//padding-top: ($baseline);
+	//	margin-top: ($baseline * 2);
+	//
+	//	&__title {
+	//
+	//		//width: $col * 29;
+	//		padding: $baseline 0 $baseline $col;
+	//		width: inherit;
+	//		background-color: $ship-gray;
+	//
+	//		button {
+	//			padding: 3px 0 5px 0;
+	//		}
+	//
+	//
+	//		button[aria-expanded=false] {
+	//			//Plus symbol before expanded
+	//			&:after {
+	//				content: '+';
+	//				display: inline-block;
+	//				width: $col;
+	//				height: 24px;
+	//				float: right;
+	//				border-left: 1px solid $nevada;
+	//				padding: 0 $col;
+	//			}
+	//
+	//		}
+	//
+	//		button[aria-expanded=true] {
+	//			//Plus symbol before expanded
+	//			&:after {
+	//				content: '\2212';
+	//				display: inline-block;
+	//				width: $col;
+	//				height: 24px;
+	//				float: right;
+	//				border-left: 1px solid $nevada;
+	//				padding: 0 $col;
+	//			}
+	//
+	//			//background-color: $ship-gray;
+	//		}
+	//
+	//		button:focus {
+	//			outline: none;
+	//		}
+	//
+	//	}
+	//
+	//	&__content {
+	//		padding: $baseline $col;
+	//		background-color: $nevada;
+	//	}
+	//}
+	//
+	//&--correction {
+	//
+	//}
+	//
+	//&--notice {
+	//	background-color: $ship-gray;
+	//
+	//	&__date {
+	//		margin: 0;
+	//	}
+	//}

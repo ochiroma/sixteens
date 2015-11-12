@@ -36,85 +36,8 @@
 }
 
 
+
 // margins
-
-@mixin margins-util {
-    .margin {
-        @for $i from 1 through 8 { //
-            &-top {
-                @include breakpoint(lg) {
-                    &-lg--#{$i} {
-                        margin-top: ($baseline * $i) !important;
-                    }
-                }
-                @include breakpoint(md) {
-                    &-md--#{$i} {
-                        margin-top: ($baseline * $i) !important;
-                    }
-                }
-                @include breakpoint(sm) {
-                    &-sm--#{$i} {
-                        margin-top: ($baseline * $i) !important;
-                    }
-                }
-            }
-            &-bottom {
-                @include breakpoint(lg) {
-                    &-lg--#{$i} {
-                        margin-bottom: ($baseline * $i) !important;
-                    }
-                }
-                @include breakpoint(md) {
-                    &-md--#{$i} {
-                        margin-bottom: ($baseline * $i) !important;
-                    }
-                }
-                @include breakpoint(sm) {
-                    &-sm--#{$i} {
-                        margin-bottom: ($baseline * $i) !important;
-                    }
-                }
-            }
-        }
-
-        @for $i from 1 through 59 { //
-            &-left {
-                @include breakpoint(lg) {
-                    &-lg--#{$i} {
-                        margin-left: ($col * $i) !important;
-                    }
-                }
-                @include breakpoint(md) {
-                    &-md--#{$i} {
-                        margin-left: ($col * $i) !important;
-                    }
-                }
-                @include breakpoint(sm) {
-                    &-sm--#{$i} {
-                        margin-left: ($col * $i) !important;
-                    }
-                }
-            }
-            &-right {
-                @include breakpoint(lg) {
-                    &-lg--#{$i} {
-                        margin-right: ($col * $i) !important;
-                    }
-                }
-                @include breakpoint(md) {
-                    &-md--#{$i} {
-                        margin-right: ($col * $i) !important;
-                    }
-                }
-                @include breakpoint(sm) {
-                    &-sm--#{$i} {
-                        margin-right: ($col * $i) !important;
-                    }
-                }
-            }
-        }
-    }
-}
 
 
 .margin {
@@ -123,6 +46,10 @@
 
         &--negative-one-fix {
             margin-top: -1px !important;
+        }
+
+        &--negative-two-fix {
+            margin-top: -2px !important;
         }
         margin-top: ($baseline * 2) !important;
 
@@ -172,6 +99,9 @@
     &-left {
         margin-left: $col !important;
 
+        &--negative-one-fix {
+            margin-left: -1px !important;
+        }
         &--half {
             margin-left: ($col / 2) !important;
         }
@@ -181,8 +111,6 @@
     }
 
 }
-
-@include margins-util;
 
 
 
@@ -202,6 +130,7 @@
 .flush-top {
 	margin-top: 0 !important;
 }
+
 
 
 // padding
@@ -255,6 +184,10 @@
 
 
 // display
+
+.block {
+    display: block !important;
+}
 
 .inline {
 	display: inline !important;
@@ -331,4 +264,50 @@
     &--hidden {
       overflow: hidden !important;
     }
+}
+
+
+// Set anything with aria-hidden attributes to correct display state
+
+[aria-hidden*=true] {
+	display: none;
+}
+
+[aria-hidden*=false] {
+	display: block;
+}
+
+#viewport {
+
+    &-sm {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
+    &-md {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+    }
+
+    &-lg {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(lg) {
+            display: block;
+        }
+
+    }
+
 }

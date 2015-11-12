@@ -2,7 +2,9 @@
 
 .tab {
 
-    margin-top: ($baseline *6);
+    @include breakpoint(md){
+		margin-top: ($baseline *6);
+	}
 
     &__item {
 

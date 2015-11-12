@@ -118,9 +118,9 @@ var renderLineChart = function(timeseries) {
 			show(customDownloads);
 
 		}
-		sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
+
 		render();
-		// console.log("filter end");
+
 	}
 
 	function render() {
@@ -129,7 +129,10 @@ var renderLineChart = function(timeseries) {
 			renderChart();
 		} else {
 			hide(chartContainer);
+			sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
 			renderTable();
+
+			sortStyling('reset'); //Reset sort styling so arrows on default sorting order
 			inverse = true; //Used to default table sort function to correct order
 		}
 	}
@@ -157,14 +160,15 @@ var renderLineChart = function(timeseries) {
 		//console.log(currentData);
 		chart.series[0].data = currentData.values;
 		chart.xAxis.tickInterval = tickInterval(currentData.values.length);
-		var min = currentData.min;
-		if (min < 0) {
-			min = min - 1;
-		} else {
-			min = 0;
+		if(!timeseries.description.isIndex) {
+			var min = currentData.min;
+			if (min < 0) {
+				min = min - 1;
+			} else {
+				min = 0;
+			}
+			chart.yAxis.min = min;
 		}
-
-		chart.yAxis.min = min;
 		show(chartContainer);
 		chartContainer.highcharts(chart);
 	}
@@ -469,27 +473,21 @@ var renderLineChart = function(timeseries) {
 				//Get header click and assign which column to sort by
 				$(tableHeaders).off().click(function() {
 
-					//If inverse then toggle whether asc or desc class is added
-					if (inverse == true) {
-						sortedClass = 'sorted-asc';
-					} else if (inverse == false) {
-						sortedClass = 'sorted-desc';
-					}
+					//Store 'this' to pass to sort styling function
+					var $this = $(this);
 
-					//Remove any existing classes from sorting
-					tableHeaders.removeClass('sorted-asc sorted-desc');
+					//Change styling of headers, so arrow displays correctly
+					sortStyling($this);
 
-					//Add sortedClass
-					$(this).addClass(sortedClass);
 
-					var column = $(this).text();
+					//Find which column has been clicked
+					var column = $this.text();
+
+					//Use header title to state which column to sort by
 					if (column == 'Period') {
 						column = 'date';
-						//this.addClass(sortedClass);
 					} else if (column == 'Value') {
 						column = 'value';
-						//this.addClass(sortedClass);
-
 					}
 
 					//Call sorting function and parse through population data array, which column it needs to sort by, and what the current frequency is
@@ -526,7 +524,6 @@ var renderLineChart = function(timeseries) {
 				}
 				currentFilter = filterValue;
 				resetFilters();
-
 
 				/*
 				 * Work out what the dates are
