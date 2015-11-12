@@ -29,6 +29,7 @@ $(function() {
         var path = $('#pagePath').text();
 
         //The order of these functions being called is important...
+        jsEnhanceViewportSize();
         jsEnhanceULNavToSelectNav();
         jsEnhanceClickableDiv();
         jsEnhanceLinechart();
@@ -69,6 +70,30 @@ $(function() {
         setTimeout(function() {
             $('#loading-overlay').fadeOut(300);
         }, 500);
+    }
+
+    function clearViewportSizes() {
+        $('body').removeClass('viewport-sm viewport-md viewport-lg');
+    }
+
+    function jsEnhanceViewportSize() {
+        $( "footer" ).append("<div id='viewport-sm' class='js-viewport-size'></div>" +
+                            "<div id='viewport-md' class='js-viewport-size'></div>" +
+                            "<div id='viewport-lg' class='js-viewport-size'></div>");
+
+        $(window).on("load resize",function(){
+
+            $.each($(".js-viewport-size"), function() {
+
+                if ($(this).is(':visible')) {
+                    clearViewportSizes();
+                    var idName = $(this).attr('id');
+                    $('body').addClass(idName);
+                }
+
+            });
+
+        });
     }
 
     function jsEnhanceULNavToSelectNav() {
