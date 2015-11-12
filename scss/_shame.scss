@@ -90,7 +90,8 @@
     }
 }
 
-.affix {
+.viewport-md .affix,
+.viewport-lg .affix {
     position: fixed;
     top: 0;
 
@@ -101,5 +102,18 @@
     @include breakpoint(lg) {
          width: ($col * 17);
      }
+
+    &-bottom {
+        position: absolute;
+
+        @include breakpoint(md) {
+            width: ($col * 13);
+        }
+
+        @include breakpoint(lg) {
+            width: ($col * 17);
+        }
+
+    }
 
 }
