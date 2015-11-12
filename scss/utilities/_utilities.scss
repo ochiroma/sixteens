@@ -276,3 +276,38 @@
 [aria-hidden*=false] {
 	display: block;
 }
+
+#viewport {
+
+    &-sm {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
+    &-md {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+    }
+
+    &-lg {
+        height: 0;
+        max-height: 0;
+        display: none;
+
+        @include breakpoint(lg) {
+            display: block;
+        }
+
+    }
+
+}
