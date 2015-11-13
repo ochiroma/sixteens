@@ -818,3 +818,71 @@
 	}
 
 }
+
+
+.box {
+
+	&__content {
+
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+
+		h3,
+		h4 {
+			margin: 0;
+		}
+
+		p,
+		a {
+			padding: 6px 0 2px 0;
+			margin-top: 0;
+		}
+
+		address {
+			padding: 7px 0 1px 0;
+		}
+
+		ul {
+			margin: 0;
+		}
+
+		li {
+			padding: 6px 0 10px 0;
+			margin: 0;
+
+			a {
+				line-height: 16px;
+			}
+
+		}
+
+		dl {
+			margin: 0;
+			padding: 6px 0 2px 0;
+		}
+		dd,
+		dt {
+			display: inline-block;
+		}
+
+		.stand-out {
+			font-size: 36px;
+			font-weight: 600;
+			padding: 7px 0 1px 0;
+
+			&--list {
+				padding: 5px 0 3px 0;
+				font-size: 21px;
+			}
+
+			&--revert {
+				font-size: 14px;
+			}
+
+		}
+
+
+	}
+
+}

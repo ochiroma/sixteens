@@ -1,0 +1,47 @@
+.side-bar {
+
+    &__item {
+        margin: 0;
+        margin-bottom: $baseline;
+        padding: $baseline 0;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $mercury;
+        }
+
+    }
+
+    &__active {
+        background-color: lighten($matisse, 50%);
+        font-weight: 400;
+    }
+}
+
+.viewport-md .affix,
+.viewport-lg .affix {
+    position: fixed;
+    top: 0;
+
+    @include breakpoint(md) {
+        width: ($col * 13);
+    }
+
+    @include breakpoint(lg) {
+        width: ($col * 17);
+    }
+
+    &-bottom {
+        position: absolute;
+
+        @include breakpoint(md) {
+            width: ($col * 13);
+        }
+
+        @include breakpoint(lg) {
+            width: ($col * 17);
+        }
+
+    }
+
+}
