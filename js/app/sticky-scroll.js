@@ -80,7 +80,7 @@ $.fn.percentOnScreen = function(){
 
     $(window).on("load scroll", function () {
 
-        if ($('body').is('.viewport-lg')) {
+
 
             $.each($(".section-container"), function () {
 
@@ -101,6 +101,6 @@ $.fn.percentOnScreen = function(){
                     $("#" + sectionTitle + "-menu-item").css("background-color", "rgba(187,189,191," + bgTransparency + ")");
                 });
             });
-        }
+
     });
 
