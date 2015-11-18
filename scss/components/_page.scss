@@ -10,8 +10,6 @@
 			font-size: 21px;
 			font-weight: 300;
 			color: $salem;
-			font-style: italic;
-
 		}
 
 		&__title {
@@ -32,7 +30,6 @@
 			line-height: 32px;
 
 			&--home-big {
-				font-style: italic;
 				font-size: 24px;
 				margin-top: 16px;
 				margin-bottom: ($baseline * 6);
