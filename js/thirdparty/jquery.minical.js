@@ -168,7 +168,6 @@ minical = {
         var event_name;
         event_name = external ? 'change.minical_external' : 'change.minical';
         this.selected_day = date;
-        console.log("selected_day = " + this.selected_day);
         this.markSelectedDay();
         this.$el.val(date ? this.date_format(this.selected_day) : '').trigger(event_name);
         return this.fireCallback('date_changed');
