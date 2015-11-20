@@ -5,11 +5,9 @@ ul.minical {
     display: none;
     color: $ship-gray;
     background: $iron-light;
-    //border: 1px solid $aluminium;
     margin: 0;
     padding: 0;
     text-shadow: none;
-    //width: 16em;
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
     z-index: 9327;
     font-size: 14px;
@@ -44,13 +42,14 @@ ul.minical {
                     font-size: 14px;
                     text-align: center;
                     padding: 6px 0 2px 0;
+                    margin: $baseline 0;
                 }
                 a {
                     display: block;
                     position: absolute;
                     left: 0;
                     top: 0;
-                    height: ($baseline * 8);
+                    height: ($baseline * 6);
                     width: ($col * 2);
                     font-size: 2px;
                     color: inherit;
@@ -62,7 +61,7 @@ ul.minical {
                             border-right: 6px solid $thunder;
                             position: absolute;
                             left: 5px;
-                            top: 27px;
+                            top: 19px;
                         }
                     }
                     &.minical_next {
@@ -75,7 +74,7 @@ ul.minical {
                             border-left: 6px solid $thunder;
                             position: absolute;
                             right: 5px;
-                            top: 27px;
+                            top: 19px;
                         }
                     }
                 }
