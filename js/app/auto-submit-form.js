@@ -14,12 +14,12 @@ $(function() {
     }
 
     //Find form and all inputs
-    var form = $('form#filters');
+    var form = $('form#form');
     var formDates = form.find('input[type="text"]');
     var formCheckboxes = form.find('input[type="checkbox"]');
     var formKeywords = form.find('#input-keywords');
     var formSelect = $('#select');
-    var formClear = $()
+    var atoz = $('.filters__a-z-list-item a')
 
     //Bind change events to date and keyword inputs
     $(formDates).each(function () {
@@ -29,21 +29,34 @@ $(function() {
     });
     $(formCheckboxes).each(function() {
         $(this).change(function() {
-            form = form.closest('form');
-            //timedSubmit();
             submitForm();
         });
     });
     $(formKeywords).on('change paste keyup', timedSubmit);
     $(formSelect).change(function() {
-        form = $(form).closest('form');
         submitForm();
     });
+    $(atoz).each(function() {
+        var $this = $(this);
+        var parentItem = $this.closest('li');
+        $(this).click(function(e) {
+            e.preventDefault();
+            var url = $this.attr('href');
+            loadNewResults(url);
+
+            $(atoz).each(function() {
+                var parentItem = $(this).closest('li');
+                if (parentItem.hasClass('filters__a-z-list-item--active')) {
+                    parentItem.removeClass('filters__a-z-list-item--active');
+                }
+            });
+            $(parentItem).addClass('filters__a-z-list-item--active');
+        });
+    })
 
     //Bind form submission to store form data and run ajax function
     $(form).submit(function(e) {
         e.preventDefault();
-        //TODO Get all list pages and search page text consistently marked up so we don't have to detect which type is there. Template should be the same mark-up mostly
         var url = (window.location.pathname) + '?' + $(form).serialize();
 
         //Detect descriptive text and replace with loading message

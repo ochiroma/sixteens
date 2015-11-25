@@ -71,7 +71,7 @@
 .sort-results {
     //padding: 14px 0 1px 0;
     //height: ($baseline * 7);
-    margin: $baseline 0;
+    margin: ($baseline * 2) 0 0 0;
 
     @include breakpoint(md) {
         padding: 12px 0 1px 0;

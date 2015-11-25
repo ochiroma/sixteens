@@ -2,13 +2,16 @@
 
 .tab {
 
-    @include breakpoint(md){
-		margin-top: ($baseline *6);
-	}
+    //@include breakpoint(md){
+	//	margin-top: ($baseline *6);
+	//}
+
+    border-bottom: 1px solid $iron;
+    margin-bottom: -1px;
 
     &__item {
 
-        font-size: 17px;
+        font-size: 21px;
         padding: 21px $col 0 $col;
         height: ($baseline * 8);
         //margin-right: $col;

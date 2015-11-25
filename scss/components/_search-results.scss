@@ -12,7 +12,7 @@
             font-size: 14px;
             font-weight: 300;
             line-height: 24px;
-            margin: 0 0 $baseline 0;
+            margin: ($baseline * 3) 0 $baseline 0;
             padding: 6px 0 10px 0;
         }
 
@@ -34,6 +34,10 @@
             color: $salem;
             font-size: 14px;
             margin: -1px 0 1px 0;
+
+            &:first-letter {
+                text-transform: capitalize;
+            }
         }
 
         &__summary {
