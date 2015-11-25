@@ -22,7 +22,7 @@ function loadNewResults(url) {
 //Removes current results from page and loads in new results
 function replaceResults(url, newResults, resultsText) {
     $('.results').empty();
-    $('.results').append(newResults);
+    $(newResults).hide().appendTo('.results').fadeIn(300);
 
     //Build any sparklines that might show on search results
     jsEnhanceSparkline();
