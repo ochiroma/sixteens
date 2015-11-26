@@ -27,10 +27,20 @@ section {
 			display: block;
 			float: left;
 
+			@include breakpoint(sm) {
+				margin-right: $col;
+				margin-left: 0;
+			}
+
 		}
 
 		&--markdown {
 			padding: 0 0 0 ($col * 3);
+
+			@include breakpoint(sm) {
+				padding: 0;
+			}
+
 			@include breakpoint(lg) {
 				margin-right: ($col * 4);
 			}
