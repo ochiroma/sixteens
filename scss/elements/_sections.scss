@@ -36,6 +36,7 @@ section {
 
 		&--markdown {
 			padding: 0 0 0 ($col * 3);
+			margin-right: ($col * 3);
 
 			@include breakpoint(sm) {
 				padding: 0;
