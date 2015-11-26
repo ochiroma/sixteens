@@ -20,6 +20,7 @@ $(function() {
     var formKeywords = form.find('#input-keywords');
     var formSelect = $('#select');
     var atoz = $('.filters__a-z-list-item a')
+    var atozActive; //Stores the currently active letter in A-Z
 
     //Bind change events to date and keyword inputs
     $(formDates).each(function () {
@@ -39,11 +40,20 @@ $(function() {
     $(atoz).each(function() {
         var $this = $(this);
         var parentItem = $this.closest('li');
+        //Set active item so a-z keyword search works from first load
+        if (parentItem.hasClass('filters__a-z-list-item--active')) {
+            atozActive = $(this).attr('href');
+        }
+        //Set active letter, remove class from previous active, load new results into page and add active class to new letter
         $(this).click(function(e) {
             e.preventDefault();
-            var url = $this.attr('href');
-            loadNewResults(url);
-
+            atozActive = $this.attr('href');
+            //if input contains keywords include query in Ajax
+            if ($('#input-keywords').val()) {
+                loadNewResults(atozActive + "&query="  + $('#input-keywords').val())
+            } else {
+                loadNewResults(atozActive);
+            }
             $(atoz).each(function() {
                 var parentItem = $(this).closest('li');
                 if (parentItem.hasClass('filters__a-z-list-item--active')) {
@@ -57,7 +67,12 @@ $(function() {
     //Bind form submission to store form data and run ajax function
     $(form).submit(function(e) {
         e.preventDefault();
-        var url = (window.location.pathname) + '?' + $(form).serialize();
+        //If includes a-z parameter then include it in URL to ajax
+        if ((window.location.search.indexOf('az=') > -1) && (atozActive)) {
+            var url = atozActive + "&" + $(form).serialize();
+        } else {
+            var url = (window.location.pathname) + '?' + $(form).serialize();
+        }
 
         //Detect descriptive text and replace with loading message
         if ($('form').find('.search-page__results-text').html()) {
