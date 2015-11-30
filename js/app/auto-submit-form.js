@@ -6,6 +6,9 @@ $(function() {
         $(form).trigger('submit');
     }
 
+    //Find form to auto-submit & ajax results
+    var form = $('form#form');
+
     //Delay form submit so user has enough time to type without constant refreshes
     var timer;
     function timedSubmit() {
@@ -13,31 +16,50 @@ $(function() {
         timer = setTimeout(submitForm, 500);
     }
 
-    //Find form and all inputs
-    var form = $('form#form');
-    var formDates = form.find('input[type="text"]');
-    var formCheckboxContainer = form.find('.js-checkbox-container'); //static container needed for delegated event handlebars
-    var formCheckboxes = formCheckboxContainer.find('input[type="checkbox"]');
-    var formKeywords = form.find('#input-keywords');
-    var formSelect = $('select');
-    var formAtoZ = $('.filters__a-z');
+    //Find date pickers and bind events
+    if ($('#input-start-date') || $('#input-end-date')) {
+        var formDates = form.find('input[type="text"]');
+        $(formDates).each(function () {
+            $(this).change(function() {
+                submitForm();
+            });
+        });
+    }
 
-    //Bind change/click events
-    $(formDates).each(function () {
-        $(this).change(function() {
+    //Find keyword input and bind events
+    if ('#input-keywords') {
+        var formKeywords = form.find('#input-keywords');
+        $(formKeywords).on('change paste keyup', timedSubmit);
+    }
+
+    //Find and bind events to drop-down select inputs
+    if ('select') {
+        var formSelect = $('select');
+        $(formSelect).change(function () {
             submitForm();
         });
-    });
-    $(formCheckboxContainer).on('change', formCheckboxes, function() {
-        submitForm();
-    });
-    $(formKeywords).on('change paste keyup', timedSubmit);
-    $(formSelect).change(function() {
-        submitForm();
-    });
-    $(formAtoZ).on('change', '.filters__a-z-list input', function() {
-        submitForm();
-    });
+    }
+
+    //Wrap static container around checkboxes for static element to bind events to
+    if (form.has('.filters input[type="checkbox"]')) {
+        var formCheckboxContainer = form.find('.js-checkbox-container');
+        var formCheckboxes = $('#form.filters input[type="checkbox"]').find('input[type="checkbox"]'); //Seems inefficient to find once already selecting - means only one though, TODO get this select just one so doesn't have to loop for each checkbox below
+        $(formCheckboxes).each(function() {
+           $(this).closest('ul').wrap('<div class="js-checkbox-container"></div>')
+        });
+        $(formCheckboxContainer).on('change', formCheckboxes, function() {
+            submitForm();
+        });
+    }
+
+    //The same as above but for a-z
+    if ('.filters__a-z') {
+        $('.filters__a-z').wrap('<div class="js-atoz-container"></div>')
+        var formAtoZ = $('.js-atoz-container');
+        $(formAtoZ).on('change', '.filters__a-z input', function() {
+            submitForm();
+        });
+    }
 
     //Bind form submission to store form data and run ajax function
     $(form).submit(function(e) {

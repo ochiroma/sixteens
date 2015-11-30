@@ -19,8 +19,8 @@ function loadNewResults(url) {
                     replaceFilters($(this).html());
                 });
             }
-            if ($(result).has('.filters__a-z-list')) {
-                var atozFilters = $(result).find('.filters__a-z-list');
+            if ($(result).has('.js-atoz-container')) {
+                var atozFilters = $(result).find('.filters__a-z');
                 replaceFilters(atozFilters);
             }
         }
@@ -62,9 +62,9 @@ function replaceFilters(filters) {
 
     }
 
-    if ($(filters).has('.filters__a-z-list')) {
+    if ($(filters).has('.js-atoz-container')) {
         //If page A-Z and no checkboxes
-        var atozFilters = $('.filters__a-z-list');
+        var atozFilters = $('.filters__a-z');
         atozFilters.empty();
         atozFilters.append($(filters).html());
     }
