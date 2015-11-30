@@ -51,6 +51,7 @@ $(function() {
 
         jsEnhanceMobileTables();
         jsEnhanceHover();
+        jsEnhanceSelectedHighlight();
 		jsEnhanceRemoveFocus();
 		jsEnhanceChartFocus();
 
@@ -703,6 +704,32 @@ function jsEnhanceHover() {
             $(elem).removeClass('grey-hover');
         }
     });
+}
+
+function jsEnhanceSelectedHighlight() {
+
+    $('.js-timeseriestool-select').on( "click", function() {
+
+            //$('div').eq($(this).parent().index()).effect("highlight", {}, 1000);
+            //$(this).closest( ".col-wrap").animate({
+            //    backgroundColor: 'red',
+            //    opacity: 0.4,
+            //    marginLeft: "0.6in"
+            //}, 1000);
+        //if($(this).prop('checked')) {
+        //    $(this).closest(".col-wrap").stop(true, false).addClass('background--iron-light', {duration: 500});
+        //} else {
+        //    $(this).closest(".col-wrap").stop(true, false).removeClass('background--iron-light', {duration: 500});
+        //}
+
+        if($(this).prop('checked')) {
+            $(this).closest(".col-wrap").addClass('background--gallery', 1000, "easeOutBounce" );
+        } else {
+            $(this).closest(".col-wrap").removeClass('background--gallery', 1000, "easeOutBounce" );
+        }
+
+        });
+
 }
 
 function jsEnhanceRemoveFocus() {
