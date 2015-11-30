@@ -50,7 +50,7 @@ $(function() {
         jsEnhanceScrollToSection();
 
         jsEnhanceMobileTables();
-
+        jsEnhanceHover();
 		jsEnhanceRemoveFocus();
 		jsEnhanceChartFocus();
 
@@ -675,6 +675,33 @@ function jsEnhanceScrollToSection() {
             //TODO Fix root cause of IE offsetting. Temporary fix:
             //$('html, body').scrollTop( $(location.hash).offset().top - 60 );
         });
+    });
+}
+
+// New T3 hover enhancement
+function jsEnhanceHover() {
+
+    $('.js-hover').click(function() {
+        var link = $('a:first', this).attr('href');
+        window.location = link;
+    });
+
+    $('.js-hover').hover(function() {
+        elem = $(this);
+        bgColour = elem.css('background-color');
+        white = "rgb(255, 255, 255)";
+        if (bgColour === white) {
+            $(elem).addClass('white-hover')
+        } else {
+            $(elem).addClass('grey-hover');
+        }
+    },
+    function(){
+        if (bgColour === white) {
+            $(elem).removeClass('white-hover')
+        } else {
+            $(elem).removeClass('grey-hover');
+        }
     });
 }
 
