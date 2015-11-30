@@ -34,6 +34,7 @@ function replaceResults(url, newResults, resultsText) {
 
     //Build any sparklines that might show on search results
     jsEnhanceSparkline();
+    jsEnhanceTimeSeriesTool();
 
     //Update results text
     var resultsTextElem = $('.search-page__results-text');
