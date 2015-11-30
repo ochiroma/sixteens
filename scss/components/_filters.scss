@@ -39,7 +39,13 @@
                 border-right: 1px solid transparent;
                 border-bottom: 1px solid transparent;
 
-                a {
+                input {
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                //Active links
+                label {
                     background: $abbey;
                     display: block;
                     width: 100%;
@@ -48,18 +54,32 @@
                     font-size: 19px;
                     text-align: center;
                     text-decoration: none;
-                    padding: 8px 0 0 0;
+                    padding: 4px 0 0 0;
 
                     &:hover,
                     &:focus {
                         background: $thunder;
+                        cursor: pointer;
                     }
                 }
-            }
 
-            &-item--active {
-                a {
+                //Select links
+                input:checked+label {
                     background: $salem;
+                }
+
+                //Disabled links
+                input:disabled+label {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    font-size: 19px;
+                    text-align: center;
+                    text-decoration: none;
+                    padding: 4px 0 0 0;
+                    cursor: not-allowed;
+                    background: $iron;
+                    color: $nevada;
                 }
             }
         }

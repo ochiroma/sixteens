@@ -7,13 +7,21 @@ function loadNewResults(url) {
     $.ajax({
         url: url,
         success: function(result) {
+            //Results
             var newResults = $(result).find('.results').html();
             var resultsText = $(result).find('.search-page__results-text').html();
+            replaceResults(url, newResults, resultsText);
 
-            if (resultsText) {
-                replaceResults(url, newResults, resultsText);
-            } else {
-                replaceResults(url, newResults);
+            //Filters
+            if ($(result).has('.js-checkbox-container')) {
+                var filters = $(result).find('.js-checkbox-container');
+                $(filters).each(function() {
+                    replaceFilters($(this).html());
+                });
+            }
+            if ($(result).has('.filters__a-z-list')) {
+                var atozFilters = $(result).find('.filters__a-z-list');
+                replaceFilters(atozFilters);
             }
         }
     });
@@ -27,13 +35,36 @@ function replaceResults(url, newResults, resultsText) {
     //Build any sparklines that might show on search results
     jsEnhanceSparkline();
 
-    if (resultsText) {
-        $('.search-page__results-text').empty();
-        $('.search-page__results-text').append(resultsText);
-    }
+    //Update results text
+    var resultsTextElem = $('.search-page__results-text');
+    resultsTextElem.empty();
+    resultsTextElem.append(resultsText);
 
     //Pushes new url into browser, if browser compatible (enhancement)
     if (typeof (history.pushState) != undefined) {
         window.history.pushState({}, '', url);
+    }
+}
+
+//Update filters
+function replaceFilters(filters) {
+    if ($(filters).has('input[type="checkbox"]')) {
+        //Detect what filters are being updated
+        var checkboxId = $(filters).find('input').attr('id');
+
+        //Find corresponding filters on current page
+        var checkboxFilters = $('#' + checkboxId).closest('.js-checkbox-container');
+
+        //Empty and replace checkboxes
+        checkboxFilters.empty();
+        checkboxFilters.append(filters);
+
+    }
+
+    if ($(filters).has('.filters__a-z-list')) {
+        //If page A-Z and no checkboxes
+        var atozFilters = $('.filters__a-z-list');
+        atozFilters.empty();
+        atozFilters.append($(filters).html());
     }
 }
