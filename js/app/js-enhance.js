@@ -1,9 +1,9 @@
 //progressive enhancement (jQuery)
 
 $(function() {
-// jQuery(window).load(function() {
+    // jQuery(window).load(function() {
 
-    var browserNotSupported = (function () {
+    var browserNotSupported = (function() {
         var div = document.createElement('DIV');
         // http://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx
         div.innerHTML = '<!--[if lte IE 7]><I></I><![endif]-->';
@@ -51,9 +51,9 @@ $(function() {
 
         jsEnhanceMobileTables();
         jsEnhanceHover();
-        jsEnhanceSelectedHighlight();
-		jsEnhanceRemoveFocus();
-		jsEnhanceChartFocus();
+        jsEnhanceRemoveFocus();
+        jsEnhanceChartFocus();
+        jsEnhanceTimeSeriesTool();
 
         // prototypeModalButtons();
 
@@ -80,11 +80,11 @@ function clearViewportSizes() {
 }
 
 function jsEnhanceViewportSize() {
-    $( "footer" ).append("<div id='viewport-sm' class='js-viewport-size'></div>" +
+    $("footer").append("<div id='viewport-sm' class='js-viewport-size'></div>" +
         "<div id='viewport-md' class='js-viewport-size'></div>" +
         "<div id='viewport-lg' class='js-viewport-size'></div>");
 
-    $(window).on("load resize",function(){
+    $(window).on("load resize", function() {
 
         $.each($(".js-viewport-size"), function() {
 
@@ -191,22 +191,22 @@ function jsEnhanceClickableDiv() {
     //add class to change background colour
     function addHoverClass(elem) {
         $.each(hoverHashTable, function(className, hoverClassName) {
-            $(elem).find('.'+className).addClass(hoverClassName[0]);
+            $(elem).find('.' + className).addClass(hoverClassName[0]);
         });
     }
 
     //remove class to toggle background to origin colour
     function removeHoverClass(elem) {
         $.each(hoverHashTable, function(className, hoverClassName) {
-            $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
+            $(elem).find('.' + hoverClassName[0]).removeClass(hoverClassName[0]);
         });
     }
 
     // change the background colour on hover
-    $(clickableDiv).hover(function () {
+    $(clickableDiv).hover(function() {
             addHoverClass(this);
         },
-        function () {
+        function() {
             removeHoverClass(this);
         }
     );
@@ -217,7 +217,7 @@ function jsEnhanceClickableDiv() {
             var elem = $(this).closest(clickableDiv);
             addHoverClass(elem);
 
-            $(this).focusout(function(){
+            $(this).focusout(function() {
                 removeHoverClass(elem);
             });
         }
@@ -275,7 +275,7 @@ function jsEnhanceLinechart() {
         var $this = $(this);
         var uri = $this.data('uri');
         $this.empty();
-        $.getJSON(uri+'/data', function(timeseries) {
+        $.getJSON(uri + '/data', function(timeseries) {
             renderLineChart(timeseries);
         }).fail(function(d, textStatus, error) {
             // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
@@ -293,7 +293,7 @@ function jsEnhanceSparkline() {
         var $this = $(this);
         var uri = $this.data('uri');
         $this.empty();
-        $.getJSON(uri+'/data?series', function(timeseries) {
+        $.getJSON(uri + '/data?series', function(timeseries) {
             // console.log("Successfuly read timseries data");
             renderSparkline(timeseries, $this);
         }).fail(function(d, textStatus, error) {
@@ -341,15 +341,14 @@ function jsEnhanceMarkdownCharts(path) {
                 if (chartConfig) {
                     chartConfig.chart.renderTo = id;
                     new Highcharts.Chart(chartConfig);
-                    delete window["chart-" + chartId];//clear data from window object after rendering
+                    delete window["chart-" + chartId]; //clear data from window object after rendering
                 }
             }, "script");
     });
 }
 
 function jsEnhancePrint() {
-    $('#jsEnhancePrint').click(function()
-    {
+    $('#jsEnhancePrint').click(function() {
         window.print();
         return false;
     });
@@ -358,14 +357,14 @@ function jsEnhancePrint() {
 
 function jsEnhanceNumberSeparator() {
     // Adapted from http://stackoverflow.com/questions/14075014/jquery-function-to-to-format-number-with-commas-and-decimal
-    $( ".stat__figure-enhance" ).each(function( index ) {
+    $(".stat__figure-enhance").each(function(index) {
         //console.log( index + ": " + $( this ).text() );
-        var number = $( this ).text();
-        var n= number.toString().split(".");
+        var number = $(this).text();
+        var n = number.toString().split(".");
         //Comma-fies the first part
         n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         // //Combines the two sections
-        $( this ).text(n.join("."));
+        $(this).text(n.join("."));
     });
 }
 
@@ -383,7 +382,7 @@ function jsEnhancePrintCompendium() {
             var childIntro = ('.page-intro');
             var childContent = ('.page-content');
 
-            $.get(url, function(data){
+            $.get(url, function(data) {
                 $(data).find(childIntro).addClass('print--break-before').appendTo('#compendium-print' + index);
                 $(data).find(childContent).appendTo('#compendium-print' + index);
             })
@@ -404,9 +403,9 @@ function jsEnhancePrintCompendium() {
 function jsEnhanceBoxHeight() {
     if ($(window).width() > 608) {
         var highestBox = 0;
-        $('.equal-height').each(function(){
+        $('.equal-height').each(function() {
 
-            if($(this).height() > highestBox) {
+            if ($(this).height() > highestBox) {
                 highestBox = $(this).height();
             }
         });
@@ -417,7 +416,7 @@ function jsEnhanceBoxHeight() {
 
 //Resets the box heights on resize
 function jsEnhanceBoxHeightResize() {
-    $( window ).resize(function() {
+    $(window).resize(function() {
         $('.equal-height').height('auto');
         jsEnhanceBoxHeight();
     });
@@ -477,18 +476,18 @@ function jsEnhanceTriggerAnalyticsEvent(page) {
 //Track file downloads in analytics
 function jsEnhanceDownloadAnalytics(path) {
     //Track generated file downloads (eg chart xlsx download)
-    $('.download-analytics').click(function(){
+    $('.download-analytics').click(function() {
         var downloadType = $(this).parent().attr('action');
         var downloadTitle = $('#title').text();
         var downloadFormat = $(this).attr('value');
 
-        if(downloadType == '/file') {
+        if (downloadType == '/file') {
             var downloadType = '/download';
             var downloadFormat = 'xls';
         }
 
         // Charts don't contain file type information so 'png' hardcoded
-        if(downloadType == '/chartimage') {
+        if (downloadType == '/chartimage') {
             downloadFormat = 'png';
         }
 
@@ -498,15 +497,15 @@ function jsEnhanceDownloadAnalytics(path) {
     });
 
     //Track uploaded file downloads
-    $('.file-download-analytics').click(function(){
+    $('.file-download-analytics').click(function() {
         var fileName = $(this).attr('href').split('=')[1];
-        var page = '/download?' + fileName ;
+        var page = '/download?' + fileName;
 
         jsEnhanceTriggerAnalyticsEvent(page);
     });
 
     //Track click on 'print full report' link
-    $('.print-analytics').click(function(){
+    $('.print-analytics').click(function() {
         var path = $('#pagePath').text();
         var page = '/print?uri=' + path;
 
@@ -514,9 +513,9 @@ function jsEnhanceDownloadAnalytics(path) {
     });
 }
 
-function jsEnhanceAnchorAnalytics(){
+function jsEnhanceAnchorAnalytics() {
     //Trigger analytics pageview on click of any # anchor
-    $("a[href*='#']").click(function(e){
+    $("a[href*='#']").click(function(e) {
         var hash = $(this).attr('href');
         var page = window.location.pathname + hash;
         jsEnhanceTriggerAnalyticsEvent(page);
@@ -534,7 +533,7 @@ function jsEnhanceExternalLinks() {
 
     function eachAnchor(anchors) {
 
-        $(anchors).each(function(){
+        $(anchors).each(function() {
             var href = $(this).attr("href");
             var hostname = getHostname(href);
 
@@ -552,7 +551,7 @@ function jsEnhanceExternalLinks() {
 
 
 function jsEnhanceTableOfContents() {
-    if($('body').contents().find('*').hasClass('page-content__main-content')) {
+    if ($('body').contents().find('*').hasClass('page-content__main-content')) {
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
@@ -569,16 +568,16 @@ function jsEnhanceTableOfContents() {
 
         $(tocSelectList).append($('<option/>', {
             value: '',
-            text : '-- Select a section --'
+            text: '-- Select a section --'
         }));
 
-        $('#toc li a').each(function(i){
+        $('#toc li a').each(function(i) {
             i = i + 1;
             var text = i + '. ' + $(this).text();
             var href = $(this).attr('href');
             $(tocSelectList).append($('<option/>', {
                 value: href,
-                text : text
+                text: text
             }));
         });
 
@@ -598,9 +597,11 @@ function jsEnhanceTableOfContents() {
                 var functionTrigger = true;
 
                 //animates scroll and offsets page to counteract sticky nav
-                $('html, body').animate({ scrollTop: $(location).offset().top - 105}, 1000, function(){
+                $('html, body').animate({
+                    scrollTop: $(location).offset().top - 105
+                }, 1000, function() {
                     //stops function running twice - once for 'html' and another for 'body'
-                    if(functionTrigger) {
+                    if (functionTrigger) {
                         //adds location hash to url without causing page to jump to it - credit to http://lea.verou.me/2011/05/change-url-hash-without-page-jump/
                         if (history.pushState) {
                             history.pushState(null, null, location);
@@ -621,7 +622,6 @@ function jsEnhanceTableOfContents() {
 
 
 
-
         // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate
         function stickyTOC() {
             var contentStart = $('.page-content__main-content').offset().top;
@@ -630,12 +630,12 @@ function jsEnhanceTableOfContents() {
             if (scrollTop > contentStart) {
                 $('#toc').addClass('table-of-contents-ordered-list-hide');
                 // $('#toc').removeClass('table-of-contents-ordered-list');
-                $('.page-content__main-content').css('padding-top','96px');
+                $('.page-content__main-content').css('padding-top', '96px');
                 $('.table-of-contents--sticky__wrap').show();
             } else {
                 // $('#toc').addClass('table-of-contents-ordered-list');
                 $('#toc').removeClass('table-of-contents-ordered-list-hide');
-                $('.page-content__main-content').css('padding-top','0');
+                $('.page-content__main-content').css('padding-top', '0');
                 $('.table-of-contents--sticky__wrap').hide();
             }
         }
@@ -651,7 +651,7 @@ function jsEnhanceTableOfContents() {
 function jsEnhanceScrollToSection() {
 
     //Offsets page to make room for sticky nav if arrive on page directly at section
-    $(window).load(function(){
+    $(window).load(function() {
         var contentClass = '.page-content__main-content';
 
         if (location.hash && $(contentClass).length > 0) {
@@ -670,7 +670,9 @@ function jsEnhanceScrollToSection() {
 
         var target = this.hash;
 
-        $('html, body').animate({scrollTop: $(target).offset().top}, 1000, function(){
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, 1000, function() {
             location.hash = target;
 
             //TODO Fix root cause of IE offsetting. Temporary fix:
@@ -688,47 +690,47 @@ function jsEnhanceHover() {
     });
 
     $('.js-hover').hover(function() {
-        elem = $(this);
-        bgColour = elem.css('background-color');
-        white = "rgb(255, 255, 255)";
-        if (bgColour === white) {
-            $(elem).addClass('white-hover')
-        } else {
-            $(elem).addClass('grey-hover');
-        }
-    },
-    function(){
-        if (bgColour === white) {
-            $(elem).removeClass('white-hover')
-        } else {
-            $(elem).removeClass('grey-hover');
-        }
-    });
+            elem = $(this);
+            bgColour = elem.css('background-color');
+            white = "rgb(255, 255, 255)";
+            if (bgColour === white) {
+                $(elem).addClass('white-hover')
+            } else {
+                $(elem).addClass('grey-hover');
+            }
+        },
+        function() {
+            if (bgColour === white) {
+                $(elem).removeClass('white-hover')
+            } else {
+                $(elem).removeClass('grey-hover');
+            }
+        });
 }
 
 function jsEnhanceSelectedHighlight() {
 
-    $('.js-timeseriestool-select').on( "click", function() {
+    $('.js-timeseriestool-select').on("click", function() {
 
-            //$('div').eq($(this).parent().index()).effect("highlight", {}, 1000);
-            //$(this).closest( ".col-wrap").animate({
-            //    backgroundColor: 'red',
-            //    opacity: 0.4,
-            //    marginLeft: "0.6in"
-            //}, 1000);
+        //$('div').eq($(this).parent().index()).effect("highlight", {}, 1000);
+        //$(this).closest( ".col-wrap").animate({
+        //    backgroundColor: 'red',
+        //    opacity: 0.4,
+        //    marginLeft: "0.6in"
+        //}, 1000);
         //if($(this).prop('checked')) {
         //    $(this).closest(".col-wrap").stop(true, false).addClass('background--iron-light', {duration: 500});
         //} else {
         //    $(this).closest(".col-wrap").stop(true, false).removeClass('background--iron-light', {duration: 500});
         //}
 
-        if($(this).prop('checked')) {
-            $(this).closest(".col-wrap").addClass('background--gallery', 1000, "easeOutBounce" );
+        if ($(this).prop('checked')) {
+            $(this).closest(".col-wrap").addClass('background--gallery', 1000, "easeOutBounce");
         } else {
-            $(this).closest(".col-wrap").removeClass('background--gallery', 1000, "easeOutBounce" );
+            $(this).closest(".col-wrap").removeClass('background--gallery', 1000, "easeOutBounce");
         }
 
-        });
+    });
 
 }
 
@@ -750,6 +752,80 @@ function jsEnhanceRemoveFocus() {
     removeFocus(".accordion__title");
     removeFocus(".timeseries__chart");
 }
+
+function jsEnhanceTimeSeriesTool() {
+
+    var listContainer = $("#timeseries-list-container");
+    var xlsForm = $("#xls-form");
+    var csvForm = $("#csv-form");
+
+    var list = $("#timeseries-list");
+    var timeseriesList = {};
+
+    $('.js-timeseriestool-select').on("click", function() {
+        var current =  $(this);
+        if (current.prop('checked')) {
+            select(current);
+        } else {
+            deselect(current);
+        }
+    });
+
+    function select(element) {
+        addTimeSeries(element);
+        listContainer.show();
+        console.debug("Time series list:",  timeseriesList);
+    }
+
+    function deselect(element) {
+        removeTimeSeries(element);
+        if(count(timeseriesList) == 0){
+            listContainer.hide();
+        }
+        console.debug("Time series list:",  timeseriesList);
+    }
+
+    //Add time series to forms and lists
+    function addTimeSeries(element) {
+        var uri = element.data('uri');
+        var cdid = element.data('cdid');
+        var title = element.data('title');
+        timeseriesList[uri] = "";
+        list.prepend(getMarkup(uri, cdid, title));
+        var inputMarkup = getInputMarkup(uri);
+        csvForm.append(inputMarkup);
+        xlsForm.append(inputMarkup);
+    }
+
+    //Remove time series from forms and lists
+    function removeTimeSeries(element) {
+        var cdid = element.data('cdid');
+        var uri = element.data('uri');
+        delete timeseriesList[uri];
+        removeChild(list, cdid);
+        removeChild(xlsForm, cdid);
+        removeChild(csvForm, cdid);
+    }
+
+    function getMarkup(uri, cdid, title) {
+        return '<li id="' + cdid + '"<p>'+title+'</p></li>';
+    }
+
+    function getInputMarkup(uri) {
+        return '<input type="hidden" name="uri" value="'+ uri +'"/>'
+    }
+
+    function removeChild(element, childId) {
+        element.find('#'+childId).remove();
+    }
+
+    function count(o){
+        var c= 0;
+        for(var p in o) if(o.hasOwnProperty(p))++c;
+        return c;
+    }
+}
+
 
 
 //Adds focus to highcharts filters when tabbed through
