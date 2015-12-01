@@ -771,6 +771,27 @@ function jsEnhanceTimeSeriesTool() {
         }
     });
 
+    $('#timeseries-list').on("click", ".js-remove-selected", function() {
+        var current =  $(this).closest('li');
+        var cdid = current.attr('id');
+        var uri = current.data('uri');
+        console.log(cdid + " --- " + uri)
+        delete timeseriesList[uri];
+        removeChild(list, cdid);
+        removeChild(xlsForm, cdid);
+        removeChild(csvForm, cdid);
+        if(count(timeseriesList) == 0){
+            listContainer.hide();
+        }
+        $( ".js-timeseriestool-select" ).each(function( index ) {
+            checkbox = $(this);
+            if (checkbox.data('cdid') === cdid) {
+                console.log(checkbox);
+                checkbox.attr('checked', false);
+            }
+        });
+    });
+
     function select(element) {
         addTimeSeries(element);
         listContainer.show();
@@ -792,7 +813,7 @@ function jsEnhanceTimeSeriesTool() {
         var title = element.data('title');
         timeseriesList[uri] = "";
         list.prepend(getMarkup(uri, cdid, title));
-        var inputMarkup = getInputMarkup(uri);
+        var inputMarkup = getInputMarkup(cdid, uri);
         csvForm.append(inputMarkup);
         xlsForm.append(inputMarkup);
     }
@@ -808,11 +829,11 @@ function jsEnhanceTimeSeriesTool() {
     }
 
     function getMarkup(uri, cdid, title) {
-        return '<li id="' + cdid + '"<p>'+title+'</p></li>';
+        return '<li id="' + cdid + '" class="flush" data-uri="' + uri + '"><p class="flush">'+title+' <button class="btn btn--primary btn--thin btn--small btn--narrow float-right js-remove-selected">remove</button></p></li>';
     }
 
-    function getInputMarkup(uri) {
-        return '<input type="hidden" name="uri" value="'+ uri +'"/>'
+    function getInputMarkup(cdid, uri) {
+        return '<input type="hidden" name="uri" id="' + cdid + '" value="'+ uri +'"/>'
     }
 
     function removeChild(element, childId) {
