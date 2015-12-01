@@ -3,5 +3,58 @@
 
 
 
+.white-hover {
+    background-color: $ship-gray;
 
+    &:hover {
+        cursor: pointer;
+    }
 
+    .more-link {
+        background-color: $ship-gray;
+    }
+
+    h2, h3, h4 {
+        color: $white;
+    }
+
+    p, a {
+        color: $white;
+    }
+
+    dl, dt, dt {
+        color: white;
+    }
+
+}
+
+.grey-hover {
+    background-color: $ship-gray;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    .background--white {
+        background-color: $iron-light;
+        border-color: $thunder;
+    }
+
+    .background--iron-light {
+        background-color: $nevada;
+        border-color: $thunder;
+    }
+
+    h2, h3, h4 {
+        color: $white;
+    }
+
+    p, a {
+        color: $white;
+    }
+
+    ul, li {
+        color: $white;
+    }
+
+}

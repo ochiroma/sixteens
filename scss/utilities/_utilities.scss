@@ -240,6 +240,10 @@
   display: none !important;
 }
 
+.js-enhance--show {
+    display: none;
+}
+
 
 // clear
 
@@ -310,4 +314,23 @@
 
     }
 
+}
+
+
+//Text transform
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.capitalise:first-letter {
+    text-transform: capitalize !important;
+}
+
+.text-right {
+    text-align: right;
 }
