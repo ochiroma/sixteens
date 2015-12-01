@@ -31,7 +31,7 @@ $(function() {
     //Find keyword input and bind events
     if ('#input-keywords') {
         var formKeywords = form.find('#input-keywords');
-        $(formKeywords).on('change paste keyup', timedSubmit);
+        $(formKeywords).on('change paste keyup search', timedSubmit);
     }
 
     //Find and bind events to drop-down select inputs
@@ -77,6 +77,7 @@ $(function() {
         $('.search-page__results-text').empty();
         $('.search-page__results-text').append('Loading...');
         loadNewResults(url);
+        return false;
     });
 
 });
