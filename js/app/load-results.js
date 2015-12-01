@@ -3,10 +3,14 @@
  */
 /* Load search/list results into a page without refreshing (eg when changing a filter) */
 
+//TODO - Set/cache reused selectors
+
 function loadNewResults(url) {
     $.ajax({
         url: url,
         success: function(result) {
+            console.log(result);
+
             //Results
             var newResults = $(result).find('.results').html();
             var resultsText = $(result).find('.search-page__results-text').html();

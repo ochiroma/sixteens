@@ -1,13 +1,15 @@
 
 $(function() {
+    //TODO - Set/cache reused selectors
 
     //Function to submit form
     function submitForm() {
         $(form).trigger('submit');
     }
 
-    //Find form to auto-submit & ajax results
+    //Find form/filters to auto-submit & ajax results
     var form = $('form#form');
+    var filters = $('#form .filters');
 
     //Delay form submit so user has enough time to type without constant refreshes
     var timer;
@@ -42,11 +44,18 @@ $(function() {
 
     //Wrap static container around checkboxes for static element to bind events to
     if (form.has('.filters input[type="checkbox"]')) {
+        var formCheckboxes = filters.find('input[type="checkbox"]');
+        //TODO - Loop each checkbox and check if in a list or on own. Then wrap with js-container (if it doesn't already have one)
+        //$(formCheckboxes).each(function() {
+        //    var parentList = $(this).parentsUntil($(filters), 'ul');
+        //    var hasJsContainer = $(this).parentsUntil($(filters), '.js-checkbox-container');
+        //    if (parentList.length > 0 && hasJsContainer.length < 1) {
+        //        parentList.wrap('<div class="js-checkbox-container"></div>');
+        //    } else if (hasJsContainer.length < 1) {
+        //        $(this).parent().wrap('<div class="js-checkbox-container"></div>');
+        //    }
+        //});
         var formCheckboxContainer = form.find('.js-checkbox-container');
-        var formCheckboxes = $('#form.filters input[type="checkbox"]').find('input[type="checkbox"]'); //Seems inefficient to find once already selecting - means only one though, TODO get this select just one so doesn't have to loop for each checkbox below
-        $(formCheckboxes).each(function() {
-           $(this).closest('ul').wrap('<div class="js-checkbox-container"></div>')
-        });
         $(formCheckboxContainer).on('change', formCheckboxes, function() {
             submitForm();
         });
