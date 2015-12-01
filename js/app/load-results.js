@@ -9,8 +9,6 @@ function loadNewResults(url) {
     $.ajax({
         url: url,
         success: function(result) {
-            console.log(result);
-
             //Results
             var newResults = $(result).find('.results').html();
             var resultsText = $(result).find('.search-page__results-text').html();
