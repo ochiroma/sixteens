@@ -18,7 +18,6 @@ var timeseriesTool = (function () {
                 select(checkbox);
             } else {
                 deselect(checkbox);
-                uncheck($('.js-timeseriestool-select-all'));//uncheck select all if a time series is deselected
             }
         });
 
@@ -35,8 +34,8 @@ var timeseriesTool = (function () {
         list.on("click", ".js-remove-selected", function() {
             console.debug("Removing...")
             var listElement = $(this).closest('li');
-            deselect(listElement);
-            uncheck(findIn(resultsContainer, cdid(listElement)));
+            var checkbox = findIn(resultsContainer, cdid(listElement));
+            deselect(checkbox);
         });
 
 
@@ -46,7 +45,6 @@ var timeseriesTool = (function () {
          getAllChecboxes().each(function() {
             var element = $(this);
             select(element);
-            check(element);
          });
     }
 
@@ -54,16 +52,18 @@ var timeseriesTool = (function () {
          getAllChecboxes().each(function() {
             var element = $(this);
             deselect(element);
-            uncheck(element);
          });
     }
 
     function select(element) {
         addTimeSeries(element);
+        check(element);
     }
 
     function deselect(element) {
         removeTimeSeries(element);
+        uncheck(element);
+        uncheck($('.js-timeseriestool-select-all'));//uncheck select all if a time series is deselected
     }
 
     //Uncheck result with given cdid
