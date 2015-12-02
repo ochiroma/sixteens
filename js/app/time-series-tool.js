@@ -18,6 +18,7 @@ var timeseriesTool = (function () {
                 select(checkbox);
             } else {
                 deselect(checkbox);
+                uncheck($('.js-timeseriestool-select-all'));//uncheck select all if a time series is deselected
             }
         });
 
