@@ -754,7 +754,6 @@ function jsEnhanceRemoveFocus() {
 }
 
 function jsEnhanceTimeSeriesTool() {
-    console.log(timeseriesTool);
     timeseriesTool.refreshSelections();
 }
 

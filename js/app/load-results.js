@@ -25,6 +25,10 @@ function loadNewResults(url) {
                 var atozFilters = $(result).find('.filters__a-z');
                 replaceFilters(atozFilters);
             }
+            if ($(result).has('.js-from-to-filters')) {
+                var fromToFilters = $(result).find('.js-from-to-filters');
+                replaceFilters(fromToFilters);
+            }
         }
     });
 }
@@ -70,4 +74,11 @@ function replaceFilters(filters) {
         atozFilters.empty();
         atozFilters.append($(filters).html());
     }
+
+    if ($(filters).has('.js-from-to-filters')) {
+        var fromToFilters = $('.js-from-to-filters');
+        fromToFilters.empty();
+        fromToFilters.append($(filters).html());
+    }
+
 }
