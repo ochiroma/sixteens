@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"description": "Pattern library for ONS website",
 	"main": "",
-	"config": {"js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/accordion.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/load-results.js js/app/auto-submit-form.js js/app/js-enhance.js"},
+	"config": {"js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/accordion.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/load-results.js js/app/auto-submit-form.js js/app/time-series-tool.js js/app/js-enhance.js"},
 	"scripts": {
 		"clean": "",
 		"build-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/main.css",
