@@ -1,4 +1,4 @@
-var timeseriesTool = (function () {
+var timeseriesTool = (function() {
 
     var listContainer = $("#timeseries-list-container"),
         resultsContainer = $("#results"),
@@ -7,7 +7,13 @@ var timeseriesTool = (function () {
         list = $("#timeseries-list"),
         timeseriesList = {};
 
-        bindEvents();
+    bindEvents();
+    initialize();
+
+
+
+    function initialize() {
+    }
 
     //init timeseries tool
     function bindEvents() {
@@ -42,17 +48,17 @@ var timeseriesTool = (function () {
     }
 
     function selectAll() {
-         getAllChecboxes().each(function() {
+        getAllChecboxes().each(function() {
             var element = $(this);
             select(element);
-         });
+        });
     }
 
     function deselectAll() {
-         getAllChecboxes().each(function() {
+        getAllChecboxes().each(function() {
             var element = $(this);
             deselect(element);
-         });
+        });
     }
 
     function select(element) {
@@ -63,7 +69,7 @@ var timeseriesTool = (function () {
     function deselect(element) {
         removeTimeSeries(element);
         uncheck(element);
-        uncheck($('.js-timeseriestool-select-all'));//uncheck select all if a time series is deselected
+        uncheck($('.js-timeseriestool-select-all')); //uncheck select all if a time series is deselected
     }
 
     //Uncheck result with given cdid
@@ -115,7 +121,7 @@ var timeseriesTool = (function () {
 
     //Remove time series with given cdid in given parent element
     function removeTimeseries(element, cdid) {
-        findIn(element,cdid).remove();
+        findIn(element, cdid).remove();
     }
 
     function count(o) {
@@ -131,28 +137,53 @@ var timeseriesTool = (function () {
     }
 
     function findIn(parent, cdid) {
-        var elem =  parent.find('[data-cdid="' + cdid +'"]');
+        var elem = parent.find('[data-cdid="' + cdid + '"]');
         return elem;
     }
 
     //returns cdid data attribute of element
     function cdid(element) {
         return element.data('cdid');
-    } 
+    }
 
     //Checks all elements in basket on result list after results are refreshed
-    function checkSelectedTimeseries() {
+    function refresh() {
+        resolveCustomDateFilter();
         getAllChecboxes().each(function() {
             checkbox = $(this);
-            if(timeseriesList.hasOwnProperty(checkbox.data('uri'))){
+            if (timeseriesList.hasOwnProperty(checkbox.data('uri'))) {
                 check(checkbox);
             }
         });
     }
 
+    function resolveCustomDateFilter() {
+        var val = $('#select-updated').val();
+        console.debug("updated:", val);
+        var fromTo = $('.js-from-to-filters');
+        if ('custom' === val) {
+            fromTo.show();
+        } else {
+            fromTo.hide();
+        }
+    }
+
+
+    // http://stackoverflow.com/questions/11344531/pure-javascript-store-object-in-cookie
+    function saveCookie(name, value) {
+        var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
+        document.cookie = cookie;
+    }
+
+    function read_cookie(name) {
+        var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
+        result && (result = JSON.parse(result[1]));
+        return result;
+    }
+
     //expose functions
     return {
-        refreshSelections:checkSelectedTimeseries
+        refresh: refresh
     };
 
 })();
