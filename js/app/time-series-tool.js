@@ -5,18 +5,29 @@ var timeseriesTool = (function() {
         xlsForm = $("#xls-form"),
         csvForm = $("#csv-form"),
         list = $("#timeseries-list"),
-        timeseriesList = {};
+        timeseriesList = {},
+        cookieName = 'timeseriesbasket';
 
     bindEvents();
     initialize();
 
     function initialize() {
+        timeseriesList = Cookies.getJSON(cookieName) || {};
+        $.each(timeseriesList, function(index, value) {
+            addToPage(value);
+        });
+    }
+
+    function updateCookie() {
+        Cookies.set(cookieName, timeseriesList, {
+            expires: (10 * 365),
+            path: ''
+        });
     }
 
     //init timeseries tool
     function bindEvents() {
         resultsContainer.on("click", ".js-timeseriestool-select", function() {
-            console.debug("Toggling checkbox...")
             var checkbox = $(this);
             if (checkbox.prop('checked')) {
                 select(checkbox);
@@ -27,7 +38,6 @@ var timeseriesTool = (function() {
 
         resultsContainer.on("click", ".js-timeseriestool-select-all", function() {
             var selectall = $(this);
-            console.debug("Toggling select all...")
             if (selectall.prop('checked')) {
                 selectAll();
             } else {
@@ -36,7 +46,6 @@ var timeseriesTool = (function() {
         });
 
         list.on("click", ".js-remove-selected", function() {
-            console.debug("Removing...")
             var listElement = $(this).closest('li');
             var checkbox = findIn(resultsContainer, cdid(listElement));
             deselect(checkbox);
@@ -79,18 +88,27 @@ var timeseriesTool = (function() {
         element.prop('checked', true);
     }
 
-    //Add time series to forms and lists
+    //runs when time series checkbox checked
     function addTimeSeries(element) {
-        var uri = element.data('uri'),
-            id = cdid(element),
-            title = element.data('title');
+        var timeseries = {
+            uri: element.data('uri'),
+            id: cdid(element),
+            title: element.data('title')
+        };
 
-        if (timeseriesList.hasOwnProperty(uri)) {
+        if (timeseriesList.hasOwnProperty(timeseries.id)) {
             return; // it is already in the list    
         }
-        timeseriesList[uri] = "";
-        list.prepend(getListElementMarkup(uri, id, title));
-        var inputMarkup = getInputMarkup(id, uri);
+        timeseriesList[timeseries.id] = timeseries;
+        addToPage(timeseries);
+        updateCookie();
+
+    }
+
+    //Add time series markup to basket, and put hidden inputs for download
+    function addToPage(timeseries) {
+        list.prepend(getListElementMarkup(timeseries));
+        var inputMarkup = getInputMarkup(timeseries);
         xlsForm.append(inputMarkup);
         csvForm.append(inputMarkup);
         listContainer.show();
@@ -100,21 +118,22 @@ var timeseriesTool = (function() {
     function removeTimeSeries(element) {
         var id = cdid(element),
             uri = element.data('uri');
-        delete timeseriesList[uri];
+        delete timeseriesList[id];
         removeTimeseries(list, id);
         removeTimeseries(xlsForm, id);
         removeTimeseries(csvForm, id);
         if (count(timeseriesList) === 0) {
             listContainer.hide();
         }
+        updateCookie();
     }
 
-    function getListElementMarkup(uri, cdid, title) {
-        return '<li data-cdid="' + cdid + '" class="flush" data-uri="' + uri + '"><p class="flush">' + title + ' <button class="btn btn--primary btn--thin btn--small btn--narrow float-right js-remove-selected">remove</button></p></li>';
+    function getListElementMarkup(timeseries) {
+        return '<li data-cdid="' + timeseries.cdid + '" class="flush" data-uri="' + timeseries.uri + '"><p class="flush">' + timeseries.title + ' <button class="btn btn--primary btn--thin btn--small btn--narrow float-right js-remove-selected">remove</button></p></li>';
     }
 
-    function getInputMarkup(cdid, uri) {
-        return '<input type="hidden" name="uri" data-cdid="' + cdid + '" value="' + uri + '"/>';
+    function getInputMarkup(timeseries) {
+        return '<input type="hidden" name="uri" data-cdid="' + timeseries.cdid + '" value="' + timeseries.uri + '"/>';
     }
 
     //Remove time series with given cdid in given parent element
@@ -144,16 +163,18 @@ var timeseriesTool = (function() {
         return element.data('cdid');
     }
 
-    //Checks all elements in basket on result list after results are refreshed
+    //re-initializes various fields on js refresh of results
     function refresh() {
         resolveCustomDateFilter();
+
+        //Checks all elements in basket on result list after results are refreshed
         getAllChecboxes().each(function() {
             checkbox = $(this);
-            if (timeseriesList.hasOwnProperty(checkbox.data('uri'))) {
+            if (timeseriesList.hasOwnProperty(checkbox.data('cdid'))) {
                 check(checkbox);
             }
         });
-        showSelectAll();//select all button is hidden by defaul, only shown when js available. Have to show each time results are refreshed
+        showSelectAll(); //select all button is hidden by defaul, only shown when js available. Have to show each time results are refreshed
     }
 
     function showSelectAll() {
