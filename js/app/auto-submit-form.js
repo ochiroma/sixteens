@@ -38,8 +38,23 @@ $(function() {
     //Find and bind events to drop-down select inputs
     if ('select') {
         var formSelect = $('select');
-        $(formSelect).change(function () {
+        $(formSelect).change(function (e) {
+            //updated dropdown clears from to dates on time series tool if selected options is not custom, it does not affect the results but prevents the date selected date appear in url
+            var selectInput=  $(e.target);
+            var id = selectInput.attr('id');
+            if('select-updated' === id) {
+                if(selectInput.val() != 'custom') {
+                    clearDateFilters();
+                }
+            }
             submitForm();
+        });
+    }
+
+
+    function clearDateFilters() {
+        $('#input-start-date, #input-start-date').each(function(){
+            $(this).val('');
         });
     }
 
@@ -57,7 +72,7 @@ $(function() {
         //    }
         //});
         var formCheckboxContainer = form.find('.js-checkbox-container');
-        $(formCheckboxContainer).on('change', formCheckboxes, function() {
+        $(formCheckboxContainer).on('change', formCheckboxes, function(e) {
             submitForm();
         });
     }
