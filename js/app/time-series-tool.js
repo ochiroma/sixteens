@@ -71,14 +71,14 @@ var timeseriesTool = (function() {
     }
 
     function selectAll() {
-        getAllChecboxes().each(function() {
+        getAllCheckboxes().each(function() {
             var element = $(this);
             select(element);
         });
     }
 
     function deselectAll() {
-        getAllChecboxes().each(function() {
+        getAllCheckboxes().each(function() {
             var element = $(this);
             deselect(element);
         });
