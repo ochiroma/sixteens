@@ -1,19 +1,26 @@
 var timeseriesTool = (function() {
 
-    var listContainer = $("#timeseries-list-container"),
+    var listContainer = $(".timeseries__list-container"),
+        basket = $(".timeseries__basket"),
         resultsContainer = $("#results"),
+        buttons = $('.timeseries__download'),
+        noTimeseries = $('.timeseries__empty'),
         xlsForm = $("#xls-form"),
         csvForm = $("#csv-form"),
-        list = $("#timeseries-list"),
+        list = $(".timeseries__list"),
         timeseriesList = {},
         basetCookieName = 'timeseriesbasket',
         rememberCookieName = 'rememberBasket',
-        remember;
+        remember,
+        listCount = 0;
 
     bindEvents();
     initialize();
 
     function initialize() {
+        //add position:relative container for basket modal
+        modalWrapper();
+
         remember = getCookie(rememberCookieName);
         if(typeof remember === 'undefined') {//remember cookie never set, sets to true by default
             remember=true;
@@ -35,6 +42,26 @@ var timeseriesTool = (function() {
 
     //init timeseries tool
     function bindEvents() {
+
+        //Modal
+        $('body, .timeseries__list--exit').on('click', function(e) {
+            e.stopPropagation();
+            listContainer.hide();
+            basket.removeClass('timeseries__basket--active');
+        });
+
+        basket.on('click', function(e) {
+            e.stopPropagation();
+            listContainer.show();
+            $(this).addClass('timeseries__basket--active');
+        });
+
+        listContainer.on('click', function(e) {
+            e.stopPropagation();
+            listContainer.show();
+        });
+
+        //Selection
         resultsContainer.on("click", ".js-timeseriestool-select", function() {
             var checkbox = $(this);
             if (checkbox.prop('checked')) {
@@ -118,7 +145,6 @@ var timeseriesTool = (function() {
         timeseriesList[timeseries.cdid] = timeseries;
         addToPage(timeseries);
         updateCookie();
-
     }
 
     //Add time series markup to basket, and put hidden inputs for download
@@ -127,7 +153,9 @@ var timeseriesTool = (function() {
         var inputMarkup = getInputMarkup(timeseries);
         xlsForm.append(inputMarkup);
         csvForm.append(inputMarkup);
-        listContainer.show();
+        buttons.show();
+        noTimeseries.hide();
+        countList(1);
     }
 
     //Remove time series from forms and lists
@@ -139,9 +167,11 @@ var timeseriesTool = (function() {
         remove(xlsForm, id);
         remove(csvForm, id);
         if (count(timeseriesList) === 0) {
-            listContainer.hide();
+            buttons.hide();
+            noTimeseries.show();
         }
         updateCookie();
+        countList(-1);
     }
 
     function getListElementMarkup(timeseries) {
@@ -220,6 +250,17 @@ var timeseriesTool = (function() {
 
     function deleteCookie(name, value) {
         Cookies.remove(name, {path: ''});
+    }
+
+    function modalWrapper() {
+        var closestWrapper =  $(listContainer).closest('.wrapper');
+        closestWrapper.wrapInner('<div class="timeseries-modal-container"></div>')
+    }
+
+
+    function countList(number) {
+        listCount = listCount + number;
+        $('.timeseries__count').empty().append(listCount);
     }
 
     //expose functions
