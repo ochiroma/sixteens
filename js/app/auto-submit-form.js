@@ -32,6 +32,7 @@ $(function() {
     if ('#input-keywords') {
         var formKeywords = form.find('#input-keywords');
         $(formKeywords).on('change paste keyup search', timedSubmit);
+        //TODO stop submit when removing focus from keyword input
     }
 
     //Find and bind events to drop-down select inputs
@@ -42,7 +43,7 @@ $(function() {
         });
     }
 
-    //Wrap static container around checkboxes for static element to bind events to
+    //Find and bind events to checkboxes
     if (form.has('.filters input[type="checkbox"]')) {
         var formCheckboxes = filters.find('input[type="checkbox"]');
         //TODO - Loop each checkbox and check if in a list or on own. Then wrap with js-container (if it doesn't already have one)
@@ -60,6 +61,29 @@ $(function() {
             submitForm();
         });
     }
+
+    //Find and bind events to pagination
+    var paginationContainer = '#results';
+    if (form.has(paginationContainer)) {
+        $(paginationContainer).on('click', 'a.page-link', function(e) {
+            e.preventDefault();
+            var url = $(e.target).attr('href');
+            loadNewResults(url);
+            $('html, body').animate({scrollTop: $('#main').offset().top}, 1000);
+        });
+    }
+
+    //Find and bind events to clear form link
+    var clearAll = form.find('a[value="Reset"]');
+    $(clearAll).click(function(e) {
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var input = form.find('input');
+        loadNewResults(url);
+        $(input).each(function() {
+            $(this).val('');
+        });
+    });
 
     //The same as above but for a-z
     if ('.filters__a-z') {
