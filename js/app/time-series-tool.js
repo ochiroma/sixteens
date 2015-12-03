@@ -6,23 +6,31 @@ var timeseriesTool = (function() {
         csvForm = $("#csv-form"),
         list = $("#timeseries-list"),
         timeseriesList = {},
-        cookieName = 'timeseriesbasket';
+        basetCookieName = 'timeseriesbasket',
+        rememberCookieName = 'rememberBasket',
+        remember;
 
     bindEvents();
     initialize();
 
     function initialize() {
-        timeseriesList = Cookies.getJSON(cookieName) || {};
-        $.each(timeseriesList, function(index, value) {
-            addToPage(value);
-        });
+        remember = getCookie(rememberCookieName);
+        if(typeof remember === 'undefined') {//remember cookie never set, sets to true by default
+            remember=true;
+            setCookie(rememberCookieName, remember);
+        }
+
+        if(remember) {
+            timeseriesList = Cookies.getJSON(basetCookieName) || {};
+            $.each(timeseriesList, function(index, value) {
+                addToPage(value);
+            });
+            check($('#remember-selection'));    
+        }
     }
 
     function updateCookie() {
-        Cookies.set(cookieName, timeseriesList, {
-            expires: (10 * 365),
-            path: ''
-        });
+        setCookie(basetCookieName, timeseriesList);
     }
 
     //init timeseries tool
@@ -45,13 +53,21 @@ var timeseriesTool = (function() {
             }
         });
 
-        list.on("click", ".js-remove-selected", function() {
-            var listElement = $(this).closest('li');
-            var checkbox = findIn(resultsContainer, cdid(listElement));
-            deselect(checkbox);
+        listContainer.on("click", "#remember-selection", function() {
+            var rememberSelectionInput = $(this);
+            if (rememberSelectionInput.prop('checked')) {
+                setCookie(rememberCookieName, true);
+            } else {
+                setCookie(rememberCookieName, false);
+                deleteCookie(basetCookieName);
+            }
         });
 
-
+        list.on("click", ".js-remove-selected", function() {
+            var listElement = $(this).closest('li');
+            var checkbox = findIn(resultsContainer, getCdid(listElement));
+            deselect(checkbox);
+        });
     }
 
     function selectAll() {
@@ -92,14 +108,14 @@ var timeseriesTool = (function() {
     function addTimeSeries(element) {
         var timeseries = {
             uri: element.data('uri'),
-            id: cdid(element),
+            cdid: getCdid(element),
             title: element.data('title')
         };
 
-        if (timeseriesList.hasOwnProperty(timeseries.id)) {
+        if (timeseriesList.hasOwnProperty(timeseries.cdid)) {
             return; // it is already in the list    
         }
-        timeseriesList[timeseries.id] = timeseries;
+        timeseriesList[timeseries.cdid] = timeseries;
         addToPage(timeseries);
         updateCookie();
 
@@ -116,12 +132,12 @@ var timeseriesTool = (function() {
 
     //Remove time series from forms and lists
     function removeTimeSeries(element) {
-        var id = cdid(element),
+        var id = getCdid(element),
             uri = element.data('uri');
         delete timeseriesList[id];
-        removeTimeseries(list, id);
-        removeTimeseries(xlsForm, id);
-        removeTimeseries(csvForm, id);
+        remove(list, id);
+        remove(xlsForm, id);
+        remove(csvForm, id);
         if (count(timeseriesList) === 0) {
             listContainer.hide();
         }
@@ -137,7 +153,7 @@ var timeseriesTool = (function() {
     }
 
     //Remove time series with given cdid in given parent element
-    function removeTimeseries(element, cdid) {
+    function remove(element, cdid) {
         findIn(element, cdid).remove();
     }
 
@@ -159,7 +175,7 @@ var timeseriesTool = (function() {
     }
 
     //returns cdid data attribute of element
-    function cdid(element) {
+    function getCdid(element) {
         return element.data('cdid');
     }
 
@@ -191,17 +207,19 @@ var timeseriesTool = (function() {
         }
     }
 
-
-    // http://stackoverflow.com/questions/11344531/pure-javascript-store-object-in-cookie
-    function saveCookie(name, value) {
-        var cookie = [name, '=', JSON.stringify(value), '; domain=.', window.location.host.toString(), '; path=/;'].join('');
-        document.cookie = cookie;
+    function getCookie(name) {
+        return Cookies.getJSON(name);
     }
 
-    function read_cookie(name) {
-        var result = document.cookie.match(new RegExp(name + '=([^;]+)'));
-        result && (result = JSON.parse(result[1]));
-        return result;
+    function setCookie(name, value) {
+        Cookies.set(name, value, {
+            expires: (10 * 365),
+            path: ''
+        });
+    }
+
+    function deleteCookie(name, value) {
+        Cookies.remove(name, {path: ''});
     }
 
     //expose functions
