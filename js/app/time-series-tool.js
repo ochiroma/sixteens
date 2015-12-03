@@ -10,8 +10,6 @@ var timeseriesTool = (function() {
     bindEvents();
     initialize();
 
-
-
     function initialize() {
     }
 
@@ -155,11 +153,15 @@ var timeseriesTool = (function() {
                 check(checkbox);
             }
         });
+        showSelectAll();//select all button is hidden by defaul, only shown when js available. Have to show each time results are refreshed
+    }
+
+    function showSelectAll() {
+        $('#select-all-container').show();
     }
 
     function resolveCustomDateFilter() {
         var val = $('#select-updated').val();
-        console.debug("updated:", val);
         var fromTo = $('.js-from-to-filters');
         if ('custom' === val) {
             fromTo.show();
