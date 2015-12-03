@@ -12,7 +12,11 @@ function loadNewResults(url) {
             //Results
             var newResults = $(result).find('.results').html();
             var resultsText = $(result).find('.search-page__results-text').html();
-            replaceResults(url, newResults, resultsText);
+            var pagination;
+            if ($(result).has('#js-pagination-container')) {
+                pagination = $(result).find('#js-pagination-container').html();
+            }
+            replaceResults(url, newResults, resultsText, pagination);
 
             //Filters
             if ($(result).has('.js-checkbox-container')) {
@@ -34,7 +38,7 @@ function loadNewResults(url) {
 }
 
 //Removes current results from page and loads in new results
-function replaceResults(url, newResults, resultsText) {
+function replaceResults(url, newResults, resultsText, pagination) {
     $('.results').empty();
     $(newResults).hide().appendTo('.results').fadeIn(300);
 
@@ -46,6 +50,15 @@ function replaceResults(url, newResults, resultsText) {
     var resultsTextElem = $('.search-page__results-text');
     resultsTextElem.empty();
     resultsTextElem.append(resultsText);
+
+    //Update pagination for results
+    if (pagination) {
+        var paginationElem = $('#js-pagination-container');
+        paginationElem.empty();
+        paginationElem.append(pagination);
+    } else {
+        $('#js-pagination-container');
+    }
 
     //Pushes new url into browser, if browser compatible (enhancement)
     if (typeof (history.pushState) != undefined) {

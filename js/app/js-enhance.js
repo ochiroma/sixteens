@@ -1,4 +1,4 @@
-//progressive enhancement (jQuery)
+//progressive enhancement (jQuery) - JS specific to beta.ons.gov.uk, not applicable to whole pattern library
 
 $(function() {
     // jQuery(window).load(function() {
@@ -46,7 +46,7 @@ $(function() {
         jsEnhanceAnchorAnalytics();
         jsEnhanceExternalLinks();
 
-        jsEnhanceTableOfContents();
+        //jsEnhanceTableOfContents();
         jsEnhanceScrollToSection();
 
         jsEnhanceMobileTables();

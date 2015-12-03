@@ -149,7 +149,7 @@ var timeseriesTool = (function() {
         return c;
     }
 
-    function getAllChecboxes() {
+    function getAllCheckboxes() {
         return $(".js-timeseriestool-select");
     }
 
@@ -168,7 +168,7 @@ var timeseriesTool = (function() {
         resolveCustomDateFilter();
 
         //Checks all elements in basket on result list after results are refreshed
-        getAllChecboxes().each(function() {
+        getAllCheckboxes().each(function() {
             checkbox = $(this);
             if (timeseriesList.hasOwnProperty(checkbox.data('cdid'))) {
                 check(checkbox);
