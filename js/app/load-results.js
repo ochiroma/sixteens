@@ -5,7 +5,7 @@
 
 //TODO - Set/cache reused selectors
 
-function loadNewResults(url) {
+function loadNewResults(url, clear) {
     $.ajax({
         url: url,
         success: function(result) {
@@ -33,6 +33,14 @@ function loadNewResults(url) {
             //     var fromToFilters = $(result).find('.js-from-to-filters');
             //     replaceFilters(fromToFilters);
             // }
+            
+            //Clear
+            if (clear) {
+                $('.filters input, select').each(function() {
+                    var $this = '#' + $(this).attr('id');
+                    updateContents(result, $this);
+                })
+            }
         }
     });
 }
@@ -93,5 +101,20 @@ function replaceFilters(filters) {
     //     fromToFilters.hide();
     //     //fromToFilters.append($(filters).html());
     // }
+
+}
+
+//Remove and replaces content according to selector and results parsed into function - should probably re-use this elsewhere
+function updateContents(result, id) {
+    var newContents = $(result).find(id).html();
+    var element = $(id);
+
+    //Remove value if element is a search and has value
+    if (element.is('input[type="search"]') && element.val()) {
+        element.val('');
+    } else { //else remove contents and replace with new
+        element.empty();
+        element.append(newContents);
+    }
 
 }

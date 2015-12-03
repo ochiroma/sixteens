@@ -31,7 +31,7 @@ $(function() {
     //Find keyword input and bind events
     if ('#input-keywords') {
         var formKeywords = form.find('#input-keywords');
-        $(formKeywords).on('change paste keyup search', timedSubmit);
+        $(formKeywords).on('paste keyup search', timedSubmit); //remove 'change' for time being, causing multiple submissions
         //TODO stop submit when removing focus from keyword input
     }
 
@@ -77,12 +77,11 @@ $(function() {
     var clearAll = form.find('a[value="Reset"]');
     $(clearAll).click(function(e) {
         e.preventDefault();
+        $('.search-page__results-text').empty();
+        $('.search-page__results-text').append('Loading...');
         var url = $(this).attr('href');
-        var input = form.find('input');
-        loadNewResults(url);
-        $(input).each(function() {
-            $(this).val('');
-        });
+        var clear = true;
+        loadNewResults(url, clear);
     });
 
     //The same as above but for a-z
