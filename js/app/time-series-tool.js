@@ -52,8 +52,8 @@ var timeseriesTool = (function() {
 
         basket.on('click', function(e) {
             e.stopPropagation();
-            listContainer.show();
-            $(this).addClass('timeseries__basket--active');
+            listContainer.toggle();
+            $(this).toggleClass('timeseries__basket--active');
         });
 
         listContainer.on('click', function(e) {

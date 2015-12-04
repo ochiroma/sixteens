@@ -11,8 +11,8 @@
         background-color: $ship-gray;
         color: $iron-light;
         padding: $baseline $col;
-        margin: ($baseline * 3) 0 0 ($col * 15);
-        width: ($col * 6);
+        margin: ($baseline * 3) 0 0 ($col * 14);
+        width: ($col * 7);
         font-size: 14px;
 
         &:focus {
@@ -50,7 +50,7 @@
                 border-bottom: 16px solid $ship-gray;
                 position: absolute;
                 top: -16px;
-                right: ($col * 2);
+                right: ($col * 2.5);
             }
         }
 
