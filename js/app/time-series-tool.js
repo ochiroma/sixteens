@@ -92,8 +92,9 @@ var timeseriesTool = (function() {
 
         list.on("click", ".js-remove-selected", function() {
             var listElement = $(this).closest('li');
-            var checkbox = findIn(resultsContainer, getCdid(listElement));
-            deselect(checkbox);
+            var id = getCdid(listElement);
+            removeElement(id);
+            uncheck(findIn(resultsContainer, id));
         });
     }
 
@@ -119,12 +120,13 @@ var timeseriesTool = (function() {
     function deselect(element) {
         removeTimeSeries(element);
         uncheck(element);
-        uncheck($('.js-timeseriestool-select-all')); //uncheck select all if a time series is deselected
     }
 
-    //Uncheck result with given cdid
     function uncheck(element) {
-        element.prop('checked', false);
+        if(element.hasClass('js-timeseriestool-select')) {
+            element.prop('checked', false);
+            $('.js-timeseriestool-select-all').prop('checked', false); //uncheck select all if a time series is deselected
+        }
     }
 
     function check(element) {
@@ -162,14 +164,18 @@ var timeseriesTool = (function() {
     function removeTimeSeries(element) {
         var id = getCdid(element),
             uri = element.data('uri');
+        removeElement(id);
+    }
+
+    function removeElement(id) {
         delete timeseriesList[id];
-        remove(list, id);
-        remove(xlsForm, id);
-        remove(csvForm, id);
         if (count(timeseriesList) === 0) {
             buttons.hide();
             noTimeseries.show();
         }
+        remove(list, id);
+        remove(xlsForm, id);
+        remove(csvForm, id);
         updateCookie();
         countList(-1);
     }
