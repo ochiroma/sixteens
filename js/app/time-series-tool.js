@@ -95,6 +95,7 @@ var timeseriesTool = (function() {
             var id = getCdid(listElement);
             removeElement(id);
             uncheck(findIn(resultsContainer, id));
+            basket.focus();
         });
     }
 
@@ -181,7 +182,7 @@ var timeseriesTool = (function() {
     }
 
     function getListElementMarkup(timeseries) {
-        return '<li data-cdid="' + timeseries.cdid + '" class="flush" data-uri="' + timeseries.uri + '"><p class="flush">' + timeseries.title + ' <button class="btn btn--primary btn--thin btn--small btn--narrow float-right js-remove-selected">remove</button></p></li>';
+        return '<li data-cdid="' + timeseries.cdid + '" class="flush col-wrap" data-uri="' + timeseries.uri + '"><p class="flush col col--md-22 col--lg-22">' + timeseries.title + '</p>' + '<div class="col col--md-4 col--lg-4"><button class="btn btn--primary btn--thin btn--small btn--narrow float-right margin-top-md--1 js-remove-selected">remove</button></div></li>';
     }
 
     function getInputMarkup(timeseries) {

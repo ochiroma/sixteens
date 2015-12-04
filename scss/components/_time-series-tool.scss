@@ -5,21 +5,27 @@
 .timeseries {
 
     &__basket {
-        border: none;
+        //border: none;
         border-radius: 0;
         //background: $iron-light;
-        background-color: $ship-gray;
+        background: $abbey;
         color: $iron-light;
-        padding: $baseline $col;
-        margin: ($baseline * 3) 0 0 ($col * 14);
+        //padding: 5px ($col / 2) 3px ($col / 2);
+        min-height: ($baseline * 5);
+        //margin: ($baseline * 3) 0 0 ($col * 14);
         width: ($col * 7);
         font-size: 14px;
+        position: absolute;
+        top: ($baseline * 2);
+        right: 0;
+        border: 1px solid $ship-gray;
 
-        &:focus {
-            outline: none;
+        &:hover {
+            background-color: $ship-gray;
         }
 
-        &--active {
+        &--active,
+        &:focus {
             outline: none;
             background: $salem;
             color: $white;
@@ -33,13 +39,17 @@
             position: absolute;
             width: ($col * 28);
             background: $iron-light;
-            top: ($baseline * 10);
+            top: ($baseline * 11);
             //left: 0;
             right: 0;
             z-index: 1000;
             padding: ($baseline * 4) $col ($baseline * 3) $col;
             color: $iron-light;
             background: $ship-gray;
+
+            @include breakpoint(sm) {
+                width: ($col * 22);
+            }
 
             &:after {
                 content: "";
@@ -51,6 +61,11 @@
                 position: absolute;
                 top: -16px;
                 right: ($col * 2.5);
+            }
+
+            .remember-selection {
+                padding: 5px 0 3px 0;
+                margin-top: $baseline;
             }
         }
 
@@ -64,6 +79,7 @@
 
     &__download {
         border-top: 1px solid $iron;
+        margin-top: -1px;
         display: none;
     }
 
