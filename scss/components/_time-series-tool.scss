@@ -45,6 +45,7 @@
             //left: 0;
             right: 0;
             z-index: 1000;
+            //padding: ($baseline * 4) $col ($baseline * 3) $col;
             padding: $baseline $col ($baseline * 3) $col;
             color: $iron-light;
             background: $ship-gray;
@@ -90,25 +91,32 @@
     }
 
     &__remember {
-        padding: 5px 0 3px 0;
-        margin: $baseline 0 ($baseline * 2) 0;
         display: none;
-
-        input {
-            position: absolute;
-            z-index: -1;
-        }
+        margin: $baseline 0 ($baseline * 2) 0;
 
         label {
-            border: 1px solid $thunder;
-            padding: $baseline $col;
-            background: $nevada;
             cursor: pointer;
         }
 
-        input:checked + label {
-            background: $salem;
-            color: $white;
-        }
+        // Green button to replace checkbox - testing without first
+        //padding: 5px 0 3px 0;
+        //margin: $baseline 0 ($baseline * 2) 0;
+        //
+        //input {
+        //    position: absolute;
+        //    z-index: -1;
+        //}
+        //
+        //label {
+        //    border: 1px solid $thunder;
+        //    padding: $baseline $col;
+        //    background: $nevada;
+        //    cursor: pointer;
+        //}
+        //
+        //input:checked + label {
+        //    background: $salem;
+        //    color: $white;
+        //}
     }
 }
