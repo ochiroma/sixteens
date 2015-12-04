@@ -3,7 +3,7 @@ var timeseriesTool = (function() {
     var listContainer = $(".timeseries__list-container"),
         basket = $(".timeseries__basket"),
         resultsContainer = $("#results"),
-        buttons = $('.timeseries__download'),
+        buttons = $('.timeseries__remember, .timeseries__download'),
         noTimeseries = $('.timeseries__empty'),
         xlsForm = $("#xls-form"),
         csvForm = $("#csv-form"),
@@ -48,13 +48,13 @@ var timeseriesTool = (function() {
         $('body, .timeseries__list--exit').on('click', function(e) {
             e.stopPropagation();
             listContainer.hide();
-            //basket.removeClass('timeseries__basket--active');
+            basket.removeClass('timeseries__basket--focus');
         });
 
         basket.on('click', function(e) {
             e.stopPropagation();
             listContainer.toggle();
-            //$(this).toggleClass('timeseries__basket--active');
+            $(this).toggleClass('timeseries__basket--focus');
         });
 
         listContainer.on('click', function(e) {

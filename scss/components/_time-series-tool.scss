@@ -20,16 +20,17 @@
         top: ($baseline * 2);
         right: 0;
 
-        &:hover,
-        &:focus {
-            background-color: $ship-gray;
-            outline: none;
-        }
-
         &--active {
             outline: none;
             background: $salem;
             color: $white;
+        }
+
+        &:hover,
+        &:focus,
+        &--focus {
+            background-color: $ship-gray;
+            outline: none;
         }
     }
 
@@ -44,7 +45,7 @@
             //left: 0;
             right: 0;
             z-index: 1000;
-            padding: ($baseline * 4) $col ($baseline * 3) $col;
+            padding: $baseline $col ($baseline * 3) $col;
             color: $iron-light;
             background: $ship-gray;
 
@@ -62,11 +63,6 @@
                 position: absolute;
                 top: -16px;
                 right: ($col * 2.5);
-            }
-
-            .remember-selection {
-                padding: 5px 0 3px 0;
-                margin-top: $baseline;
             }
         }
 
@@ -93,4 +89,26 @@
         margin-top: 27px;
     }
 
+    &__remember {
+        padding: 5px 0 3px 0;
+        margin: $baseline 0 ($baseline * 2) 0;
+        display: none;
+
+        input {
+            position: absolute;
+            z-index: -1;
+        }
+
+        label {
+            border: 1px solid $thunder;
+            padding: $baseline $col;
+            background: $nevada;
+            cursor: pointer;
+        }
+
+        input:checked + label {
+            background: $salem;
+            color: $white;
+        }
+    }
 }
