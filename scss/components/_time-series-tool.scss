@@ -16,16 +16,17 @@
         width: ($col * 7);
         font-size: 14px;
         position: absolute;
+        border: 1px solid $ship-gray;
         top: ($baseline * 2);
         right: 0;
-        border: 1px solid $ship-gray;
 
-        &:hover {
+        &:hover,
+        &:focus {
             background-color: $ship-gray;
+            outline: none;
         }
 
-        &--active,
-        &:focus {
+        &--active {
             outline: none;
             background: $salem;
             color: $white;

@@ -12,7 +12,8 @@ var timeseriesTool = (function() {
         basetCookieName = 'timeseriesbasket',
         rememberCookieName = 'rememberBasket',
         remember,
-        listCount = 0;
+        listCount = 0,
+        counter = $('.timeseries__count');
 
     bindEvents();
     initialize();
@@ -47,13 +48,13 @@ var timeseriesTool = (function() {
         $('body, .timeseries__list--exit').on('click', function(e) {
             e.stopPropagation();
             listContainer.hide();
-            basket.removeClass('timeseries__basket--active');
+            //basket.removeClass('timeseries__basket--active');
         });
 
         basket.on('click', function(e) {
             e.stopPropagation();
             listContainer.toggle();
-            $(this).toggleClass('timeseries__basket--active');
+            //$(this).toggleClass('timeseries__basket--active');
         });
 
         listContainer.on('click', function(e) {
@@ -260,14 +261,19 @@ var timeseriesTool = (function() {
     }
 
     function modalWrapper() {
-        var closestWrapper =  $(listContainer).closest('.wrapper');
+        var closestWrapper =  $(listContainer).closest('div.wrapper');
         closestWrapper.wrapInner('<div class="timeseries-modal-container"></div>')
     }
 
 
     function countList(number) {
         listCount = listCount + number;
-        $('.timeseries__count').empty().append(listCount);
+        counter.empty().append(listCount);
+        if (listCount > 0 && !counter.hasClass('timeseries__basket--active')) {
+            $(counter.parent()).addClass('timeseries__basket--active');
+        } else {
+            $(counter.parent()).removeClass('timeseries__basket--active');
+        }
     }
 
     //expose functions
