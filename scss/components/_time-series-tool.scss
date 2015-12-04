@@ -92,31 +92,11 @@
 
     &__remember {
         display: none;
-        margin: $baseline 0 ($baseline * 2) 0;
+        margin-bottom: ($baseline * 2);
+        padding: 6px 0 2px 0;
 
         label {
             cursor: pointer;
         }
-
-        // Green button to replace checkbox - testing without first
-        //padding: 5px 0 3px 0;
-        //margin: $baseline 0 ($baseline * 2) 0;
-        //
-        //input {
-        //    position: absolute;
-        //    z-index: -1;
-        //}
-        //
-        //label {
-        //    border: 1px solid $thunder;
-        //    padding: $baseline $col;
-        //    background: $nevada;
-        //    cursor: pointer;
-        //}
-        //
-        //input:checked + label {
-        //    background: $salem;
-        //    color: $white;
-        //}
     }
 }
