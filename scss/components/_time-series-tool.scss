@@ -48,7 +48,7 @@
             background: $ship-gray;
 
             @include breakpoint(sm) {
-                width: ($col * 22);
+                width: ($col * 18);
             }
 
             &:after {
