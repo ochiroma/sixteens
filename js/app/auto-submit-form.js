@@ -31,18 +31,34 @@ $(function() {
     //Find keyword input and bind events
     if ('#input-keywords') {
         var formKeywords = form.find('#input-keywords');
-        $(formKeywords).on('change paste keyup', timedSubmit);
+        $(formKeywords).on('paste keyup search', timedSubmit); //remove 'change' for time being, causing multiple submissions
+        //TODO stop submit when removing focus from keyword input
     }
 
     //Find and bind events to drop-down select inputs
     if ('select') {
         var formSelect = $('select');
-        $(formSelect).change(function () {
+        $(formSelect).change(function (e) {
+            //updated dropdown clears from to dates on time series tool if selected options is not custom, it does not affect the results but prevents the date selected date appear in url
+            var selectInput=  $(e.target);
+            var id = selectInput.attr('id');
+            if('select-updated' === id) {
+                if(selectInput.val() != 'custom') {
+                    clearDateFilters();
+                }
+            }
             submitForm();
         });
     }
 
-    //Wrap static container around checkboxes for static element to bind events to
+
+    function clearDateFilters() {
+        $('#input-start-date, #input-start-date').each(function(){
+            $(this).val('');
+        });
+    }
+
+    //Find and bind events to checkboxes
     if (form.has('.filters input[type="checkbox"]')) {
         var formCheckboxes = filters.find('input[type="checkbox"]');
         //TODO - Loop each checkbox and check if in a list or on own. Then wrap with js-container (if it doesn't already have one)
@@ -56,10 +72,32 @@ $(function() {
         //    }
         //});
         var formCheckboxContainer = form.find('.js-checkbox-container');
-        $(formCheckboxContainer).on('change', formCheckboxes, function() {
+        $(formCheckboxContainer).on('change', formCheckboxes, function(e) {
             submitForm();
         });
     }
+
+    //Find and bind events to pagination
+    var paginationContainer = '#results';
+    if (form.has(paginationContainer)) {
+        $(paginationContainer).on('click', 'a.page-link', function(e) {
+            e.preventDefault();
+            var url = $(e.target).attr('href');
+            loadNewResults(url);
+            $('html, body').animate({scrollTop: $('#main').offset().top}, 1000);
+        });
+    }
+
+    //Find and bind events to clear form link
+    var clearAll = form.find('a[value="Reset"]');
+    $(clearAll).click(function(e) {
+        e.preventDefault();
+        $('.search-page__results-text').empty();
+        $('.search-page__results-text').append('Loading...');
+        var url = $(this).attr('href');
+        var clear = true;
+        loadNewResults(url, clear);
+    });
 
     //The same as above but for a-z
     if ('.filters__a-z') {
@@ -77,6 +115,7 @@ $(function() {
         $('.search-page__results-text').empty();
         $('.search-page__results-text').append('Loading...');
         loadNewResults(url);
+        return false;
     });
 
 });

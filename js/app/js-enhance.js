@@ -1,4 +1,4 @@
-//progressive enhancement (jQuery)
+//progressive enhancement (jQuery) - JS specific to beta.ons.gov.uk, not applicable to whole pattern library
 
 $(function() {
     // jQuery(window).load(function() {
@@ -22,7 +22,7 @@ $(function() {
 
 
     function jsEnhance() {
-        $('.js-enhance--show').show();
+        jsEnhanceShow();
         $('.js-enhance--hide').hide();
         $('.nojs-hidden').removeClass('nojs-hidden');
 
@@ -46,7 +46,7 @@ $(function() {
         jsEnhanceAnchorAnalytics();
         jsEnhanceExternalLinks();
 
-        jsEnhanceTableOfContents();
+        //jsEnhanceTableOfContents();
         jsEnhanceScrollToSection();
 
         jsEnhanceMobileTables();
@@ -74,6 +74,10 @@ $(function() {
     }
 });
 
+
+function jsEnhanceShow() {
+    $('.js-enhance--show').show();
+}
 
 function clearViewportSizes() {
     $('body').removeClass('viewport-sm viewport-md viewport-lg');
@@ -550,119 +554,105 @@ function jsEnhanceExternalLinks() {
 }
 
 
-function jsEnhanceTableOfContents() {
-    if ($('body').contents().find('*').hasClass('page-content__main-content')) {
-
-        //remove html and body height 100% to allow jquery scroll functions to work properly
-        $('html, body').css('height', 'auto');
-
-
-        //insert sticky wrapper
-        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper">');
-        $(tocStickyWrap).insertAfter($('#toc'));
-        $('.table-of-contents--sticky__wrap .wrapper').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
-
-
-        //create select list of sections
-        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
-
-        $(tocSelectList).append($('<option/>', {
-            value: '',
-            text: '-- Select a section --'
-        }));
-
-        $('#toc li a').each(function(i) {
-            i = i + 1;
-            var text = i + '. ' + $(this).text();
-            var href = $(this).attr('href');
-            $(tocSelectList).append($('<option/>', {
-                value: href,
-                text: text
-            }));
-        });
-
-
-        //add toc select to sticky wrapper
-        $('.table-of-contents--sticky__wrap .wrapper').append(tocSelectList);
-
-        $('.table-of-contents--sticky__select').change(function() {
-            var location = $(this).find('option:selected').val();
-            if (location) {
-                // expands section if accordion
-                var section = $(location);
-                if (section.hasClass('is-collapsed')) {
-                    section.removeClass('is-collapsed').addClass('is-expanded');
-                }
-
-                var functionTrigger = true;
-
-                //animates scroll and offsets page to counteract sticky nav
-                $('html, body').animate({
-                    scrollTop: $(location).offset().top - 105
-                }, 1000, function() {
-                    //stops function running twice - once for 'html' and another for 'body'
-                    if (functionTrigger) {
-                        //adds location hash to url without causing page to jump to it - credit to http://lea.verou.me/2011/05/change-url-hash-without-page-jump/
-                        if (history.pushState) {
-                            history.pushState(null, null, location);
-                        }
-                        //TODO Add hash to window.location in IE8-9 (don't support history.pushState)
-                        // else {
-                        //     window.location.hash = location;
-                        //     $('html, body').scrollTop( $(location.hash).offset().top - 60 );
-                        // }
-
-                        var page = window.location.pathname + location;
-                        jsEnhanceTriggerAnalyticsEvent(page);
-                        functionTrigger = false;
-                    }
-                });
-            }
-        });
-
-
-
-        // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate
-        function stickyTOC() {
-            var contentStart = $('.page-content__main-content').offset().top;
-            var scrollTop = $(window).scrollTop();
-            // console.log(scrollTop);
-            if (scrollTop > contentStart) {
-                $('#toc').addClass('table-of-contents-ordered-list-hide');
-                // $('#toc').removeClass('table-of-contents-ordered-list');
-                $('.page-content__main-content').css('padding-top', '96px');
-                $('.table-of-contents--sticky__wrap').show();
-            } else {
-                // $('#toc').addClass('table-of-contents-ordered-list');
-                $('#toc').removeClass('table-of-contents-ordered-list-hide');
-                $('.page-content__main-content').css('padding-top', '0');
-                $('.table-of-contents--sticky__wrap').hide();
-            }
-        }
-
-        stickyTOC();
-        $(window).scroll(function() {
-            stickyTOC();
-            // console.log($(window).scrollTop());
-        });
-    }
-}
+//function jsEnhanceTableOfContents() {
+//    if ($('body').contents().find('*').hasClass('page-content__main-content')) {
+//
+//        //remove html and body height 100% to allow jquery scroll functions to work properly
+//        $('html, body').css('height', 'auto');
+//
+//
+//        //insert sticky wrapper
+//        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper">');
+//        $(tocStickyWrap).insertAfter($('#toc'));
+//        $('.table-of-contents--sticky__wrap .wrapper').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
+//
+//
+//        //create select list of sections
+//        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
+//
+//        $(tocSelectList).append($('<option/>', {
+//            value: '',
+//            text: '-- Select a section --'
+//        }));
+//
+//        $('#toc li a').each(function(i) {
+//            i = i + 1;
+//            var text = i + '. ' + $(this).text();
+//            var href = $(this).attr('href');
+//            $(tocSelectList).append($('<option/>', {
+//                value: href,
+//                text: text
+//            }));
+//        });
+//
+//
+//        //add toc select to sticky wrapper
+//        $('.table-of-contents--sticky__wrap .wrapper').append(tocSelectList);
+//
+//        $('.table-of-contents--sticky__select').change(function() {
+//            var location = $(this).find('option:selected').val();
+//            if (location) {
+//                // expands section if accordion
+//                var section = $(location);
+//                if (section.hasClass('is-collapsed')) {
+//                    section.removeClass('is-collapsed').addClass('is-expanded');
+//                }
+//
+//                var functionTrigger = true;
+//
+//                //animates scroll and offsets page to counteract sticky nav
+//                $('html, body').animate({
+//                    scrollTop: $(location).offset().top - 105
+//                }, 1000, function() {
+//                    //stops function running twice - once for 'html' and another for 'body'
+//                    if (functionTrigger) {
+//                        //adds location hash to url without causing page to jump to it - credit to http://lea.verou.me/2011/05/change-url-hash-without-page-jump/
+//                        if (history.pushState) {
+//                            history.pushState(null, null, location);
+//                        }
+//                        //TODO Add hash to window.location in IE8-9 (don't support history.pushState)
+//                        // else {
+//                        //     window.location.hash = location;
+//                        //     $('html, body').scrollTop( $(location.hash).offset().top - 60 );
+//                        // }
+//
+//                        var page = window.location.pathname + location;
+//                        jsEnhanceTriggerAnalyticsEvent(page);
+//                        functionTrigger = false;
+//                    }
+//                });
+//            }
+//        });
+//
+//
+//
+//        // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate
+//        function stickyTOC() {
+//            var contentStart = $('.page-content__main-content').offset().top;
+//            var scrollTop = $(window).scrollTop();
+//            // console.log(scrollTop);
+//            if (scrollTop > contentStart) {
+//                $('#toc').addClass('table-of-contents-ordered-list-hide');
+//                // $('#toc').removeClass('table-of-contents-ordered-list');
+//                $('.page-content__main-content').css('padding-top', '96px');
+//                $('.table-of-contents--sticky__wrap').show();
+//            } else {
+//                // $('#toc').addClass('table-of-contents-ordered-list');
+//                $('#toc').removeClass('table-of-contents-ordered-list-hide');
+//                $('.page-content__main-content').css('padding-top', '0');
+//                $('.table-of-contents--sticky__wrap').hide();
+//            }
+//        }
+//
+//        stickyTOC();
+//        $(window).scroll(function() {
+//            stickyTOC();
+//            // console.log($(window).scrollTop());
+//        });
+//    }
+//}
 
 function jsEnhanceScrollToSection() {
-
-    //Offsets page to make room for sticky nav if arrive on page directly at section
-    $(window).load(function() {
-        var contentClass = '.page-content__main-content';
-
-        if (location.hash && $(contentClass).length > 0) {
-            var contentStart = $(contentClass).offset().top;
-            var scrollTop = $(window).scrollTop();
-
-            if (scrollTop > contentStart) {
-                $(location.hash).offset().top - 100;
-            }
-        }
-    });
 
     //Animate scroll to anchor on same page
     $('.jsEnhanceAnimateScroll').click(function(e) {
@@ -754,99 +744,8 @@ function jsEnhanceRemoveFocus() {
 }
 
 function jsEnhanceTimeSeriesTool() {
-
-    var listContainer = $("#timeseries-list-container");
-    var xlsForm = $("#xls-form");
-    var csvForm = $("#csv-form");
-
-    var list = $("#timeseries-list");
-    var timeseriesList = {};
-
-    $('.js-timeseriestool-select').on("click", function() {
-        var current =  $(this);
-        if (current.prop('checked')) {
-            select(current);
-        } else {
-            deselect(current);
-        }
-    });
-
-    $('#timeseries-list').on("click", ".js-remove-selected", function() {
-        var current =  $(this).closest('li');
-        var cdid = current.attr('id');
-        var uri = current.data('uri');
-        console.log(cdid + " --- " + uri)
-        delete timeseriesList[uri];
-        removeChild(list, cdid);
-        removeChild(xlsForm, cdid);
-        removeChild(csvForm, cdid);
-        if(count(timeseriesList) == 0){
-            listContainer.hide();
-        }
-        $( ".js-timeseriestool-select" ).each(function( index ) {
-            checkbox = $(this);
-            if (checkbox.data('cdid') === cdid) {
-                console.log(checkbox);
-                checkbox.attr('checked', false);
-            }
-        });
-    });
-
-    function select(element) {
-        addTimeSeries(element);
-        listContainer.show();
-        console.debug("Time series list:",  timeseriesList);
-    }
-
-    function deselect(element) {
-        removeTimeSeries(element);
-        if(count(timeseriesList) == 0){
-            listContainer.hide();
-        }
-        console.debug("Time series list:",  timeseriesList);
-    }
-
-    //Add time series to forms and lists
-    function addTimeSeries(element) {
-        var uri = element.data('uri');
-        var cdid = element.data('cdid');
-        var title = element.data('title');
-        timeseriesList[uri] = "";
-        list.prepend(getMarkup(uri, cdid, title));
-        var inputMarkup = getInputMarkup(cdid, uri);
-        csvForm.append(inputMarkup);
-        xlsForm.append(inputMarkup);
-    }
-
-    //Remove time series from forms and lists
-    function removeTimeSeries(element) {
-        var cdid = element.data('cdid');
-        var uri = element.data('uri');
-        delete timeseriesList[uri];
-        removeChild(list, cdid);
-        removeChild(xlsForm, cdid);
-        removeChild(csvForm, cdid);
-    }
-
-    function getMarkup(uri, cdid, title) {
-        return '<li id="' + cdid + '" class="flush" data-uri="' + uri + '"><p class="flush">'+title+' <button class="btn btn--primary btn--thin btn--small btn--narrow float-right js-remove-selected">remove</button></p></li>';
-    }
-
-    function getInputMarkup(cdid, uri) {
-        return '<input type="hidden" name="uri" id="' + cdid + '" value="'+ uri +'"/>'
-    }
-
-    function removeChild(element, childId) {
-        element.find('#'+childId).remove();
-    }
-
-    function count(o){
-        var c= 0;
-        for(var p in o) if(o.hasOwnProperty(p))++c;
-        return c;
-    }
+    // timeseriesTool.refresh();
 }
-
 
 
 //Adds focus to highcharts filters when tabbed through

@@ -116,6 +116,12 @@
 
 .flush {
 	margin: 0 !important;
+
+    &--sm {
+        @include breakpoint(sm) {
+            margin: 0 !important;
+        }
+    }
 }
 
 .flush-col {
@@ -333,4 +339,20 @@
 
 .text-right {
     text-align: right;
+
+    &--md {
+        @include breakpoint(md) {
+            text-align: right;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
+            text-align: right;
+        }
+    }
+}
+
+.underline-link {
+    text-decoration: underline !important;
 }

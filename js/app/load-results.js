@@ -5,14 +5,18 @@
 
 //TODO - Set/cache reused selectors
 
-function loadNewResults(url) {
+function loadNewResults(url, clear) {
     $.ajax({
         url: url,
         success: function(result) {
             //Results
             var newResults = $(result).find('.results').html();
             var resultsText = $(result).find('.search-page__results-text').html();
-            replaceResults(url, newResults, resultsText);
+            var pagination;
+            if ($(result).has('#js-pagination-container')) {
+                pagination = $(result).find('#js-pagination-container').html();
+            }
+            replaceResults(url, newResults, resultsText, pagination);
 
             //Filters
             if ($(result).has('.js-checkbox-container')) {
@@ -25,23 +29,44 @@ function loadNewResults(url) {
                 var atozFilters = $(result).find('.filters__a-z');
                 replaceFilters(atozFilters);
             }
+            // if ($(result).has('.js-from-to-filters')) {
+            //     var fromToFilters = $(result).find('.js-from-to-filters');
+            //     replaceFilters(fromToFilters);
+            // }
+            
+            //Clear
+            if (clear) {
+                $('.filters input, select').each(function() {
+                    var $this = '#' + $(this).attr('id');
+                    updateContents(result, $this);
+                })
+            }
         }
     });
 }
 
 //Removes current results from page and loads in new results
-function replaceResults(url, newResults, resultsText) {
+function replaceResults(url, newResults, resultsText, pagination) {
     $('.results').empty();
     $(newResults).hide().appendTo('.results').fadeIn(300);
 
     //Build any sparklines that might show on search results
     jsEnhanceSparkline();
-    jsEnhanceTimeSeriesTool();
+    timeseriesTool.refresh();
 
     //Update results text
     var resultsTextElem = $('.search-page__results-text');
     resultsTextElem.empty();
     resultsTextElem.append(resultsText);
+
+    //Update pagination for results
+    if (pagination) {
+        var paginationElem = $('#js-pagination-container');
+        paginationElem.empty();
+        paginationElem.append(pagination);
+    } else {
+        $('#js-pagination-container');
+    }
 
     //Pushes new url into browser, if browser compatible (enhancement)
     if (typeof (history.pushState) != undefined) {
@@ -70,4 +95,26 @@ function replaceFilters(filters) {
         atozFilters.empty();
         atozFilters.append($(filters).html());
     }
+
+    // if ($(filters).has('.js-from-to-filters')) {
+    //     var fromToFilters = $('.js-from-to-filters');
+    //     fromToFilters.hide();
+    //     //fromToFilters.append($(filters).html());
+    // }
+
+}
+
+//Remove and replaces content according to selector and results parsed into function - should probably re-use this elsewhere
+function updateContents(result, id) {
+    var newContents = $(result).find(id).html();
+    var element = $(id);
+
+    //Remove value if element is a search and has value
+    if (element.is('input[type="search"]') && element.val()) {
+        element.val('');
+    } else { //else remove contents and replace with new
+        element.empty();
+        element.append(newContents);
+    }
+
 }
