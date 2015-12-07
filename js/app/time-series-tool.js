@@ -201,7 +201,7 @@ var timeseriesTool = (function() {
         csvForm.append(inputMarkup);
         buttons.show();
         noTimeseries.hide();
-        countList(1);
+        updateCount();
     }
 
     //Remove time series from forms and lists
@@ -222,7 +222,7 @@ var timeseriesTool = (function() {
         remove(xlsForm, id);
         remove(csvForm, id);
         removeFromCookie(timeseries);
-        countList(-1);
+        updateCount();
     }
 
     function getListElementMarkup(timeseries) {
@@ -307,8 +307,8 @@ var timeseriesTool = (function() {
     }
 
 
-    function countList(number) {
-        listCount = listCount + number;
+    function updateCount(number) {
+        listCount = count(timeseriesList);
         counter.empty().append(listCount);
         if (listCount > 0 && !counter.hasClass('timeseries__basket--active')) {
             $(counter.parent()).addClass('timeseries__basket--active');
