@@ -322,7 +322,7 @@ var timeseriesTool = (function() {
 
     function assertMaximum() {
         if (count(timeseriesList) >= 50) {
-            alert("Maximum 50 time series can be selected for download!");
+            alert("Sorry, no more than 50 time series can be selected at one time");
             return false;
         }
         return true;
