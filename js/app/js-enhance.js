@@ -22,7 +22,7 @@ $(function() {
 
 
     function jsEnhance() {
-        $('.js-enhance--show').show();
+        jsEnhanceShow();
         $('.js-enhance--hide').hide();
         $('.nojs-hidden').removeClass('nojs-hidden');
 
@@ -74,6 +74,10 @@ $(function() {
     }
 });
 
+
+function jsEnhanceShow() {
+    $('.js-enhance--show').show();
+}
 
 function clearViewportSizes() {
     $('body').removeClass('viewport-sm viewport-md viewport-lg');
@@ -754,7 +758,7 @@ function jsEnhanceRemoveFocus() {
 }
 
 function jsEnhanceTimeSeriesTool() {
-    timeseriesTool.refresh();
+    // timeseriesTool.refresh();
 }
 
 

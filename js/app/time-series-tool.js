@@ -9,7 +9,8 @@ var timeseriesTool = (function() {
         csvForm = $("#csv-form"),
         list = $(".timeseries__list"),
         timeseriesList = {},
-        basetCookieName = 'timeseriesbasket',
+        timeseriesUris = [], //saved as cookie, to load selections from the server on page load
+        basketCookieName = 'timeseriesbasket',
         rememberCookieName = 'rememberBasket',
         remember,
         listCount = 0,
@@ -23,22 +24,55 @@ var timeseriesTool = (function() {
         modalWrapper();
 
         remember = getCookie(rememberCookieName);
-        if(typeof remember === 'undefined') {//remember cookie never set, sets to true by default
-            remember=true;
+        if (typeof remember === 'undefined') { //remember cookie never set, sets to true by default
+            remember = true;
             setCookie(rememberCookieName, remember);
         }
 
-        if(remember) {
-            timeseriesList = Cookies.getJSON(basetCookieName) || {};
-            $.each(timeseriesList, function(index, value) {
-                addToPage(value);
+        if (remember) {
+            timeseriesUris = Cookies.getJSON(basketCookieName) || {};
+            $.each(timeseriesUris, function(index, uri) {
+                loadTimeseries(uri);
             });
-            check($('#remember-selection'));    
+            check($('#remember-selection'));
+        }
+
+        function loadTimeseries(uri) {
+            $.ajax({
+                url: uri + '/data?description',
+                success: function(data) {
+                    var timeseries = {
+                        uri: data.uri,
+                        cdid: data.description.cdid,
+                        title: data.description.title
+                    };
+                    timeseriesList[timeseries.cdid] = timeseries;
+                    addToPage(timeseries);
+                    check(findIn(resultsContainer, timeseries.cdid));
+                }
+            });
         }
     }
 
-    function updateCookie() {
-        setCookie(basetCookieName, timeseriesList);
+    function addToCookie(timeseries) {
+        timeseriesUris.push(timeseries.uri);
+        setCookie(basketCookieName, timeseriesUris);
+    }
+
+    function removeFromCookie(timeseries) {
+        remove();
+        setCookie(basketCookieName, timeseriesUris);
+
+        function remove() {
+            var index = -1;
+            $.each(timeseriesUris, function(i, value) {
+                if (timeseries.uri !== value) {
+                    return true; //continue
+                }
+                timeseriesUris.splice(i, 1); //remove
+                return false; //break loop
+            });
+        }
     }
 
     //init timeseries tool
@@ -87,7 +121,7 @@ var timeseriesTool = (function() {
                 setCookie(rememberCookieName, true);
             } else {
                 setCookie(rememberCookieName, false);
-                deleteCookie(basetCookieName);
+                deleteCookie(basketCookieName);
             }
         });
 
@@ -103,7 +137,8 @@ var timeseriesTool = (function() {
     function selectAll() {
         getAllCheckboxes().each(function() {
             var element = $(this);
-            select(element);
+            var selected =  select(element);
+            return selected;//continue if successfully selected
         });
     }
 
@@ -115,8 +150,15 @@ var timeseriesTool = (function() {
     }
 
     function select(element) {
-        addTimeSeries(element);
-        check(element);
+        if(assertMaximum()) {
+            addTimeSeries(element);
+            check(element);    
+            return true;
+        } else {
+            uncheck(element);
+            return false;
+        }
+        
     }
 
     function deselect(element) {
@@ -125,7 +167,7 @@ var timeseriesTool = (function() {
     }
 
     function uncheck(element) {
-        if(element.hasClass('js-timeseriestool-select')) {
+        if (element.hasClass('js-timeseriestool-select')) {
             element.prop('checked', false);
             $('.js-timeseriestool-select-all').prop('checked', false); //uncheck select all if a time series is deselected
         }
@@ -148,7 +190,7 @@ var timeseriesTool = (function() {
         }
         timeseriesList[timeseries.cdid] = timeseries;
         addToPage(timeseries);
-        updateCookie();
+        addToCookie(timeseries);
     }
 
     //Add time series markup to basket, and put hidden inputs for download
@@ -170,6 +212,7 @@ var timeseriesTool = (function() {
     }
 
     function removeElement(id) {
+        var timeseries = timeseriesList[id];
         delete timeseriesList[id];
         if (count(timeseriesList) === 0) {
             buttons.hide();
@@ -178,7 +221,7 @@ var timeseriesTool = (function() {
         remove(list, id);
         remove(xlsForm, id);
         remove(csvForm, id);
-        updateCookie();
+        removeFromCookie(timeseries);
         countList(-1);
     }
 
@@ -220,7 +263,6 @@ var timeseriesTool = (function() {
     //re-initializes various fields on js refresh of results
     function refresh() {
         resolveCustomDateFilter();
-
         //Checks all elements in basket on result list after results are refreshed
         getAllCheckboxes().each(function() {
             checkbox = $(this);
@@ -228,11 +270,8 @@ var timeseriesTool = (function() {
                 check(checkbox);
             }
         });
-        showSelectAll(); //select all button is hidden by defaul, only shown when js available. Have to show each time results are refreshed
-    }
 
-    function showSelectAll() {
-        $('#select-all-container').show();
+        jsEnhanceShow();
     }
 
     function resolveCustomDateFilter() {
@@ -257,11 +296,13 @@ var timeseriesTool = (function() {
     }
 
     function deleteCookie(name, value) {
-        Cookies.remove(name, {path: ''});
+        Cookies.remove(name, {
+            path: ''
+        });
     }
 
     function modalWrapper() {
-        var closestWrapper =  $(listContainer).closest('div.wrapper');
+        var closestWrapper = $(listContainer).closest('div.wrapper');
         closestWrapper.wrapInner('<div class="timeseries-modal-container"></div>')
     }
 
@@ -274,6 +315,14 @@ var timeseriesTool = (function() {
         } else {
             $(counter.parent()).removeClass('timeseries__basket--active');
         }
+    }
+
+    function assertMaximum() {
+        if (count(timeseriesList) >= 50) {
+            alert("Maximum 50 time series can be selected for download!");
+            return false;
+        }
+        return true;
     }
 
     //expose functions

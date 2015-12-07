@@ -52,7 +52,7 @@ function replaceResults(url, newResults, resultsText, pagination) {
 
     //Build any sparklines that might show on search results
     jsEnhanceSparkline();
-    jsEnhanceTimeSeriesTool();
+    timeseriesTool.refresh();
 
     //Update results text
     var resultsTextElem = $('.search-page__results-text');
