@@ -95,22 +95,22 @@ $(function() {
         }
 
         //store all sections and their start/end points for dynamically updating drop-down on scroll
-        var sectionsArray = [];
-        $(pageContent + ' section').each(function() {
-            var $this = $(this);
-            var sectionStart = $this.offset().top;
-            var sectionHeight = $this.height();
-            var sectionEnd = sectionStart - sectionHeight;
-            var sectionId = $this.attr('id');
-            //console.log(sectionStart);
-            //console.log(sectionEnd);
-            //console.log("||");
-            sectionsArray.push({
-                start: sectionStart,
-                end: sectionEnd,
-                id: sectionId
-            });
-        });
+        //var sectionsArray = [];
+        //$(pageContent + ' section').each(function() {
+        //    var $this = $(this);
+        //    var sectionStart = $this.offset().top;
+        //    var sectionHeight = $this.height();
+        //    var sectionEnd = sectionStart - sectionHeight;
+        //    var sectionId = $this.attr('id');
+        //    //console.log(sectionStart);
+        //    //console.log(sectionEnd);
+        //    //console.log("||");
+        //    sectionsArray.push({
+        //        start: sectionStart,
+        //        end: sectionEnd,
+        //        id: sectionId
+        //    });
+        //});
         //console.log(sectionsArray);
         //
         //function updateSelected() {
