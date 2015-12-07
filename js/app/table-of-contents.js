@@ -85,7 +85,7 @@ $(function() {
                 // $('#toc').removeClass('table-of-contents-ordered-list');
                 $(pageContent).css('padding-top', stickyTocHeight);
                 $('.table-of-contents--sticky__wrap').show();
-                updateSelected()
+                //updateSelected()
             } else {
                 // $('#toc').addClass('table-of-contents-ordered-list');
                 $('#toc').removeClass('table-of-contents-ordered-list-hide');
@@ -111,11 +111,11 @@ $(function() {
                 id: sectionId
             });
         });
-        console.log(sectionsArray);
-
-        function updateSelected() {
-
-        }
+        //console.log(sectionsArray);
+        //
+        //function updateSelected() {
+        //
+        //}
 
         stickyTOC();
         $(window).scroll(function() {
