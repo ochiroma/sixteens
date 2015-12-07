@@ -16,10 +16,13 @@ var timeseriesTool = (function() {
         listCount = 0,
         counter = $('.timeseries__count');
 
-    bindEvents();
-    initialize();
+
+    if('/timeseriestool' === window.location.pathname) {
+        initialize();
+    }
 
     function initialize() {
+        bindEvents();
         //add position:relative container for basket modal
         modalWrapper();
 
@@ -327,7 +330,7 @@ var timeseriesTool = (function() {
 
     //expose functions
     return {
-        refresh: refresh
+        refresh: refresh,
     };
 
 })();
