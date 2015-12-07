@@ -35,6 +35,9 @@
     }
 
     &__list {
+        max-height: ($baseline * 58);
+        overflow-y: scroll;
+        overflow-x: hidden;
 
         &-container {
             display: none;
