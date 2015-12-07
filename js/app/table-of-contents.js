@@ -2,7 +2,14 @@ $(function() {
 
 
     if ($('body').contents().find('*').hasClass('page-content__main-content')) {
+        //variables
         var pageContent = '.page-content__main-content';
+        var locationHash = $(location.hash).attr('id');
+        var stickyTocHeight = 96; // height of sticky toc in pixels
+        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
+        var scrollTop = $(window).scrollTop();
+        var contentStart = $(pageContent).offset().top;
+
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
@@ -15,8 +22,6 @@ $(function() {
 
 
         //create select list of sections
-        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
-
         $(tocSelectList).append($('<option/>', {
             value: '',
             text: '-- Select a section --'
@@ -32,19 +37,16 @@ $(function() {
             }));
         });
 
-        //Height of sticky toc in pixels
-        var stickyTocHeight = 96;
-
         //add toc select to sticky wrapper
         $('.table-of-contents--sticky__wrap .wrapper').append(tocSelectList);
 
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
+            console.log(location);
             if (location) {
                 // expands section if accordion
-                var section = $(location);
-                if (section.hasClass('is-collapsed')) {
-                    section.removeClass('is-collapsed').addClass('is-expanded');
+                if ($(location).hasClass('is-collapsed')) {
+                    $(location).removeClass('is-collapsed').addClass('is-expanded');
                 }
 
                 var functionTrigger = true;
@@ -74,18 +76,15 @@ $(function() {
         });
 
 
-
         // sticky toc function that evaluates scroll position and activates the sticky toc as appropriate
         function stickyTOC() {
-            var contentStart = $(pageContent).offset().top;
-            var scrollTop = $(window).scrollTop();
-            // console.log(scrollTop);
+            scrollTop = $(window).scrollTop();
             if (scrollTop > contentStart) {
                 $('#toc').addClass('table-of-contents-ordered-list-hide');
                 // $('#toc').removeClass('table-of-contents-ordered-list');
                 $(pageContent).css('padding-top', stickyTocHeight);
                 $('.table-of-contents--sticky__wrap').show();
-                //updateSelected()
+                updateSelected(scrollTop);
             } else {
                 // $('#toc').addClass('table-of-contents-ordered-list');
                 $('#toc').removeClass('table-of-contents-ordered-list-hide');
@@ -94,30 +93,28 @@ $(function() {
             }
         }
 
-        //store all sections and their start/end points for dynamically updating drop-down on scroll
-        //var sectionsArray = [];
-        //$(pageContent + ' section').each(function() {
-        //    var $this = $(this);
-        //    var sectionStart = $this.offset().top;
-        //    var sectionHeight = $this.height();
-        //    var sectionEnd = sectionStart - sectionHeight;
-        //    var sectionId = $this.attr('id');
-        //    //console.log(sectionStart);
-        //    //console.log(sectionEnd);
-        //    //console.log("||");
-        //    sectionsArray.push({
-        //        start: sectionStart,
-        //        end: sectionEnd,
-        //        id: sectionId
-        //    });
-        //});
-        //console.log(sectionsArray);
-        //
-        //function updateSelected() {
-        //
-        //}
+        //Update the selected option on scroll
+        function updateSelected(scrollTop) {
+            var $sections = $(pageContent + ' section');
+            var top = $.grep($sections, function(item) {
+               return $(item).position().top <= scrollTop+stickyTocHeight;
+            });
+            var topLength = $(top).length;
+            var activeSectionId = $($(top)[topLength - 1]).attr('id');
+            if (activeSectionId) {
+                $('.table-of-contents--sticky__select').val("#" + activeSectionId);
+            }
+        }
+
+        //Offsets page to make room for sticky nav if arrive on page directly at section
+        if (locationHash) {
+            $(window).load(function() {
+                $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight);
+            });
+        }
 
         stickyTOC();
+        updateSelected(scrollTop)
         $(window).scroll(function() {
             stickyTOC();
         });
