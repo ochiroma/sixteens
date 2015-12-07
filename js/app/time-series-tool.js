@@ -30,7 +30,7 @@ var timeseriesTool = (function() {
         }
 
         if (remember) {
-            timeseriesUris = Cookies.getJSON(basketCookieName) || {};
+            timeseriesUris = Cookies.getJSON(basketCookieName) || [];
             $.each(timeseriesUris, function(index, uri) {
                 loadTimeseries(uri);
             });
