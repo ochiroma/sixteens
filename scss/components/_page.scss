@@ -16,10 +16,14 @@
 			margin-top: ($baseline * 2);
 			margin-bottom: ($baseline * 0);
 
-			&--home-big {
-				font-size: 60px;
-				line-height: 64px;
-				display: block;
+			&--home {
+				font-size: 36px;
+
+				&-big {
+					font-size: 60px;
+					line-height: 64px;
+					display: block;
+				}
 			}
 		}
 		&__content {

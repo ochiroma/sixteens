@@ -61,6 +61,17 @@
 		}
 	}
 
+	&-arrow-right {
+        &--dark {
+            background-position: -144px -44px;
+            behavior:url(-ms-transform.htc);
+            -moz-transform:rotate(270deg);
+            -webkit-transform:rotate(270deg);
+            -o-transform:rotate(270deg);
+            -ms-transform:rotate(270deg);
+        }
+    }
+
 
 	&-print {
 

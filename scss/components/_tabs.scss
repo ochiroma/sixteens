@@ -2,14 +2,17 @@
 
 .tab {
 
-    @include breakpoint(md){
-		margin-top: ($baseline *6);
-	}
+    //@include breakpoint(md){
+	//	margin-top: ($baseline *6);
+	//}
+
+    border-bottom: 1px solid $iron;
+    margin-bottom: -1px;
 
     &__item {
 
-        font-size: 17px;
-        padding: 21px $col 0 $col;
+        font-size: 21px;
+        padding: 21px 0 0 0;
         height: ($baseline * 8);
         //margin-right: $col;
         display: block;
@@ -18,8 +21,8 @@
         &:hover,
         &:focus {
             cursor: pointer;
-            //border-bottom: 8px solid $abbey;
-            background-color: $iron-light;
+            border-bottom: 8px solid $iron;
+            //background-color: $iron-light;
             text-decoration: none;
         }
 
@@ -27,12 +30,13 @@
 
             border-bottom: 8px solid $salem;
             color: $abbey;
-            padding: 21px 0 0 0;
+            //padding: 21px 0 0 0;
 
             &:hover,
             &:focus {
                 cursor: default;
-                background-color: $white;
+                //background-color: $white;
+                border-bottom: 8px solid $salem;
             }
 
 

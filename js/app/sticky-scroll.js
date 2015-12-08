@@ -80,27 +80,25 @@ $.fn.percentOnScreen = function(){
 
     $(window).on("load scroll", function () {
 
+        $.each($(".section-container"), function () {
 
+            var section = $(this),
+                sectionTitle = section.find('h2').attr('id');
 
-            $.each($(".section-container"), function () {
+            if ($(this).isOnScreen()) {
+                $(this).percentOnScreen();
 
-                var section = $(this),
-                    sectionTitle = section.find('h2').attr('id');
+            } else {
+                percentage = 0;
 
-                if ($(this).isOnScreen()) {
-                    $(this).percentOnScreen();
+            }
 
-                } else {
-                    percentage = 0;
+            bgTransparency = percentage / 100;
 
-                }
-
-                bgTransparency = percentage / 100;
-
-                $.each($(".side-bar__item"), function () {
-                    $("#" + sectionTitle + "-menu-item").css("background-color", "rgba(187,189,191," + bgTransparency + ")");
-                });
+            $.each($(".side-bar__item"), function () {
+                $("#" + sectionTitle + "-menu-item").css("background-color", "rgba(187,189,191," + bgTransparency + ")");
             });
+        });
 
     });
 

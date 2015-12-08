@@ -116,6 +116,12 @@
 
 .flush {
 	margin: 0 !important;
+
+    &--sm {
+        @include breakpoint(sm) {
+            margin: 0 !important;
+        }
+    }
 }
 
 .flush-col {
@@ -240,6 +246,10 @@
   display: none !important;
 }
 
+.js-enhance--show {
+    display: none;
+}
+
 
 // clear
 
@@ -310,4 +320,39 @@
 
     }
 
+}
+
+
+//Text transform
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.capitalise:first-letter {
+    text-transform: capitalize !important;
+}
+
+.text-right {
+    text-align: right;
+
+    &--md {
+        @include breakpoint(md) {
+            text-align: right;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
+            text-align: right;
+        }
+    }
+}
+
+.underline-link {
+    text-decoration: underline !important;
 }
