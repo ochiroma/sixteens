@@ -4,7 +4,7 @@
     .background {
         @each $colour, $colourcode, $fontcolourcode in $colours {
             &--#{$colour} {
-                background-color: $colourcode !important;
+                background-color: $colourcode;
                 color: $fontcolourcode;
             }
         }
