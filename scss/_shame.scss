@@ -57,4 +57,20 @@
         color: $white;
     }
 
+    // used in time series tool CTA
+    .icon-arrow-right--dark {
+        background-position: -208px -44px;
+    }
+
+}
+
+
+// Right arrow used on time series tool CTA - needs to be added into sprite
+.icon-arrow-right--dark {
+    background-position: -144px -44px;
+    behavior:url(-ms-transform.htc);
+    -moz-transform:rotate(270deg);
+    -webkit-transform:rotate(270deg);
+    -o-transform:rotate(270deg);
+    -ms-transform:rotate(270deg);
 }
