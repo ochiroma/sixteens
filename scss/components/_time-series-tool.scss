@@ -38,6 +38,7 @@
         max-height: ($baseline * 58);
         overflow-y: scroll;
         overflow-x: hidden;
+        padding-left: $col;
 
         &-container {
             display: none;
@@ -49,7 +50,7 @@
             right: 0;
             z-index: 1000;
             //padding: ($baseline * 4) $col ($baseline * 3) $col;
-            padding: $baseline $col ($baseline * 3) $col;
+            padding: $baseline 0 ($baseline * 3) 0;
             color: $iron-light;
             background: $ship-gray;
 
@@ -80,7 +81,7 @@
 
     &__download {
         border-top: 1px solid $iron;
-        margin-top: -1px;
+        margin: -1px $col 0 $col;
         display: none;
     }
 
@@ -96,7 +97,7 @@
     &__remember {
         display: none;
         margin-bottom: ($baseline * 2);
-        padding: 6px 0 2px 0;
+        padding: 6px $col 2px $col;
 
         label {
             cursor: pointer;
