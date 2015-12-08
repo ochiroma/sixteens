@@ -141,11 +141,11 @@ ul.minical {
                                     text-align: center;
                                 }
                                 &.minical_highlighted a {
-                                    background-color: transparentize($salem, 0.5);
+                                    background-color: transparentize($active, 0.5);
                                     color: $ship-gray;
                                 }
                                 &.minical_selected a {
-                                    background: $salem;
+                                    background: $active;
                                     color: $iron-light;
                                 }
                                 &.minical_past_month a,
