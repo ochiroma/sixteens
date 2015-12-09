@@ -11,7 +11,6 @@ function expandSubnav(element) {
             .find('.js-expandable__content')
             .removeClass('js-nav-hidden');
     }
-    console.log(element);
 }
 
 function collapseSubnav(element) {
