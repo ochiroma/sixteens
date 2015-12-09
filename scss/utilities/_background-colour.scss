@@ -2,12 +2,14 @@
 
 @mixin background-util {
     .background {
-        @each $colour, $colourcode in $colours {
+        @each $colour, $colourcode, $fontcolourcode in $colours {
             &--#{$colour} {
                 background-color: $colourcode;
+                color: $fontcolourcode;
             }
         }
     }
 }
 
 @include background-util;
+

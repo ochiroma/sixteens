@@ -3,7 +3,7 @@
 .page {
 	&-header {}
 	&-intro {
-		background: $gallery;
+		//background: $gallery;
 
 		&__type {
 			display: block;
@@ -41,8 +41,8 @@
 		}
 	}
 	&-content {
-		border-top: 1px solid $iron;
-		margin-top: -1px;
+		//border-top: 1px solid $iron;
+		//margin-top: -1px;
         min-height: ($baseline * 24); //Stop page balance looking wrong if page has very little content
 
 		&__main-content {
