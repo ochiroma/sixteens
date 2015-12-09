@@ -114,3 +114,16 @@ address {
 strong {
 	font-weight: 600;
 }
+
+@mixin font-size-util {
+	.font-size {
+		@for $i from 0 through 6 {
+			//
+			&--h#{$i} {
+				@extend h#{$i};
+			}
+		}
+	}
+}
+
+@include font-size-util;
