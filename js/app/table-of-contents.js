@@ -16,9 +16,13 @@ $(function() {
 
 
         //insert sticky wrapper
-        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper">');
+        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40">');
         $(tocStickyWrap).insertAfter($('#toc'));
-        $('.table-of-contents--sticky__wrap .wrapper').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
+        $('.table-of-contents--sticky__wrap #stickySelectArea').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
+
+        //add in print options
+        var printStickyWrap = $('<div class="col col--md-15 col--lg-17 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="jsEnhancePrint" class="link-complex nojs-hidden js-enhance--show">Print this page&nbsp;</a><span class="icon icon-print--dark-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="{{uri}}/pdf" class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--dark-small"></span></p></div>');
+        $(printStickyWrap).insertAfter($('.table-of-contents--sticky__wrap .col'));
 
 
         //create select list of sections
@@ -38,7 +42,7 @@ $(function() {
         });
 
         //add toc select to sticky wrapper
-        $('.table-of-contents--sticky__wrap .wrapper').append(tocSelectList);
+        $('.table-of-contents--sticky__wrap #stickySelectArea').append(tocSelectList);
 
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
