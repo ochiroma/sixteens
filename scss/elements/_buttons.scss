@@ -1,139 +1,134 @@
 //_buttons.scss
 
 button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .btn {
-  font-family: $base-font-family;
-  font-size: 14px;
-  display: inline-block;
-  width: auto;
-  cursor: pointer;
-  padding: 7px $col 9px $col;
+    font-family: $base-font-family;
+    font-size: 14px;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    padding: 7px $col 9px $col;
+    border: 0 none;
+    text-align: center;
+    text-decoration: none !important;
 
-  border: 0 none;
-  text-align: center;
-  text-decoration: none !important;
-
-  &--primary {
-      background-color: $matisse;
-      color: $white;
-
-      &:hover,
-      &:focus {
-          background-color: $blumine;
-      }
-
-  }
-
-
-  &--secondary {
-    background-color: $abbey;
-    color: $white;
-
-
-    &:hover,
-    &:focus {
-      background-color: $thunder;
-    }
-
-
-      &--active {
-        background-color: $salem;
+    &--primary {
+        background-color: $primary;
+        color: $white;
 
         &:hover,
         &:focus {
-            background-color: $salem;
+            background-color: darken($primary, 8%);
+        }
+
+    }
+
+    &--secondary {
+        background-color: $abbey;
+        color: $white;
+
+        &:hover,
+        &:focus {
+            background-color: $thunder;
+        }
+
+        &--active {
+            background-color: $active;
+
+            &:hover,
+            &:focus {
+                background-color: $active;
+                cursor: default;
+            }
+
+        }
+
+        &--disabled,
+        &--disabled:hover {
+            color: $abbey;
+            background-color: $iron;
             cursor: default;
         }
 
-      }
+    }
 
-      &--disabled,
-      &--disabled:hover {
-        color: $abbey;
-        background-color: $iron;
-        cursor: default;
-      }
+    &--plain {
+        background-color: $white;
+        color: $matisse;
 
-  }
+        &:hover,
+        &:focus {
+            text-decoration: underline;
+        }
 
-  &--plain {
-      background-color: $white;
-      color: $matisse;
-
-      &:hover,
-      &:focus {
-        text-decoration: underline;
-      }
-
-      &__active {
-          color: $base-text-colour;
-          cursor: default;
-
-          &:hover,
-          &:focus {
-            background-color: $white;
+        &__active {
             color: $base-text-colour;
-          }
+            cursor: default;
 
-      }
+            &:hover,
+            &:focus {
+                background-color: $white;
+                color: $base-text-colour;
+            }
 
-  }
+        }
 
-  &--small {
-      font-size: 12px;
-      height: 32px;
-  }
+    }
 
-  &--thin {
-      padding-top: 0;
-      padding-bottom: 0;
-      height: 24px; //fix for button tags
-  }
+    &--small {
+        font-size: 12px;
+        height: 32px;
+    }
 
-  &--thick {
-      padding-top: 14px;
-      padding-bottom: 18px;
-  }
+    &--thin {
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 24px; //fix for button tags
+    }
 
-  &--narrow {
-      padding-left: ($col / 2);
-      padding-right: ($col / 2);
-  }
+    &--thick {
+        padding-top: 14px;
+        padding-bottom: 18px;
+    }
 
-  &--wide{
-      width: $col * 16;
-  }
+    &--narrow {
+        padding-left: ($col / 2);
+        padding-right: ($col / 2);
+    }
 
-  &--full-width {
+    &--wide {
+        width: $col * 16;
+    }
 
-    display: block;
-    width: 100%;
-  }
+    &--full-width {
 
-  &--chart-control {
-      width: ($col * 4);
-      padding: 0;
-      font-size: 12px;
-	  //position: relative;
-	  //overflow: hidden;
+        display: block;
+        width: 100%;
+    }
 
-      @include breakpoint(lg) {
-          width: ($col * 6);
-      }
+    &--chart-control {
+        width: ($col * 4);
+        padding: 0;
+        font-size: 12px;
+        //position: relative;
+        //overflow: hidden;
 
-      &--all {
-          width: ($col * 5);
-      }
+        @include breakpoint(lg) {
+            width: ($col * 6);
+        }
 
-  }
+        &--all {
+            width: ($col * 5);
+        }
 
-  &--block {
-      display: block;
-  }
+    }
 
+    &--block {
+        display: block;
+    }
 
     &--simple {
         padding: 10px 0 6px 0;
@@ -149,13 +144,12 @@ button {
 
 }
 
-
 .btn-group {
 
-  .btn {
-    float: left;
-    margin: 0;
-    border-right: 1px solid $iron;
+    .btn {
+        float: left;
+        margin: 0;
+        border-right: 1px solid $iron;
 
         &:last-child {
             border: none;
@@ -165,9 +159,9 @@ button {
 
     input {
         //display: none; //breaks keyboard tabbing/focus
-		height: 0px;
-		width: 0px;
-		position: absolute;
-		left: -100px;
+        height: 0px;
+        width: 0px;
+        position: absolute;
+        left: -100px;
     }
 }

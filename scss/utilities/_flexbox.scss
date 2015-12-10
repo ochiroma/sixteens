@@ -3,20 +3,23 @@
 .flexbox {
 
 	//Children all same height
-	&__item {
-		display: flex;
+	@include breakpoint(md) {
 
-		&--column {
-			display: flex;
-			flex-direction: column;
-		}
-	}
+        &__item {
+            display: flex;
 
-	&__bottom {
-		//display: flex;
-		align-items: flex-end;
-		justify-content: flex-end;
-		//flex: 1 0 auto;
-	}
+            &--column {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &__bottom {
+            //display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            //flex: 1 0 auto;
+        }
+    }
 
 }

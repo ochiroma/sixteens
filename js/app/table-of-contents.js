@@ -42,7 +42,6 @@ $(function() {
 
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
-            console.log(location);
             if (location) {
                 // expands section if accordion
                 if ($(location).hasClass('is-collapsed')) {
