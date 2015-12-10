@@ -5,7 +5,7 @@ $(function() {
         //variables
         var pageContent = '.page-content__main-content';
         var locationHash = $(location.hash).attr('id');
-        var stickyTocHeight = 96; // height of sticky toc in pixels
+        var stickyTocHeight = 114; // height of sticky toc in pixels
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var contentStart = $(pageContent).offset().top;
