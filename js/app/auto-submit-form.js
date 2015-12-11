@@ -8,7 +8,7 @@ $(function() {
     }
 
     //Find form/filters to auto-submit & ajax results
-    var form = $('form#form');
+    var form = $('#form, #form-sort');
     var filters = $('#form .filters');
 
     //Delay form submit so user has enough time to type without constant refreshes
