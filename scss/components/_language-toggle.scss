@@ -1,0 +1,43 @@
+// Language selection
+.language {
+    background: $iron-light;
+    font-size: 12px;
+    padding: 0 4px;
+
+    @include breakpoint(md) {
+        float: right;
+    }
+
+    &__title {
+        display: inline;
+    }
+
+    &__item {
+        margin: 0 0 0 4px;
+        display: inline;
+    }
+
+    // Styles for js enhanced <select> form
+    &--js {
+        width: ($col * 11);
+
+        &__label {
+            font-size: 12px;
+        }
+
+        &__select {
+            background-color: inherit;
+            border: 0;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            font-size: 12px;
+            height: 24px;
+            color: inherit;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
