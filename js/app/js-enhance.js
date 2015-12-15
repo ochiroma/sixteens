@@ -352,7 +352,7 @@ function jsEnhanceMarkdownCharts(path) {
 }
 
 function jsEnhancePrint() {
-    $('#jsEnhancePrint').click(function() {
+    $('.jsEnhancePrint').click(function() {
         window.print();
         return false;
     });
