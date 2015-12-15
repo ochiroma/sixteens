@@ -393,7 +393,8 @@
 
 // Header
 .header {
-	padding: 14px 0 10px 0;
+	padding: 15px 0 9px 0;
+    position: relative; // So language toggle has relative parent
 }
 
 // Logo
@@ -410,32 +411,6 @@
 	    margin-top: 2px;
 	}
 }
-
-
-// Language selection
-.language {
-	@include breakpoint(sm){
-		display: none; //until functionality is ready
-	}
-
-	&__form {
-		@include breakpoint(sm){
-			padding-top: $baseline;
-		}
-
-		@include breakpoint(md) {
-			float: right;
-		}
-	}
-
-	&__select {
-		border: 0;
-		background: $mercury;
-		// -webkit-appearance: none;
-		// -webkit-border-radius: 0px;
-	}
-}
-
 
 // Secondary navigation list
 .secondary-nav {
@@ -458,8 +433,8 @@
 		padding: 0;
 
 		&:last-child a {
-			padding-right: 0px;
-			border-right: 0px solid;
+			padding-right: 0;
+			border-right: 0 solid;
 		}
 
 	}
