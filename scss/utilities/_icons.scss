@@ -10,10 +10,12 @@
 
 
 
+$sprite: '../img/icon-sprite.png?#{$builddatetime}';
+
 
 .icon {
 	display: inline-block;
-	background:url('../img/icon-sprite.png') no-repeat;
+	background:url($sprite) no-repeat;
 	height: 32px;
 	width: 32px;
 
