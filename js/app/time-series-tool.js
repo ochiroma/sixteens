@@ -25,6 +25,8 @@ var timeseriesTool = (function() {
         bindEvents();
         //add position:relative container for basket modal
         modalWrapper();
+        //check 'Updated' select for whether Custom dates should be showing
+        resolveCustomDateFilter();
 
         remember = getCookie(rememberCookieName);
         if (typeof remember === 'undefined') { //remember cookie never set, sets to true by default
