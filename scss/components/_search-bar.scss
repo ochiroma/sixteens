@@ -26,6 +26,14 @@
             color: $iron-light;
             margin: ($baseline * 2) 0 $baseline 0;
         }
+
+        @include breakpoint(sm) {
+            height: auto;
+            h1 {
+                font-size: 21px;
+                line-height: ($baseline * 4);
+            }
+        }
     }
 
     &__form {
@@ -36,7 +44,7 @@
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
 
         @include breakpoint(sm) {
-            padding: ($baseline * 2) 0;
+            padding: ($baseline * 2) 0 ($baseline * 2) 0;
         }
     }
 

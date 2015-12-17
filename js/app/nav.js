@@ -69,7 +69,7 @@ $(document).ready(function () {
     });
 
     $primaryNav.addClass('nav-main--hidden').attr('aria-expanded', false);
-    $searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
+    //$searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
 
     $('.js-expandable').on('click', function (event) {
         if ($(window).width() < 767) {

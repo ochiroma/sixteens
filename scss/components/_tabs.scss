@@ -14,6 +14,10 @@
         margin: 0;
         vertical-align: bottom;
         display: inline-block;
+
+        @include breakpoint(sm) {
+            max-width: 32%;
+        }
     }
 
     &__link {
@@ -28,6 +32,14 @@
         //margin-right: $col;
         display: block;
 
+        @include breakpoint(sm) {
+            padding: 13px ($col/2) 11px ($col/2);
+            font-size: 12px;
+            word-break: keep-all;
+            word-wrap: normal;
+            //white-space: nowrap;
+        }
+
         &:hover,
         &:focus {
             cursor: pointer;
@@ -40,7 +52,8 @@
 
             //border-bottom: 8px solid $active;
             //color: $abbey;
-            padding: 21px $col 11px $col;
+            padding-top: 21px;
+            padding-bottom: 11px;
             background: $white;
             color: $ship-gray;
             height: ($baseline * 7);
