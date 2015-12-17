@@ -33,11 +33,10 @@
         display: block;
 
         @include breakpoint(sm) {
-            padding: 13px ($col/2) 11px ($col/2);
-            font-size: 12px;
-            word-break: keep-all;
+            padding: 9px ($col/2) 3px ($col/2);
+            font-size: 14px;
             word-wrap: normal;
-            //white-space: nowrap;
+            line-height: 18px;
         }
 
         &:hover,
@@ -58,6 +57,10 @@
             color: $ship-gray;
             height: ($baseline * 7);
             //padding: 21px 0 0 0;
+
+            @include breakpoint(sm) {
+                padding-top: 17px;
+            }
 
             &:hover,
             &:focus {
