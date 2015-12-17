@@ -55,6 +55,16 @@ button {
 
     }
 
+    &--tertiary {
+        background-color: $ship-gray;
+        color: $iron-light;
+
+        &:hover,
+        &:focus {
+            background-color: $thunder;
+        }
+    }
+
     &--plain {
         background-color: $white;
         color: $matisse;
