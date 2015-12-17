@@ -44,7 +44,7 @@
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
 
         @include breakpoint(sm) {
-            padding: ($baseline * 2) 0 ($baseline * 2) 0;
+            padding: ($baseline * 3) 0;
         }
     }
 
