@@ -61,7 +61,7 @@ button {
 
         &:hover,
         &:focus {
-            background-color: $thunder;
+            background-color: darken($blumine, 8%);
         }
     }
 
