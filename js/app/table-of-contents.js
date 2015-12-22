@@ -5,12 +5,11 @@ $(function() {
         //variables
         var pageContent = '.page-content__main-content';
         var locationHash = $(location.hash).attr('id');
-        var stickyTocHeight = 114; // height of sticky toc in pixels
+        var stickyTocHeight = function() {return $('.table-of-contents--sticky__wrap').css('height')}; // height of sticky toc
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var contentStart = $(pageContent).offset().top;
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
-
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
@@ -118,7 +117,7 @@ $(function() {
         }
 
         stickyTOC();
-        updateSelected(scrollTop)
+        updateSelected(scrollTop);
         $(window).scroll(function() {
             stickyTOC();
         });

@@ -211,6 +211,12 @@
 			display: none !important;
 		}
 	}
+
+    &--md {
+        @include breakpoint(md) {
+            display: none !important;
+        }
+    }
 }
 
 @if $old-ie == true {
