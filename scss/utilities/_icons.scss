@@ -12,215 +12,214 @@
 
 $sprite: '../img/icon-sprite.png?#{$builddatetime}';
 
+// Don't show icons on print - stops conflicts with print :after for links too
+@media screen {
+    .icon {
+        display: inline-block;
+        background:url($sprite) no-repeat;
+        height: 32px;
+        width: 32px;
 
-.icon {
-	display: inline-block;
-	background:url($sprite) no-repeat;
-	height: 32px;
-	width: 32px;
+        &-arrow-up {
 
-	@media print {
-		display: none;
-	}
+            &--dark {
+                background-position: -144px -10px;
 
+                &-small {
+                    @include small-icon(-16px, -2px);
+                }
+            }
 
-	&-arrow-up {
+            &--light {
+                background-position: -208px -10px;
 
-		&--dark {
-			background-position: -144px -10px;
-
-			&-small {
-				@include small-icon(-16px, -2px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -10px;
-
-			&-small {
-				@include small-icon(-80px, -2px);
-			}
-		}
-	}
-
-
-	&-arrow-down {
-
-		&--dark {
-			background-position: -144px -44px;
-
-			&-small {
-				@include small-icon(-16px, -34px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -44px;
-
-			&-small {
-				@include small-icon(-80px, -34px);
-			}
-		}
-	}
-
-
-	&-print {
-
-		&--dark {
-			background-position: -143px -81px;
-			width: 40px; //icon needs more width or else it cuts off one side
-
-			&-small {
-				@include small-icon(-15px, -80px);
-				width: 40px;
-			}
-		}
-
-		&--light {
-			background-position: -208px -81px;
-			width: 40px;
-
-			&-small {
-				@include small-icon(-79px, -80px);
-				width: 40px;
-			}
-		}
-	}
-
-
-	&-external {
-
-		&--dark {
-			background-position: -143px -130px;
-
-			&-small {
-				@include small-icon(-15px, -130px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -130px;
-
-			&-small {
-				@include small-icon(-79px, -130px);
-			}
-		}
-	}
-
-
-	&-download {
-
-		&--dark {
-			background-position: -143px -178px;
-
-			&-small {
-				@include small-icon(-16px, -178px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -178px;
-
-			&-small {
-				@include small-icon(-80px, -178px);
-			}
-		}
-	}
-
-
-    &-calendar {
-        &--dark {
-            background-position: -143px -225px;
-            width: 40px; //icon needs more width or else it cuts off one side
-
-            &-small {
-                @include small-icon(-14px, -226px);
-                width: 40px;
+                &-small {
+                    @include small-icon(-80px, -2px);
+                }
             }
         }
 
-        &--light {
-            background-position: -207px -225px;
-            width: 40px;
 
-            &-small {
-                @include small-icon(-78px, -226px);
-                width: 40px;
+        &-arrow-down {
+
+            &--dark {
+                background-position: -144px -44px;
+
+                &-small {
+                    @include small-icon(-16px, -34px);
+                }
+            }
+
+            &--light {
+                background-position: -208px -44px;
+
+                &-small {
+                    @include small-icon(-80px, -34px);
+                }
             }
         }
+
+
+        &-print {
+
+            &--dark {
+                background-position: -143px -81px;
+                width: 40px; //icon needs more width or else it cuts off one side
+
+                &-small {
+                    @include small-icon(-15px, -80px);
+                    width: 40px;
+                }
+            }
+
+            &--light {
+                background-position: -208px -81px;
+                width: 40px;
+
+                &-small {
+                    @include small-icon(-79px, -80px);
+                    width: 40px;
+                }
+            }
+        }
+
+
+        &-external {
+
+            &--dark {
+                background-position: -143px -130px;
+
+                &-small {
+                    @include small-icon(-15px, -130px);
+                }
+            }
+
+            &--light {
+                background-position: -208px -130px;
+
+                &-small {
+                    @include small-icon(-79px, -130px);
+                }
+            }
+        }
+
+
+        &-download {
+
+            &--dark {
+                background-position: -143px -178px;
+
+                &-small {
+                    @include small-icon(-16px, -178px);
+                }
+            }
+
+            &--light {
+                background-position: -208px -178px;
+
+                &-small {
+                    @include small-icon(-80px, -178px);
+                }
+            }
+        }
+
+
+        &-calendar {
+            &--dark {
+                background-position: -143px -225px;
+                width: 40px; //icon needs more width or else it cuts off one side
+
+                &-small {
+                    @include small-icon(-14px, -226px);
+                    width: 40px;
+                }
+            }
+
+            &--light {
+                background-position: -207px -225px;
+                width: 40px;
+
+                &-small {
+                    @include small-icon(-78px, -226px);
+                    width: 40px;
+                }
+            }
+        }
+
+
+        &-rss {
+
+            &--dark {
+                background-position: -143px -272px;
+
+                &-small {
+                    @include small-icon(-16px, -272px);
+                }
+            }
+
+            &--light {
+                background-position: -208px -272px;
+
+                &-small {
+                    @include small-icon(-80px, -272px);
+                }
+            }
+        }
+
+
+        &-menu {
+
+            &--dark {
+                background-position: -142px -329px;
+
+                &-small {
+                    @include small-icon(-16px, -330px);
+                }
+            }
+
+            &--light {
+                background-position: -208px -329px;
+
+                &-small {
+                    @include small-icon(-80px, -330px);
+                }
+            }
+
+        }
+
+
+        &-search {
+
+            &--dark {
+                background-position: -16px -380px;
+                //no small modifier required
+            }
+
+            &--light {
+                background-position: -74px -386px;
+                //no small modifier required
+            }
+
+        }
+
+
+        &--hide:after {
+            //For use in situations where icons are automatically added but not wanted and a global solution isn't viable
+            display: none !important;
+        }
+
     }
 
 
-	&-rss {
 
-		&--dark {
-			background-position: -143px -272px;
-
-			&-small {
-				@include small-icon(-16px, -272px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -272px;
-
-			&-small {
-				@include small-icon(-80px, -272px);
-			}
-		}
-	}
-
-
-	&-menu {
-
-		&--dark {
-			background-position: -142px -329px;
-
-			&-small {
-				@include small-icon(-16px, -330px);
-			}
-		}
-
-		&--light {
-			background-position: -208px -329px;
-
-			&-small {
-				@include small-icon(-80px, -330px);
-			}
-		}
-
-	}
-
-
-	&-search {
-
-		&--dark {
-			background-position: -16px -380px;
-			//no small modifier required
-		}
-
-		&--light {
-			background-position: -74px -386px;
-			//no small modifier required
-		}
-
-	}
-
-
-	&--hide:after {
-		//For use in situations where icons are automatically added but not wanted and a global solution isn't viable
-		display: none !important;
-	}
-
+    //Add external link icon (:not excludes domains)
+    a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):not([href^="mailto:"]):after,
+    a[href^="https://"]:not([href*="carboni.uk"]):not([href*="carb.onl"]):not([href*="lifeinteal"]):after {
+        @extend .icon;
+        @extend .icon-external--dark-small;
+        content: "";
+        margin-left: 8px;
+    }
 }
 
-
-
-//Add external link icon (:not excludes domains)
-a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):after, a[href^="https://"]:not([href*="carboni.uk"]):not([href*="carb.onl"]):not([href*="lifeinteal"]):after {
-	@extend .icon;
-	@extend .icon-external--dark-small;
-	content: "";
-	margin-left: 8px;
-}
 
