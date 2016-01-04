@@ -5,7 +5,7 @@ $(function() {
         //variables
         var pageContent = '.page-content__main-content';
         var locationHash = $(location.hash).attr('id');
-        var stickyTocHeight = function() {return $('.table-of-contents--sticky__wrap').css('height')}; // height of sticky toc
+        var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var contentStart = $(pageContent).offset().top;
@@ -51,12 +51,14 @@ $(function() {
                 if ($(location).hasClass('is-collapsed')) {
                     $(location).removeClass('is-collapsed').addClass('is-expanded');
                 }
+                console.log(location);
+                console.log(stickyTocHeight());
 
                 var functionTrigger = true;
 
                 //animates scroll and offsets page to counteract sticky nav
                 $('html, body').animate({
-                    scrollTop: $(location).offset().top - stickyTocHeight
+                    scrollTop: $(location).offset().top - stickyTocHeight()
                 }, 1000, function() {
                     //stops function running twice - once for 'html' and another for 'body'
                     if (functionTrigger) {
@@ -100,7 +102,7 @@ $(function() {
         function updateSelected(scrollTop) {
             var $sections = $(pageContent + ' section');
             var top = $.grep($sections, function(item) {
-               return $(item).position().top <= scrollTop+stickyTocHeight;
+               return $(item).position().top <= scrollTop+stickyTocHeight();
             });
             var topLength = $(top).length;
             var activeSectionId = $($(top)[topLength - 1]).attr('id');
@@ -112,7 +114,7 @@ $(function() {
         //Offsets page to make room for sticky nav if arrive on page directly at section
         if (locationHash) {
             $(window).load(function() {
-                $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight);
+                $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight());
             });
         }
 
