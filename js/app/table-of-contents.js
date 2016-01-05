@@ -51,8 +51,6 @@ $(function() {
                 if ($(location).hasClass('is-collapsed')) {
                     $(location).removeClass('is-collapsed').addClass('is-expanded');
                 }
-                console.log(location);
-                console.log(stickyTocHeight());
 
                 var functionTrigger = true;
 
