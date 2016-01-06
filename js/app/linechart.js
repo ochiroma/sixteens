@@ -738,7 +738,7 @@ $('.dlCustomData').submit(function(){
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
-			$( ".dlCustomData" ).append(str);
+			$(this).append(str);
 			break;
 
 		case 'quarters':
@@ -747,7 +747,7 @@ $('.dlCustomData').submit(function(){
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
-			$( ".dlCustomData" ).append(str);
+			$(this).append(str);
 			break;
 
 		case 'years':
@@ -756,7 +756,7 @@ $('.dlCustomData').submit(function(){
 			// remove any previous custom date hidden inputs
 			removeHiddenInputs();
 			// append the inputs to end of form
-			$( ".dlCustomData" ).append(str);
+			$(this).append(str);
 			break;
 	}
   return true;
