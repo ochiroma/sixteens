@@ -11,12 +11,12 @@
         margin-top: -1px;	//compensate for border-top
         background-color: $ship-gray;
         font-size: 17px;
-        height: 65px;
+        height: 81px;
         // height: 97px;
     }
 
     @include breakpoint(lg) {
-        height: 65px;
+        height: 81px;
     }
 
     &--results-page {
@@ -25,6 +25,14 @@
         h1 {
             color: $iron-light;
             margin: ($baseline * 2) 0 $baseline 0;
+        }
+
+        @include breakpoint(sm) {
+            height: auto;
+            h1 {
+                font-size: 21px;
+                line-height: ($baseline * 4);
+            }
         }
     }
 
@@ -36,7 +44,7 @@
         padding: ($baseline * 2) 0 ($baseline * 2) ($baseline * 2);
 
         @include breakpoint(sm) {
-            padding: ($baseline * 2) 0;
+            padding: ($baseline * 3) 0;
         }
     }
 
@@ -46,7 +54,7 @@
         line-height: $base-line-height;
         font-size: 17px;
         color: $iron-light;
-        padding: 4px $col 4px $col;
+        padding: 12px $col 12px $col;
         background-color: $abbey;
 
         @include breakpoint(sm) {
@@ -58,12 +66,12 @@
         font-family: $base-font-family;
         font-weight: $base-font-weight;
         line-height: $base-line-height;
-        font-style: italic;
+        //font-style: italic;
         font-size: 17px;
         color: $ship-gray;
         border: none;
         padding: 6px $col 4px $col;
-        height: ($baseline * 4);
+        height: ($baseline * 6);
         background: lighten($primary, 65%);
         -webkit-appearance: none; //fix for safari not displaying input with correct height
 
@@ -87,9 +95,10 @@
         color: $white;
         border: none;
         padding: 0;
+        padding-top: $baseline;
         //padding: 4px ($col / 2) 1px ($col / 2);
         background-color: $primary;
-        height: ($baseline * 4);
+        height: ($baseline * 6);
 
         &:hover,
         &:focus {
@@ -105,7 +114,7 @@
 
         &--results-page {
             height: ($baseline * 5);
-            padding: 4px 0 0 0;
+            padding-top: ($baseline / 2);
         }
     }
 }

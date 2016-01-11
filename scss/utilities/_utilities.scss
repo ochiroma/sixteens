@@ -211,6 +211,12 @@
 			display: none !important;
 		}
 	}
+
+    &--md {
+        @include breakpoint(md) {
+            display: none !important;
+        }
+    }
 }
 
 @if $old-ie == true {
@@ -335,6 +341,22 @@
 
 .capitalise:first-letter {
     text-transform: capitalize !important;
+}
+
+.text-center {
+    text-align: center;
+
+    &--md {
+        @include breakpoint(md) {
+            text-align: center;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
+            text-align: center;
+        }
+    }
 }
 
 .text-right {

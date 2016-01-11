@@ -1,120 +1,117 @@
-/**
- * Created by crispin on 20/11/2015.
- */
 /* Load search/list results into a page without refreshing (eg when changing a filter) */
 
-//TODO - Set/cache reused selectors
-
 function loadNewResults(url, clear) {
+    // Selector classes/IDs
+    var results = '.results',
+        resultsText = '.search-page__results-text',
+        paginationContainer = '#js-pagination-container',
+        tabsContainer = '.tabs--js',
+        checkboxContainer = '.js-checkbox-container',
+        atozFilters = '.filters__a-z';
+
+    //Show 'Loading...' in place of results text before Ajax starts
+    updateContents(resultsText, 'Loading...');
+
+    //Ajax request for new URL
     $.ajax({
         url: url,
-        success: function(result) {
+        success: function (result) {
             //Results
-            var newResults = $(result).find('.results').html();
-            var resultsText = $(result).find('.search-page__results-text').html();
-            var pagination;
-            if ($(result).has('#js-pagination-container')) {
-                pagination = $(result).find('#js-pagination-container').html();
+            var newResults = $(result).find(results).html(),
+                newResultsText = $(result).find(resultsText).html(),
+                newTabsContainer = $(result).find(tabsContainer).html(),
+                newPagination;
+            if ($(result).find(paginationContainer).length > 0) {
+                newPagination = $(result).find(paginationContainer).html();
             }
-            replaceResults(url, newResults, resultsText, pagination);
+            replaceResults(url, newResults, newResultsText, newPagination);
 
             //Filters
-            if ($(result).has('.js-checkbox-container')) {
-                var filters = $(result).find('.js-checkbox-container');
-                $(filters).each(function() {
-                    replaceFilters($(this).html());
+            if ($(result).find(checkboxContainer).length > 0) {
+                var $filters = $(result).find(checkboxContainer);
+                $filters.each(function () {
+                    replaceFilters(this);
                 });
             }
-            if ($(result).has('.js-atoz-container')) {
-                var atozFilters = $(result).find('.filters__a-z');
-                replaceFilters(atozFilters);
+            if ($(result).find(atozFilters).length > 0) {
+                var $atozFilters = $(result).find(atozFilters);
+                replaceFilters($atozFilters);
             }
-            // if ($(result).has('.js-from-to-filters')) {
-            //     var fromToFilters = $(result).find('.js-from-to-filters');
-            //     replaceFilters(fromToFilters);
-            // }
-            
-            //Clear
-            if (clear) {
-                $('.filters input, select').each(function() {
-                    var $this = '#' + $(this).attr('id');
-                    updateContents(result, $this);
-                })
+            if (clear) { //Clear all filters
+                $('.filters input, select').each(function () {
+                    var thisId = '#' + $(this).attr('id');
+                    updateContents(thisId);
+                });
+            }
+
+            //Tab counts (only when page has tab container and keyword search or custom dates - otherwise no update required
+            if (newTabsContainer && $('.filters').find('input[type="search"], input[type="text"]')) {
+                updateContents(tabsContainer, newTabsContainer);
             }
         }
     });
+
+    //Removes current results from page and loads in new results
+    function replaceResults(url, newResults, newResultsText, newPagination) {
+        $(results).empty();
+        $(newResults).hide().appendTo(results).fadeIn(300);
+
+        //Re-run functions done on load that are needed after Ajax
+        jsEnhanceSparkline();
+        jsEnhanceHover();
+        timeseriesTool.refresh();
+
+        //Update results text
+        updateContents(resultsText, newResultsText);
+
+        //Update pagination for results
+        if (newPagination) {
+            updateContents(paginationContainer, newPagination);
+        }
+
+        //Pushes new url into browser, if browser compatible (enhancement)
+        if (typeof (history.pushState) != undefined) {
+            window.history.pushState({}, '', url);
+        }
+    }
+
+    //Update filters
+    function replaceFilters(newFilters) {
+        if ($(newFilters).is(checkboxContainer)) {
+            //Detect what filters are being updated
+            var checkboxId = $(newFilters).find('input').attr('id');
+
+            //Find corresponding filters on current page
+            var $checkboxFilters = $('#' + checkboxId).closest(checkboxContainer);
+
+            //Empty and replace checkboxes
+            updateContents($checkboxFilters, $(newFilters).html());
+        }
+
+        if ($(newFilters).is(atozFilters)) {
+            //If page A-Z and no checkboxes
+            updateContents('.js-atoz-container', newFilters);
+        }
+
+    }
 }
 
-//Removes current results from page and loads in new results
-function replaceResults(url, newResults, resultsText, pagination) {
-    $('.results').empty();
-    $(newResults).hide().appendTo('.results').fadeIn(300);
+//Remove and replaces content according to selector and results parsed into function
+function updateContents(id, newContents) {
+    var $element = $(id);
 
-    //Build any sparklines that might show on search results
-    jsEnhanceSparkline();
+    //Remove values from search and text inputs
+    if ($element.is('input[type="search"], input[type="text"], select') && $element.val()) {
+        $element.val('');
+    }
+
+    //Replace other inputs/elements with new HTML from Ajax results
+    if (newContents) {
+        $element.empty();
+        $element.append(newContents)
+    }
+
+    //Reset anything functions running on timeseries tool on load (ie custom date resolver)
     timeseriesTool.refresh();
-
-    //Update results text
-    var resultsTextElem = $('.search-page__results-text');
-    resultsTextElem.empty();
-    resultsTextElem.append(resultsText);
-
-    //Update pagination for results
-    if (pagination) {
-        var paginationElem = $('#js-pagination-container');
-        paginationElem.empty();
-        paginationElem.append(pagination);
-    } else {
-        $('#js-pagination-container');
-    }
-
-    //Pushes new url into browser, if browser compatible (enhancement)
-    if (typeof (history.pushState) != undefined) {
-        window.history.pushState({}, '', url);
-    }
-}
-
-//Update filters
-function replaceFilters(filters) {
-    if ($(filters).has('input[type="checkbox"]')) {
-        //Detect what filters are being updated
-        var checkboxId = $(filters).find('input').attr('id');
-
-        //Find corresponding filters on current page
-        var checkboxFilters = $('#' + checkboxId).closest('.js-checkbox-container');
-
-        //Empty and replace checkboxes
-        checkboxFilters.empty();
-        checkboxFilters.append(filters);
-
-    }
-
-    if ($(filters).has('.js-atoz-container')) {
-        //If page A-Z and no checkboxes
-        var atozFilters = $('.filters__a-z');
-        atozFilters.empty();
-        atozFilters.append($(filters).html());
-    }
-
-    // if ($(filters).has('.js-from-to-filters')) {
-    //     var fromToFilters = $('.js-from-to-filters');
-    //     fromToFilters.hide();
-    //     //fromToFilters.append($(filters).html());
-    // }
-
-}
-
-//Remove and replaces content according to selector and results parsed into function - should probably re-use this elsewhere
-function updateContents(result, id) {
-    var newContents = $(result).find(id).html();
-    var element = $(id);
-
-    //Remove value if element is a search and has value
-    if (element.is('input[type="search"]') && element.val()) {
-        element.val('');
-    } else { //else remove contents and replace with new
-        element.empty();
-        element.append(newContents);
-    }
 
 }
