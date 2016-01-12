@@ -1,14 +1,14 @@
 $(function() {
 
 
-    if ($('body').contents().find('*').hasClass('page-content__main-content')) {
+    if ($('body').contents().find('*').hasClass('js-sticky-toc')) {
         //variables
-        var pageContent = '.page-content__main-content';
+        var stickyTrigger = '.js-sticky-toc__trigger';
         var locationHash = $(location.hash).attr('id');
         var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
-        var contentStart = $(pageContent).offset().top;
+        var contentStart = $(stickyTrigger).offset().top;
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
@@ -87,20 +87,20 @@ $(function() {
             if (scrollTop > contentStart) {
                 $('#toc').addClass('table-of-contents-ordered-list-hide');
                 // $('#toc').removeClass('table-of-contents-ordered-list');
-                $(pageContent).css('padding-top', stickyTocHeight);
+                $(stickyTrigger).css('padding-top', stickyTocHeight);
                 $('.table-of-contents--sticky__wrap').show();
                 updateSelected(scrollTop);
             } else {
                 // $('#toc').addClass('table-of-contents-ordered-list');
                 $('#toc').removeClass('table-of-contents-ordered-list-hide');
-                $(pageContent).css('padding-top', '0');
+                $(stickyTrigger).css('padding-top', '0');
                 $('.table-of-contents--sticky__wrap').hide();
             }
         }
 
         //Update the selected option on scroll
         function updateSelected(scrollTop) {
-            var $sections = $(pageContent + ' section');
+            var $sections = $(stickyTrigger + ' section');
             var top = $.grep($sections, function(item) {
                return $(item).position().top <= scrollTop+stickyTocHeight();
             });
