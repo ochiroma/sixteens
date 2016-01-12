@@ -214,7 +214,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
 
     //Add external link icon (:not excludes domains)
     a[href^="http://"]:not([href*="ons.gov.uk"]):not([href^="http://localhost"]):not([href^="http://127.0.0.1"]):not([href^="mailto:"]):after,
-    a[href^="https://"]:not([href*="carboni.uk"]):not([href*="carb.onl"]):not([href*="lifeinteal"]):after {
+    a[href^="https://"]:not([href*="ons.gov.uk"]):not([href*="web.ons.digital"]):not([href^="mailto:"]):after {
         @extend .icon;
         @extend .icon-external--dark-small;
         content: "";
