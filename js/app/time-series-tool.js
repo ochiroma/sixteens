@@ -40,6 +40,8 @@ var timeseriesTool = (function() {
                 loadTimeseries(uri);
             });
             check($('#remember-selection'));
+        } else {
+            deleteCookie(basketCookieName);
         }
 
         function loadTimeseries(uri) {
@@ -126,7 +128,6 @@ var timeseriesTool = (function() {
                 setCookie(rememberCookieName, true);
             } else {
                 setCookie(rememberCookieName, false);
-                deleteCookie(basketCookieName);
             }
         });
 
