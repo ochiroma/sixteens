@@ -202,6 +202,28 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
 
         }
 
+        &-return {
+
+            &--dark {
+                background-position: -14px -609px;
+                height: 40px;
+                width: 40px;
+
+                &-small {
+                    height: 40px;
+                    width: 40px;
+                    @include small-icon(-14px, -610px);
+                }
+            }
+
+            &--light {
+                background-position: -76px -609px;
+                height: 40px;
+                width: 40px;
+
+            }
+        }
+
 
         &--hide:after {
             //For use in situations where icons are automatically added but not wanted and a global solution isn't viable
