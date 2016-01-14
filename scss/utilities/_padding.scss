@@ -5,6 +5,9 @@
         @for $i from 0 through 24 {
             //
             &-top {
+                &--#{$i} {
+                    padding-top: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         padding-top: ($baseline * $i) !important;
@@ -22,6 +25,9 @@
                 }
             }
             &-bottom {
+                &--#{$i} {
+                    padding-bottom: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         padding-bottom: ($baseline * $i) !important;
@@ -43,6 +49,9 @@
         @for $i from 0 through 59 {
             //
             &-left {
+                &--#{$i} {
+                    padding-left: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         padding-left: ($col * $i) !important;
@@ -60,6 +69,9 @@
                 }
             }
             &-right {
+                &--#{$i} {
+                    padding-right: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         padding-right: ($col * $i) !important;

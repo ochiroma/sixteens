@@ -5,6 +5,9 @@
         @for $i from 0 through 8 {
             //
             &-top {
+                &--#{$i} {
+                    margin-top: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         margin-top: ($baseline * $i) !important;
@@ -22,6 +25,9 @@
                 }
             }
             &-bottom {
+                &--#{$i} {
+                    margin-bottom: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         margin-bottom: ($baseline * $i) !important;
@@ -43,6 +49,9 @@
         @for $i from 0 through 59 {
             //
             &-left {
+                &--#{$i} {
+                    margin-left: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         margin-left: ($col * $i) !important;
@@ -60,6 +69,9 @@
                 }
             }
             &-right {
+                &--#{$i} {
+                    margin-right: ($baseline * $i) !important;
+                }
                 @include breakpoint(lg) {
                     &-lg--#{$i} {
                         margin-right: ($col * $i) !important;
