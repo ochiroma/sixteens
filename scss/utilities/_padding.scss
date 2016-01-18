@@ -84,7 +84,7 @@
             }
             @for $i from 0 through 59 {
                 &--#{$i} {
-                    padding-left: ($baseline * $i) !important;
+                    padding-left: ($col * $i) !important;
                 }
             }
         }
@@ -112,7 +112,7 @@
             }
             @for $i from 0 through 59 {
                 &--#{$i} {
-                    padding-right: ($baseline * $i) !important;
+                    padding-right: ($col * $i) !important;
                 }
             }
         }

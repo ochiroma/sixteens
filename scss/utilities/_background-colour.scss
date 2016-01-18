@@ -6,6 +6,9 @@
             &--#{$colour} {
                 background-color: $colourcode;
                 color: $fontcolourcode;
+                a {
+                    color: $fontcolourcode;
+                }
             }
         }
     }
