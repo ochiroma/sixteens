@@ -369,9 +369,9 @@
 		display: none;
 	}
 
-	&__content {
+	p {
 		margin: 0;
-		padding: 7px 0 9px 0;
+		//padding: 7px 0 9px 0;
 
 		& > a {
 			color: $ship-gray;
