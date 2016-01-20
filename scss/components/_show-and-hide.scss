@@ -65,10 +65,10 @@
 
 	&--dark {
 
-		border: 1px solid $thunder;
-		margin: (($baseline * 3) - 1) 0 ($baseline - 1px) 0;
-		//padding: ($baseline * 2) $col;
-		background-color: $ship-gray;
+		//border: 1px solid $thunder;
+		//margin: (($baseline * 3) - 1) 0 ($baseline - 1px) 0;
+		////padding: ($baseline * 2) $col;
+		//background-color: $ship-gray;
 
 
 		button[aria-expanded=false]:after {

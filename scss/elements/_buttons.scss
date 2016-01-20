@@ -55,6 +55,16 @@ button {
 
     }
 
+    &--tertiary {
+        background-color: $blumine;
+        color: $iron-light;
+
+        &:hover,
+        &:focus {
+            background-color: darken($blumine, 8%);
+        }
+    }
+
     &--plain {
         background-color: $white;
         color: $matisse;

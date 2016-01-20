@@ -1,0 +1,5 @@
+.pym-interactive {
+    @include breakpoint(md) {
+        width: 600px;
+    }
+}

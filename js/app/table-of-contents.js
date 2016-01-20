@@ -5,11 +5,11 @@ $(function() {
         //variables
         var pageContent = '.page-content__main-content';
         var locationHash = $(location.hash).attr('id');
-        var stickyTocHeight = 96; // height of sticky toc in pixels
+        var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var contentStart = $(pageContent).offset().top;
-
+        var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
@@ -21,8 +21,10 @@ $(function() {
         $('.table-of-contents--sticky__wrap #stickySelectArea').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
 
         //add in print options
-        var printStickyWrap = $('<div class="col col--md-15 col--lg-17 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="jsEnhancePrint" class="link-complex nojs-hidden js-enhance--show">Print this page&nbsp;</a><span class="icon icon-print--dark-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="{{uri}}/pdf" class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--dark-small"></span></p></div>');
-        $(printStickyWrap).insertAfter($('.table-of-contents--sticky__wrap .col'));
+        if ($('.js-print-pdf').length > 0) {
+            var printStickyWrap = $('<div class="col col--md-15 col--lg-17 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="" class="link-complex nojs-hidden js-enhance--show jsEnhancePrint">Print this page&nbsp;</a><span class="icon icon-print--dark-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="' + pdfDownloadLink + ' " class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--dark-small"></span></p></div>');
+            $(printStickyWrap).insertAfter($('.table-of-contents--sticky__wrap .col'));
+        }
 
 
         //create select list of sections
@@ -56,7 +58,7 @@ $(function() {
 
                 //animates scroll and offsets page to counteract sticky nav
                 $('html, body').animate({
-                    scrollTop: $(location).offset().top - stickyTocHeight
+                    scrollTop: $(location).offset().top - stickyTocHeight()
                 }, 1000, function() {
                     //stops function running twice - once for 'html' and another for 'body'
                     if (functionTrigger) {
@@ -100,7 +102,7 @@ $(function() {
         function updateSelected(scrollTop) {
             var $sections = $(pageContent + ' section');
             var top = $.grep($sections, function(item) {
-               return $(item).position().top <= scrollTop+stickyTocHeight;
+               return $(item).position().top <= scrollTop+stickyTocHeight();
             });
             var topLength = $(top).length;
             var activeSectionId = $($(top)[topLength - 1]).attr('id');
@@ -112,12 +114,12 @@ $(function() {
         //Offsets page to make room for sticky nav if arrive on page directly at section
         if (locationHash) {
             $(window).load(function() {
-                $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight);
+                $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight());
             });
         }
 
         stickyTOC();
-        updateSelected(scrollTop)
+        updateSelected(scrollTop);
         $(window).scroll(function() {
             stickyTOC();
         });

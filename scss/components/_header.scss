@@ -10,7 +10,7 @@
 	@include breakpoint(md) {
 		border-top: 1px solid $thunder;
 		margin-top: -1px;	//compensate for border-top
-		height: 113px;
+		height: 89px;
 	}
 
 	@include breakpoint(lg) {
@@ -35,7 +35,6 @@
 		margin: 0;
 		padding: 0;
 		cursor: pointer;
-		cursor: hand; //IE8 support
 
 		@include breakpoint(sm) {
 			height: $baseline * 6;
@@ -43,7 +42,7 @@
 
 		@include breakpoint(md) {
 			float: left;
-			height: ($baseline * 14);
+			height: ($baseline * 11);
 
 				&:nth-child(6) a {
 				border-right: 1px solid $thunder;
@@ -64,11 +63,11 @@
 				color: $white;
 				text-decoration: none;
 				left: auto; //resets child-items to appear on-screen
-				top: 224px;
+				top: 199px; //1px less to cover same colour border on parent <li>
 			}
 
 			@include breakpoint(lg) {
-				top: 176px;
+				top: 175px;
 			}
 		}
 
@@ -116,7 +115,7 @@
 			display: inline-block;
 			padding: 7px $baseline*2 8px $baseline*2;
 			border-left: 1px solid $thunder;
-			height: $baseline * 14;
+			height: $baseline * 11;
 		}
 
 		@include breakpoint(lg) {
@@ -393,7 +392,8 @@
 
 // Header
 .header {
-	padding: 14px 0 10px 0;
+	padding: 15px 0 9px 0;
+    position: relative; // So language toggle has relative parent
 }
 
 // Logo
@@ -410,32 +410,6 @@
 	    margin-top: 2px;
 	}
 }
-
-
-// Language selection
-.language {
-	@include breakpoint(sm){
-		display: none; //until functionality is ready
-	}
-
-	&__form {
-		@include breakpoint(sm){
-			padding-top: $baseline;
-		}
-
-		@include breakpoint(md) {
-			float: right;
-		}
-	}
-
-	&__select {
-		border: 0;
-		background: $mercury;
-		// -webkit-appearance: none;
-		// -webkit-border-radius: 0px;
-	}
-}
-
 
 // Secondary navigation list
 .secondary-nav {
@@ -458,8 +432,8 @@
 		padding: 0;
 
 		&:last-child a {
-			padding-right: 0px;
-			border-right: 0px solid;
+			padding-right: 0;
+			border-right: 0 solid;
 		}
 
 	}

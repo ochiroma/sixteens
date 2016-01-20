@@ -29,7 +29,6 @@ $(function() {
         var path = $('#pagePath').text();
 
         //The order of these functions being called is important...
-        jsEnhanceViewportSize();
         jsEnhanceULNavToSelectNav();
         jsEnhanceClickableDiv();
         jsEnhanceLinechart();
@@ -77,30 +76,6 @@ $(function() {
 
 function jsEnhanceShow() {
     $('.js-enhance--show').show();
-}
-
-function clearViewportSizes() {
-    $('body').removeClass('viewport-sm viewport-md viewport-lg');
-}
-
-function jsEnhanceViewportSize() {
-    $("footer").append("<div id='viewport-sm' class='js-viewport-size'></div>" +
-        "<div id='viewport-md' class='js-viewport-size'></div>" +
-        "<div id='viewport-lg' class='js-viewport-size'></div>");
-
-    $(window).on("load resize", function() {
-
-        $.each($(".js-viewport-size"), function() {
-
-            if ($(this).is(':visible')) {
-                clearViewportSizes();
-                var idName = $(this).attr('id');
-                $('body').addClass(idName);
-            }
-
-        });
-
-    });
 }
 
 function jsEnhanceULNavToSelectNav() {
@@ -352,7 +327,7 @@ function jsEnhanceMarkdownCharts(path) {
 }
 
 function jsEnhancePrint() {
-    $('#jsEnhancePrint').click(function() {
+    $('.jsEnhancePrint').click(function() {
         window.print();
         return false;
     });
@@ -550,7 +525,7 @@ function jsEnhanceExternalLinks() {
         });
     }
     eachAnchor('a[href^="http://"]:not([href*="loop11.com"])');
-    eachAnchor('a[href^="https://"]');
+    eachAnchor('a[href^="https://"]:not([href*="loop11.com"])');
 }
 
 

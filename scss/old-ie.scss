@@ -2,6 +2,8 @@
 
 $old-ie: true;
 
+@import "_builddatetime";
+
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
@@ -47,5 +49,8 @@ $old-ie: true;
 @import "components/date-picker";
 @import "components/time-series-tool";
 @import "components/search-bar";
+@import "components/atoz";
+@import "components/pym";
+@import "components/language-toggle";
 
 @import "shame";
