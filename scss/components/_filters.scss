@@ -26,17 +26,17 @@
     }
 
 
-    // Styling for a-z filter at '/atoz/az=a'
+    // Styling for a-z filter at '/atoz'
     &__a-z {
         overflow: hidden;
 
-        input {
+        &-input {
             position: absolute;
             z-index: -1;
         }
 
         //Active links
-        label {
+        &-label {
             width: ($col * 2);
             height: ($baseline * 4);
             border-right: 1px solid $mercury;
@@ -57,19 +57,31 @@
                 background: $thunder;
                 cursor: pointer;
             }
+
+            &--active {
+                background: $active;
+            }
+
+            &--disabled {
+                cursor: not-allowed;
+                background: $iron;
+                color: $nevada;
+            }
         }
 
         //Select links
-        input:checked+label {
-            background: $active;
-        }
+
+        //input:checked+label {
+        //    background: $active;
+        //}
 
         //Disabled links
-        input:disabled+label {
-            cursor: not-allowed;
-            background: $iron;
-            color: $nevada;
-        }
+
+        //input:disabled+label {
+        //    cursor: not-allowed;
+        //    background: $iron;
+        //    color: $nevada;
+        //}
     }
 
     @include breakpoint(sm) {

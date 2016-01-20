@@ -37,6 +37,7 @@
             font-size: 14px;
             word-wrap: normal;
             line-height: 18px;
+            height: ($baseline * 7);
         }
 
         &:hover,
@@ -60,6 +61,7 @@
 
             @include breakpoint(sm) {
                 padding-top: 17px;
+                height: ($baseline * 8);
             }
 
             &:hover,

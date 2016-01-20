@@ -15,6 +15,13 @@ $old-ie: true;
 @import "utilities/print";  //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
 @import "utilities/flexbox";
+@import "utilities/borders";
+@import "utilities/margins";
+@import "utilities/padding";
+@import "utilities/height";
+@import "utilities/widths";
+@import "utilities/background-colour";
+@import "utilities/font-size";
 
 
 @import "elements/type";
@@ -46,6 +53,7 @@ $old-ie: true;
 @import "components/js-enhance";
 @import "components/table-of-contents";
 @import "components/show-and-hide";
+@import "components/side-bar";
 @import "components/date-picker";
 @import "components/time-series-tool";
 @import "components/search-bar";

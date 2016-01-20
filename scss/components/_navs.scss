@@ -71,6 +71,13 @@
 			}
 
 		}
+
+		&--census {
+			color: $iron-light;
+			a {
+				color: $iron-light;
+			}
+		}
 	}
 
 }

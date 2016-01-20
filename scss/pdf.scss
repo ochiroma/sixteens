@@ -1,0 +1,39 @@
+//main.scss
+
+$old-ie: false;
+
+@import "_builddatetime";
+
+* {
+  font-family: Tahoma, Verdana, Arial, sans-serif !important;
+}
+
+h2 {
+  font-size: 18px !important;
+}
+
+li {
+  font-size: 11px !important;
+  line-height: 18px !important;
+  padding: 6px 0 6px 11px !important;
+}
+
+p {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  margin: 8px 0 !important;
+  padding: 3px 0 5px 0 !important;
+}
+
+li > p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.table-of-contents__item {
+  margin: 0 0 0 16px !important;
+}
+
+a.btn {
+  display: none;
+}

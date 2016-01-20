@@ -24,12 +24,15 @@ $beta:			#FF9933; //beta content
 $astral:		#3B7A9E;
 //$violet:        #5f01ae;
 $blue:          #3a7db4;
+$indigo:		#560072;
+$prim:          #E8DFF0;
 
 //Colour types
 $primary:       $salem;
 $secondary:     $matisse;
 //$tertiary:      ;
 $active:        $salem;
+$census:		$indigo;
 
 
 $colours: (
@@ -52,6 +55,8 @@ $colours: (
 		("poppy", 		#D32F2F, 		#FFFFFF)
 		("beta", 		#FF9933, 		#414042)
 		("astral", 		#3B7A9E, 		#F0F1F1)
+        ("indigo",      #560072,        #E5E6E7)
+        ("prim",        #E8DFF0,        #414042)
 );
 
 
