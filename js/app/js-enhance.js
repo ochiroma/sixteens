@@ -657,6 +657,7 @@ function jsEnhanceHover() {
 
     // Add span that covers whole tile area - meaning we don't have to hi-jack click
     hoverTrigger.each(function() {
+        $(this).css('position', 'relative');
         var link = $(this).find('a:first');
         link.append('<span class="box__clickable"></span>');
     });
