@@ -7,7 +7,7 @@ $(function() {
         var contentStart = $(stickyTrigger).offset().top;
         var locationHash = $(location.hash).attr('id');
         var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
-        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
+        var tocSelectList = $('<select id="sticky-toc" class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
 
@@ -23,7 +23,7 @@ $(function() {
         //insert sticky wrapper
         var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40"><div class="table-of-contents--sticky__select-wrap">');
         $(tocStickyWrap).insertAfter($('#toc'));
-        $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
+        $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<label for="sticky-toc" class="table-of-contents--sticky__heading font-size--h2">Table of contents</label>');
 
         //add in print options
         if ($('.js-print-pdf').length > 0) {
