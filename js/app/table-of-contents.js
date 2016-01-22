@@ -1,19 +1,20 @@
 $(function() {
-    var stickyTrigger = '.js-sticky-toc__trigger';
-    var contentStart = $(stickyTrigger).offset().top;;
-
-    $('.js-show-hide__button').click(function() {
-        contentStart = $(stickyTrigger).offset().top;
-    });
 
 
     if ($('body').contents().find('*').hasClass('js-sticky-toc')) {
         //variables
+        var stickyTrigger = '.js-sticky-toc__trigger';
+        var contentStart = $(stickyTrigger).offset().top;
         var locationHash = $(location.hash).attr('id');
         var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
         var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
+
+        // recalculate trigger point if show-hide button is clicked
+        $('.js-show-hide__button').click(function() {
+            contentStart = $(stickyTrigger).offset().top;
+        });
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
