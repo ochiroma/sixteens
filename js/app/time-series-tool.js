@@ -92,6 +92,12 @@ var timeseriesTool = (function() {
             basket.removeClass('timeseries__basket--focus');
         });
 
+        $('.timeseries__list--exit').keydown(function(e) {
+            e.stopPropagation();
+            listContainer.hide();
+            basket.removeClass('timeseries__basket--focus');
+        });
+
         basket.on('click', function(e) {
             e.stopPropagation();
             listContainer.toggle();
