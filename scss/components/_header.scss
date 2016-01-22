@@ -11,6 +11,7 @@
 	@include breakpoint(md) {
 		border-top: 1px solid $thunder;
 		margin-top: -1px;	//compensate for border-top
+        border-bottom: 1px solid $thunder; // search bar has negative margin to compensate for this border
 		height: 89px;
 	}
 
