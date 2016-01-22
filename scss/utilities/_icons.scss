@@ -229,10 +229,14 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             width: 35px;
             height: 35px;
 
-            &--small {
-                @include small-icon(-14px, -679px);
+
+            // specific class to all previous versions text to appear along side on grid
+            &--inline {
+                background-position: -15px -677px;
                 width: 35px;
                 height: 35px;
+                display: block;
+                margin-bottom: -26px;
             }
 
 
