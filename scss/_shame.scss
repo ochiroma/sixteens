@@ -49,7 +49,7 @@
         color: $white;
     }
 
-    p, a {
+    p, a, dd {
         color: $white;
     }
 
@@ -73,4 +73,11 @@
     -webkit-transform:rotate(270deg);
     -o-transform:rotate(270deg);
     -ms-transform:rotate(270deg);
+}
+
+
+// Need a proper location for this. Otherwise code is okay, doesn't need refactoring
+.h1--census {
+    color: $census;
+    font-weight: 600;
 }

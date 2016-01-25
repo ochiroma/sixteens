@@ -37,14 +37,13 @@
             font-size: 14px;
             word-wrap: normal;
             line-height: 18px;
+            height: ($baseline * 7);
         }
 
         &:hover,
         &:focus {
             cursor: pointer;
-            //border-bottom: 8px solid $iron;
-            //background-color: $iron-light;
-            text-decoration: none;
+            background: darken($aluminium, 15%);
         }
 
         &--active {
@@ -60,11 +59,13 @@
 
             @include breakpoint(sm) {
                 padding-top: 17px;
+                height: ($baseline * 8);
             }
 
             &:hover,
             &:focus {
                 cursor: default;
+                background-color: $white;
                 //background-color: $white;
                 //border-bottom: 8px solid $active;
             }

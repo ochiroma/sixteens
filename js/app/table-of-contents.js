@@ -1,28 +1,33 @@
 $(function() {
 
 
-    if ($('body').contents().find('*').hasClass('page-content__main-content')) {
+    if ($('body').contents().find('*').hasClass('js-sticky-toc')) {
         //variables
-        var pageContent = '.page-content__main-content';
+        var stickyTrigger = '.js-sticky-toc__trigger';
+        var contentStart = $(stickyTrigger).offset().top;
         var locationHash = $(location.hash).attr('id');
         var stickyTocHeight = function() {return parseInt($('.table-of-contents--sticky__wrap').css('height'))}; // height of sticky toc
-        var tocSelectList = $('<select class="table-of-contents--sticky__select ">');
+        var tocSelectList = $('<select id="sticky-toc" class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
-        var contentStart = $(pageContent).offset().top;
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
+
+        // recalculate trigger point if show-hide button is clicked
+        $('.js-show-hide__button').click(function() {
+            contentStart = $(stickyTrigger).offset().top;
+        });
 
         //remove html and body height 100% to allow jquery scroll functions to work properly
         $('html, body').css('height', 'auto');
 
 
         //insert sticky wrapper
-        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40">');
+        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40"><div class="table-of-contents--sticky__select-wrap">');
         $(tocStickyWrap).insertAfter($('#toc'));
-        $('.table-of-contents--sticky__wrap #stickySelectArea').append('<h2 class="table-of-contents--sticky__heading">Table of contents</h2>');
+        $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<label for="sticky-toc" class="table-of-contents--sticky__heading font-size--h2">Table of contents</label>');
 
         //add in print options
         if ($('.js-print-pdf').length > 0) {
-            var printStickyWrap = $('<div class="col col--md-15 col--lg-17 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="" class="link-complex nojs-hidden js-enhance--show jsEnhancePrint">Print this page&nbsp;</a><span class="icon icon-print--dark-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="' + pdfDownloadLink + ' " class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--dark-small"></span></p></div>');
+            var printStickyWrap = $('<div class="col col--md-15 col--lg-17 hide--mobile"><p class="text-right padding-top-md--0 padding-bottom-md--0 margin-bottom-md--1 print--hide"><a href="" id="" class="link-complex nojs-hidden js-enhance--show jsEnhancePrint">Print this page&nbsp;</a><span class="icon icon-print--light-small"></span></p><p class="text-right padding-top-md--0 padding-bottom-md--1 margin-top-md--0 margin-bottom-md--0 print--hide js-enhance--show"><a href="' + pdfDownloadLink + ' " class="link-complex">Download as PDF&nbsp;</a><span class="icon icon-download--light-small"></span></p></div>');
             $(printStickyWrap).insertAfter($('.table-of-contents--sticky__wrap .col'));
         }
 
@@ -44,7 +49,7 @@ $(function() {
         });
 
         //add toc select to sticky wrapper
-        $('.table-of-contents--sticky__wrap #stickySelectArea').append(tocSelectList);
+        $('.table-of-contents--sticky__wrap .table-of-contents--sticky__select-wrap').append(tocSelectList);
 
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
@@ -87,20 +92,20 @@ $(function() {
             if (scrollTop > contentStart) {
                 $('#toc').addClass('table-of-contents-ordered-list-hide');
                 // $('#toc').removeClass('table-of-contents-ordered-list');
-                $(pageContent).css('padding-top', stickyTocHeight);
+                $(stickyTrigger).css('padding-top', stickyTocHeight);
                 $('.table-of-contents--sticky__wrap').show();
                 updateSelected(scrollTop);
             } else {
                 // $('#toc').addClass('table-of-contents-ordered-list');
                 $('#toc').removeClass('table-of-contents-ordered-list-hide');
-                $(pageContent).css('padding-top', '0');
+                $(stickyTrigger).css('padding-top', '0');
                 $('.table-of-contents--sticky__wrap').hide();
             }
         }
 
         //Update the selected option on scroll
         function updateSelected(scrollTop) {
-            var $sections = $(pageContent + ' section');
+            var $sections = $(stickyTrigger + ' section');
             var top = $.grep($sections, function(item) {
                return $(item).position().top <= scrollTop+stickyTocHeight();
             });

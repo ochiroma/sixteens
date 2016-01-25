@@ -13,7 +13,7 @@ button {
     padding: 7px $col 9px $col;
     border: 0 none;
     text-align: center;
-    text-decoration: none !important;
+    text-decoration: none;
 
     &--primary {
         background-color: $primary;
@@ -68,23 +68,32 @@ button {
     &--plain {
         background-color: $white;
         color: $matisse;
+        text-decoration: underline;
 
-        &:hover,
-        &:focus {
+        &:not(span):hover,
+        &:not(span):focus {
+            background: $gallery;
             text-decoration: underline;
         }
 
+
         &__active {
-            color: $base-text-colour;
-            cursor: default;
-
-            &:hover,
-            &:focus {
-                background-color: $white;
-                color: $base-text-colour;
-            }
-
+            background: $ship-gray;
+            color: $iron-light;
+            text-decoration: none;
         }
+
+        //&__active {
+        //    color: $base-text-colour;
+        //    cursor: default;
+        //
+        //    &:hover,
+        //    &:focus {
+        //        background-color: $white;
+        //        color: $base-text-colour;
+        //    }
+        //
+        //}
 
     }
 

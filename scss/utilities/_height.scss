@@ -1,24 +1,30 @@
 //height
 @mixin height-util {
     .height {
-        @for $i from 0 through 50 { //
-            &--#{$i} {
-                height: ($baseline * $i) !important;
-            }
-            @include breakpoint(lg) {
-                &-lg--#{$i} {
+        @for $i from 0 through 50 {
+            @include breakpoint(sm) {
+                &-sm--#{$i} {
                     height: ($baseline * $i) !important;
                 }
             }
+        }
+        @for $i from 0 through 50 {
             @include breakpoint(md) {
                 &-md--#{$i} {
                     height: ($baseline * $i) !important;
                 }
             }
-            @include breakpoint(sm) {
-                &-sm--#{$i} {
+        }
+        @for $i from 0 through 50 {
+            @include breakpoint(lg) {
+                &-lg--#{$i} {
                     height: ($baseline * $i) !important;
                 }
+            }
+        }
+        @for $i from 0 through 50 { //
+            &--#{$i} {
+                height: ($baseline * $i) !important;
             }
         }
     }
@@ -28,24 +34,30 @@
 
 @mixin min-height-util {
     .min-height {
-        @for $i from 0 through 50 { //
-            &--#{$i} {
-                min-height: ($baseline * $i) !important;
-            }
-            @include breakpoint(lg) {
-                &-lg--#{$i} {
+        @for $i from 0 through 50 {
+            @include breakpoint(sm) {
+                &-sm--#{$i} {
                     min-height: ($baseline * $i) !important;
                 }
             }
+        }
+        @for $i from 0 through 50 {
             @include breakpoint(md) {
                 &-md--#{$i} {
                     min-height: ($baseline * $i) !important;
                 }
             }
-            @include breakpoint(sm) {
-                &-sm--#{$i} {
+        }
+        @for $i from 0 through 50 {
+            @include breakpoint(lg) {
+                &-lg--#{$i} {
                     min-height: ($baseline * $i) !important;
                 }
+            }
+        }
+        @for $i from 0 through 50 { //
+            &--#{$i} {
+                min-height: ($baseline * $i) !important;
             }
         }
     }

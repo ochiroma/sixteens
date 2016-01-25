@@ -96,7 +96,7 @@ $.fn.percentOnScreen = function(){
             bgTransparency = percentage / 100;
 
             $.each($(".side-bar__item"), function () {
-                $("#" + sectionTitle + "-menu-item").css("background-color", "rgba(187,189,191," + bgTransparency + ")");
+                $("#" + sectionTitle + "-menu-item").css("background-color", "rgba(221, 221, 221," + bgTransparency + ")");
             });
         });
 

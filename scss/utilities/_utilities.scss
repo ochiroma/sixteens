@@ -201,6 +201,13 @@
 
 .inline-block {
 	display: inline-block !important;
+
+    // Needed for census landing page - only one medium and above
+    @include breakpoint(md) {
+        &--md {
+            display: inline-block !important;
+        }
+    }
 }
 
 .hide {
@@ -214,6 +221,12 @@
 
     &--md {
         @include breakpoint(md) {
+            display: none !important;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
             display: none !important;
         }
     }

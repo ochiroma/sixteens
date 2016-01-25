@@ -115,7 +115,7 @@ strong {
 	font-weight: 600;
 }
 
-@mixin font-size-util {
+@mixin font-heading-util {
 	.font-size {
 		@for $i from 0 through 6 {
 			//
@@ -126,4 +126,4 @@ strong {
 	}
 }
 
-@include font-size-util;
+@include font-heading-util;

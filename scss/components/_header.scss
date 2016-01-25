@@ -6,10 +6,12 @@
 .primary-nav {
 
 	background-color: $abbey;
+	position: relative;
 
 	@include breakpoint(md) {
 		border-top: 1px solid $thunder;
 		margin-top: -1px;	//compensate for border-top
+        border-bottom: 1px solid $thunder; // search bar has negative margin to compensate for this border
 		height: 89px;
 	}
 
@@ -63,11 +65,11 @@
 				color: $white;
 				text-decoration: none;
 				left: auto; //resets child-items to appear on-screen
-				top: 199px; //1px less to cover same colour border on parent <li>
+				top: 88px; //1px less to cover same colour border on parent <li>
 			}
 
 			@include breakpoint(lg) {
-				top: 175px;
+				top: 64px;
 			}
 		}
 
@@ -369,9 +371,9 @@
 		display: none;
 	}
 
-	&__content {
+	p {
 		margin: 0;
-		padding: 7px 0 9px 0;
+		//padding: 7px 0 9px 0;
 
 		& > a {
 			color: $ship-gray;
