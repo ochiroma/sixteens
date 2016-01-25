@@ -96,6 +96,7 @@ var timeseriesTool = (function() {
             e.stopPropagation();
             listContainer.hide();
             basket.removeClass('timeseries__basket--focus');
+            basket.focus();
         });
 
         basket.on('click', function(e) {
