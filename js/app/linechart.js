@@ -762,3 +762,18 @@ $('.dlCustomData').submit(function(){
   return true;
 
 });
+
+function filterFocus(){
+	var $filters = $('.timeseries__filters input[type="radio"]'),
+		$radioGroup,
+		activeClass = 'btn-group--active';
+	$filters.focusin(function() {
+		$radioGroup = $(this).closest('fieldset');
+		console.log($radioGroup);
+		$radioGroup.addClass(activeClass);
+	});
+	$filters.focusout(function() {
+		$radioGroup.removeClass(activeClass);
+	});
+}
+filterFocus();
