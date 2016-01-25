@@ -2,17 +2,27 @@
 
 .filters {
 
-    &__title:not(:first-child) {
-        margin-top: $baseline * 2;
-    }
+    //&__title:not(:first-child) {
+    //    margin-top: $baseline * 2;
+    //}
 
-    &__title:first-child {
-        margin-top: 0;
+    //&__title:first-child {
+    //    margin-top: 0;
+    //}
+
+    &__title {
+        display: block;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 24px;
+        //margin-top: 16px;
+        padding: 5px 0 3px 0;
     }
 
     &__sub-title {
-        margin: 22px 0 2px 0;
+        margin: ($baseline * 3) 0 0 0;
         font-weight: 400;
+        font-size: 16px;
     }
 
     &__item {
@@ -23,6 +33,10 @@
     &__field {
         padding: 7px 0 1px 0;
         margin-bottom: $baseline;
+    }
+
+    &__fieldset:not(:first-child) {
+        margin-top: ($baseline * 3);
     }
 
 

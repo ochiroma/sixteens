@@ -157,7 +157,7 @@ function jsEnhanceClickableDiv() {
     hoverHashTable['tiles__image--search-sparkline'] = ['tiles__image--search-sparkline-hover'];
 
     // on click grab the first link of the content and go there
-    $(clickableDiv).click(function() {
+    $(clickableDiv).on('mousedown touchstart', function() { // using mousedown & touchstart as a quick fix to keyboard accessibility problems TODO switch all elements using this function to use jsHoverEnhance  and utility tiles instead.
         var link = $('a:first', this).attr('href');
         window.location = link;
     });
@@ -648,29 +648,59 @@ function jsEnhanceScrollToSection() {
 
 // New T3 hover enhancement
 function jsEnhanceHover() {
+    var hoverTrigger = $('.js-hover-click'),
+        hoverLink = hoverTrigger.find('a:first'),
+        bgColour = function(){elem.css('background-color')},
+        white = "rgb(255, 255, 255)",
+        whiteHover = 'white-hover',
+        greyHover = 'grey-hover';
 
-    $('.js-hover').click(function() {
-        var link = $('a:first', this).attr('href');
-        window.location = link;
+    // Add span that covers whole tile area - meaning we don't have to hi-jack click
+    hoverTrigger.each(function() {
+        $(this).css('position', 'relative');
+        var link = $(this).find('a:first');
+        link.append('<span class="box__clickable"></span>');
     });
 
-    $('.js-hover').hover(function() {
-            elem = $(this);
-            bgColour = elem.css('background-color');
-            white = "rgb(255, 255, 255)";
-            if (bgColour === white) {
-                $(elem).addClass('white-hover')
-            } else {
-                $(elem).addClass('grey-hover');
-            }
-        },
-        function() {
-            if (bgColour === white) {
-                $(elem).removeClass('white-hover')
-            } else {
-                $(elem).removeClass('grey-hover');
-            }
-        });
+    //hoverTrigger.click(function() {
+    //    //var link = $('a:first', this).attr('href');
+    //    //window.location = link;
+    //});
+
+    function addHoverClass(elem) {
+        if (bgColour === white) {
+            $(elem).addClass(whiteHover)
+        } else {
+            $(elem).addClass(greyHover);
+        }
+    }
+    function removeHoverClass(elem) {
+        if (bgColour === white) {
+            $(elem).removeClass(whiteHover)
+        } else {
+            $(elem).removeClass(greyHover);
+        }
+    }
+
+    // Add styling on hover
+    hoverTrigger.hover(function() {
+        addHoverClass($(this));
+    },
+    function() {
+        removeHoverClass($(this));
+    });
+
+    // Add hover styling on focus
+    hoverLink.focus(function() {
+        var $this = $(this),
+            parentElem = $this.closest(hoverTrigger);
+        if ($this.parent(hoverTrigger)) {
+            addHoverClass(parentElem);
+            $this.focusout(function() {
+                removeHoverClass(parentElem)
+            });
+        }
+    });
 }
 
 function jsEnhanceSelectedHighlight() {

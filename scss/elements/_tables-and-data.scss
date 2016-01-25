@@ -21,8 +21,24 @@ dd {
 	th {
 		text-align: left;
 		padding: 6px 0 10px $col;
-		text-align: left;
 		background-color: $iron;
+
+        button {
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            text-align: left;
+            padding: 0;
+            margin: 0;
+
+            &:hover,
+            &:focus {
+                text-decoration: underline;
+            }
+        }
 	}
 
 	tbody {

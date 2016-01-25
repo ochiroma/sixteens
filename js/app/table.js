@@ -2,6 +2,15 @@
  * Created by crispin on 21/10/2015.
  */
 
+function initialiseTable() {
+    var $tableHeaders = $('.js-table-sort thead th');
+    // Wrap table headers in a button
+    $tableHeaders.each(function() {
+        $(this).wrapInner('<button>');
+    });
+}
+initialiseTable();
+
 function triggerSort(array, column, frequency) {
 
 	// If frequency is 'months' then replace month values with actual numbers (stops alphabetical ordering breaking order)

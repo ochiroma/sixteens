@@ -1,6 +1,6 @@
 /* Load search/list results into a page without refreshing (eg when changing a filter) */
 
-function loadNewResults(url, clear) {
+function loadNewResults(url, focus, clear) {
     // Selector classes/IDs
     var results = '.results',
         resultsText = '.search-page__results-text',
@@ -37,16 +37,23 @@ function loadNewResults(url, clear) {
                 var $atozFilters = $(result).find(atozFilters);
                 replaceFilters($atozFilters);
             }
-            if (clear) { //Clear all filters
-                $('.filters input, select').each(function () {
-                    var thisId = '#' + $(this).attr('id');
-                    updateContents(thisId);
-                });
-            }
+            // Commented out as not sure this is necessary and adds complexity to the code
+            //if (clear) { //Clear all filters
+            //    $('.filters input, select').each(function () {
+            //        var thisId = '#' + $(this).attr('id');
+            //        updateContents(thisId);
+            //    });
+            //}
 
             //Tab counts (only when page has tab container and keyword search or custom dates - otherwise no update required
             if (newTabsContainer && $('.filters').find('input[type="search"], input[type="text"]')) {
                 updateContents(tabsContainer, newTabsContainer);
+            }
+
+            //Put focus back onto element on page
+            if (focus) {
+                var focusId = '#' + focus.attr('id');
+                $(focusId).focus();
             }
         }
     });
