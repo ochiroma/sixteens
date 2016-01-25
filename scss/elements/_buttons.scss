@@ -70,16 +70,18 @@ button {
         color: $matisse;
         text-decoration: underline;
 
-        &__active {
+        &:not(span):hover,
+        &:not(span):focus {
             background: $gallery;
-            text-decoration: none;
-            color: $base-text-colour;
+            text-decoration: underline;
         }
 
-        //&:hover,
-        //&:focus {
-        //    text-decoration: underline;
-        //}
+
+        &__active {
+            background: $ship-gray;
+            color: $iron-light;
+            text-decoration: none;
+        }
 
         //&__active {
         //    color: $base-text-colour;
