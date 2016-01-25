@@ -5,11 +5,15 @@
 	color: $iron-light;
 
 	a {
-		color: $iron-light;
+		color: $iron;
 		text-decoration: underline;
 
 		&:hover {
 			color: $white;
+		}
+		&:focus {
+			color: $ship-gray;
+			background-color: $white;
 		}
 
 	}
