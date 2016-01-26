@@ -27,19 +27,19 @@
 				@include breakpoint(lg) {
 					&-lg {
 						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						margin-bottom: -1px;
 					}
 				}
 				@include breakpoint(md) {
 					&-md {
 						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						margin-bottom: -1px;
 					}
 				}
 				@include breakpoint(sm) {
 					&-sm {
 						border-bottom: 1px solid $colourcode;
-						margin-top: -1px;
+						margin-bottom: -1px;
 					}
 				}
 			}
