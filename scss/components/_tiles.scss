@@ -416,7 +416,7 @@
 		&--nav-type {}
 		&--nav-type-fixed {
 			padding: 0;
-			@include multiline-ellipsis(248px, $col, $mercury);
+			@include multiline-ellipsis(248px, $col);
 
 			&-hover {
 
@@ -876,6 +876,10 @@
 		}
 
 	}
+
+    &__timeseries {
+        border: 1px solid $iron-light;
+    }
 
     &__clickable {
         position: absolute;
