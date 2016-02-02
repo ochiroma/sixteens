@@ -27,7 +27,7 @@
 		overflow: hidden;
 
 		@include breakpoint(sm) {
-			padding: $baseline 0 0 0;
+			padding: $baseline 0;
 		}
 
 		padding: 0; // fix for IE8
@@ -199,41 +199,41 @@
 
 	// SECONDARY NAV CONTENT - ONLY SHOW ON MOBILE
 
-	&--secondary {
-
-
-		&__list {
-
-			@include breakpoint(sm) {
-				padding: 0 0 $baseline 0;
-				margin: 0;
-			}
-
-			@include breakpoint(md) {
-				display: none;
-			}
-		}
-
-		&__item {
-
-			@include breakpoint(sm) {
-				display: block;
-				padding: 0;
-				margin: 0;
-				height: $baseline * 6;
-				cursor: pointer;
-			}
-		}
-
-		&__link {
-			@include breakpoint(sm) {
-				display: block;
-				height: $baseline * 6;
-				padding: 14px 0 10px $col;
-				color: $iron-light;
-			}
-		}
-	}
+	//&--secondary {
+    //
+    //
+	//	&__list {
+    //
+	//		@include breakpoint(sm) {
+	//			padding: 0 0 $baseline 0;
+	//			margin: 0;
+	//		}
+    //
+	//		@include breakpoint(md) {
+	//			display: none;
+	//		}
+	//	}
+    //
+	//	&__item {
+    //
+	//		@include breakpoint(sm) {
+	//			display: block;
+	//			padding: 0;
+	//			margin: 0;
+	//			height: $baseline * 6;
+	//			cursor: pointer;
+	//		}
+	//	}
+    //
+	//	&__link {
+	//		@include breakpoint(sm) {
+	//			display: block;
+	//			height: $baseline * 6;
+	//			padding: 14px 0 10px $col;
+	//			color: $iron-light;
+	//		}
+	//	}
+	//}
 }
 
 

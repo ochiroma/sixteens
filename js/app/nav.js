@@ -54,19 +54,55 @@ function hideSearch(toggleElement, searchElement) {
     searchElement.attr('aria-expanded', false);
 }
 
+function cloneSecondaryNav() {
+    // Duplicate top-level nav item into the subnav to access on devices where
+    // tapping on the top-level item will expand the subnav
+
+    var $navItem = $('.js-nav-clone__link');
+
+    if ($('body').hasClass('viewport-sm')) {
+        // Remove from separate UL and add into primary
+        $navItem.each(function() {
+            $(this)
+                .removeClass('secondary-nav__link')
+                .insertAfter('.primary-nav__item:last')
+                .addClass('primary-nav__link col')
+                .wrap('<li class="primary-nav__item">');
+
+        });
+    } else if ($('.secondary-nav__item').is(':hidden')) {
+        // Remove from primary nav and add into separate secondary list
+        $navItem.each(function(i) {
+            var index = i + 1;
+            console.log(index);
+           $(this)
+               .unwrap()
+               .removeClass('primary-nav__link col')
+               .addClass('secondary-nav__link')
+               .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
+        });
+    }
+
+
+    // OLD CODE
+    //$primaryNav.find('.nav__expandable').each(function () {
+    //    var subNav = $(this).find('.nav--primary__sub');
+    //    $(this).find(' > a').clone()
+    //        .removeClass()
+    //        .prependTo(subNav)
+    //        .wrap('<li class="nav__top-level-duplicate"></li>');
+    //});
+}
+
+$(window).resize(function() {
+    cloneSecondaryNav();
+});
+
 $(document).ready(function () {
     var $primaryNav = $('#nav-primary');
     var $searchBar = $('#searchBar');
 
-    // Duplicate top-level nav item into the subnav to access on devices where
-    // tapping on the top-level item will expand the subnav
-    $primaryNav.find('.nav__expandable').each(function () {
-        var subNav = $(this).find('.nav--primary__sub');
-        $(this).find(' > a').clone()
-            .removeClass()
-            .prependTo(subNav)
-            .wrap('<li class="nav__top-level-duplicate"></li>');
-    });
+    cloneSecondaryNav();
 
     $primaryNav.addClass('nav-main--hidden').attr('aria-expanded', false);
     //$searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
@@ -86,6 +122,7 @@ $(document).ready(function () {
     });
 
     $('.js-expandable').on('keydown', function (event) {
+        console.log(event.keyCode);
         // Enter || spacebar
         if (event.keyCode === 13 || event.keyCode === 32) {
             if ($(window).width() < 767) {
