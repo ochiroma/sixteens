@@ -55,11 +55,9 @@
 			height: ($baseline * 8);
 		}
 
-		//children show on hover / tab
+		//children show on hover
 		&:hover > ul,
-        &:focus > ul,
-        .menu-focus {
-
+		&--focus > ul {
 			@include breakpoint(md) {
 				background-color: $thunder;
 				color: $white;
@@ -75,7 +73,8 @@
 
         //set hover styling - done on link so it works on keyboard tab
         &:hover > a,
-        &:focus > a {
+        &:focus > a,
+		&--focus > a {
             @include breakpoint(md) {
                 border-left: 1px solid $thunder;
                 background-color: $thunder;
@@ -126,16 +125,33 @@
 			font-size: 14px;
 		}
 
-
         //set focus styling - has to be on link to work (hover styling on li)
         &:focus {
             @include breakpoint(md) {
                 border-left: 1px solid $thunder;
                 background-color: $thunder;
-                color: $iron-light;
+                color: $white;
                 text-decoration: none;
             }
         }
+
+		//show sub-menu on keyboard focus of link
+		&:focus + ul {
+			@include breakpoint(md) {
+				background-color: $thunder;
+				text-decoration: none;
+				left: auto; //resets child-items to appear on-screen
+				top: 88px; //1px less to cover same colour border on parent <li>
+			}
+
+			@include breakpoint(lg) {
+				top: 64px;
+			}
+		}
+
+		&:focus.hide-children + ul {
+			left: -99999px // override class to hide menu even when expandable item has focus
+		}
 
 	}
 
