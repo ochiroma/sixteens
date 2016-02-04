@@ -56,7 +56,7 @@
 
 		&__title {
 			//display: inline-block;
-			padding-left: ($col * 5);
+			padding-left: ($col * 4);
 			margin: $baseline 0;
 			text-align: left; //IE9 fix, puts text centre aligned
 		}
@@ -68,7 +68,7 @@
             }
 
             @include breakpoint(md) {
-                margin: 0 $col * 5;
+                margin: 0 $col * 4;
             }
 		}
 	}
