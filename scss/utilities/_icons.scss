@@ -11,12 +11,17 @@
 
 
 $sprite: '../img/icon-sprite.png?#{$builddatetime}';
+$png: '../img/icon-sprite.png?#{$builddatetime}';
+$svg: '../img/icon-sprite.svg?#{$builddatetime}';
+
 
 // Don't show icons on print - stops conflicts with print :after for links too
 @media screen {
     .icon {
         display: inline-block;
-        background:url($sprite) no-repeat;
+        background:url($png) no-repeat;
+        background:url($svg) no-repeat;
+        background-size: 300px 1000px;
         height: 32px;
         width: 32px;
 
@@ -231,7 +236,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
 
             &--info-box {
                 position: absolute;
-                left: 32px;
+                left: $col;
                 top: 22px;
             }
 
