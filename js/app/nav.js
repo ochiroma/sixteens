@@ -55,14 +55,13 @@ function hideSearch(toggleElement, searchElement) {
 }
 
 function cloneSecondaryNav() {
-    // Duplicate top-level nav item into the subnav to access on devices where
-    // tapping on the top-level item will expand the subnav
+    // On mobile move secondary nav items in header to primary nav
 
-    var $navItem = $('.js-nav-clone__link');
+    var $navLink = $('.js-nav-clone__link');
 
-    if ($('body').hasClass('viewport-sm')) {
+    if ($('body').hasClass('viewport-sm') && $('.js-nav-clone__list').find($navLink).length > 0) {
         // Remove from separate UL and add into primary
-        $navItem.each(function() {
+        $navLink.each(function() {
             $(this)
                 .removeClass('secondary-nav__link')
                 .insertAfter('.primary-nav__item:last')
@@ -70,9 +69,9 @@ function cloneSecondaryNav() {
                 .wrap('<li class="primary-nav__item">');
 
         });
-    } else if ($('.secondary-nav__item').is(':hidden')) {
+    } else if (!$('body').hasClass('viewport-sm') && $('.secondary-nav__item').is(':hidden')) {
         // Remove from primary nav and add into separate secondary list
-        $navItem.each(function(i) {
+        $navLink.each(function(i) {
             var index = i + 1;
            $(this)
                .unwrap()
@@ -81,7 +80,27 @@ function cloneSecondaryNav() {
                .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
         });
     }
+}
 
+function clonePrimaryItems() {
+    var $detectDuplicate = $('.js-nav__duplicate');
+
+    // Clone primary nav items into sub-menu on mobile, so it can still be selected on mobile
+    if ($('body').hasClass('viewport-sm') && $detectDuplicate.length == 0) {
+        $('.js-expandable').each(function () {
+            var $this = $(this),
+                $thisHref = $this.find('a:first').attr('href'),
+                $thisText = $this.find('a:first').html(),
+                $childList = $this.find('.js-expandable__content'),
+                $newLink = '<a class="primary-nav__child-link" href="' + $thisHref + '">' + $thisText + '</a>',
+                $newItem = '<li class="primary-nav__child-item js-nav__duplicate js-expandable__child">' + $newLink + '</li>';
+
+            $childList.prepend($newItem);
+        });
+
+    } else if (!$('body').hasClass('viewport-sm') && $detectDuplicate.length > 0) {
+        $detectDuplicate.remove();
+    }
 
     // OLD CODE
     //$primaryNav.find('.nav__expandable').each(function () {
@@ -93,31 +112,36 @@ function cloneSecondaryNav() {
     //});
 }
 
+
 $(window).resize(function() {
+    clonePrimaryItems();
     cloneSecondaryNav();
 });
+
 
 $(document).ready(function () {
     var $primaryNav = $('#nav-primary');
     var $searchBar = $('#searchBar');
     var $navItem = $('.js-nav');
+    var $expandableItem = $('.js-expandable');
 
+    clonePrimaryItems();
     cloneSecondaryNav();
 
     $primaryNav.addClass('nav-main--hidden').attr('aria-expanded', false);
     //$searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
 
-    $('.js-expandable').on('click', function (event) {
-        if ($(window).width() < 767) {
+    $expandableItem.on('click', function (event) {
+        if ($('body').hasClass('viewport-sm')) {
             event.preventDefault();
             toggleSubnav($(this));
         }
     });
-
-    $('.js-expandable').doubleTapToGo();
+    
+    $expandableItem.doubleTapToGo();
 
     // stop parent element from taking over all click events
-    $('.js-expandable > .nav--primary__sub').on('click', function (event) {
+    $('.js-expandable > .js-expandable__content').on('click', function (event) {
         event.stopPropagation();
     });
 
