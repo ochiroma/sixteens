@@ -23,7 +23,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
         &-arrow-up {
 
             &--dark {
-                background-position: -144px -10px;
+                background-position: -16px -10px;
 
                 &-small {
                     @include small-icon(-16px, -2px);
@@ -31,7 +31,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -208px -10px;
+                background-position: -80px -10px;
 
                 &-small {
                     @include small-icon(-80px, -2px);
@@ -43,7 +43,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
         &-arrow-down {
 
             &--dark {
-                background-position: -144px -44px;
+                background-position: -16px -44px;
 
                 &-small {
                     @include small-icon(-16px, -34px);
@@ -51,7 +51,7 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -208px -44px;
+                background-position: -80px -44px;
 
                 &-small {
                     @include small-icon(-80px, -34px);
@@ -228,6 +228,12 @@ $sprite: '../img/icon-sprite.png?#{$builddatetime}';
             background-position: -15px -679px;
             width: 35px;
             height: 35px;
+
+            &--info-box {
+                position: absolute;
+                left: 32px;
+                top: 22px;
+            }
 
 
             // specific class to all previous versions text to appear along side on grid
