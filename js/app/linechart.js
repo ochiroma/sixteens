@@ -717,51 +717,104 @@ function removeHiddenInputs() {
 	$( "input[name='frequency']" ).remove();
 }
 
-$('.dlCustomData').submit(function(){
 
+$('.dlCustomData').click(function(){
+	
 	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
 	selectedFrequency = selectedFrequency.trim();
 
 	//Grab all the custom date values
-	fromYear = $('[data-chart-controls-from-year]').val();
-	fromQuarter = $('[data-chart-controls-from-quarter]').val();
-	fromMonth = $('[data-chart-controls-from-month]').val();
-	toYear = $('[data-chart-controls-to-year]').val();
-	toQuarter = $('[data-chart-controls-to-quarter]').val();
-	toMonth = $('[data-chart-controls-to-month]').val();
+	var $this = $(this),
+	currentHref = String($this.attr('href')),
+	fromYear = $('[data-chart-controls-from-year]').val(),
+	fromQuarter = $('[data-chart-controls-from-quarter]').val(),
+	fromMonth = $('[data-chart-controls-from-month]').val(),
+	toYear = $('[data-chart-controls-to-year]').val(),
+	toQuarter = $('[data-chart-controls-to-quarter]').val(),
+	toMonth = $('[data-chart-controls-to-month]').val(),
+	hrefHasParams = currentHref.indexOf('?') > -1;
 
+	// Add '&' or '?' to end of current URL, depending on whether it already has parameters
+	if (hrefHasParams) {
+		currentHref = currentHref + '&';
+	} else {
+		currentHref = currentHref + '?';
+	}
 	
 	switch (selectedFrequency) {
 		case 'months':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="months"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
+			// Build up new href for clicked anchor
+			var updatedHref = currentHref + 'series=' + '&fromMonth=' + fromMonth + '&fromYear=' + fromYear + '&toMonth=' + toMonth + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+			// Replace anchor href with new URL
+			$this.attr('href', updatedHref);
+
 			break;
 
 		case 'quarters':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="quarters"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
+			// Build up new href for clicked anchor
+			var updatedHref = currentHref + 'series=' + '&fromQuarter=Q' + fromQuarter + '&fromYear=' + fromYear + '&toQuarter=Q' + toQuarter + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+			// Replace anchor href with new URL
+			$this.attr('href', updatedHref);
+
 			break;
 
 		case 'years':
-			// create a string to input hidden values to POST
-			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="years"/>';
-			// remove any previous custom date hidden inputs
-			removeHiddenInputs();
-			// append the inputs to end of form
-			$(this).append(str);
+			// Build up new href for clicked anchor
+			var updatedHref = currentHref + 'series=' + '&fromYear=' + fromYear + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+			// Replace anchor href with new URL
+			$this.attr('href', updatedHref);
+
 			break;
 	}
   return true;
 
 });
+
+// $('.dlCustomData').submit(function(){
+
+// 	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
+// 	selectedFrequency = selectedFrequency.trim();
+
+// 	//Grab all the custom date values
+// 	fromYear = $('[data-chart-controls-from-year]').val();
+// 	fromQuarter = $('[data-chart-controls-from-quarter]').val();
+// 	fromMonth = $('[data-chart-controls-from-month]').val();
+// 	toYear = $('[data-chart-controls-to-year]').val();
+// 	toQuarter = $('[data-chart-controls-to-quarter]').val();
+// 	toMonth = $('[data-chart-controls-to-month]').val();
+
+	
+// 	switch (selectedFrequency) {
+// 		case 'months':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromMonth" value="'+fromMonth+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toMonth" value="'+toMonth+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="months"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+
+// 		case 'quarters':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromQuarter" value="Q'+fromQuarter+'" /><input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toQuarter" value="Q'+toQuarter+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="quarters"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+
+// 		case 'years':
+// 			// create a string to input hidden values to POST
+// 			str = '<input type="hidden" name="fromYear" value="'+fromYear+'" /><input type="hidden" name="toYear" value="'+toYear+'" /><input type="hidden" name="frequency" value="years"/>';
+// 			// remove any previous custom date hidden inputs
+// 			removeHiddenInputs();
+// 			// append the inputs to end of form
+// 			$(this).append(str);
+// 			break;
+// 	}
+//   return true;
+
+// });
 
 function filterFocus(){
 	var $filters = $('.timeseries__filters input[type="radio"]'),
