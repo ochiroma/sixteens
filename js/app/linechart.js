@@ -717,57 +717,72 @@ function removeHiddenInputs() {
 	$( "input[name='frequency']" ).remove();
 }
 
+// Store default hrefs of download links
+var currentHrefs = [];
+$('.dlCustomData').each(function() {
+	currentHrefs.push(String($(this).attr('href')));
+});
 
-$('.dlCustomData').click(function(){
-	
-	selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
-	selectedFrequency = selectedFrequency.trim();
+
+$('.timeseries__filters').change(function() {
 
 	//Grab all the custom date values
-	var $this = $(this),
-	currentHref = String($this.attr('href')),
-	fromYear = $('[data-chart-controls-from-year]').val(),
-	fromQuarter = $('[data-chart-controls-from-quarter]').val(),
-	fromMonth = $('[data-chart-controls-from-month]').val(),
-	toYear = $('[data-chart-controls-to-year]').val(),
-	toQuarter = $('[data-chart-controls-to-quarter]').val(),
-	toMonth = $('[data-chart-controls-to-month]').val(),
-	hrefHasParams = currentHref.indexOf('?') > -1;
+	var fromYear = $('[data-chart-controls-from-year]').val(),
+		fromQuarter = $('[data-chart-controls-from-quarter]').val(),
+		fromMonth = $('[data-chart-controls-from-month]').val(),
+		toYear = $('[data-chart-controls-to-year]').val(),
+		toQuarter = $('[data-chart-controls-to-quarter]').val(),
+		toMonth = $('[data-chart-controls-to-month]').val();
 
-	// Add '&' or '?' to end of current URL, depending on whether it already has parameters
-	if (hrefHasParams) {
-		currentHref = currentHref + '&';
-	} else {
-		currentHref = currentHref + '?';
-	}
-	
-	switch (selectedFrequency) {
-		case 'months':
-			// Build up new href for clicked anchor
-			var updatedHref = currentHref + 'series=' + '&fromMonth=' + fromMonth + '&fromYear=' + fromYear + '&toMonth=' + toMonth + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
-			// Replace anchor href with new URL
-			$this.attr('href', updatedHref);
+	// Update each link with new href
+	$('.dlCustomData').each(function(i) {
 
-			break;
+		selectedFrequency = $( ".btn--secondary--active.frequency-select .frequency").val();
+		selectedFrequency = selectedFrequency.trim();
 
-		case 'quarters':
-			// Build up new href for clicked anchor
-			var updatedHref = currentHref + 'series=' + '&fromQuarter=Q' + fromQuarter + '&fromYear=' + fromYear + '&toQuarter=Q' + toQuarter + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
-			// Replace anchor href with new URL
-			$this.attr('href', updatedHref);
+		var $this = $(this),
+		currentHref = currentHrefs[i],
+		hrefHasParams = currentHref.indexOf('?') > -1;
 
-			break;
+		// Add '&' or '?' to end of current URL, depending on whether it already has parameters
+		if (hrefHasParams) {
+			currentHref = currentHref + '&';
+		} else {
+			currentHref = currentHref + '?';
+		}
+		
+		switch (selectedFrequency) {
+			case 'months':
+				// Build up new href for clicked anchor
+				var updatedHref = currentHref + 'series=' + '&fromMonth=' + fromMonth + '&fromYear=' + fromYear + '&toMonth=' + toMonth + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+				// Replace anchor href with new URL
+				$this.attr('href', updatedHref);
 
-		case 'years':
-			// Build up new href for clicked anchor
-			var updatedHref = currentHref + 'series=' + '&fromYear=' + fromYear + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
-			// Replace anchor href with new URL
-			$this.attr('href', updatedHref);
+				break;
 
-			break;
-	}
-  return true;
+			case 'quarters':
+				// Build up new href for clicked anchor
+				var updatedHref = currentHref + 'series=' + '&fromQuarter=Q' + fromQuarter + '&fromYear=' + fromYear + '&toQuarter=Q' + toQuarter + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+				// Replace anchor href with new URL
+				$this.attr('href', updatedHref);
 
+				break;
+
+			case 'years':
+				// Build up new href for clicked anchor
+				var updatedHref = currentHref + 'series=' + '&fromYear=' + fromYear + '&toYear=' + toYear + '&frequency=' + selectedFrequency;
+				// Replace anchor href with new URL
+				$this.attr('href', updatedHref);
+
+				break;
+		}
+		console.log($this.attr('href'));
+	  	return true;
+	});
+})
+
+$('.dlCustomData').click(function() {
+	//	
 });
 
 // $('.dlCustomData').submit(function(){
