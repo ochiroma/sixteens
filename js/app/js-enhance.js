@@ -61,12 +61,6 @@ $(function() {
         //     jsEnhanceMobileTables();
         // }, 400);
 
-        // set jsEnhanced cookie for server side optimisations.
-        var expires = new Date();
-        expires.setDate(expires.getDate() + (10 * 365)); // 10 years
-        document.cookie = 'jsEnhanced=true;expires=' + expires.toUTCString() + ';path=/';
-
-
         setTimeout(function() {
             $('#loading-overlay').fadeOut(300);
         }, 500);
