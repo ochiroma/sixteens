@@ -211,13 +211,13 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 
             &--dark {
                 background-position: -14px -609px;
-                height: 40px;
+                height: 33px;
                 width: 40px;
 
                 &-small {
-                    height: 40px;
+                    height: 33px;
                     width: 40px;
-                    @include small-icon(-14px, -610px);
+                    @include small-icon(-14px, -617px);
                 }
             }
 
