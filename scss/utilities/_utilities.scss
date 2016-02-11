@@ -297,18 +297,19 @@
 
 
 // Set anything with aria-hidden attributes to correct display state
+ @media only screen {
+     [aria-hidden*=true] {
+         display: none;
+     }
 
-[aria-hidden*=true] {
-	display: none;
-}
+     svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
+         display: block;
+     }
 
-svg[aria-hidden*=true] { // Allow SVGs to still show even with aria:hidden. Only want them hidden from screen readers.
-    display: block;
-}
-
-[aria-hidden*=false] {
-	display: block;
-}
+     [aria-hidden*=false] {
+         display: block;
+     }
+ }
 
 #viewport {
 
