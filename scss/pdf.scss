@@ -116,6 +116,10 @@ $old-ie: false;
         border-bottom: 0 !important;
     }
 
+    .markdown-chart-container {
+        page-break-inside: avoid !important;
+    }
+
     .tiles {
         &__item {
             page-break-before: always !important;
