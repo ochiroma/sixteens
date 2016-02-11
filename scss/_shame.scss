@@ -65,6 +65,7 @@
 
     .image-holder {
         border-color: $thunder;
+        line-height: 0; // Fix for div being pushed off of grid when inside an element with a line-height
 
         &:after {
             content: '';
