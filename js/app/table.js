@@ -6,7 +6,9 @@ function initialiseTable() {
     var $tableHeaders = $('.js-table-sort thead th');
     // Wrap table headers in a button
     $tableHeaders.each(function() {
-        $(this).wrapInner('<button>');
+        var $this = $(this),
+            headerText = $this.text();
+        $this.wrapInner('<button aria-label="Sort table by ' + headerText + '">');
     });
 }
 initialiseTable();
@@ -84,13 +86,13 @@ function buildTable(array) {
 }
 
 //Set the sort styling - ie the arrow is attached to the correct header and in the correction direction
-function sortStyling(type) {
+function sortMarkup(type) {
 
 	//Find table headers
 	var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header');
 
 	//Removes the arrow from current sorted header
-	tableHeaders.removeClass('sorted-asc sorted-desc');
+	//tableHeaders.removeClass('sorted-asc sorted-desc');
 
 	//If 'reset' passed to function then it'll return the styling to default
 	if (type == 'reset') {
@@ -99,23 +101,39 @@ function sortStyling(type) {
 		var defaultTableHeader = $(tableHeaders).filter('th:contains("Period")');
 
 		//Reset arrow to appear on 'period' and show as ascending;
-		$(defaultTableHeader).addClass('sorted-desc');
+		//$(defaultTableHeader).addClass('sorted-desc');
+		$(defaultTableHeader).attr('aria-sort', 'ascending');
 
 	} else {
 
 		//Instead of reset, column name is passed into function and that column has sorted styling added to it
-		var column = type;
+		var column = type,
+            sortOrder;
 
 		//If inverse then toggle whether asc or desc class is added
 		if (inverse === true) {
-			sortedClass = 'sorted-asc';
+			//sortOrder = 'sorted-asc';
+            sortOrder = 'descending';
 		} else if (inverse === false) {
-			sortedClass = 'sorted-desc';
+			//sortOrder = 'sorted-desc';
+            sortOrder = 'ascending';
 		}
 
-		//Add sortedClass
-		column.addClass(sortedClass);
+        //Remove existing aria-sort attributes from headers
+        $(tableHeaders).each(function() {
+            //console.log('$(this); ', $(this));
+            //console.log('column: ', column);
+            var $this = $(this);
 
+            if ($this.is(column)) {
+                column.attr('aria-sort', sortOrder);
+            } else {
+                $this.removeAttr('aria-sort');
+            }
+        });
+
+		//Add sortedClass
+		//column.addClass(sortOrder);
 	}
 }
 

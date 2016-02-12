@@ -44,6 +44,22 @@ dd {
                 text-decoration: underline;
             }
         }
+
+        &[aria-sort='descending']:after {
+            @extend .icon;
+            @extend .icon-arrow-up--dark-small;
+            position: absolute;
+            content: "";
+            margin-left: $col;
+        }
+
+        &[aria-sort='ascending']:after {
+            @extend .icon;
+            @extend .icon-arrow-down--dark-small;
+            position: absolute;
+            content: "";
+            margin-left: $col;
+        }
 	}
 
 	tbody {
@@ -92,22 +108,22 @@ dd {
 		margin-bottom: -1px;
 	}
 
-	.sorted {
-
-		&-asc:after {
-			@extend .icon;
-			@extend .icon-arrow-up--dark-small;
-			position: absolute;
-			content: "";
-			margin-left: $col;
-		}
-
-		&-desc:after {
-			@extend .icon;
-			@extend .icon-arrow-down--dark-small;
-			position: absolute;
-			content: "";
-			margin-left: $col;
-		}
-	}
+    //.sorted {
+    //
+	//	&-asc:after {
+	//		@extend .icon;
+	//		@extend .icon-arrow-up--dark-small;
+	//		position: absolute;
+	//		content: "";
+	//		margin-left: $col;
+	//	}
+     //
+	//	&-desc:after {
+	//		@extend .icon;
+	//		@extend .icon-arrow-down--dark-small;
+	//		position: absolute;
+	//		content: "";
+	//		margin-left: $col;
+	//	}
+	//}
 }
