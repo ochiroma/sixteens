@@ -127,10 +127,12 @@ var renderLineChart = function(timeseries) {
 		if (currentDisplay === 'chart') {
 			hide(table);
 			renderChart();
+			timeseriesAccessibiliyAttrs();
 		} else {
 			hide(chartContainer);
 			sortArray = []; //Remove any previously selected data from array when new frequency/time period selected
 			renderTable();
+			timeseriesAccessibiliyAttrs(true);
 
 			sortStyling('reset'); //Reset sort styling so arrows on default sorting order
 			inverse = true; //Used to default table sort function to correct order
@@ -605,6 +607,7 @@ var renderLineChart = function(timeseries) {
 			if (dropdown.hasClass('chart-area__controls__custom--active')) {
 				// console.log('closing custom dd');
 				dropdown.removeClass('chart-area__controls__custom--active');
+				dropdown.attr('aria-hidden', 'true');
 				dropdown.stop(true, true).slideUp();
 			} else {
 				// console.log('opening custom dd');
@@ -613,6 +616,7 @@ var renderLineChart = function(timeseries) {
 				dropdown.hide();
 				dropdown.addClass('chart-area__controls__custom--active');
 				dropdown.stop(true, true).slideDown();
+				dropdown.attr('aria-hidden', 'false');
 
 			}
 		}
