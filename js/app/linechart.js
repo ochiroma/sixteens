@@ -843,6 +843,27 @@ $(function() {
 
 // });
 
+$(function() {
+
+	$('.btn--chart-control--download').on( "keyup mouseup", function() {
+		var $activeButton = $(this), // button clicked
+			$activeControl = $('#' + $activeButton.find('input').attr('id') + '-controls'), //control (button) block related to clicked button
+			$buttons = $('.btn--chart-control--download'),
+			$controls = $('.chart-area__controls__download');
+
+		// remove active class from all buttons
+		$buttons.removeClass('btn--secondary--active');
+
+		// set all controls to hidden
+		$controls.addClass('js-hidden');
+
+		// set active class on clicked button and unhide correct controls (button) block
+		$activeButton.addClass('btn--secondary--active');
+		$activeControl.removeClass('js-hidden');
+	});
+
+});
+
 function filterFocus() {
 	var $filters = $('.timeseries__filters input[type="radio"]'),
 		$radioGroup,
