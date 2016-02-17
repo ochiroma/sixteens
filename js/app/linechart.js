@@ -473,21 +473,18 @@ var renderLineChart = function(timeseries) {
 				$('#title-type').text(displayTitle);
 
 
-				//Bind click event handlebars to table headings
-				var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header');
+				// Find sortable table
+				var tableHeaders = $('.js-table-sort thead').find('.js-table-sort__header'),
+					tableBtn = tableHeaders.find('button');
 
-				//Add cursor on hover of to sortable headers
-				$(tableHeaders).css('cursor', 'pointer');
-
-				//Get header click and assign which column to sort by
-				$(tableHeaders).off().click(function() {
+				//Bind header click and assign which column to sort by
+				tableBtn.off().click(function() {
 
 					//Store 'this' to pass to sort styling function
 					var $this = $(this);
 
 					//Change styling of headers, so arrow displays correctly
-					sortMarkup($this);
-
+					sortMarkup($this.closest(tableHeaders));
 
 					//Find which column has been clicked
 					var column = $this.text();
