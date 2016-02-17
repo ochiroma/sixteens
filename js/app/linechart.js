@@ -855,11 +855,11 @@ $(function() {
 		$buttons.removeClass('btn--secondary--active');
 
 		// set all controls to hidden
-		$controls.addClass('js-hidden');
+		$controls.attr('aria-hidden', 'true');
 
 		// set active class on clicked button and unhide correct controls (button) block
 		$activeButton.addClass('btn--secondary--active');
-		$activeControl.removeClass('js-hidden');
+		$activeControl.attr('aria-hidden', 'false');
 	});
 
 });
