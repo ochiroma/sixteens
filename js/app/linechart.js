@@ -134,7 +134,7 @@ var renderLineChart = function(timeseries) {
 			renderTable();
 			timeseriesAccessibiliyAttrs(true);
 
-			sortStyling('reset'); //Reset sort styling so arrows on default sorting order
+			sortMarkup('reset'); //Reset sort styling so arrows on default sorting order
 			inverse = true; //Used to default table sort function to correct order
 		}
 	}
@@ -456,7 +456,7 @@ var renderLineChart = function(timeseries) {
 						changeFrequency(frequency);
 					});
 				}
-			})
+			});
 
 			toggleSelectedButton();
 		}
@@ -486,7 +486,7 @@ var renderLineChart = function(timeseries) {
 					var $this = $(this);
 
 					//Change styling of headers, so arrow displays correctly
-					sortStyling($this);
+					sortMarkup($this);
 
 
 					//Find which column has been clicked

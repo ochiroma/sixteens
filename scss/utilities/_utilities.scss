@@ -353,15 +353,15 @@
 //Text transform
 
 .lowercase {
-    text-transform: lowercase !important;
+    text-transform: lowercase;
 }
 
 .uppercase {
-    text-transform: uppercase !important;
+    text-transform: uppercase;
 }
 
 .capitalise:first-letter {
-    text-transform: capitalize !important;
+    text-transform: capitalize;
 }
 
 .text-center {
