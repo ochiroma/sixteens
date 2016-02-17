@@ -23,13 +23,14 @@
     }
 
     dl, dt, dt {
-        color: white;
+        color: $white;
     }
 
 }
 
 .grey-hover {
     background-color: $ship-gray;
+    color: $white;
 
     &:hover {
         cursor: pointer;
@@ -76,6 +77,11 @@
             z-index: 999;
             position: absolute;
             background: $silver-light;
+        }
+
+        svg {
+            position: absolute;
+            width: 90%;
         }
     }
 
