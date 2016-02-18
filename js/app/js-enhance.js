@@ -49,6 +49,7 @@ $(function() {
         jsEnhanceScrollToSection();
 
         jsEnhanceMobileTables();
+        jsEnhanceMobileCharts();
         jsEnhanceHover();
         jsEnhanceRemoveFocus();
         jsEnhanceChartFocus();
@@ -465,6 +466,31 @@ function jsEnhanceMobileTables() {
         // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
         // $(this).closest('.markdown-table-wrap').hide();
         $(this).closest('.markdown-table-wrap').css('display', '');
+    });
+}
+
+function jsEnhanceMobileCharts() {
+    //<span class=" icon-table" role="presentation"></span>
+    // $('markdown-table-container').addClass('table-holder-mobile');
+
+    $('<div class="markdown-chart-overlay"></div>').insertAfter($('.markdown-chart'));
+    $('<button class="btn btn--mobile-chart-show">View chart</button>').insertAfter($('.markdown-chart'));
+    //$('<button class="btn btn--mobile-chart-hide">Close chart</button>').insertAfter($('.markdown-chart div'));
+
+    $('.btn--mobile-chart-show').click(function(e) {
+        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
+        var $img = $(this).closest('.markdown-chart-container').find('.download-chart-image');
+        $img = "<img src='"+$img.attr('href')+"&width=800' />"
+        var $content = '<button class="btn btn--mobile-chart-hide">Close chart</button>' + $img;
+
+        $(this).closest('.markdown-chart-container').find('.markdown-chart-overlay').html($content);
+        $(this).closest('.markdown-chart-container').find('.markdown-chart-overlay').show();
+    });
+
+    $('.markdown-chart-overlay, .btn--mobile-chart-hide').on('click', function(e) {
+        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
+        //$(this).hide();
+        $(this).css('display', '');
     });
 }
 
