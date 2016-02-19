@@ -583,8 +583,8 @@ function jsEnhanceExternalLinks() {
 
         });
     }
-    eachAnchor('a[href^="http://"]:not([href*="loop11.com"])');
-    eachAnchor('a[href^="https://"]:not([href*="loop11.com"])');
+    eachAnchor('a[href^="http://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
+    eachAnchor('a[href^="https://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
 }
 
 
