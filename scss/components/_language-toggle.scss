@@ -19,7 +19,7 @@
 
     // Styles for js enhanced <select> form
     &--js {
-        width: ($col * 10);
+        min-width: ($col * 10);
 
         &__label {
             font-size: 12px;
@@ -38,6 +38,10 @@
             -moz-appearance: none; /* Removes Default Firefox style*/
             text-indent: 0.01px; /* Removes default arrow from firefox*/
             text-overflow: "";  /*Removes default arrow from firefox*/
+            
+            &::-ms-expand {
+                display: none;
+            }
 
             &:hover {
                 cursor: pointer;
