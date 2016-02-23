@@ -28,7 +28,7 @@
         &__select {
             padding-bottom: 2px; // Fixes text being 1 pixel below label text
             float: right;
-            background-color: inherit;
+            background-color: $iron-light;
             border: 0 !important;
             font-size: 12px;
             height: 24px;
@@ -39,8 +39,16 @@
             text-indent: 0.01px; /* Removes default arrow from firefox*/
             text-overflow: "";  /*Removes default arrow from firefox*/
             
+            // IE10+ fixes
             &::-ms-expand {
                 display: none;
+            }
+            &::-ms-value {
+                background-color: $iron-light;
+            }
+            &:focus::-ms-value {
+                color: $matisse;
+                background-color: $iron-light;
             }
 
             &:hover {
