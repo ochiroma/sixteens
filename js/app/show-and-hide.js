@@ -3,7 +3,7 @@
  */
 
 
-//Toggles between showing and hiding content on click. Replacement for accordion from previous pattern library
+//Toggles between showing and hiding content on click. Possible replacement for accordion.js in the future.
 
 // Credit goes to Heydon Pickering (http://heydonworks.com/practical_aria_examples/#progressive-collapsibles)
 
