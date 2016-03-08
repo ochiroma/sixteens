@@ -45,6 +45,7 @@
         overflow: hidden;
 
         &-input {
+            left: -99999px;
             position: absolute;
             z-index: -1;
         }
@@ -72,8 +73,10 @@
                 cursor: pointer;
             }
 
-            &--active {
-                background: $active;
+            @if $old-ie == true {
+                &--active {
+                    background: $active;
+                }
             }
 
             &--disabled,
@@ -85,14 +88,12 @@
             }
         }
 
-        //Select links
-
-        //input:checked+label {
-        //    background: $active;
-        //}
+        //Selected radio button
+        input:checked+label {
+            background: $active;
+        }
 
         //Disabled links
-
         //input:disabled+label {
         //    cursor: not-allowed;
         //    background: $iron;

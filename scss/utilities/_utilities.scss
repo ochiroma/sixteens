@@ -403,6 +403,22 @@
     }
 }
 
+.text-left {
+    text-align: left;
+
+    &--md {
+        @include breakpoint(md) {
+            text-align: left;
+        }
+    }
+
+    &--lg {
+        @include breakpoint(lg) {
+            text-align: left;
+        }
+    }
+}
+
 .underline-link {
     text-decoration: underline !important;
 }
