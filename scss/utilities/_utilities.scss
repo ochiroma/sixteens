@@ -260,7 +260,7 @@
 
 // javascript
 
-.no-js .nojs-hidden, .nojs-hidden {
+.no-js .nojs--hide, .nojs--hide {
   display: none !important;
 }
 
@@ -268,9 +268,13 @@
   display: none !important;
 }
 
-.js-enhance--show {
+.js--show {
     display: none;
 }
+
+//.js-enhance--show {
+//    display: none;
+//}
 
 
 // clear

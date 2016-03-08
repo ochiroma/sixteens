@@ -22,19 +22,19 @@ $(function() {
 
 
     function jsEnhance() {
-        jsEnhanceShow();
-        $('.js-enhance--hide').hide();
-        $('.nojs-hidden').removeClass('nojs-hidden');
+        //jsEnhanceShow();
+        //$('.js-enhance--hide').hide();
+        //$('.nojs-hidden').removeClass('nojs-hidden');
 
         var path = $('#pagePath').text();
 
         //The order of these functions being called is important...
         jsEnhanceULNavToSelectNav();
-        jsEnhanceClickableDiv();
+        //jsEnhanceClickableDiv();
         jsEnhanceLinechart();
         jsEnhanceSparkline();
         jsEnhancePrint();
-        jsEnhanceNumberSeparator();
+        //jsEnhanceNumberSeparator();
         jsEnhanceMarkdownCharts(path);
 
         jsEnhancePrintCompendium();
@@ -69,9 +69,9 @@ $(function() {
 });
 
 
-function jsEnhanceShow() {
-    $('.js-enhance--show').show();
-}
+//function jsEnhanceShow() {
+//    $('.js-enhance--show').show();
+//}
 
 function jsEnhanceULNavToSelectNav() {
     $('.js-enhance--ul-to-select').each(function() {
@@ -126,116 +126,116 @@ function jsEnhanceULNavToSelectNav() {
     });
 }
 
-function jsEnhanceClickableDiv() {
-    // get any content with clickable-wrap class
-    var clickableDiv = $('.clickable-wrap');
-    var hoverHashTable = {};
-    hoverHashTable['tiles__item'] = ['tiles__item--hover'];
-    hoverHashTable['tiles__item--list-type'] = ['tiles__item--list-type-hover'];
-    hoverHashTable['tiles__item--list-type-simple'] = ['tiles__item--list-type-simple-hover'];
-    hoverHashTable['tiles__item--nav-type-fixed'] = ['tiles__item--nav-type-fixed-hover'];
-    hoverHashTable['tiles__content'] = ['tiles__content--hover'];
-    hoverHashTable['sparkline-holder'] = ['sparkline-holder--hover'];
-    hoverHashTable['image-holder'] = ['image-holder--hover'];
-    hoverHashTable['tiles__image--headline'] = ['tiles__image--headline-hover'];
-    hoverHashTable['tiles__image--headline-sparkline'] = ['tiles__image--headline-sparkline-hover'];
-    hoverHashTable['tiles__title-dt'] = ['tiles__title-dt--hover'];
-    hoverHashTable['tiles__title-h3'] = ['tiles__title-h3--hover'];
-    hoverHashTable['tiles__title-h2'] = ['tiles__title-h2--hover'];
-    hoverHashTable['tiles__title-h2--home'] = ['tiles__title-h2--home-hover'];
-    hoverHashTable['tiles__title-h3--nav'] = ['tiles__title-h3--nav-hover'];
-    hoverHashTable['tiles__title-h2--nav'] = ['tiles__title-h2--nav-hover'];
-    hoverHashTable['tiles__title-h4'] = ['tiles__title-h4--hover'];
-    hoverHashTable['tiles__content'] = ['tiles__content--hover'];
-    hoverHashTable['tiles__content--nav'] = ['tiles__content--nav-hover'];
-    hoverHashTable['tiles__extra'] = ['tiles__extra--hover'];
-    hoverHashTable['tiles__image--search-sparkline'] = ['tiles__image--search-sparkline-hover'];
-
-    // on click grab the first link of the content and go there
-    $(clickableDiv).on('mousedown touchstart', function() { // using mousedown & touchstart as a quick fix to keyboard accessibility problems TODO switch all elements using this function to use jsHoverEnhance  and utility tiles instead.
-        var link = $('a:first', this).attr('href');
-        window.location = link;
-    });
-
-    // on hover change the cursor so that it looks clickable
-    $(clickableDiv).css({
-        'cursor': 'pointer'
-    });
-
-    //add class to change background colour
-    function addHoverClass(elem) {
-        $.each(hoverHashTable, function(className, hoverClassName) {
-            $(elem).find('.' + className).addClass(hoverClassName[0]);
-        });
-    }
-
-    //remove class to toggle background to origin colour
-    function removeHoverClass(elem) {
-        $.each(hoverHashTable, function(className, hoverClassName) {
-            $(elem).find('.' + hoverClassName[0]).removeClass(hoverClassName[0]);
-        });
-    }
-
-    // change the background colour on hover
-    $(clickableDiv).hover(function() {
-            addHoverClass(this);
-        },
-        function() {
-            removeHoverClass(this);
-        }
-    );
-
-    // change the background colour on focus
-    $('.tiles__item--nav-type-fixed a, .tiles__item--nav-type a, .tiles__title-dt a, .tiles__title a').focus(function() {
-        if ($(this).parent(clickableDiv)) {
-            var elem = $(this).closest(clickableDiv);
-            addHoverClass(elem);
-
-            $(this).focusout(function() {
-                removeHoverClass(elem);
-            });
-        }
-    });
-
-
-
-    //var anchor = $(clickableDiv).find('a:first');
-    //$(clickableDiv).focus(function () {
-    //        var elem = $(this);
-    //        console.log('focus now');
-    //        addHoverClass(elem);
-    //    },
-    //    function () {
-    //        var elem = $(this);
-    //        console.log('stop focus');
-    //        removeHoverClass(elem);
-    //    }
-    //);
-
-    //$(clickableDiv).hover(function() {
-    //  var elem = $(this);
-    //    console.log('elem = ' + elem);
-    //  $.each(hoverHashTable, function(className, hoverClassName) {
-    //      // $(elem).find('.'+className).css('background-color', 'red');
-    //      $(elem).find('.'+className).addClass(hoverClassName[0]);
-    //  });
-    //}, function() {
-    //  var elem = $(this);
-    //    console.log('elem = ' + elem);
-    //  $.each(hoverHashTable, function(className, hoverClassName) {
-    //      $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
-    //  });
-    //});
-
-    // check if there's a nav--block-landing to remove :after class
-    //   if ($('.nav--block-landing')) {
-    //       $(clickableDiv).hover(function() {
-    //         $('.nav--block-landing').addClass('nav--block-landing--remove');
-    //       }, function() {
-    //         $('.nav--block-landing').removeClass('nav--block-landing--remove');
-    //       });
-    //     }
-}
+//function jsEnhanceClickableDiv() {
+//    // get any content with clickable-wrap class
+//    var clickableDiv = $('.clickable-wrap');
+//    var hoverHashTable = {};
+//    hoverHashTable['tiles__item'] = ['tiles__item--hover'];
+//    hoverHashTable['tiles__item--list-type'] = ['tiles__item--list-type-hover'];
+//    hoverHashTable['tiles__item--list-type-simple'] = ['tiles__item--list-type-simple-hover'];
+//    hoverHashTable['tiles__item--nav-type-fixed'] = ['tiles__item--nav-type-fixed-hover'];
+//    hoverHashTable['tiles__content'] = ['tiles__content--hover'];
+//    hoverHashTable['sparkline-holder'] = ['sparkline-holder--hover'];
+//    hoverHashTable['image-holder'] = ['image-holder--hover'];
+//    hoverHashTable['tiles__image--headline'] = ['tiles__image--headline-hover'];
+//    hoverHashTable['tiles__image--headline-sparkline'] = ['tiles__image--headline-sparkline-hover'];
+//    hoverHashTable['tiles__title-dt'] = ['tiles__title-dt--hover'];
+//    hoverHashTable['tiles__title-h3'] = ['tiles__title-h3--hover'];
+//    hoverHashTable['tiles__title-h2'] = ['tiles__title-h2--hover'];
+//    hoverHashTable['tiles__title-h2--home'] = ['tiles__title-h2--home-hover'];
+//    hoverHashTable['tiles__title-h3--nav'] = ['tiles__title-h3--nav-hover'];
+//    hoverHashTable['tiles__title-h2--nav'] = ['tiles__title-h2--nav-hover'];
+//    hoverHashTable['tiles__title-h4'] = ['tiles__title-h4--hover'];
+//    hoverHashTable['tiles__content'] = ['tiles__content--hover'];
+//    hoverHashTable['tiles__content--nav'] = ['tiles__content--nav-hover'];
+//    hoverHashTable['tiles__extra'] = ['tiles__extra--hover'];
+//    hoverHashTable['tiles__image--search-sparkline'] = ['tiles__image--search-sparkline-hover'];
+//
+//    // on click grab the first link of the content and go there
+//    $(clickableDiv).on('mousedown touchstart', function() { // using mousedown & touchstart as a quick fix to keyboard accessibility problems TODO switch all elements using this function to use jsHoverEnhance  and utility tiles instead.
+//        var link = $('a:first', this).attr('href');
+//        window.location = link;
+//    });
+//
+//    // on hover change the cursor so that it looks clickable
+//    $(clickableDiv).css({
+//        'cursor': 'pointer'
+//    });
+//
+//    //add class to change background colour
+//    function addHoverClass(elem) {
+//        $.each(hoverHashTable, function(className, hoverClassName) {
+//            $(elem).find('.' + className).addClass(hoverClassName[0]);
+//        });
+//    }
+//
+//    //remove class to toggle background to origin colour
+//    function removeHoverClass(elem) {
+//        $.each(hoverHashTable, function(className, hoverClassName) {
+//            $(elem).find('.' + hoverClassName[0]).removeClass(hoverClassName[0]);
+//        });
+//    }
+//
+//    // change the background colour on hover
+//    $(clickableDiv).hover(function() {
+//            addHoverClass(this);
+//        },
+//        function() {
+//            removeHoverClass(this);
+//        }
+//    );
+//
+//    // change the background colour on focus
+//    $('.tiles__item--nav-type-fixed a, .tiles__item--nav-type a, .tiles__title-dt a, .tiles__title a').focus(function() {
+//        if ($(this).parent(clickableDiv)) {
+//            var elem = $(this).closest(clickableDiv);
+//            addHoverClass(elem);
+//
+//            $(this).focusout(function() {
+//                removeHoverClass(elem);
+//            });
+//        }
+//    });
+//
+//
+//
+//    //var anchor = $(clickableDiv).find('a:first');
+//    //$(clickableDiv).focus(function () {
+//    //        var elem = $(this);
+//    //        console.log('focus now');
+//    //        addHoverClass(elem);
+//    //    },
+//    //    function () {
+//    //        var elem = $(this);
+//    //        console.log('stop focus');
+//    //        removeHoverClass(elem);
+//    //    }
+//    //);
+//
+//    //$(clickableDiv).hover(function() {
+//    //  var elem = $(this);
+//    //    console.log('elem = ' + elem);
+//    //  $.each(hoverHashTable, function(className, hoverClassName) {
+//    //      // $(elem).find('.'+className).css('background-color', 'red');
+//    //      $(elem).find('.'+className).addClass(hoverClassName[0]);
+//    //  });
+//    //}, function() {
+//    //  var elem = $(this);
+//    //    console.log('elem = ' + elem);
+//    //  $.each(hoverHashTable, function(className, hoverClassName) {
+//    //      $(elem).find('.'+hoverClassName[0]).removeClass(hoverClassName[0]);
+//    //  });
+//    //});
+//
+//    // check if there's a nav--block-landing to remove :after class
+//    //   if ($('.nav--block-landing')) {
+//    //       $(clickableDiv).hover(function() {
+//    //         $('.nav--block-landing').addClass('nav--block-landing--remove');
+//    //       }, function() {
+//    //         $('.nav--block-landing').removeClass('nav--block-landing--remove');
+//    //       });
+//    //     }
+//}
 
 
 function jsEnhanceLinechart() {
@@ -360,18 +360,18 @@ function jsEnhancePrint() {
 }
 
 
-function jsEnhanceNumberSeparator() {
-    // Adapted from http://stackoverflow.com/questions/14075014/jquery-function-to-to-format-number-with-commas-and-decimal
-    $(".stat__figure-enhance").each(function(index) {
-        //console.log( index + ": " + $( this ).text() );
-        var number = $(this).text();
-        var n = number.toString().split(".");
-        //Comma-fies the first part
-        n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        // //Combines the two sections
-        $(this).text(n.join("."));
-    });
-}
+//function jsEnhanceNumberSeparator() {
+//    // Adapted from http://stackoverflow.com/questions/14075014/jquery-function-to-to-format-number-with-commas-and-decimal
+//    $(".stat__figure-enhance").each(function(index) {
+//        //console.log( index + ": " + $( this ).text() );
+//        var number = $(this).text();
+//        var n = number.toString().split(".");
+//        //Comma-fies the first part
+//        n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//        // //Combines the two sections
+//        $(this).text(n.join("."));
+//    });
+//}
 
 function jsEnhancePrintCompendium() {
     $('#jsEnhancePrintCompendium').click(function(e) {
