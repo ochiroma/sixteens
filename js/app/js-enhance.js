@@ -37,7 +37,7 @@ $(function() {
         //jsEnhanceNumberSeparator();
         jsEnhanceMarkdownCharts(path);
 
-        jsEnhancePrintCompendium();
+        //jsEnhancePrintCompendium();
         jsEnhanceBoxHeight();
         jsEnhanceBoxHeightResize();
         //jsEnhanceTriggerAnalyticsEvent();
@@ -373,36 +373,36 @@ function jsEnhanceMarkdownCharts(path) {
 //    });
 //}
 
-function jsEnhancePrintCompendium() {
-    $('#jsEnhancePrintCompendium').click(function(e) {
-        addLoadingOverlay();
-
-        $('.chapter').each(function(index) {
-            // Synchronously adds div with id to get around Ajax working asynchronously
-            $('main').append("<div id='compendium-print" + index + "'></div>");
-
-            var url = $(this).attr('href');
-
-            // Set what content from each page we want to retrieve for printing
-            var childIntro = ('.page-intro');
-            var childContent = ('.page-content');
-
-            $.get(url, function(data) {
-                $(data).find(childIntro).addClass('print--break-before').appendTo('#compendium-print' + index);
-                $(data).find(childContent).appendTo('#compendium-print' + index);
-            });
-
-
-            e.preventDefault();
-
-        });
-
-        $(document).ajaxStop(function() {
-            window.print();
-            location.reload();
-        });
-    });
-}
+//function jsEnhancePrintCompendium() {
+//    $('#jsEnhancePrintCompendium').click(function(e) {
+//        addLoadingOverlay();
+//
+//        $('.chapter').each(function(index) {
+//            // Synchronously adds div with id to get around Ajax working asynchronously
+//            $('main').append("<div id='compendium-print" + index + "'></div>");
+//
+//            var url = $(this).attr('href');
+//
+//            // Set what content from each page we want to retrieve for printing
+//            var childIntro = ('.page-intro');
+//            var childContent = ('.page-content');
+//
+//            $.get(url, function(data) {
+//                $(data).find(childIntro).addClass('print--break-before').appendTo('#compendium-print' + index);
+//                $(data).find(childContent).appendTo('#compendium-print' + index);
+//            });
+//
+//
+//            e.preventDefault();
+//
+//        });
+//
+//        $(document).ajaxStop(function() {
+//            window.print();
+//            location.reload();
+//        });
+//    });
+//}
 
 //Set adjacent boxes to same height (eg data and headlines on T3). Flexbox not suitable for this case.
 function jsEnhanceBoxHeight() {
