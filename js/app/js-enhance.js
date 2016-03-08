@@ -32,8 +32,8 @@ $(function() {
         //jsEnhanceULNavToSelectNav();
         //jsEnhanceClickableDiv();
         //jsEnhanceLinechart();
-        jsEnhanceSparkline();
-        jsEnhancePrint();
+        //jsEnhanceSparkline();
+        //jsEnhancePrint();
         //jsEnhanceNumberSeparator();
         jsEnhanceMarkdownCharts(path);
 
@@ -257,24 +257,24 @@ $(function() {
 //    });
 //}
 
-function jsEnhanceSparkline() {
-
-    var chartContainer = $(".sparkline");
-    if (!chartContainer.length) {
-        return;
-    }
-    chartContainer.each(function() {
-        var $this = $(this);
-        var uri = $this.data('uri');
-        $this.empty();
-        $.getJSON(uri + '/data?series', function(timeseries) {
-            // console.log("Successfuly read timseries data");
-            renderSparkline(timeseries, $this);
-        }).fail(function(d, textStatus, error) {
-            // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
-        });
-    });
-}
+//function jsEnhanceSparkline() {
+//
+//    var chartContainer = $(".sparkline");
+//    if (!chartContainer.length) {
+//        return;
+//    }
+//    chartContainer.each(function() {
+//        var $this = $(this);
+//        var uri = $this.data('uri');
+//        $this.empty();
+//        $.getJSON(uri + '/data?series', function(timeseries) {
+//            // console.log("Successfuly read timseries data");
+//            renderSparkline(timeseries, $this);
+//        }).fail(function(d, textStatus, error) {
+//            // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
+//        });
+//    });
+//}
 
 //TODO No longer used - test and then delete
 //function stripTrailingSlash(str) {
@@ -352,12 +352,12 @@ function jsEnhanceMarkdownCharts(path) {
     });
 }
 
-function jsEnhancePrint() {
-    $('.jsEnhancePrint').click(function() {
-        window.print();
-        return false;
-    });
-}
+//function jsEnhancePrint() {
+//    $('.jsEnhancePrint').click(function() {
+//        window.print();
+//        return false;
+//    });
+//}
 
 
 //function jsEnhanceNumberSeparator() {
