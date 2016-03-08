@@ -29,9 +29,9 @@ $(function() {
         var path = $('#pagePath').text();
 
         //The order of these functions being called is important...
-        jsEnhanceULNavToSelectNav();
+        //jsEnhanceULNavToSelectNav();
         //jsEnhanceClickableDiv();
-        jsEnhanceLinechart();
+        //jsEnhanceLinechart();
         jsEnhanceSparkline();
         jsEnhancePrint();
         //jsEnhanceNumberSeparator();
@@ -73,58 +73,58 @@ $(function() {
 //    $('.js-enhance--show').show();
 //}
 
-function jsEnhanceULNavToSelectNav() {
-    $('.js-enhance--ul-to-select').each(function() {
-        var labeltext = $('p:first', this).text();
-        var selectoptions = $('ul:first li a', this);
-
-
-        //IE9 dosent like this...
-        // var label = $('<label>', {
-        //     class: 'definition-emphasis',
-        //     text: labeltext
-        // });
-        var label = $(document.createElement('label'));
-        label.attr('class', 'definition-emphasis');
-        label.attr('text', labeltext);
-
-
-
-        //$(document.createElement('select')) is faster
-        // var newselect = $('<select>', {
-        //     class: 'field field--spaced'
-        // });
-        var newselect = $(document.createElement('select'));
-        newselect.attr('class', 'field field--spaced max-width');
-
-        // convert to lower case and remove colon from end of string
-        labeltext = labeltext.toLowerCase().substring(0, labeltext.length - 1);
-
-        newselect.append($('<option>', {
-            value: '',
-            text: 'Select a  ' + labeltext
-        }));
-
-        newselect.change(function() {
-            var location = $(this).find('option:selected').val();
-            if (location) {
-                window.location = location;
-            }
-        });
-
-        $.each(selectoptions, function(i, item) {
-            newselect.append($('<option>', {
-                value: $(this).attr('href'),
-                text: $(this).text()
-            }));
-        });
-
-        label.append(newselect);
-
-        $(this).html(label);
-
-    });
-}
+//function jsEnhanceULNavToSelectNav() {
+//    $('.js-enhance--ul-to-select').each(function() {
+//        var labeltext = $('p:first', this).text();
+//        var selectoptions = $('ul:first li a', this);
+//
+//
+//        //IE9 dosent like this...
+//        // var label = $('<label>', {
+//        //     class: 'definition-emphasis',
+//        //     text: labeltext
+//        // });
+//        var label = $(document.createElement('label'));
+//        label.attr('class', 'definition-emphasis');
+//        label.attr('text', labeltext);
+//
+//
+//
+//        //$(document.createElement('select')) is faster
+//        // var newselect = $('<select>', {
+//        //     class: 'field field--spaced'
+//        // });
+//        var newselect = $(document.createElement('select'));
+//        newselect.attr('class', 'field field--spaced max-width');
+//
+//        // convert to lower case and remove colon from end of string
+//        labeltext = labeltext.toLowerCase().substring(0, labeltext.length - 1);
+//
+//        newselect.append($('<option>', {
+//            value: '',
+//            text: 'Select a  ' + labeltext
+//        }));
+//
+//        newselect.change(function() {
+//            var location = $(this).find('option:selected').val();
+//            if (location) {
+//                window.location = location;
+//            }
+//        });
+//
+//        $.each(selectoptions, function(i, item) {
+//            newselect.append($('<option>', {
+//                value: $(this).attr('href'),
+//                text: $(this).text()
+//            }));
+//        });
+//
+//        label.append(newselect);
+//
+//        $(this).html(label);
+//
+//    });
+//}
 
 //function jsEnhanceClickableDiv() {
 //    // get any content with clickable-wrap class
@@ -238,24 +238,24 @@ function jsEnhanceULNavToSelectNav() {
 //}
 
 
-function jsEnhanceLinechart() {
-
-    var chartContainer = $(".linechart");
-    if (!chartContainer.length) {
-        return;
-    }
-
-    chartContainer.each(function() {
-        var $this = $(this);
-        var uri = $this.data('uri');
-        $this.empty();
-        $.getJSON(uri + '/data', function(timeseries) {
-            renderLineChart(timeseries);
-        }).fail(function(d, textStatus, error) {
-            // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
-        });
-    });
-}
+//function jsEnhanceLinechart() {
+//
+//    var chartContainer = $(".linechart");
+//    if (!chartContainer.length) {
+//        return;
+//    }
+//
+//    chartContainer.each(function() {
+//        var $this = $(this);
+//        var uri = $this.data('uri');
+//        $this.empty();
+//        $.getJSON(uri + '/data', function(timeseries) {
+//            renderLineChart(timeseries);
+//        }).fail(function(d, textStatus, error) {
+//            // console.error("Failed reading timseries, status: " + textStatus + ", error: " + error)
+//        });
+//    });
+//}
 
 function jsEnhanceSparkline() {
 

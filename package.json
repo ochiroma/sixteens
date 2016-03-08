@@ -4,7 +4,7 @@
 	"description": "Pattern library for ONS website",
 	"main": "",
 	"config": {
-        "js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/thirdparty/js.cookie-2.0.4.min.js js/thirdparty/pym.min.js js/app/viewport-size.js js/app/linechart.js js/app/nav.js js/app/sparkline.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/js-enhance.js js/app/accessibility-enhance.js"
+        "js" : "js/thirdparty/jquery.js js/thirdparty/doubletaptogo.js js/app.js js/app/display.js js/thirdparty/highcharts.js js/thirdparty/highcharts-more.js js/thirdparty/moment.js js/thirdparty/bootstrap-affix.js js/thirdparty/jquery.minical.js js/thirdparty/js.cookie-2.0.4.min.js js/thirdparty/pym.min.js js/app/viewport-size.js js/app/nav.js js/app/sparkline.js js/app/table.js js/app/show-and-hide.js js/app/sticky-scroll.js js/app/date-picker.js js/app/table-of-contents.js js/app/language-toggle.js js/app/mobile-filters.js js/app/js-enhance.js js/app/accessibility-enhance.js"
     },
 	"scripts": {
 		"clean": "",
