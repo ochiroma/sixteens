@@ -38,8 +38,8 @@ $(function() {
         jsEnhanceMarkdownCharts(path);
 
         //jsEnhancePrintCompendium();
-        jsEnhanceBoxHeight();
-        jsEnhanceBoxHeightResize();
+        //jsEnhanceBoxHeight();
+        //jsEnhanceBoxHeightResize();
         //jsEnhanceTriggerAnalyticsEvent();
         jsEnhanceDownloadAnalytics(path);
         jsEnhanceAnchorAnalytics();
@@ -405,19 +405,18 @@ function jsEnhanceMarkdownCharts(path) {
 //}
 
 //Set adjacent boxes to same height (eg data and headlines on T3). Flexbox not suitable for this case.
-function jsEnhanceBoxHeight() {
-    if ($(window).width() > 608) {
-        var highestBox = 0;
-        $('.equal-height').each(function() {
-
-            if ($(this).height() > highestBox) {
-                highestBox = $(this).height();
-            }
-        });
-
-        $('.equal-height').height(highestBox);
-    }
-}
+//function jsEnhanceBoxHeight() {
+//    if ($('body').is('.viewport-md, .viewport-lg')) {
+//        var highestBox = 0,
+//            element = $('.js-equal-height');
+//        element.each(function() {
+//            if ($(this).height() > highestBox) {
+//                highestBox = $(this).height();
+//            }
+//        });
+//        element.height(highestBox);
+//    }
+//}
 
 //Resets the box heights on resize
 function jsEnhanceBoxHeightResize() {
