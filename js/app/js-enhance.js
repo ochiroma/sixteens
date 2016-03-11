@@ -35,7 +35,7 @@ $(function() {
         //jsEnhanceSparkline();
         //jsEnhancePrint();
         //jsEnhanceNumberSeparator();
-        jsEnhanceMarkdownCharts(path);
+        //jsEnhanceMarkdownCharts();
 
         //jsEnhancePrintCompendium();
         //jsEnhanceBoxHeight();
@@ -48,8 +48,8 @@ $(function() {
         //jsEnhanceTableOfContents();
         jsEnhanceScrollToSection();
 
-        jsEnhanceMobileTables();
-        jsEnhanceMobileCharts();
+        //jsEnhanceMobileTables();
+        //jsEnhanceMobileCharts();
         jsEnhanceHover();
         jsEnhanceRemoveFocus();
         jsEnhanceChartFocus();
@@ -284,73 +284,73 @@ $(function() {
 //    return str;
 //}
 
-function jsEnhanceMarkdownCharts(path) {
-
-    Highcharts.setOptions({
-        lang: {
-            thousandsSep: ','
-        }
-    });
-
-    var chartContainer = $(".markdown-chart");
-    if (!chartContainer.length) {
-        return;
-    }
-
-    chartContainer.each(function(i) {
-        var $this = $(this);
-        var id = $this.attr('id');
-        var chartId = $this.data('filename');
-        var chartWidth = $this.width();
-        var chartUri = $this.data('uri'); //= $this.data('uri');
-        $this.empty();
-
-        //Read chart configuration from server using container's width
-        var jqxhr = $.get("/chartconfig", {
-                uri: chartUri,
-                width: chartWidth
-            },
-            function() {
-                var chartConfig = window["chart-" + chartId];
-                if (chartConfig) {
-                    // Build chart from config endpoint
-                    chartConfig.chart.renderTo = id;
-                    new Highcharts.Chart(chartConfig);
-                    delete window["chart-" + chartId]; //clear data from window object after rendering
-
-
-                //    // Insert hidden table after chart for screen reader alternative
-                //    var series = chartConfig.series,
-                //        dataLength = series[0].data.length,
-                //        table = '<table id="chart-table-' + id + '" class="markdown-chart__table"><caption>Table representing data in figure ' + (i+1) + '</caption><thead><tr><tbody>',
-                //        headers,
-                //        th,
-                //        td;
-                //
-                //    console.log(chartConfig);
-                //
-                //    // Insert table markup after chart
-                //    $(table).insertAfter($this);
-                //
-                //    // Add table row for each td in series
-                //    for (i = 0; i < dataLength; i++) {
-                //        $('#chart-table-' + id + ' tbody').append('<tr>');
-                //    }
-                //
-                //    // Loop through each series add insert th and td into empty table
-                //    $(series).each(function() {
-                //        th = '<th>' + $(this)[0].name + '</th scope="col">';
-                //        headers = $('#chart-table-' + id + ' thead tr').append(th);
-                //
-                //        $($(this)[0].data).each(function(index) {
-                //            $('#chart-table-' + id + ' tbody tr:nth-child(' + (index+1) + ')').append('<td>' + String($(this)[0]) + '</td>');
-                //        });
-                //    });
-                }
-            }, "script");
-
-    });
-}
+//function jsEnhanceMarkdownCharts(path) {
+//
+//    Highcharts.setOptions({
+//        lang: {
+//            thousandsSep: ','
+//        }
+//    });
+//
+//    var chartContainer = $(".markdown-chart");
+//    if (!chartContainer.length) {
+//        return;
+//    }
+//
+//    chartContainer.each(function(i) {
+//        var $this = $(this);
+//        var id = $this.attr('id');
+//        var chartId = $this.data('filename');
+//        var chartWidth = $this.width();
+//        var chartUri = $this.data('uri'); //= $this.data('uri');
+//        $this.empty();
+//
+//        //Read chart configuration from server using container's width
+//        var jqxhr = $.get("/chartconfig", {
+//                uri: chartUri,
+//                width: chartWidth
+//            },
+//            function() {
+//                var chartConfig = window["chart-" + chartId];
+//                if (chartConfig) {
+//                    // Build chart from config endpoint
+//                    chartConfig.chart.renderTo = id;
+//                    new Highcharts.Chart(chartConfig);
+//                    delete window["chart-" + chartId]; //clear data from window object after rendering
+//
+//
+//                //    // Insert hidden table after chart for screen reader alternative
+//                //    var series = chartConfig.series,
+//                //        dataLength = series[0].data.length,
+//                //        table = '<table id="chart-table-' + id + '" class="markdown-chart__table"><caption>Table representing data in figure ' + (i+1) + '</caption><thead><tr><tbody>',
+//                //        headers,
+//                //        th,
+//                //        td;
+//                //
+//                //    console.log(chartConfig);
+//                //
+//                //    // Insert table markup after chart
+//                //    $(table).insertAfter($this);
+//                //
+//                //    // Add table row for each td in series
+//                //    for (i = 0; i < dataLength; i++) {
+//                //        $('#chart-table-' + id + ' tbody').append('<tr>');
+//                //    }
+//                //
+//                //    // Loop through each series add insert th and td into empty table
+//                //    $(series).each(function() {
+//                //        th = '<th>' + $(this)[0].name + '</th scope="col">';
+//                //        headers = $('#chart-table-' + id + ' thead tr').append(th);
+//                //
+//                //        $($(this)[0].data).each(function(index) {
+//                //            $('#chart-table-' + id + ' tbody tr:nth-child(' + (index+1) + ')').append('<td>' + String($(this)[0]) + '</td>');
+//                //        });
+//                //    });
+//                }
+//            }, "script");
+//
+//    });
+//}
 
 //function jsEnhancePrint() {
 //    $('.jsEnhancePrint').click(function() {
@@ -419,12 +419,12 @@ function jsEnhanceMarkdownCharts(path) {
 //}
 
 //Resets the box heights on resize
-function jsEnhanceBoxHeightResize() {
-    $(window).resize(function() {
-        $('.equal-height').height('auto');
-        jsEnhanceBoxHeight();
-    });
-}
+//function jsEnhanceBoxHeightResize() {
+//    $(window).resize(function() {
+//        $('.equal-height').height('auto');
+//        jsEnhanceBoxHeight();
+//    });
+//}
 
 
 //TODO No longer used - test and then delete
@@ -449,57 +449,57 @@ function jsEnhanceBoxHeightResize() {
 //   });
 //}
 
-function jsEnhanceMobileTables() {
-    //<span class=" icon-table" role="presentation"></span>
-    // $('markdown-table-container').addClass('table-holder-mobile');
+//function jsEnhanceMobileTables() {
+//    //<span class=" icon-table" role="presentation"></span>
+//    // $('markdown-table-container').addClass('table-holder-mobile');
+//
+//    $('<button class="btn btn--mobile-table-show">View table</button>').insertAfter($('.markdown-table-wrap'));
+//    $('<button class="btn btn--mobile-table-hide">Close table</button>').insertAfter($('.markdown-table-wrap table'));
+//
+//    $('.btn--mobile-table-show').click(function(e) {
+//        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
+//        $(this).closest('.markdown-table-container').find('.markdown-table-wrap').show();
+//    });
+//
+//    $('.btn--mobile-table-hide').click(function(e) {
+//        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
+//        // $(this).closest('.markdown-table-wrap').hide();
+//        $(this).closest('.markdown-table-wrap').css('display', '');
+//    });
+//}
 
-    $('<button class="btn btn--mobile-table-show">View table</button>').insertAfter($('.markdown-table-wrap'));
-    $('<button class="btn btn--mobile-table-hide">Close table</button>').insertAfter($('.markdown-table-wrap table'));
-
-    $('.btn--mobile-table-show').click(function(e) {
-        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
-        $(this).closest('.markdown-table-container').find('.markdown-table-wrap').show();
-    });
-
-    $('.btn--mobile-table-hide').click(function(e) {
-        // console.log($(this).closest('.markdown-table-container').find('.markdown-table-wrap'));
-        // $(this).closest('.markdown-table-wrap').hide();
-        $(this).closest('.markdown-table-wrap').css('display', '');
-    });
-}
-
-function jsEnhanceMobileCharts() {
-
-    // if on mobile inject overlay and button elements
-    if ($("body").hasClass("viewport-sm")) {
-        $('<div class="markdown-chart-overlay"></div>').insertAfter($('.markdown-chart'));
-        $('<button class="btn btn--mobile-chart-show">View chart</button>').insertAfter($('.markdown-chart'));
-        $('<button class="btn btn--mobile-chart-hide">Close chart</button>').appendTo($('.markdown-chart-overlay'));
-
-        $('.btn--mobile-chart-show').click(function() {
-            // the variables
-            var $this = $(this),
-                $title = $('<span class="font-size--h4">' + $this.closest('.markdown-chart-container').find('h4').text() + '</span>'),
-                $imgSrc = $this.closest('.markdown-chart-container').find('.js-chart-image-src').attr('href'),
-                width = 700,
-                $img = '<img src="' + $imgSrc + '&width=' + width +'" />',
-                $overlay = $this.closest('.markdown-chart-container').find('.markdown-chart-overlay');
-
-            // check if image has been injected already
-            if (!$overlay.find('img').length) {
-                $overlay.append($title);
-                $overlay.append($img);
-            }
-
-            // show the overlay
-            $overlay.show();
-        });
-
-        $('.btn--mobile-chart-hide').click(function() {
-            $(this).closest('.markdown-chart-overlay').css('display', '');
-        });
-    }
-}
+//function jsEnhanceMobileCharts() {
+//
+//    // if on mobile inject overlay and button elements
+//    if ($("body").hasClass("viewport-sm")) {
+//        $('<div class="markdown-chart-overlay"></div>').insertAfter($('.markdown-chart'));
+//        $('<button class="btn btn--mobile-chart-show">View chart</button>').insertAfter($('.markdown-chart'));
+//        $('<button class="btn btn--mobile-chart-hide">Close chart</button>').appendTo($('.markdown-chart-overlay'));
+//
+//        $('.btn--mobile-chart-show').click(function() {
+//            // the variables
+//            var $this = $(this),
+//                $title = $('<span class="font-size--h4">' + $this.closest('.markdown-chart-container').find('h4').text() + '</span>'),
+//                $imgSrc = $this.closest('.markdown-chart-container').find('.js-chart-image-src').attr('href'),
+//                width = 700,
+//                $img = '<img src="' + $imgSrc + '&width=' + width +'" />',
+//                $overlay = $this.closest('.markdown-chart-container').find('.markdown-chart-overlay');
+//
+//            // check if image has been injected already
+//            if (!$overlay.find('img').length) {
+//                $overlay.append($title);
+//                $overlay.append($img);
+//            }
+//
+//            // show the overlay
+//            $overlay.show();
+//        });
+//
+//        $('.btn--mobile-chart-hide').click(function() {
+//            $(this).closest('.markdown-chart-overlay').css('display', '');
+//        });
+//    }
+//}
 
 // Trigger Google Analytic pageview event
 function jsEnhanceTriggerAnalyticsEvent(page) {
