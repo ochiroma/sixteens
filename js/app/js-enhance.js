@@ -46,14 +46,14 @@ $(function() {
         //jsEnhanceExternalLinks();
 
         //jsEnhanceTableOfContents();
-        jsEnhanceScrollToSection();
+        //jsEnhanceScrollToSection();
 
         //jsEnhanceMobileTables();
         //jsEnhanceMobileCharts();
         //jsEnhanceHover();
-        jsEnhanceRemoveFocus();
-        jsEnhanceChartFocus();
-        jsEnhanceTimeSeriesTool();
+        //jsEnhanceRemoveFocus();
+        //jsEnhanceChartFocus();
+        //jsEnhanceTimeSeriesTool();
 
         // prototypeModalButtons();
 
@@ -687,24 +687,24 @@ function jsEnhanceTriggerAnalyticsEvent(page) {
 //    }
 //}
 
-function jsEnhanceScrollToSection() {
-
-    //Animate scroll to anchor on same page
-    $('.jsEnhanceAnimateScroll').click(function(e) {
-        e.preventDefault();
-
-        var target = this.hash;
-
-        $('html, body').animate({
-            scrollTop: $(target).offset().top
-        }, 1000, function() {
-            location.hash = target;
-
-            //TODO Fix root cause of IE offsetting. Temporary fix:
-            //$('html, body').scrollTop( $(location.hash).offset().top - 60 );
-        });
-    });
-}
+//function jsEnhanceScrollToSection() {
+//
+//    //Animate scroll to anchor on same page
+//    $('.jsEnhanceAnimateScroll').click(function(e) {
+//        e.preventDefault();
+//
+//        var target = this.hash;
+//
+//        $('html, body').animate({
+//            scrollTop: $(target).offset().top
+//        }, 1000, function() {
+//            location.hash = target;
+//
+//            //TODO Fix root cause of IE offsetting. Temporary fix:
+//            //$('html, body').scrollTop( $(location.hash).offset().top - 60 );
+//        });
+//    });
+//}
 
 // New T3 hover enhancement
 //function jsEnhanceHover() {
@@ -764,102 +764,102 @@ function jsEnhanceScrollToSection() {
 //}
 
 // Not used?
-function jsEnhanceSelectedHighlight() {
+//function jsEnhanceSelectedHighlight() {
+//
+//    $('.js-timeseriestool-select').on("click", function() {
+//
+//        //$('div').eq($(this).parent().index()).effect("highlight", {}, 1000);
+//        //$(this).closest( ".col-wrap").animate({
+//        //    backgroundColor: 'red',
+//        //    opacity: 0.4,
+//        //    marginLeft: "0.6in"
+//        //}, 1000);
+//        //if($(this).prop('checked')) {
+//        //    $(this).closest(".col-wrap").stop(true, false).addClass('background--iron-light', {duration: 500});
+//        //} else {
+//        //    $(this).closest(".col-wrap").stop(true, false).removeClass('background--iron-light', {duration: 500});
+//        //}
+//
+//        if ($(this).prop('checked')) {
+//            $(this).closest(".col-wrap").addClass('background--gallery', 1000, "easeOutBounce");
+//        } else {
+//            $(this).closest(".col-wrap").removeClass('background--gallery', 1000, "easeOutBounce");
+//        }
+//
+//    });
+//
+//}
 
-    $('.js-timeseriestool-select').on("click", function() {
+//function jsEnhanceRemoveFocus() {
+//
+//    //function to remove focus on click
+//    function removeFocus(elem) {
+//        $(elem).click(function() {
+//            //var target =  "#" + $(this).attr("for");
+//            //console.log("clicked = "+this);
+//            //console.log("target = "+target);
+//
+//            this.blur();
+//        });
+//    }
+//
+//    //run function on following elements/classes that have a focus state
+//    removeFocus("a");
+//    removeFocus(".accordion__title");
+//    removeFocus(".timeseries__chart");
+//}
 
-        //$('div').eq($(this).parent().index()).effect("highlight", {}, 1000);
-        //$(this).closest( ".col-wrap").animate({
-        //    backgroundColor: 'red',
-        //    opacity: 0.4,
-        //    marginLeft: "0.6in"
-        //}, 1000);
-        //if($(this).prop('checked')) {
-        //    $(this).closest(".col-wrap").stop(true, false).addClass('background--iron-light', {duration: 500});
-        //} else {
-        //    $(this).closest(".col-wrap").stop(true, false).removeClass('background--iron-light', {duration: 500});
-        //}
-
-        if ($(this).prop('checked')) {
-            $(this).closest(".col-wrap").addClass('background--gallery', 1000, "easeOutBounce");
-        } else {
-            $(this).closest(".col-wrap").removeClass('background--gallery', 1000, "easeOutBounce");
-        }
-
-    });
-
-}
-
-function jsEnhanceRemoveFocus() {
-
-    //function to remove focus on click
-    function removeFocus(elem) {
-        $(elem).click(function() {
-            //var target =  "#" + $(this).attr("for");
-            //console.log("clicked = "+this);
-            //console.log("target = "+target);
-
-            this.blur();
-        });
-    }
-
-    //run function on following elements/classes that have a focus state
-    removeFocus("a");
-    removeFocus(".accordion__title");
-    removeFocus(".timeseries__chart");
-}
-
-function jsEnhanceTimeSeriesTool() {
-    // timeseriesTool.refresh();
-}
+//function jsEnhanceTimeSeriesTool() {
+//    // timeseriesTool.refresh();
+//}
 
 
 //Adds focus to highcharts filters when tabbed through
-function jsEnhanceChartFocus() {
-    //TODO Javascript considers arrow keydowns as a 'click' so can't use normal removeFocus function to stop focus on click (it breaks keyboard navigation by adding blur on arrow keydown).
-
-    //$('.btn--chart-control input').focusin(function() {
-    //	var radioGroup = $(this).closest('div[role="radiogroup"]');
-    //	$(radioGroup).addClass('input--focus');
-    //});
-    //
-    //$('.btn--chart-control input').focusout(function() {
-    //	var radioGroup = $(this).closest('div[role="radiogroup"]');
-    //	$(radioGroup).removeClass('input--focus');
-    //});
-
-
-    //Attempt to fix this problem but detects click as keyboard arrow click after you've focussed on it via keyboard
-
-    //var leftArrow = 37;
-    //var upArrow = 38;
-    //var rightArrow = 39;
-    //var downArrow = 40;
-    //
-    //$('.btn--chart-control input').keydown(function(e){
-    //
-    //	//detect whether input has been focused on using mouse or keyboard
-    //	var keydownType = e.keyCode;
-    //	console.log("keycode = " + keydownType);
-    //
-    //	//if triggered by arrow keys from keyboard run functions to add class on focus
-    //	if (keydownType == leftArrow || keydownType == rightArrow) {
-    //
-    //		$('.btn--chart-control input').focusin(function() {
-    //
-    //			console.log("Keyboardy");
-    //			var radioGroup = $(this).closest('div[role="radiogroup"]');
-    //			$(radioGroup).addClass('input--focus');
-    //		});
-    //
-    //		$('.btn--chart-control input').focusout(function() {
-    //			var radioGroup = $(this).closest('div[role="radiogroup"]');
-    //			$(radioGroup).removeClass('input--focus');
-    //		});
-    //
-    //	} else {
-    //		console.log("Clicky");
-    //	}
-    //});
-
-}
+//function jsEnhanceChartFocus() {
+//    //TODO Javascript considers arrow keydowns as a 'click' so can't use normal removeFocus function to stop focus on click (it breaks keyboard navigation by adding blur on arrow keydown).
+//
+//    //$('.btn--chart-control input').focusin(function() {
+//    //	var radioGroup = $(this).closest('div[role="radiogroup"]');
+//    //	$(radioGroup).addClass('input--focus');
+//    //});
+//    //
+//    //$('.btn--chart-control input').focusout(function() {
+//    //	var radioGroup = $(this).closest('div[role="radiogroup"]');
+//    //	$(radioGroup).removeClass('input--focus');
+//    //});
+//
+//
+//    //Attempt to fix this problem but detects click as keyboard arrow click after you've focussed on it via keyboard
+//
+//    //var leftArrow = 37;
+//    //var upArrow = 38;
+//    //var rightArrow = 39;
+//    //var downArrow = 40;
+//    //
+//    //$('.btn--chart-control input').keydown(function(e){
+//    //
+//    //	//detect whether input has been focused on using mouse or keyboard
+//    //	var keydownType = e.keyCode;
+//    //	console.log("keycode = " + keydownType);
+//    //
+//    //	//if triggered by arrow keys from keyboard run functions to add class on focus
+//    //	if (keydownType == leftArrow || keydownType == rightArrow) {
+//    //
+//    //		$('.btn--chart-control input').focusin(function() {
+//    //
+//    //			console.log("Keyboardy");
+//    //			var radioGroup = $(this).closest('div[role="radiogroup"]');
+//    //			$(radioGroup).addClass('input--focus');
+//    //		});
+//    //
+//    //		$('.btn--chart-control input').focusout(function() {
+//    //			var radioGroup = $(this).closest('div[role="radiogroup"]');
+//    //			$(radioGroup).removeClass('input--focus');
+//    //		});
+//    //
+//    //	} else {
+//    //		console.log("Clicky");
+//    //	}
+//    //});
+//
+//}
