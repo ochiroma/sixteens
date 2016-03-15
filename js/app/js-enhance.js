@@ -50,7 +50,7 @@ $(function() {
 
         //jsEnhanceMobileTables();
         //jsEnhanceMobileCharts();
-        jsEnhanceHover();
+        //jsEnhanceHover();
         jsEnhanceRemoveFocus();
         jsEnhanceChartFocus();
         jsEnhanceTimeSeriesTool();
@@ -707,61 +707,61 @@ function jsEnhanceScrollToSection() {
 }
 
 // New T3 hover enhancement
-function jsEnhanceHover() {
-    var hoverTrigger = $('.js-hover-click'),
-        hoverLink = hoverTrigger.find('a:first'),
-        bgColour = function(){elem.css('background-color')},
-        white = "rgb(255, 255, 255)",
-        whiteHover = 'white-hover',
-        greyHover = 'grey-hover';
-
-    // Add span that covers whole tile area - meaning we don't have to hi-jack click
-    hoverTrigger.each(function() {
-        $(this).css('position', 'relative');
-        var link = $(this).find('a:first');
-        link.append('<span class="box__clickable"></span>');
-    });
-
-    //hoverTrigger.click(function() {
-    //    //var link = $('a:first', this).attr('href');
-    //    //window.location = link;
-    //});
-
-    function addHoverClass(elem) {
-        if (bgColour === white) {
-            $(elem).addClass(whiteHover)
-        } else {
-            $(elem).addClass(greyHover);
-        }
-    }
-    function removeHoverClass(elem) {
-        if (bgColour === white) {
-            $(elem).removeClass(whiteHover)
-        } else {
-            $(elem).removeClass(greyHover);
-        }
-    }
-
-    // Add styling on hover
-    hoverTrigger.hover(function() {
-        addHoverClass($(this));
-    },
-    function() {
-        removeHoverClass($(this));
-    });
-
-    // Add hover styling on focus
-    hoverLink.focus(function() {
-        var $this = $(this),
-            parentElem = $this.closest(hoverTrigger);
-        if ($this.parent(hoverTrigger)) {
-            addHoverClass(parentElem);
-            $this.focusout(function() {
-                removeHoverClass(parentElem)
-            });
-        }
-    });
-}
+//function jsEnhanceHover() {
+//    var hoverTrigger = $('.js-hover-click'),
+//        hoverLink = hoverTrigger.find('a:first'),
+//        bgColour = function(){elem.css('background-color')},
+//        white = "rgb(255, 255, 255)",
+//        whiteHover = 'white-hover',
+//        greyHover = 'grey-hover';
+//
+//    // Add span that covers whole tile area - meaning we don't have to hi-jack click
+//    hoverTrigger.each(function() {
+//        $(this).css('position', 'relative');
+//        var link = $(this).find('a:first');
+//        link.append('<span class="box__clickable"></span>');
+//    });
+//
+//    //hoverTrigger.click(function() {
+//    //    //var link = $('a:first', this).attr('href');
+//    //    //window.location = link;
+//    //});
+//
+//    function addHoverClass(elem) {
+//        if (bgColour === white) {
+//            $(elem).addClass(whiteHover)
+//        } else {
+//            $(elem).addClass(greyHover);
+//        }
+//    }
+//    function removeHoverClass(elem) {
+//        if (bgColour === white) {
+//            $(elem).removeClass(whiteHover)
+//        } else {
+//            $(elem).removeClass(greyHover);
+//        }
+//    }
+//
+//    // Add styling on hover
+//    hoverTrigger.hover(function() {
+//        addHoverClass($(this));
+//    },
+//    function() {
+//        removeHoverClass($(this));
+//    });
+//
+//    // Add hover styling on focus
+//    hoverLink.focus(function() {
+//        var $this = $(this),
+//            parentElem = $this.closest(hoverTrigger);
+//        if ($this.parent(hoverTrigger)) {
+//            addHoverClass(parentElem);
+//            $this.focusout(function() {
+//                removeHoverClass(parentElem)
+//            });
+//        }
+//    });
+//}
 
 // Not used?
 function jsEnhanceSelectedHighlight() {
