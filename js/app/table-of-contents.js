@@ -78,8 +78,8 @@ $(function() {
                         //     $('html, body').scrollTop( $(location.hash).offset().top - 60 );
                         // }
 
-                        var page = window.location.pathname + location;
-                        jsEnhanceTriggerAnalyticsEvent(page);
+                        //var page = window.location.pathname + location; // No longer record anchor click as page views
+                        //jsEnhanceTriggerAnalyticsEvent(page);
                         functionTrigger = false;
                     }
                 });
