@@ -106,7 +106,7 @@ $(function() {
 
         //Update the selected option on scroll
         function updateSelected(scrollTop) {
-            var $sections = $(stickyTrigger + ' section');
+            var $sections = $(stickyTrigger + ' .js-sticky-toc__section');
             var top = $.grep($sections, function(item) {
                return $(item).position().top <= scrollTop+stickyTocHeight();
             });
