@@ -502,13 +502,13 @@ $(function() {
 //}
 
 // Trigger Google Analytic pageview event
-function jsEnhanceTriggerAnalyticsEvent(page) {
-    if (typeof ga != "undefined") {
-        ga('send', 'pageview', {
-            'page': page
-        });
-    }
-}
+//function jsEnhanceTriggerAnalyticsEvent(page) {
+//    if (typeof ga != "undefined") {
+//        ga('send', 'pageview', {
+//            'page': page
+//        });
+//    }
+//}
 
 //Track file downloads in analytics
 //function jsEnhanceDownloadAnalytics(path) {
