@@ -41,9 +41,9 @@ $(function() {
         //jsEnhanceBoxHeight();
         //jsEnhanceBoxHeightResize();
         //jsEnhanceTriggerAnalyticsEvent();
-        jsEnhanceDownloadAnalytics(path);
-        jsEnhanceAnchorAnalytics();
-        jsEnhanceExternalLinks();
+        //jsEnhanceDownloadAnalytics(path);
+        //jsEnhanceAnchorAnalytics();
+        //jsEnhanceExternalLinks();
 
         //jsEnhanceTableOfContents();
         jsEnhanceScrollToSection();
@@ -511,82 +511,82 @@ function jsEnhanceTriggerAnalyticsEvent(page) {
 }
 
 //Track file downloads in analytics
-function jsEnhanceDownloadAnalytics(path) {
-    //Track generated file downloads (eg chart xlsx download)
-    $('.download-analytics').click(function() {
-        var downloadType = $(this).parent().attr('action');
-        var downloadTitle = $('#title').text();
-        var downloadFormat = $(this).attr('value');
+//function jsEnhanceDownloadAnalytics(path) {
+//    //Track generated file downloads (eg chart xlsx download)
+//    $('.download-analytics').click(function() {
+//        var downloadType = $(this).parent().attr('action');
+//        var downloadTitle = $('#title').text();
+//        var downloadFormat = $(this).attr('value');
+//
+//        if (downloadType == '/file') {
+//            var downloadType = '/download';
+//            var downloadFormat = 'xls';
+//        }
+//
+//        // Charts don't contain file type information so 'png' hardcoded
+//        if (downloadType == '/chartimage') {
+//            downloadFormat = 'png';
+//        }
+//
+//        var page = downloadType + ('?uri=') + path + ('/') + downloadTitle + '.' + downloadFormat;
+//
+//        jsEnhanceTriggerAnalyticsEvent(page);
+//    });
+//
+//    //Track uploaded file downloads
+//    $('.file-download-analytics').click(function() {
+//        var fileName = $(this).attr('href').split('=')[1];
+//        var page = '/download?' + fileName;
+//
+//        jsEnhanceTriggerAnalyticsEvent(page);
+//    });
+//
+//    //Track click on 'print full report' link
+//    $('.print-analytics').click(function() {
+//        var path = $('#pagePath').text();
+//        var page = '/print?uri=' + path;
+//
+//        jsEnhanceTriggerAnalyticsEvent(page);
+//    });
+//}
+//
+//function jsEnhanceAnchorAnalytics() {
+//    //Trigger analytics pageview on click of any # anchor
+//    $("a[href*='#']").click(function(e) {
+//        var hash = $(this).attr('href');
+//        var page = window.location.pathname + hash;
+//        jsEnhanceTriggerAnalyticsEvent(page);
+//    });
+//}
 
-        if (downloadType == '/file') {
-            var downloadType = '/download';
-            var downloadFormat = 'xls';
-        }
-
-        // Charts don't contain file type information so 'png' hardcoded
-        if (downloadType == '/chartimage') {
-            downloadFormat = 'png';
-        }
-
-        var page = downloadType + ('?uri=') + path + ('/') + downloadTitle + '.' + downloadFormat;
-
-        jsEnhanceTriggerAnalyticsEvent(page);
-    });
-
-    //Track uploaded file downloads
-    $('.file-download-analytics').click(function() {
-        var fileName = $(this).attr('href').split('=')[1];
-        var page = '/download?' + fileName;
-
-        jsEnhanceTriggerAnalyticsEvent(page);
-    });
-
-    //Track click on 'print full report' link
-    $('.print-analytics').click(function() {
-        var path = $('#pagePath').text();
-        var page = '/print?uri=' + path;
-
-        jsEnhanceTriggerAnalyticsEvent(page);
-    });
-}
-
-function jsEnhanceAnchorAnalytics() {
-    //Trigger analytics pageview on click of any # anchor
-    $("a[href*='#']").click(function(e) {
-        var hash = $(this).attr('href');
-        var page = window.location.pathname + hash;
-        jsEnhanceTriggerAnalyticsEvent(page);
-    });
-}
-
-function jsEnhanceExternalLinks() {
-
-    // Using regex instead of simply using 'host' because it causes error with security on Government browsers (IE9 so far)
-    function getHostname(url) {
-        var m = url.match(/^http(s?):\/\/[^/]+/);
-        return m ? m[0] : null;
-    }
-
-
-    function eachAnchor(anchors) {
-
-        $(anchors).each(function() {
-            var href = $(this).attr("href");
-            var hostname = getHostname(href);
-
-            if (hostname) {
-                if (hostname !== document.domain && hostname.indexOf('ons.gov.uk') == -1) {
-                    $(this).attr('target', '_blank');
-                }
-            }
-
-        });
-    }
-    eachAnchor('a[href^="http://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
-    eachAnchor('a[href^="https://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
-    eachAnchor('a[href*="nationalarchives.gov.uk"]');
-
-}
+//function jsEnhanceExternalLinks() {
+//
+//    // Using regex instead of simply using 'host' because it causes error with security on Government browsers (IE9 so far)
+//    function getHostname(url) {
+//        var m = url.match(/^http(s?):\/\/[^/]+/);
+//        return m ? m[0] : null;
+//    }
+//
+//
+//    function eachAnchor(anchors) {
+//
+//        $(anchors).each(function() {
+//            var href = $(this).attr("href");
+//            var hostname = getHostname(href);
+//
+//            if (hostname) {
+//                if (hostname !== document.domain && hostname.indexOf('ons.gov.uk') == -1) {
+//                    $(this).attr('target', '_blank');
+//                }
+//            }
+//
+//        });
+//    }
+//    eachAnchor('a[href^="http://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
+//    eachAnchor('a[href^="https://"]:not([href*="loop11.com"]):not([href*="ons.gov.uk"])');
+//    eachAnchor('a[href*="nationalarchives.gov.uk"]');
+//
+//}
 
 
 //function jsEnhanceTableOfContents() {
