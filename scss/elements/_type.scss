@@ -2,11 +2,12 @@
 
 
 //--[vars]--
-$base-font-family: 'Open Sans', sans-serif;
+//$base-font-family: 'Open Sans', sans-serif;
+$base-font-family: Helvetica, sans-serif;
 $base-font-size: 14px;
 $base-line-height: $baseline * 3;
 $base-font-weight: 300;
-$base-text-colour: $ship-gray;
+$base-text-colour: black;
 
 //--[vars end]--
 
@@ -18,6 +19,8 @@ body {
 	font-weight: $base-font-weight;
 	line-height: $base-line-height;
 	color: $base-text-colour;
+	//-webkit-font-smoothing: antialiased;
+	//-moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
