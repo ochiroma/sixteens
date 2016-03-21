@@ -83,7 +83,7 @@
             &--disabled:hover,
             &--disabled:focus {
                 cursor: not-allowed;
-                background: $iron;
+                background: $disabled;
                 color: $nevada;
             }
         }
