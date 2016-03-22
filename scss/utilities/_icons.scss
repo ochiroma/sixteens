@@ -24,8 +24,9 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
 @media screen {
     .icon {
         display: inline-block;
-        background:url($png) no-repeat;
-        background:url($svg) no-repeat;
+        background-image:url($png);
+        background-image:url($svg);
+        background-repeat: no-repeat;
         background-size: 300px 1000px;
         height: 36px;
         width: 40px;
@@ -33,7 +34,8 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-arrow-up {
 
             &--dark {
-                background-position: -16px -10px;
+                background-position: -16px -14px;
+                height: ($baseline * 4);
             }
 
             &--dark-small {
@@ -42,7 +44,8 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light {
-                background-position: -80px -10px;
+                background-position: -80px -14px;
+                height: ($baseline * 4);
             }
 
             &--light-small {

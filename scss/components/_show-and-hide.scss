@@ -11,7 +11,7 @@
             font-weight: inherit;
             color: inherit;
             text-transform: inherit;
-            text-align: inherit;
+            text-align: left;
             background-color: transparent;
             border: none;
             padding: ($baseline * 2) $col ($baseline * 2) 0;
@@ -97,10 +97,13 @@
     }
 
     &__title {
-        padding-right: ($col * 2);
         margin: $baseline 0;
         height: 100%;
         width: 100%; //expands title to full width so arrow is located at end correctly
+
+        @include breakpoint(md) {
+            padding-right: ($col * 2);
+        }
     }
 
     &__content {
