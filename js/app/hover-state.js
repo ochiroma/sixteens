@@ -40,6 +40,7 @@ function hoverState() {
     classMap.push({class1: 'border-bottom--iron-light-md', class2: 'border-bottom--thunder-md'});
     classMap.push({class1: 'border-left--iron-light-sm', class2: 'border-left--thunder-sm'});
     classMap.push({class1: 'border-left--iron-light-md', class2: 'border-left--thunder-md'});
+    classMap.push({class1: 'icon-arrow-right--dark', class2: 'icon-arrow-right--light'});
     classMap.push({class1: 'image-background', class2: 'image-background--mercury'});
 
 
