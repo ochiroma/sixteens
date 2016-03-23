@@ -79,7 +79,8 @@
         padding: 6px $col 4px $col;
         height: ($baseline * 6);
         background: lighten($primary, 65%);
-        -webkit-appearance: none; //fix for safari not displaying input with correct height
+        //-webkit-appearance: none; //fix for safari not displaying input with correct height
+        -webkit-appearance: textfield; // Fix for safari hiding 'x' behind padding
 
         @if $old-ie == false {
             @include breakpoint(sm) {
@@ -103,7 +104,6 @@
         color: $white;
         border: none;
         padding: 0;
-        padding-top: $baseline;
         //padding: 4px ($col / 2) 1px ($col / 2);
         background-color: $primary;
         height: ($baseline * 6);

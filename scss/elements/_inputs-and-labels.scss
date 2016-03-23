@@ -46,6 +46,7 @@ label {
     height: 32px;
     border: 1px solid $iron;
     padding: ($baseline) ($col / 2);
+	-webkit-appearance: textfield; // Fix for Safari not accepting element height
 
 	&--focus {
 		//outline: 1px dashed $nevada;
