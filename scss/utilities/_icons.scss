@@ -9,7 +9,7 @@
 //}
 
 @mixin small-icon {
-    height: 20px;
+    height: 16px;
     width: 20px;
 }
 
@@ -131,7 +131,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -43px;
+                background-position: -138px -46px;
                 @include small-icon;
             }
 
@@ -141,7 +141,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -43px;
+                background-position: -170px -46px;
                 @include small-icon;
             }
         }
@@ -178,7 +178,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -92px;
+                background-position: -138px -95px;
                 @include small-icon;
             }
 
@@ -187,7 +187,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -92px;
+                background-position: -170px -95px;
                 @include small-icon;
             }
         }
@@ -199,7 +199,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -115px;
+                background-position: -138px -119px;
                 @include small-icon;
             }
 
@@ -208,7 +208,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -115px;
+                background-position: -170px -119px;
                 @include small-icon;
             }
         }
@@ -221,7 +221,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -139px;
+                background-position: -138px -143px;
                 @include small-icon;
             }
 
@@ -230,7 +230,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -139px;
+                background-position: -170px -143px;
                 @include small-icon;
             }
         }

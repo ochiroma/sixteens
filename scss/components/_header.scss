@@ -9,18 +9,16 @@
 
     @include breakpoint(md) {
         border-top: 1px solid $thunder;
-        margin-top: -1px; //compensate for border-top
-        border-bottom: 1px solid $thunder; // search bar has negative margin to compensate for this border
-        height: 89px;
+        border-bottom: 1px solid $thunder;
+        height: 88px;
     }
 
     @include breakpoint(lg) {
-        height: 65px;
+        height: 64px;
     }
 
     &__list {
         list-style: none;
-        //padding-left: 0;
         margin: 0;
         overflow: hidden;
 
