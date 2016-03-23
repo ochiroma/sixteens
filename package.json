@@ -14,7 +14,7 @@
         "build-ie-9-css": "mkdir -pv dist/css && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/main.scss dist/css/ie-9.css && blessc dist/css/ie-9.css -f",
         "build-old-ie-css": "mkdir -pv dist/css  && ./node_modules/node-sass/bin/node-sass --output-style compressed scss/old-ie.scss dist/css/old-ie.css && blessc dist/css/old-ie.css -f",
         "build-js": "mkdir -pv dist/js && ./node_modules/uglify-js/bin/uglifyjs $npm_package_config_js --compress --mangle -o dist/js/main.js",
-        "build": "npm run css-build-datetime && npm run build-css && npm run build-old-ie-css && npm run build-ie-9-css && npm run build-js && npm run minify-imgs",
+        "build": "npm run css-build-datetime && npm run build-css && npm run build-old-ie-css && npm run build-ie-9-css && npm run build-js",
         "postinstall": "npm run build",
         "watch-css": "onchange 'scss' -- npm run build-css",
         "watch-js": "catw -v $npm_package_config_js -o dist/js/main.js",
