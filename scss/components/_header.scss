@@ -59,11 +59,11 @@
                 color: $white;
                 text-decoration: none;
                 left: auto; //resets child-items to appear on-screen
-                top: 88px; //1px less to cover same colour border on parent <li>
+                top: 86px; //2px less to cover borders on parent
             }
 
             @include breakpoint(lg) {
-                top: 64px;
+                top: 62px;  //2px less to cover borders on parent
             }
         }
 
@@ -168,9 +168,7 @@
             padding: 0;
             z-index: 10;
             left: -99999px; //used instead of display:none so it's accessible to screen readers
-            border-left: 1px solid $thunder;
-            border-right: 1px solid $thunder;
-            border-bottom: 1px solid $thunder;
+            border: 1px solid $thunder;
         }
     }
 
