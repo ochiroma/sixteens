@@ -154,7 +154,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -68px;
+                background-position: -138px -71px;
                 @include small-icon;
                 width: 16px;
             }
@@ -164,7 +164,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -68px;
+                background-position: -170px -71px;
                 @include small-icon;
                 width: 16px;
             }
