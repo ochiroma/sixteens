@@ -10,7 +10,7 @@ table {
 
     caption {
         text-align: left;
-        @extend h4; // Give caption heading 4 styling
+        @extend h5; // Give caption heading 4 styling
     }
 
     th {
