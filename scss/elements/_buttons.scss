@@ -13,6 +13,8 @@ button {
     padding: 6px $col 10px $col;
     border: 0 none;
     text-align: center;
+    -webkit-appearance: none;
+    transition: background-color 0.25s ease-out;
     text-decoration: none;
 
     &--primary {
@@ -120,7 +122,8 @@ button {
     }
 
     &--wide {
-        width: $col * 16;
+        padding-left: ($col * 2);
+        padding-right: ($col * 2);
     }
 
     &--full-width {
