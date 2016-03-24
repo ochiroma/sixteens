@@ -10,6 +10,7 @@ $(function() {
         var tocSelectList = $('<select id="sticky-toc" class="table-of-contents--sticky__select ">');
         var scrollTop = $(window).scrollTop();
         var pdfDownloadLink = $('.js-pdf-dl-link').attr('href');
+        var $toc = $('#toc:first');
 
         // recalculate trigger point if show-hide button is clicked
         $('.js-show-hide__button').click(function() {
@@ -22,7 +23,7 @@ $(function() {
 
         //insert sticky wrapper
         var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40 margin-left-md--1"><div class="table-of-contents--sticky__select-wrap">');
-        $(tocStickyWrap).insertAfter($('#toc'));
+        $(tocStickyWrap).insertAfter($toc);
         $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<label for="sticky-toc" class="table-of-contents--sticky__heading font-size--h2">Table of contents</label>');
 
         //add in print options
@@ -38,7 +39,7 @@ $(function() {
             text: '-- Select a section --'
         }));
 
-        $('#toc li a').each(function(i) {
+        $($toc.find('li a')).each(function(i) {
             i = i + 1;
             var text = i + '. ' + $(this).text();
             var href = $(this).attr('href');
