@@ -243,7 +243,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -167px;
+                background-position: -138px -171px;
                 @include small-icon;
             }
 
@@ -252,7 +252,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -167px;
+                background-position: -170px -171px;
                 @include small-icon;
             }
 
@@ -262,13 +262,13 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
         &-search {
 
             &--dark {
-                background-position: -16px -387px;
+                background-position: -12px -387px;
                 height: ($baseline * 3); // Smaller icon so smaller height & width
                 width: ($col * 2)
             }
 
             &--dark-small {
-                background-position: -138px -192px;
+                background-position: -138px -196px;
                 @include small-icon;
             }
 
@@ -279,7 +279,7 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -192px;
+                background-position: -170px -196px;
                 @include small-icon;
             }
 
@@ -292,8 +292,9 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--dark-small {
-                background-position: -138px -311px;
+                background-position: -138px -313px;
                 @include small-icon;
+                height: 18px;
             }
 
             &--light {
@@ -301,8 +302,9 @@ $svg: '../img/icon-sprite.svg?#{$builddatetime}';
             }
 
             &--light-small {
-                background-position: -170px -311px;
+                background-position: -170px -313px;
                 @include small-icon;
+                height: 18px;
             }
         }
 
