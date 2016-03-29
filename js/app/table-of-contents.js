@@ -22,7 +22,7 @@ $(function() {
 
 
         //insert sticky wrapper
-        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40 margin-left-md--1"><div class="table-of-contents--sticky__select-wrap">');
+        var tocStickyWrap = $('<div class="table-of-contents--sticky__wrap print--hide"><div class="wrapper"><div class="col-wrap"><div id="stickySelectArea" class="col col--md-30 col--lg-40 margin-left-sm--1 margin-left-md--1"><div class="table-of-contents--sticky__select-wrap">');
         $(tocStickyWrap).insertAfter($toc);
         $('.table-of-contents--sticky__wrap #stickySelectArea').prepend('<label for="sticky-toc" class="table-of-contents--sticky__heading font-size--h2">Table of contents</label>');
 
