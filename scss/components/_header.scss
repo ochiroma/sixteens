@@ -40,7 +40,7 @@
 
         @include breakpoint(md) {
             float: left;
-            height: ($baseline * 11);
+            height: 86px;
 
             &:nth-child(6) a {
                 border-right: 1px solid $thunder;
@@ -48,7 +48,7 @@
         }
 
         @include breakpoint(lg) {
-            height: ($baseline * 8);
+            height: 62px;
         }
 
         //children show on hover
@@ -88,7 +88,6 @@
 
             @include breakpoint(md) {
                 background-color: $active;
-                border-bottom: 1px solid $thunder;
             }
 
             & > a {
@@ -103,20 +102,20 @@
         text-decoration: none;
 
         @include breakpoint(sm) {
-            height: $baseline * 6;
+            height: ($baseline * 6);
             padding: 14px 0 10px $col;
         }
 
         @include breakpoint(md) {
             display: inline-block;
-            padding: 7px $baseline*2 8px $baseline*2;
+            padding: 5px $baseline*2 3px $baseline*2;
             border-left: 1px solid $thunder;
-            height: $baseline * 11;
+            height: 86px;
             font-size: 13px; // smaller font on medium for retina screens
         }
 
         @include breakpoint(lg) {
-            height: $baseline * 8;
+            height: 62px;
             font-size: 14px;
         }
 
@@ -136,11 +135,11 @@
                 background-color: $thunder;
                 text-decoration: none;
                 left: auto; //resets child-items to appear on-screen
-                top: 88px; //1px less to cover same colour border on parent <li>
+                top: 86px; //2px less to cover same colour border on parent <li>
             }
 
             @include breakpoint(lg) {
-                top: 64px;
+                top: 62px;
             }
         }
 
@@ -192,7 +191,7 @@
         }
 
         @include breakpoint(md) {
-            padding: 15px 0 9px $col;
+            padding: 14px 0 10px $col;
 
             &:hover,
             &:focus {
