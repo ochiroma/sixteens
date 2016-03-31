@@ -115,6 +115,68 @@ strong {
     font-weight: 600;
 }
 
+// Mixin for silent styling to bunch up spacing between elements in big blocks of text (ie markdown)
+@mixin markdown {
+    overflow: visible;
+
+    h4 {
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+
+
+    p {
+        margin-top: 0;
+    }
+
+    ul {
+        margin-top: 0;
+    }
+
+    img {
+        max-width: ($col * 38);
+    }
+
+    li {
+        margin: 0;
+
+        // li with only one p shouldn't have padding (spacing looks excessive)
+        p:first-of-type {
+            margin: 0;
+            padding: 0;
+        }
+
+        // to offset above styling second p in an li should have extra margin on the top (giving it the same styling as an ordinary p)
+        p:nth-of-type(2) {
+            @extend p;
+            margin-top: ($baseline * 2);
+        }
+
+    }
+
+    pre {
+        //font-size: 13px;
+        //background: $iron-light;
+        //white-space: pre-line;
+        //padding: 0 $col;
+
+        @include breakpoint(md) {
+            width: ($col * 47);
+        }
+
+        @include breakpoint(lg) {
+            width: ($col * 59);
+        }
+    }
+}
+
+.markdown {
+    @include markdown
+}
+
 @mixin font-heading-util {
     .font-size {
         @for $i from 0 through 6 {
