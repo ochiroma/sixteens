@@ -33,6 +33,7 @@ button {
         &:hover,
         &:focus {
             background-color: $primary;
+            cursor: not-allowed;
         }
     }
 
