@@ -25,11 +25,15 @@ button {
         &:focus {
             background-color: darken($primary, 8%);
         }
+    }
 
-        &-disabled {
-            opacity: 0.7;
+    &--primary-disabled {
+        opacity: 0.7;
+
+        &:hover,
+        &:focus {
+            background-color: $primary;
         }
-
     }
 
     &--secondary {
@@ -40,26 +44,25 @@ button {
         &:focus {
             background-color: $thunder;
         }
+    }
 
-        &-active {
+    &--secondary-active {
+        background-color: $active;
+
+        &:hover,
+        &:focus {
             background-color: $active;
-
-            &:hover,
-            &:focus {
-                background-color: $active;
-                cursor: default;
-            }
-
+            cursor: default;
         }
 
-        &-disabled,
-        &-disabled:hover,
-        &-disabled:focus {
-            color: $nevada;
-            background: $disabled;
-            cursor: not-allowed;
-        }
+    }
 
+    &--secondary-disabled,
+    &--secondary-disabled:hover,
+    &--secondary-disabled:focus {
+        color: $nevada;
+        background: $disabled;
+        cursor: not-allowed;
     }
 
     &--tertiary {
@@ -82,26 +85,12 @@ button {
             background: $gallery;
             text-decoration: underline;
         }
+    }
 
-
-        &-active {
-            background: $ship-grey;
-            color: $iron-light;
-            text-decoration: none;
-        }
-
-        //&__active {
-        //    color: $base-text-colour;
-        //    cursor: default;
-        //
-        //    &:hover,
-        //    &:focus {
-        //        background-color: $white;
-        //        color: $base-text-colour;
-        //    }
-        //
-        //}
-
+    &--plain-active {
+        background: $ship-grey;
+        color: $iron-light;
+        text-decoration: none;
     }
 
     &--small {
