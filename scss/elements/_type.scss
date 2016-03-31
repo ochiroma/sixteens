@@ -156,21 +156,6 @@ strong {
         }
 
     }
-
-    pre {
-        //font-size: 13px;
-        //background: $iron-light;
-        //white-space: pre-line;
-        //padding: 0 $col;
-
-        @include breakpoint(md) {
-            width: ($col * 47);
-        }
-
-        @include breakpoint(lg) {
-            width: ($col * 59);
-        }
-    }
 }
 
 .markdown {

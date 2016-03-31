@@ -37,7 +37,7 @@ button {
             background-color: $thunder;
         }
 
-        &--active {
+        &-active {
             background-color: $active;
 
             &:hover,
@@ -48,9 +48,9 @@ button {
 
         }
 
-        &--disabled,
-        &--disabled:hover,
-        &--disabled:focus {
+        &-disabled,
+        &-disabled:hover,
+        &-disabled:focus {
             color: $nevada;
             background: $disabled;
             cursor: not-allowed;
@@ -80,7 +80,7 @@ button {
         }
 
 
-        &__active {
+        &-active {
             background: $ship-grey;
             color: $iron-light;
             text-decoration: none;
