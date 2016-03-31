@@ -26,6 +26,10 @@ button {
             background-color: darken($primary, 8%);
         }
 
+        &-disabled {
+            opacity: 0.7;
+        }
+
     }
 
     &--secondary {
