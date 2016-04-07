@@ -1,0 +1,103 @@
+section {
+	padding-bottom: $baseline * 6;
+}
+
+.section {
+
+	&__title {
+		margin-top: $baseline * 6;
+		margin-bottom: 0;
+	}
+
+	&__subtitle {
+
+		margin-top: $col;
+		margin-bottom: $baseline;
+
+	}
+
+	&__content {
+
+		&-number {
+
+			position: relative;
+			margin-left: ($col * -3);
+			//padding-left: 6px;
+			//width: ($col * 3);
+			display: block;
+			float: left;
+
+			@include breakpoint(sm) {
+				margin-right: $col;
+				margin-left: 0;
+			}
+
+		}
+
+		&--markdown {
+
+			@include breakpoint(sm) {
+				padding: 0;
+			}
+
+			@include breakpoint(md) {
+				padding: 0 0 0 ($col * 3);
+				margin-right: ($col * 3);
+			}
+
+			@include breakpoint(lg) {
+				margin-right: ($col * 4);
+			}
+
+			@include markdown;
+
+			position: relative;
+
+			.markdown-chart-container, .markdown-table-container {
+				border-left: solid $col $mercury;
+				padding-left: $col;
+				margin-bottom: ($baseline * 4);
+
+				ol {
+					margin: 0;
+					counter-reset: toc;
+				}
+
+				li {
+					list-style: none;
+					position: relative;
+
+					&:before {
+						content: counter(toc) ". ";
+						counter-increment: toc;
+						position: absolute;
+						left: -$col;
+					}
+				}
+
+				.markdown-chart, .markdown-table-wrap {
+					//Charts take up extra space when available (ie on desktop/tablet)
+					width: 600px;
+
+					//On mobile then go 100% width
+					@include breakpoint(sm) {
+						width: 100%;
+					}
+				}
+			}
+		}
+
+		&--static-markdown {
+			@include markdown;
+
+			margin-top: ($baseline * 3);
+
+			ol {
+				margin: $col 0 $col $col;
+			}
+
+		}
+
+	}
+
+}

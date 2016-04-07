@@ -1,0 +1,62 @@
+//_page.scss
+
+.page {
+	&-header {}
+	&-intro {
+		//background: $gallery;
+
+		&__type {
+			display: block;
+			font-size: 21px;
+			font-weight: 300;
+			color: $salem;
+		}
+
+		&__title {
+			margin-top: ($baseline * 2);
+			margin-bottom: ($baseline * 0);
+
+			&--home {
+				font-size: 36px;
+
+				&-big {
+					font-size: 60px;
+					line-height: 64px;
+					display: block;
+				}
+			}
+		}
+		&__content {
+			font-size: 21px;
+			margin-top: ($baseline * 0);
+			margin-bottom: ($baseline * 6);
+			padding: 7px 0 9px 0;
+			line-height: 32px;
+
+			&--home-big {
+				font-size: 24px;
+				margin-top: 16px;
+				margin-bottom: ($baseline * 6);
+			}
+		}
+	}
+	&-content {
+		//border-top: 1px solid $iron;
+		//margin-top: -1px;
+        min-height: ($baseline * 24); //Stop page balance looking wrong if page has very little content
+
+		&__main-content {
+			overflow: visible;
+		}
+	}
+	&-footer {}
+}
+
+.highlighted {
+
+	&-wrap {
+		border-top: 1px solid $iron;
+		margin-top: -1px;
+	}
+
+}
