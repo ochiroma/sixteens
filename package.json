@@ -18,7 +18,7 @@
         "postinstall": "npm run build",
         "watch-css": "./node_modules/onchange/cli.js 'scss' -- npm run build-css",
         "watch-js": "./node_modules/catw/bin/cmd.js -v $npm_package_config_js -o dist/js/main.js",
-        "server": "python -m SimpleHTTPServer 9000",
+        "server": "http-server -p 9000 --cors",
         "dev": "npm run watch-css & npm run watch-js & npm run server"
     },
     "repository": {
@@ -35,6 +35,7 @@
     "devDependencies": {
         "catw": "latest",
         "onchange": "latest",
-        "imagemin-cli": "latest"
+        "imagemin-cli": "latest",
+        "http-server": "latest"
     }
 }
