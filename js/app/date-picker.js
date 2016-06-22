@@ -104,7 +104,6 @@ datepicker.prototype.popGrid = function() {
 
     // clear the grid
     $tbody.empty();
-    $('#msg').empty();
 
     // Insert the leading empty cells
     for (weekday = 0; weekday < startWeekday; weekday++) {
@@ -819,7 +818,6 @@ datepicker.prototype.handleGridClick = function(id, e) {
     var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
 
     // update the target inputs
-    // this.$target.val(($curDay.html() < 9 ? '0' : '') + $curDay.html() + '/' + (this.month < 9 ? '0' : '') + (this.month+1) + '/' + this.year);
     $(this.$target[0]).val(($curDay.html() < 9 ? '0' : '') + $curDay.html());
     $(this.$target[1]).val((this.month < 9 ? '0' : '') + (this.month+1));
     $(this.$target[2]).val(this.year);
@@ -923,21 +921,19 @@ datepicker.prototype.handleDateChange = function(e) {
 
     var thisObj = this;
 
-    // Stop function at this point if the change event has been triggered by javascript
-    // if (e && e.isTrigger) {
-    //     // return false;
-    // }
-
     // Get any values that are already in the inputs
     this.targetVals = [];
+    var targetValsCounter = 0;
     for (var i = 0; i < this.$target.length; i++) {
         if ($(this.$target[i]).val()) {
-            this.targetVals[i] = $(this.$target[i]).val();
+            this.targetVals[targetValsCounter] = $(this.$target[i]).val();
+            targetValsCounter += 1;
         }
     }
 
-    // If target already has value select this date in the picker
-    if (this.targetVals.length) {
+    // If target already has all values select this date in the picker
+    if (this.targetVals.length == 3) {
+
         // Get day, month and year numbers
         this.targetDay = +this.targetVals[0];
         this.targetMonth = +this.targetVals[1] - 1;
@@ -970,6 +966,9 @@ datepicker.prototype.handleClearClick = function() {
 
     // Remove all values from inputs
     this.$target.val('');
+
+    // Reset current day so on popGrid the preivous active day isn't still selected
+    this.day = false;
 
     // Trigger the auto submit
     $(this.$target[0]).change();
