@@ -8,8 +8,9 @@
 		&__type {
 			display: block;
 			font-size: 21px;
-			font-weight: 300;
+			font-weight: $base-font-weight;
 			color: $salem;
+			padding: 5px 0 3px 0;
 		}
 
 		&__title {
@@ -32,6 +33,12 @@
 			margin-bottom: ($baseline * 6);
 			padding: 7px 0 9px 0;
 			line-height: 32px;
+
+			@include breakpoint(sm) {
+				font-size: 17px;
+				padding: 9px 0 7px 0;
+				margin-bottom: ($baseline * 4);
+			}
 
 			&--home-big {
 				font-size: 24px;
