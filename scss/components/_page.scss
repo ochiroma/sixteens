@@ -15,23 +15,24 @@
 
 		&__title {
 			margin-top: ($baseline * 2);
-			margin-bottom: ($baseline * 0);
+			margin-bottom: ($baseline * 1);
 
 			&--home {
 				font-size: 36px;
 
 				@include breakpoint(sm) {
-					font-size: 28px;
+					font-size: 22px;
 				}
 
 				&-big {
 					font-size: 60px;
 					line-height: 64px;
 					display: block;
+					margin-bottom: 0;
 
 					@include breakpoint(sm) {
-						font-size: 48px;
-						line-height: 56px;
+						font-size: 36px;
+						line-height: 40px;
 					}
 				}
 			}
