@@ -36,7 +36,34 @@
         padding-left: $col;
         padding-right: $col;
         margin: 0 0 $baseline (-$col);
-        width: ($col * 18)
+        width: ($col * 18);
+
+        &.enhanced {
+            overflow: hidden;
+            animation: hideError 0.15s ease-out forwards;
+        }
+
+        &.active {
+            animation: showError 0.25s ease-in forwards;
+        }
+    }
+
+    // Error message animations
+    @keyframes showError {
+        from {
+            max-height: 0;
+        }
+        to {
+            max-height: ($baseline * 30); // Random high number chosen, so we should not hit this limit, needed for animation
+        }
+    }
+    @keyframes hideError {
+        from {
+            max-height: ($baseline * 30);
+        }
+        to {
+            max-height: 0;
+        }
     }
 
     // For date inputs
