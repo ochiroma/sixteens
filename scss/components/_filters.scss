@@ -29,6 +29,16 @@
         margin-top: ($baseline * 3);
     }
 
+    &__error {
+        font-size: 13px;
+        background: $poppy;
+        color: $white;
+        padding-left: $col;
+        padding-right: $col;
+        margin: 0 0 $baseline (-$col);
+        width: ($col * 18)
+    }
+
     // For date inputs
     &__date {
         float: left;

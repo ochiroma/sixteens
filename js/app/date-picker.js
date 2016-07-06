@@ -818,8 +818,8 @@ datepicker.prototype.handleGridClick = function(id, e) {
     var $curDay = $('#' + this.$grid.attr('aria-activedescendant'));
 
     // update the target inputs
-    $(this.$target[0]).val(($curDay.html() < 9 ? '0' : '') + $curDay.html());
-    $(this.$target[1]).val((this.month < 9 ? '0' : '') + (this.month+1));
+    $(this.$target[0]).val($curDay.html());
+    $(this.$target[1]).val(this.month+1);
     $(this.$target[2]).val(this.year);
 
     // trigger a change event so that the auto-refresh/ajax runs
