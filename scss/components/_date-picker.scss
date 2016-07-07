@@ -4,6 +4,7 @@
     padding: ($baseline * 3) $col;
     margin-top: ($baseline * 2);
     position: relative;
+    width: ($col * 16);
 
     &:before {
         width: 0;
@@ -30,10 +31,11 @@
 
     &__month {
         font-size: 18px;
-        margin: $baseline 0 ($baseline *2) 0;
+        margin: 0 0 ($baseline *2) 0;
         float: left;
         width: ($col * 11);
         text-align: center;
+        padding: 4px 0;
     }
 
     &__btn {
@@ -57,6 +59,9 @@
 
     &__grid {
         position: relative;
+        table-layout: fixed;
+        margin-bottom: -1px; // Stops default table border putting off date picker by 1px
+        border-collapse: separate;
 
         // Remove chrome outline
         &:focus {
@@ -89,9 +94,12 @@
         text-align: center;
         vertical-align: middle;
         background: $nevada;
-        border: 1px solid $ship-grey;
+        //border: 1px solid $ship-grey;
+        border-right: 1px solid $ship-grey;
+        border-bottom: 1px solid $ship-grey;
         position: relative;
         cursor: pointer;
+        padding: 0;
 
         &.empty {
             background: $abbey;
