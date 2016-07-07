@@ -889,6 +889,11 @@ datepicker.prototype.showDlg = function() {
         return false;
     });
 
+    // move arrow for datepicker modal to left side on mobile and medium
+    if ($('body').is('.viewport-sm, .viewport-md')) {
+        this.$id.addClass('datepicker--left-arrow');
+    }
+
     // show the dialog
     this.$id.attr('aria-hidden', 'false');
 
@@ -911,6 +916,11 @@ datepicker.prototype.hideDlg = function() {
 
     // hide the dialog
     this.$id.attr('aria-hidden', 'true');
+
+    // if has modifier to show arrow on left remove it now
+    if (this.$id.hasClass('datepicker--left-arrow')) {
+        this.$id.removeClass('datepicker--left-arrow');
+    }
 
     // set focus on the focus target
     this.$target.focus();

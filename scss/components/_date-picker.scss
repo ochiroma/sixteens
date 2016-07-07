@@ -3,8 +3,9 @@
     color: $iron-light;
     padding: ($baseline * 3) $col;
     margin-top: ($baseline * 2);
-    position: relative;
+    position: absolute;
     width: ($col * 16);
+    z-index: 10; // Otherwise elements on mobile go over the top
 
     &:before {
         width: 0;
@@ -18,14 +19,24 @@
         border-bottom: 15px solid $ship-grey;
     }
 
+    &--left-arrow:before {
+        left: $col;
+    }
+
     &__icon {
-        margin: ($baseline * 3) 0 0 ($col);
         width: ($col * 2);
         padding: 0;
         background: transparent;
 
         &:focus {
             background: $iron;
+        }
+
+        @include breakpoint(md) {
+            margin: $baseline 0 0 0;
+        }
+        @include breakpoint(lg) {
+            margin: ($baseline * 3) 0 0 ($col);
         }
     }
 

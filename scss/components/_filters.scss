@@ -71,24 +71,48 @@
         float: left;
 
         &:not(:first-of-type) {
-            margin-left: $col;
+            @include breakpoint(sm) {
+                margin-left: ($col / 2);
+            }
+            @include breakpoint(md) {
+                margin-left: ($col / 2);
+            }
+            @include breakpoint(lg) {
+                margin-left: $col;
+            }
         }
 
         input {
             width: 100%;
             line-height: $base-line-height;
             padding-left: ($col/2);
-            height: ($baseline * 4)
+            height: ($baseline * 4);
+            border: 1px solid $iron;
         }
 
         &--day {
-            width: ($col * 3);
+            @include breakpoint(md) {
+                width: ($col * 2.5);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 3);
+            }
         }
         &--month {
-            width: ($col * 3);
+            @include breakpoint(md) {
+                width: ($col * 2.5);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 3);
+            }
         }
         &--year {
-            width: ($col * 5);
+            @include breakpoint(md) {
+                width: ($col * 4);
+            }
+            @include breakpoint(lg) {
+                width: ($col * 5);
+            }
         }
 
     }
