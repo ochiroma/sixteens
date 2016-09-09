@@ -17,6 +17,7 @@ node {
     }
 }
 
+@NonCPS
 def revisionFrom(tag, commit) {
     def matcher = (tag =~ /^release\/(\d+\.\d+\.\d+(?:-rc\d+)?)$/)
     matcher.matches() ? matcher[0][1] : commit
