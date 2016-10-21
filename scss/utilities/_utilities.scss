@@ -227,6 +227,15 @@
         }
     }
 
+    &--md-only {
+        @include breakpoint(md) {
+            display: none;
+        }
+        @include breakpoint(lg) {
+            display: block;
+        }
+    }
+
     &--lg {
         @include breakpoint(lg) {
             display: none !important;
