@@ -400,10 +400,11 @@
 .header {
     padding: 15px 0 9px 0;
     position: relative; // So language toggle has relative parent
+    height: ($baseline * 9);
 }
 
 // Logo
-.main-logo {
+.logo {
     display: block;
 
     @include breakpoint(sm) {
