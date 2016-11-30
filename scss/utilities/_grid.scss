@@ -20,13 +20,15 @@ $large-cols-one: $large-complex-grid-cols * $col;
 $large-cols-half: (($large-complex-grid-cols - 1) / 2) * $col;
 $large-cols-one-third: (($large-complex-grid-cols - 2) / 3) * $col;
 $large-cols-two-thirds: (($large-complex-grid-cols - 1) * $col) - $large-cols-one-third;
-$large-cols-quarter: (($large-complex-grid-cols - 3) / 4) * $col;
+$large-cols-one-quarter: (($large-complex-grid-cols - 3) / 4) * $col;
+$large-cols-three-quarters: (($large-complex-grid-cols - 1) * $col) - $large-cols-one-quarter;
 
 $medium-cols-one: $medium-complex-grid-cols * $col;
 $medium-cols-half: (($medium-complex-grid-cols - 1) / 2) * $col;
 $medium-cols-one-third: (($medium-complex-grid-cols - 2) / 3) * $col;
 $medium-cols-two-thirds: (($medium-complex-grid-cols - 1) * $col )- $medium-cols-one-third;
-$medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
+$medium-cols-one-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
+$medium-cols-three-quarters: (($medium-complex-grid-cols - 1) * $col) - $medium-cols-one-quarter;
 
 //--[vars end]--
 
@@ -36,6 +38,8 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 
 //--[mixins]--
+
+// Breakpoint mixin in _breakpoints.scss
 
 // Generate the large columns
 @mixin make-lg-column($columns) {
@@ -51,31 +55,38 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 }
 
 
-@mixin breakpoint($class) {
-  @if $class == md {
-    @media (min-width: 768px) { @content; }
-  }
- 
-  @else if $class == lg {
-    @media (min-width: 992px) { @content; }
-  }
- 
-  // @else {
-  //   @warn "Breakpoint mixin supports: xs, sm, md, lg";
-  // }
-}
-
-
 @mixin large-cols-complex {
   @for $i from 1 through $large-complex-grid-cols {
-  &--lg-#{$i} { width: $col * $i }
+  &--lg-#{$i} {
+  	width: $col * $i;
+  	margin: 0;
+   }
   }
 }
 
 
 @mixin medium-cols-complex {
   @for $i from 1 through $medium-complex-grid-cols {
-  &--md-#{$i} { width: $col * $i }
+  &--md-#{$i} {
+  	width: $col * $i;
+  	margin: 0;
+  }
+ }
+}
+
+@mixin large-cols-offset {
+  @for $i from 1 through $large-complex-grid-cols {
+  &--lg-offset-#{$i} {
+  	margin-left: $col * $i;
+   }
+  }
+}
+
+@mixin medium-cols-offset {
+  @for $i from 1 through $large-complex-grid-cols {
+  &--md-offset-#{$i} {
+  	margin-left: $col * $i;
+   }
   }
 }
 
@@ -103,14 +114,14 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		padding: 0;
 	}
 
-	
+
 }
 
 
 .col-wrap{
 	overflow: hidden;
 	width: 100%;
-	
+
 
 	@include breakpoint(md) {
 		width: ($medium + $gutter);
@@ -122,15 +133,55 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		margin-left: -$gutter;
 	}
 
-	
+
+}
+
+.col-span {
+	&--lg {
+		@include breakpoint(lg) {
+			&-thirds {
+				.col {
+					&:nth-child(3n+4) {
+	      				clear: left;
+	      			}
+	  			}
+			}
+			&-half {
+				.col {
+					&:nth-child(2n+3) {
+						clear:left;
+					}
+				}
+			}
+		}
+	}
+
+	&--md {
+		@include breakpoint(md) {
+			&-thirds {
+				.col {
+					&:nth-child(3n+4) {
+	      				clear: left;
+	      			}
+	  			}
+			}
+			&-half {
+				.col {
+					&:nth-child(2n+3) {
+						clear:left;
+					}
+				}
+			}
+		}
+	}
 }
 
 
 .col {
 	overflow: hidden;
 	width: 100%;
-	padding-left: $gutter;
-	padding-right: $gutter;
+	//padding-left: $gutter;
+	//padding-right: $gutter;
 	// box-sizing: border-box;
 	float: left;
 
@@ -166,12 +217,24 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		}
 
 		&--md {
-			&-quarter {
-				width: $medium-cols-quarter;
+			&-one-quarter {
+				width: $medium-cols-one-quarter;
+			}
+			&-three-quarters {
+				width: $medium-cols-three-quarters;
 			}
 		}
 
+		&--md {
+			&-full-width {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+		//call complex cols last so the css gets generated last and they take precedence
 		@include medium-cols-complex;
+		@include medium-cols-offset;
 
 	}
 
@@ -206,16 +269,28 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 		}
 
 		&--lg {
-			&-quarter {
-				width: $large-cols-quarter;
+			&-one-quarter {
+				width: $large-cols-one-quarter;
+			}
+			&-three-quarters {
+				width: $large-cols-three-quarters;
 			}
 		}
 
+		&--lg {
+			&-full-width {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+
+		//call complex cols last so the css gets generated last and they take precedence
 		@include large-cols-complex;
+		@include large-cols-offset;
 
 	}
 
-	
 
 
 	// &--padded { padding: $baseline $gutter; }
@@ -223,4 +298,3 @@ $medium-cols-quarter: (($medium-complex-grid-cols - 3) / 4) * $col;
 
 
 //--[classes end]--
-
