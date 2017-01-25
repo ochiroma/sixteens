@@ -58,6 +58,11 @@ section {
 				padding-left: $col;
 				margin-bottom: ($baseline * 4);
 
+				//On mobile remove grey border
+				@include breakpoint(sm) {
+						border-left:0px
+					}
+
 				.markdown-chart, .markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
 					width: 700px;
