@@ -58,6 +58,23 @@ section {
 				padding-left: $col;
 				margin-bottom: ($baseline * 4);
 
+				&--error {
+					height: ($baseline * 36);
+					font-size: 17px;
+					font-weight: 600;
+					position: relative;
+					text-align: center;
+				}
+
+				&--error__message {
+					position: absolute;
+					top: ($baseline * 16);
+					left: 0;
+					width: 100%;
+					text-align: center;
+					padding: 5px 0 3px 0;
+				}
+
 				.markdown-chart, .markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
 					width: 700px;
