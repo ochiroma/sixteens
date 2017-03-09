@@ -54,7 +54,6 @@ section {
 			position: relative;
 
 			.markdown-chart-container, .markdown-table-container {
-				border-left: solid $col $mercury;
 				padding-left: $col;
 				margin-bottom: ($baseline * 4);
 
@@ -82,13 +81,26 @@ section {
 				}
 
 
-				.markdown-chart, .markdown-table-wrap {
+				.markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
 					width: 700px;
 
 					//On mobile then go 100% width
 					@include breakpoint(sm) {
 						width: 100%;
+					}
+				}
+				.markdown-chart{
+					//Charts take up extra space when available (ie on desktop/tablet)
+					width: 700px;
+
+					//On tablet
+					@include breakpoint(md) {
+						width: 520px;
+					}
+					//On mobile 
+					@include breakpoint(sm) {
+						width: 360px;
 					}
 				}
 				.sm-multiple-holder {
