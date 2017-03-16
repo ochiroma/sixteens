@@ -381,23 +381,6 @@ $svg: 'https://cdn.ons.gov.uk/assets/images/icon-sprite.svg';
         &-drop-down {
             background-position: -16px -738px;
         }
-
-
-
-        &--hide:after {
-            //For use in situations where icons are automatically added but not wanted and a global solution isn't viable
-            display: none !important;
-        }
-
-    }
-
-
-    //Add external link icon (:not excludes domains)
-    a[target=_blank]:after {
-        @extend .icon;
-        @extend .icon-external--dark-small;
-        content: "";
-        margin-left: 8px;
     }
 }
 
