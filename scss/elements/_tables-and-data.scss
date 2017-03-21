@@ -1,12 +1,8 @@
 //_tables-and-data.scss
 table {
-    width: 700px;
     min-width: 100%;
     border-spacing: 0;
     border-collapse: collapse;
-
-    font-feature-settings: "tnum" 1;
-    text-align:right;
 
 
     // Not needed on ons.gov.uk because table builder carries through borders - uncomment if other users of this library need it
@@ -50,6 +46,12 @@ dl {
 
 dd {
     margin: 0;
+}
+
+.table-chart{
+    width:700px;
+    font-feature-settings: "tnum" 1;
+    text-align:right;
 }
 
 // Time series data table
