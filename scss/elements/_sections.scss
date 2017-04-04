@@ -50,9 +50,14 @@
 			position: relative;
 
 			.markdown-chart-container, .markdown-table-container {
-				border-left: solid $col $mercury;
 				padding-left: $col;
 				margin-bottom: ($baseline * 4);
+
+
+				//On mobile remove grey border
+				@include breakpoint(sm) {
+						border-left:0px
+					}
 
 				&--error {
 					height: ($baseline * 36);
@@ -71,7 +76,8 @@
 					padding: 5px 0 3px 0;
 				}
 
-				.markdown-chart, .markdown-table-wrap {
+
+				.markdown-table-wrap {
 					//Charts take up extra space when available (ie on desktop/tablet)
 					width: 700px;
 
@@ -80,6 +86,39 @@
 						width: 100%;
 					}
 				}
+				.markdown-chart{
+					//Charts take up extra space when available (ie on desktop/tablet)
+					width: 700px;
+
+					//On tablet
+					@include breakpoint(md) {
+						width: 520px;
+					}
+					//On mobile 
+					@include breakpoint(sm) {
+						width: 360px;
+					}
+				}
+				.sm-multiple-holder {
+					// set the holder to max width: 3 small line charts
+					width: 700px;
+					/*
+					// 2 small line chart on tablet?
+					@include breakpoint(md) {
+						width: 500px;
+					}
+					*/
+				}
+
+				.sm-multiple {
+					padding-top:4px;
+					width: 230px;
+					float:left;
+				}
+			}
+
+			.markdown-chart-container{
+				padding-left:0;
 			}
 		}
 
