@@ -1,7 +1,5 @@
 .pym-interactive {
 
-    background-color: red;
-
     @include breakpoint(md) {
         width: 670px;
     }
