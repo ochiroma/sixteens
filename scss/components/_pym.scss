@@ -1,10 +1,17 @@
 .pym-interactive {
+
+    background-color: red;
+
     @include breakpoint(md) {
+        width: 670px;
+    }
+
+    @include breakpoint(lg) {
         width: 700px;
     }
 
     &--full-width {
-        @include breakpoint(md) {
+        @include breakpoint(lg) {
             width: $col * 59; // 944px
             margin-left: $col * -3;
         }
