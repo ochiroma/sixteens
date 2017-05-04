@@ -16,20 +16,11 @@ table {
 
     th {
         padding: 7px 0 1px 0;
-        text-align:right;
 
         // Not needed on ons.gov.uk because table builder carries through borders - uncomment if other users of this library need it
         //&[scope="col"] {
         //    border-bottom: 1px solid $thunder;
         //}
-
-        &.left{
-            text-align:left;
-        }
-    }
-
-    tr th:first-child{
-        text-align:left;  
     }
 
     td {
