@@ -2,4 +2,16 @@
     @include breakpoint(md) {
         width: 700px;
     }
+
+    &--full-width {
+        @include breakpoint(md) {
+            width: $col * 59; // 944px
+            margin-left: $col * -3;
+        }
+    }
+
+
 }
+
+
+
