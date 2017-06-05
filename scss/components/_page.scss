@@ -1,15 +1,13 @@
 //_page.scss
 
 .page {
-	&-header {}
 	&-intro {
-		//background: $gallery;
 
 		&__type {
 			display: block;
 			font-size: 21px;
 			font-weight: $base-font-weight;
-			color: $salem;
+			color: $ship-grey;
 			padding: 5px 0 3px 0;
 		}
 
