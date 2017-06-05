@@ -367,33 +367,6 @@
     display: block;
 }
 
-// BETA BANNER
-
-.beta-banner {
-    background-color: $carrot;
-
-    @media print {
-        display: none;
-    }
-
-    p {
-        margin: 0;
-        //padding: 7px 0 9px 0;
-
-        & > a {
-            color: $ship-grey;
-            text-decoration: underline;
-
-            &:hover,
-            &:focus {
-                color: $thunder;
-            }
-
-        }
-    }
-
-}
-
 // HEADER - LOGO, LANGUAGE SELECTION AND SECONDARY NAV LINKS
 
 // Header
