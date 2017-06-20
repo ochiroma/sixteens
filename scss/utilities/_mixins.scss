@@ -1,0 +1,37 @@
+//_mixins.scss
+
+// Use as alternative to overflow:hidden
+@mixin clearfix() {
+    & {
+        *zoom: 1;
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// Opacity value with fallback
+@mixin opacity($trans) {
+    zoom: 1;
+    filter: unquote('alpha(opacity=' + ($trans * 100) + ')'); // IE6 to IE8
+    opacity: $trans;
+}
+
+// Simple border radius
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius; // Chrome 4.0, Safari 3.1 to 4.0, Mobile Safari 3.2, Android Browser 2.1
+    -moz-border-radius: $radius; // Firefox 2.0 to 3.6
+    border-radius: $radius;
+}
+
+// Simple box shadow
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow; // Chrome 4.0 to 9.0, Safari 3.1 to 5.0, Mobile Safari 3.2 to 4.3, Android Browser 2.1 to 3.0
+    -moz-box-shadow: $shadow; // Firefox 3.5 to 3.6
+    box-shadow: $shadow;
+}
