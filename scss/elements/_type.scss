@@ -189,3 +189,20 @@ strong {
 }
 
 @include font-heading-util;
+
+
+// Add ".adjust-font-size--n" class to container elements to increase font size on body elements
+@mixin body-adjust-util {
+   .adjust-font-size {
+        @for $i from 14 through 20 {
+               &--#{$i} {
+                dd, dt, fieldset, input, label, li, p {
+                   font-size: $i + px;
+               }
+           }
+       }
+   }
+}   
+
+@include body-adjust-util;
+

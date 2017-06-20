@@ -2,6 +2,7 @@
 
 $old-ie: false;
 
+@import "utilities/mixins";
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
@@ -31,6 +32,7 @@ $old-ie: false;
 @import "elements/images";
 @import "elements/lists";
 @import "elements/links";
+@import "elements/checkbox";
 
 
 @import "components/header";
