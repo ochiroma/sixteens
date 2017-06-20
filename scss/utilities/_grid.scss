@@ -100,7 +100,7 @@ $medium-cols-three-quarters: (($medium-complex-grid-cols - 1) * $col) - $medium-
 //--[classes]--
 .wrapper {
 	// overflow: hidden;
-	@include clearfix();
+	@extend %clearfix;
 	width: 100%;
 	margin:0 auto;
 	padding: 0 16px;
@@ -121,7 +121,7 @@ $medium-cols-three-quarters: (($medium-complex-grid-cols - 1) * $col) - $medium-
 
 .col-wrap{
 	// overflow: hidden;
-	@include clearfix();
+	@extend %clearfix;
 	width: 100%;
 
 
@@ -181,7 +181,7 @@ $medium-cols-three-quarters: (($medium-complex-grid-cols - 1) * $col) - $medium-
 
 .col {
 	// overflow: hidden;
-	@include clearfix();
+	@extend %clearfix;
 	width: 100%;
 	//padding-left: $gutter;
 	//padding-right: $gutter;
