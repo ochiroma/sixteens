@@ -513,7 +513,7 @@
    .adjust-font-size {
         @for $i from 14 through 20 {
                &--#{$i} {
-                dd, dt, fieldset, input, label, li, p, a {
+                dd, dt, fieldset, input, label, li, p, a, span, .btn--link {
                    font-size: $i + px;
                }
            }

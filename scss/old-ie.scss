@@ -31,6 +31,7 @@ $old-ie: true;
 @import "elements/images";
 @import "elements/lists";
 @import "elements/links";
+@import "elements/checkbox";
 
 
 @import "components/header";
@@ -52,6 +53,7 @@ $old-ie: true;
 @import "components/js-enhance";
 @import "components/table-of-contents";
 @import "components/show-and-hide";
+@import "components/details";
 @import "components/side-bar";
 @import "components/date-picker";
 @import "components/time-series-tool";
