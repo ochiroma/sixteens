@@ -43,19 +43,19 @@ $(function() {
             // create unique id for aria relationship and add to the button wrapper and each checkbox group.
             var ariaId = 'checkboxes-' + i;
             $(this).attr('id', ariaId);
-            $(relatedSelector).attr('id', ariaId);
+            $(relatedSelector).attr('aria-contols', ariaId);
     		
     		// When all checkboxes are checked.
 	    	if ($('input:checked', this).length == $('input', this).length) {
-				selectAll.attr('aria-disabled', 'true').addClass('btn--link-disabled');
-				selectNone.attr('aria-disabled', 'false').removeClass('btn--link-disabled');
+				selectAll.attr({'aria-disabled': 'true','disabled': 'true'}).addClass('btn--link-disabled');
+				selectNone.attr('aria-disabled', 'false').removeAttr('disabled').removeClass('btn--link-disabled');
 	    	// When no checkboxes are checked.
 			} else if ($('input:checked', this).length == 0) {
-				selectNone.attr('aria-disabled', 'true').addClass('btn--link-disabled');
-				selectAll.attr('aria-disabled', 'false').removeClass('btn--link-disabled');
+				selectNone.attr({'aria-disabled': 'true','disabled': 'true'}).addClass('btn--link-disabled');
+				selectAll.attr('aria-disabled', 'false').removeAttr('disabled').removeClass('btn--link-disabled');
 			// When some checkboxes are checked.
 			} else {
-				selectEl.attr('aria-disabled', 'false').removeClass('btn--link-disabled');
+				selectEl.attr('aria-disabled', 'false').removeAttr('disabled').removeClass('btn--link-disabled');
 			}
 		});
 	}

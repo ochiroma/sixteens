@@ -114,6 +114,11 @@ button {
             outline: 0;
         }
 
+        &:focus {
+            @include box-shadow(0 0 0 5px $carrot);  
+            outline: 0;      
+        }
+
         &-disabled {
             color: $ship-grey;
             cursor: text;
