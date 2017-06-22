@@ -109,12 +109,31 @@ button {
         color: $matisse;
         padding: 6px 0 2px 0;
 
-        &:hover,
-        &:focus {
+        &:hover {
             text-decoration: underline;
             outline: 0;
         }
+
+        &:focus {
+            @include box-shadow(0 0 0 5px $carrot);  
+            outline: 0;      
+        }
+
+        &-disabled {
+            color: $ship-grey;
+            cursor: text;
+            text-decoration: none!important;
+            &:hover, &:focus {
+                text-decoration: none;
+                outline: 0;
+            }
+        }
+
+        &-underlined {
+            text-decoration: underline;
+        }
     }
+
 
     &--small {
         font-size: 12px;
