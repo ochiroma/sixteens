@@ -548,10 +548,13 @@
            }
        }
    }
-}   
-
+}
 @include body-adjust-util;
 
+// Make all links within the component underlined
+.underline-all-links a:not(.btn) {
+	@extend .underline-link;
+}
 
 // Use as alternative to overflow:hidden
 %clearfix {
@@ -567,4 +570,3 @@
         clear: both;
     }
 }
-
