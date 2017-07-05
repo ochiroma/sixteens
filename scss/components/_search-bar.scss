@@ -94,6 +94,15 @@
         &--results-page {
             height: ($baseline * 5);
         }
+
+        &--body {
+            background: none;
+            outline: 3px solid black;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
+            float: left;
+        }
     }
 
     &__button {
@@ -125,6 +134,16 @@
         &--results-page {
             height: ($baseline * 5);
             padding-top: ($baseline / 2);
+        }
+
+        &--body {
+            height: ($baseline * 5);
+            max-width: ($baseline * 6);
+            padding-top: ($baseline / 2);
+            outline: 3px solid $primary;
+            margin-left: 3px;
+            float: left;
+            position:sticky;
         }
     }
 }
