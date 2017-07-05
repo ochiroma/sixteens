@@ -570,3 +570,7 @@
         clear: both;
     }
 }
+// Use as alternative to overflow:hidden
+.clearfix {
+    @extend %clearfix;
+}
