@@ -45,7 +45,9 @@ $(function() {
             var href = $(this).attr('href');
             $(tocSelectList).append($('<option/>', {
                 value: href,
-                text: text
+                text: text,
+                'data-gtm-title': text,
+                'data-gtm-type': 'sticky-toc'
             }));
         });
 
