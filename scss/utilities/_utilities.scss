@@ -295,6 +295,11 @@
 	clear: right !important;
 }
 
+// Make an element full width
+.full-width {
+	width:100%!important;
+}
+
 // hiding polyfill placeholder - temporary fix for IE8/9
 
 .placeholder {
@@ -429,6 +434,10 @@
 
 .underline-link {
     text-decoration: underline !important;
+}
+
+.text-wrap {
+	white-space: normal;
 }
 
 // Opacity value with fallback
