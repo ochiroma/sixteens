@@ -103,7 +103,12 @@ button {
             cursor: default;
         }
     }
-
+    &--focus {
+      &:focus {
+          @include box-shadow(0 0 0 5px $carrot);
+          outline: 0;
+      }
+    }
     &--link {
         background: transparent;
         color: $matisse;
@@ -115,8 +120,8 @@ button {
         }
 
         &:focus {
-            @include box-shadow(0 0 0 5px $carrot);  
-            outline: 0;      
+            @include box-shadow(0 0 0 5px $carrot);
+            outline: 0;
         }
 
         &-disabled {

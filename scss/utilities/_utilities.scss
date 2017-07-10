@@ -295,6 +295,11 @@
 	clear: right !important;
 }
 
+// Make an element full width
+.full-width {
+	width:100%!important;
+}
+
 // hiding polyfill placeholder - temporary fix for IE8/9
 
 .placeholder {
@@ -431,6 +436,10 @@
     text-decoration: underline !important;
 }
 
+.text-wrap {
+	white-space: normal;
+}
+
 // Opacity value with fallback
 @mixin opacity($trans) {
     zoom: 1;
@@ -548,10 +557,13 @@
            }
        }
    }
-}   
-
+}
 @include body-adjust-util;
 
+// Make all links within the component underlined
+.underline-all-links a:not(.btn) {
+	@extend .underline-link;
+}
 
 // Use as alternative to overflow:hidden
 %clearfix {
@@ -567,4 +579,7 @@
         clear: both;
     }
 }
-
+// Use as alternative to overflow:hidden
+.clearfix {
+    @extend %clearfix;
+}
