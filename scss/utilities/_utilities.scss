@@ -261,6 +261,44 @@
 	float: right !important;
 }
 
+//  New float rule that includes breakpoints
+.float-el {
+	&--right{
+		&-sm {
+			@include breakpoint(sm) {
+				float: right !important;
+			}
+		}
+		&-md {
+				@include breakpoint(md) {
+					float: right !important;
+				}
+			}
+		&-lg {
+			@include breakpoint(lg) {
+				float: right !important;
+			}
+		}
+	}
+	&--left{
+		&-sm {
+			@include breakpoint(sm) {
+				float: left !important;
+			}
+		}
+		&-md {
+				@include breakpoint(md) {
+					float: left !important;
+				}
+			}
+		&-lg {
+			@include breakpoint(lg) {
+				float: left !important;
+			}
+		}
+	}
+}
+
 .float-left {
 	float: left !important
 }
