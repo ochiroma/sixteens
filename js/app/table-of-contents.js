@@ -92,7 +92,7 @@ $(function() {
                 // a click event with the title of element clicked
                 if (window.dataLayer != undefined) {
                     window.dataLayer.push({
-                        'event': 'StickyTopNavCLick',
+                        'event': 'StickyTopNavClick',
                         'stickyTopNav': title
                     });
                 }
