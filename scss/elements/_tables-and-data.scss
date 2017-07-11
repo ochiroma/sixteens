@@ -55,6 +55,8 @@ dd {
     border-left: 1px solid $iron;
     border-right: 1px solid $iron;
 
+
+
     &__header {
         text-align: left;
         position: relative; //Relative container for absolutely positioned arrow
@@ -171,4 +173,27 @@ dd {
     //		margin-left: $col;
     //	}
     //}
+}
+
+// Preview table for cmd
+.table-preview {
+  max-width:90%;
+  min-width:90%;
+  overflow-x: scroll;
+  table {
+    display: table;
+    border-collapse: collapse;
+    tbody, thead {
+      td, th {
+        padding: $col/2 $col $col/2 0;
+        vertical-align: baseline;
+        font-weight: $base-font-weight;
+        text-align: left;
+        border-bottom: 1px solid $gallery;
+      }
+    }
+    thead th{
+      font-size:16px;
+    }
+  }
 }
