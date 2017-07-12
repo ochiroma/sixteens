@@ -42,6 +42,7 @@
         @if $old-ie == false {
             @include breakpoint(sm) {
                 padding: ($baseline * 3) 0;
+                overflow: hidden;
             }
         }
     }
@@ -145,7 +146,6 @@
             width: 52px;
             margin-top: -2px;
             float: left;
-            position:sticky;
         }
     }
 }
