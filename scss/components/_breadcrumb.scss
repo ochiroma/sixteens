@@ -5,11 +5,10 @@
 	// line-height: 24px;
 	padding: ($baseline * 2) 0 (($baseline * 1) - 1) 0;
 	border-bottom: 1px solid $iron;
-
+	clear:both;
 	@include breakpoint(sm) {
 		padding: $baseline 0 (($baseline * 2) - 1) 0;
 	}
-    
 
 	&__list {
 		list-style: none;
