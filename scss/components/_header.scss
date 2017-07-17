@@ -328,6 +328,10 @@
         border-right: 1px solid $thunder;
     }
 
+    &__no-search {
+      width:100%;
+    }
+
     &__search {
         background-color: $ship-grey;
         font-size: 17px;

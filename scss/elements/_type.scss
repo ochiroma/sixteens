@@ -120,10 +120,6 @@ a {
     &:focus {
         text-decoration: underline;
     }
-    &:focus {
-      @include box-shadow(0 0 0 5px $carrot);
-      outline: 0;
-    }
 }
 
 address {
