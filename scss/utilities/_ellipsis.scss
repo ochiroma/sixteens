@@ -38,5 +38,12 @@
 		clear:none;
 	}
 
+}
 
+// Mixin for adding ellipses to a single line
+@mixin truncateSingleLine($height:$baseline * 3){ // Default is 24px height
+	height: $height;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
