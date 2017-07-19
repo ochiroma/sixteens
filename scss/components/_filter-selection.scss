@@ -1,0 +1,48 @@
+// Filter Selection (Shopping basket) & Filter Overview
+
+.filter-selection {
+  &__header {
+    background: $gallery;
+    padding:15px;
+
+    h2 {
+      font-size: 20px;
+      margin: 0;
+      padding:0;
+      display: inline-block;
+    }
+    a {
+      float:right;
+      text-align: right;
+      padding:0;
+    }
+  }
+
+  ul {
+    border-left: 1px solid $gallery;
+    border-right: 1px solid $gallery;
+    margin: 0;
+    li {
+      border-bottom: 1px solid $gallery;
+      padding: 15px;
+      margin: 0;
+      overflow: hidden;
+      span {
+        float: left;
+      }
+      @include breakpoint(md) {
+        span.remove-link {
+          float:right;
+          text-align: right;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.filter-overview {
+  &__filter {
+    @include truncateSingleLine;
+  }
+}
