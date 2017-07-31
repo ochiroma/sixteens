@@ -1,4 +1,4 @@
-// Filter Selection (Shopping basket)
+// Filter Selection (Shopping basket) & Filter Overview
 
 .filter-selection {
   &__header {
@@ -38,5 +38,11 @@
         }
       }
     }
+  }
+}
+
+.filter-overview {
+  &__filter {
+    @include truncateSingleLine;
   }
 }
