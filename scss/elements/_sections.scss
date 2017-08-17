@@ -46,13 +46,26 @@
 
 			position: relative;
 
+
+			// Neutral article specific styling
+			&-flush {
+				padding-left: 0;
+				margin-right: 0;
+
+
+				.pym-interactive--full-width {
+					margin-left: 0;
+				}
+			}
+			// End of neutral article styling
+
 			.markdown-chart-container, .markdown-table-container {
 				margin-bottom: ($baseline * 4);
 
 
 				//On mobile remove grey border
 				@include breakpoint(sm) {
-						border-left:0px
+						border-left: 0;
 					}
 
 				&--error {
