@@ -39,6 +39,10 @@ button {
         }
     }
 
+    &--no-click {
+        pointer-events: none;
+    }
+
     &--secondary {
         background-color: $secondary;
         color: $white;
