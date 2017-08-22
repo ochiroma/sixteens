@@ -121,6 +121,26 @@
 			.markdown-chart-container{
 				padding-left:0;
 			}
+
+			.markdown-box-container {
+				background-color: $gallery;
+				padding: ($baseline * 2) $col;
+				margin-bottom: $baseline * 2;
+
+				// remove margin top and bottom from first and last items
+				// can't use :first-child because the markdown parser sometimes leaves empty p tag first :(
+				h3:first-of-type,
+				h4:first-of-type {
+					margin-top: 0;
+				}
+
+				*:last-child {
+					margin-bottom: 0;
+				}
+
+
+			}
+
 		}
 
 		&--static-markdown {
