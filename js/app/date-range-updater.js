@@ -14,10 +14,12 @@ $(document).ready(function() {
             
             for(var i = 1; i <= diffYears; i++) {
                 var optYear = currEndYear - i;
-                $("#end-year").prepend($('<option>', {
-                    value: optYear.toString(),
-                    text: optYear.toString(),
-                }))
+                if ($("#end-year option[value='"+optYear.toString()+"']").length == 0) {
+                    $("#end-year").prepend($('<option>', {
+                        value: optYear.toString(),
+                        text: optYear.toString(),
+                    }))
+                }
             }
         } 
 
