@@ -1,15 +1,28 @@
 $(function() {
 
+  // TEMP - fix to trim numbers from server side generated basket.
+  // Remove when filter api is adjusted.
+  $('.filter-selection ul li span.col').each(function(){
+    var text = $(this).text();
+    if(!isNaN(+text.charAt(0))){
+      text = / (.+)/.exec(text)[1];
+      $(this).text(text);
+    }
+  });
+  // END - TEMP fix.
+
   // Selectors
   var checkBox = $('.checkbox__input'),
       addAll = $('input.add-all'),
       removeList = $('.remove-list'),
+      addRange = $('.add-range'),
       filterSelectList = $('.filter-selection ul'),
       filterHeader = $('.filter-selection__header'),
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
 
-  // urls
-  var urlToPost = $('#filter-form').attr('action');
+  // url
+  var urlToPost = $('#filter-form').attr('action'),
+      url = window.location.pathname;
 
   $(document).on('click', '.js-filter', function(){
     el = $(this);
@@ -69,7 +82,7 @@ $(function() {
       filterSelectItem =
           '<li><span class="col col--md-6 col--lg-12">' + label +
           '</span><span class="remove-link js-filter">' +
-          '<a href="' + urlToPost + '/remove/' + id + '" id="' + id + '">Remove</a></li>';
+          '<a href="' + url + '/remove/' + id + '" id="' + id + '">Remove</a></li>';
       // Build remove all link
       removeAllLink =
           '<a class="remove-all js-filter" href="' + urlToPost +
@@ -94,11 +107,15 @@ $(function() {
     } else if (el.is(removeOne)) {
       id = el.find('a').attr('id');
       el.parents('li').remove();
-      $('.checkbox__input[name="'+id+'"]').prop('checked', false)
-      .removeClass('checked');
-
+      if(addRange.length){
+         
+      } else {
+        $('.checkbox__input[name="'+id+'"]').prop('checked', false)
+        .removeClass('checked');
+      }
     // Case - If remove all link clicked
     } else if (el.is(removeAll)){
+      urlToPost = url + '/remove-all'
       $('.checkbox__input').removeClass('checked').prop('checked', false);
       filterSelectList.empty();
 
@@ -134,10 +151,36 @@ $(function() {
        type: "POST",
        url: urlToPost,
        data: $("#filter-form").serialize(),
+       success: function(data){
+         //If we are adding ranges (time select) get the range response
+         if(el.is(addRange)){
+           filterSelectList.empty();
+           getRanges();
+         }
+       },
        error: function(){
-         console.log('error');
+         console.log('Post error');
        }
      });
    }
+
+   // Ajax call to the server to get the available ranges (time select)
+   function getRanges(){
+     $.ajax({
+        type: "GET",
+        url: url + '/options.json',
+        dataType: 'json',
+        success: function(data){
+          $.each(data.reverse(), function(index, element) {
+            id = element.id;
+            label = element.label;
+            addToFilter();
+          });
+        },
+        error: function(){
+          console.log('Get error');
+        }
+      });
+    }
 
  });
