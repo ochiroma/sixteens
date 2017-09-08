@@ -6,13 +6,12 @@ $(function() {
       removeList = $('.remove-list'),
       filterSelectList = $('.filter-selection ul'),
       filterHeader = $('.filter-selection__header'),
-      // Config
-      url = window.location.pathname,
-      urlToPost = url + '/update',
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
 
-  $(document).on('click', '.js-filter', function(){
+  // urls
+  var urlToPost = $('#filter-form').attr('action');
 
+  $(document).on('click', '.js-filter', function(){
     el = $(this);
     // These are appended to the DOM as need to bind on the click event
     removeAll = $('.remove-all');
@@ -24,12 +23,10 @@ $(function() {
       id = el.attr('name'), label = el.next('label').text();
       // Check the state and amend urlToPost
       if(el.prop('checked')) {
-        urlToPost =  url + '/update';
         el.addClass('checked');
         // Run the addToFilter function and pass through the clicked element
         addToFilter(el);
       } else {
-        urlToPost =  url + '/remove/' + id;
         el.removeClass('checked');
         // Run the removeFilter function and pass through the clicked element
         removeFilter(el);
@@ -72,10 +69,10 @@ $(function() {
       filterSelectItem =
           '<li><span class="col col--md-6 col--lg-12">' + label +
           '</span><span class="remove-link js-filter">' +
-          '<a href="' + url + '/remove/' + id + '" id="' + id + '">Remove</a></li>';
+          '<a href="' + urlToPost + '/remove/' + id + '" id="' + id + '">Remove</a></li>';
       // Build remove all link
       removeAllLink =
-          '<a class="remove-all js-filter" href="' + url +
+          '<a class="remove-all js-filter" href="' + urlToPost +
           '/remove-all">Remove all</a>'
       // Append elements
       filterSelectList.prepend(filterSelectItem);
@@ -136,7 +133,7 @@ $(function() {
     $.ajax({
        type: "POST",
        url: urlToPost,
-       data: $("#hierarchy-form").serialize(),
+       data: $("#filter-form").serialize(),
        error: function(){
          console.log('error');
        }
