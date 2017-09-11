@@ -1,6 +1,7 @@
 $(function() {
 
-  // TEMP - fix to trim numbers from server side generated basket.
+  // TEMP - For testing
+  // Fix to trim numbers from server side generated basket.
   // Remove when filter api is adjusted.
   $('.filter-selection ul li span.col').each(function(){
     var text = $(this).text();
@@ -16,6 +17,8 @@ $(function() {
       addAll = $('input.add-all'),
       removeList = $('.remove-list'),
       addRange = $('.add-range'),
+      removeAllRange = $('.remove-all-range'),
+      addAllRange = $('input.add-all-range'),
       filterSelectList = $('.filter-selection ul'),
       filterHeader = $('.filter-selection__header'),
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
@@ -26,7 +29,6 @@ $(function() {
 
   $(document).on('click', '.js-filter', function(){
     el = $(this);
-    // These are appended to the DOM as need to bind on the click event
     removeAll = $('.remove-all');
     removeOne = $('.remove-link');
 
@@ -62,7 +64,7 @@ $(function() {
     }
 
     // Case - Remove link is clicked
-    if(el.is(removeAll) || el.is(removeOne) || el.is(removeList)) {
+    if(el.is(removeAll) || el.is(removeAllRange) || el.is(removeOne) || el.is(removeList)) {
       removeFilter(el);
     }
 
@@ -108,16 +110,17 @@ $(function() {
       id = el.find('a').attr('id');
       el.parents('li').remove();
       if(addRange.length){
-         
+        urlToPost = url + '/remove/' + id;
       } else {
         $('.checkbox__input[name="'+id+'"]').prop('checked', false)
         .removeClass('checked');
       }
+
     // Case - If remove all link clicked
-    } else if (el.is(removeAll)){
-      urlToPost = url + '/remove-all'
-      $('.checkbox__input').removeClass('checked').prop('checked', false);
-      filterSelectList.empty();
+    } else if (el.is(removeAll) || el.is(removeAllRange)){
+        urlToPost = url + '/remove-all';
+        $('.checkbox__input').removeClass('checked').prop('checked', false);
+        filterSelectList.empty();
 
     // Case - If remove all from list clicked
     } else if (el.is(removeList)){
@@ -153,8 +156,7 @@ $(function() {
        data: $("#filter-form").serialize(),
        success: function(data){
          //If we are adding ranges (time select) get the range response
-         if(el.is(addRange)){
-           filterSelectList.empty();
+         if(el.is(addRange) || el.is(addAllRange)){
            getRanges();
          }
        },
@@ -164,23 +166,34 @@ $(function() {
      });
    }
 
-   // Ajax call to the server to get the available ranges (time select)
-   function getRanges(){
-     $.ajax({
-        type: "GET",
-        url: url + '/options.json',
-        dataType: 'json',
-        success: function(data){
-          $.each(data.reverse(), function(index, element) {
-            id = element.id;
-            label = element.label;
-            addToFilter();
-          });
-        },
-        error: function(){
-          console.log('Get error');
-        }
-      });
+  // Ajax call to the server to get the available ranges (time select)
+  function getRanges(){
+    if(el.is(addRange)){
+      urlToGet = url + '/options.json';
     }
+    if(el.is(addAllRange)){
+      urlToGet = url + '/all-options.json';
+    }
+    $.ajax({
+       type: "GET",
+       url: urlToGet,
+       dataType: 'json',
+       success: function(data){
+         filterSelectList.empty();
+         $.each(data.reverse(), function(index, element) {
+           id = element.id;
+           label = element.label;
+           addToFilter();
+         });
+         if(el.is(addAllRange)){
+           urlToPost = url + '/add-all';
+           postForm(urlToPost);
+         }
+       },
+       error: function(){
+         console.log('Get error');
+       }
+     });
+   }
 
  });
