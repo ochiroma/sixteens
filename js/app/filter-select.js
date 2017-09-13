@@ -1,6 +1,6 @@
 $(function() {
 
-  // TEMP - For testing
+  // TEMP - For UR testing
   // Fix to trim numbers from server side generated basket.
   // Remove when filter api is adjusted.
   $('.filter-selection ul li span.col').each(function(){
@@ -70,6 +70,11 @@ $(function() {
 
     // Run the postForm function with the appropriate url
     postForm(urlToPost);
+
+    //If we are adding ranges (time select) get the range response
+    if(el.is(addRange) || el.is(addAllRange)){
+      getRanges();
+    }
 
     // Checkboxes need to return true to select/deselect
     if(!el.is(checkBox)) {
@@ -154,12 +159,6 @@ $(function() {
        type: "POST",
        url: urlToPost,
        data: $("#filter-form").serialize(),
-       success: function(data){
-         //If we are adding ranges (time select) get the range response
-         if(el.is(addRange) || el.is(addAllRange)){
-           getRanges();
-         }
-       },
        error: function(){
          console.log('Post error');
        }
@@ -179,7 +178,13 @@ $(function() {
        url: urlToGet,
        dataType: 'json',
        success: function(data){
+         // Drop the contents of the existing basket
          filterSelectList.empty();
+         // For UAT - Store the number of values in the response
+         var respLen = data.length;
+         // Add it as a data-attribute to the button
+         el.attr('data-test-range', respLen);
+         // Loop through the array and add to filter
          $.each(data.reverse(), function(index, element) {
            id = element.id;
            label = element.label;
