@@ -52,7 +52,7 @@
 
 				//On mobile remove grey border
 				@include breakpoint(sm) {
-						border-left:0px
+						border-left: 0;
 					}
 
 				&--error {
@@ -121,6 +121,26 @@
 			.markdown-chart-container{
 				padding-left:0;
 			}
+
+			// Neutral article specific styling
+			&--neutral-article {
+				padding-left: 0;
+				margin-right: 0;
+
+				.pym-interactive--full-width {
+					margin-left: 0;
+				}
+
+				h2, h3, h4, h5, h6 {
+					font-weight: 700;
+				}
+
+				h2 {
+					line-height: 32px;
+				}
+
+			}
+			// End of Neutral article specific styling
 		}
 
 		&--static-markdown {
