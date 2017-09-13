@@ -29,17 +29,13 @@
 
 		&:after {
 			content: '>';
-			padding: 0px 0 0 8px;
+			padding: 8px;
 		}
 
 		&:last-child:after {
 			content: '';
-			padding: 0px 0 0 0px;
+			padding: 0;
 		}
-	}
-
-	&__link {
-		//
 	}
 }
 
@@ -73,12 +69,12 @@
 
 		&:after {
 			content: '>';
-			padding: 0px 0 0 8px;
+			padding-left: 8px;
 		}
 
 		&:last-child:after {
 			content: '';
-			padding: 0px 0 0 0px;
+			padding: 0;
 		}
 	}
 }
