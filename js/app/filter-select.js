@@ -69,11 +69,11 @@ $(function() {
     }
 
     // Run the postForm function with the appropriate url
-    postForm(urlToPost);
-
     //If we are adding ranges (time select) get the range response
     if(el.is(addRange) || el.is(addAllRange)){
-      getRanges();
+      postRanges(urlToPost, getRanges);
+    } else {
+      postForm(urlToPost);
     }
 
     // Checkboxes need to return true to select/deselect
@@ -114,9 +114,8 @@ $(function() {
     } else if (el.is(removeOne)) {
       id = el.find('a').attr('id');
       el.parents('li').remove();
-      if(addRange.length){
-        urlToPost = url + '/remove/' + id;
-      } else {
+      urlToPost = url + '/remove/' + id;
+      if(!addRange.length){
         $('.checkbox__input[name="'+id+'"]').prop('checked', false)
         .removeClass('checked');
       }
@@ -173,6 +172,7 @@ $(function() {
     if(el.is(addAllRange)){
       urlToGet = url + '/all-options.json';
     }
+
     $.ajax({
        type: "GET",
        url: urlToGet,
@@ -180,24 +180,39 @@ $(function() {
        success: function(data){
          // Drop the contents of the existing basket
          filterSelectList.empty();
-         // For UAT - Store the number of values in the response & add to el
-         var respLen = data.length;
-         el.attr('data-test-range', respLen);
          // Loop through the array and add to filter
          $.each(data.reverse(), function(index, element) {
            id = element.id;
            label = element.label;
            addToFilter();
          });
+
          if(el.is(addAllRange)){
            urlToPost = url + '/add-all';
            postForm(urlToPost);
+           // For UAT - Store the number of values in the response & add to el
+           var respLen = data.length;
+           el.attr('data-test-range', respLen);
          }
        },
        error: function(){
-         console.log('Get error');
+         console.log('Get error:' + urlToGet);
        }
      });
    }
 
+   // Ajax Post the form in the background to update job with status
+   function postRanges(urlToPost, callback){
+     $.ajax({
+        type: "POST",
+        url: urlToPost,
+        data: $("#filter-form").serialize(),
+        success: function(data){
+          callback();
+        },
+        error: function(){
+          console.log('Post error');
+        }
+      });
+    }
  });
