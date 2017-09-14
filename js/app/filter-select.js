@@ -180,9 +180,8 @@ $(function() {
        success: function(data){
          // Drop the contents of the existing basket
          filterSelectList.empty();
-         // For UAT - Store the number of values in the response
+         // For UAT - Store the number of values in the response & add to el
          var respLen = data.length;
-         // Add it as a data-attribute to the button
          el.attr('data-test-range', respLen);
          // Loop through the array and add to filter
          $.each(data.reverse(), function(index, element) {
