@@ -114,9 +114,8 @@ $(function() {
     } else if (el.is(removeOne)) {
       id = el.find('a').attr('id');
       el.parents('li').remove();
-      if(addRange.length){
-        urlToPost = url + '/remove/' + id;
-      } else {
+      urlToPost = url + '/remove/' + id;
+      if(!addRange.length){
         $('.checkbox__input[name="'+id+'"]').prop('checked', false)
         .removeClass('checked');
       }
