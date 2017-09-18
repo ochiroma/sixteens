@@ -179,21 +179,31 @@ dd {
 .table-preview {
   max-width:90%;
   min-width:90%;
-  overflow-x: scroll;
+  overflow: hidden;
+  &:hover {
+    overflow-x: scroll
+  }
   table {
     display: table;
     border-collapse: collapse;
+    width:100%;
     tbody, thead {
       td, th {
-        padding: $col/2 $col $col/2 0;
+        padding: $col/2 $col * 4 $col/2 0;
         vertical-align: baseline;
         font-weight: $base-font-weight;
         text-align: left;
         border-bottom: 1px solid $gallery;
+        min-width: $col * 8;
+      }
+      td {
+        white-space: nowrap;
       }
     }
     thead th{
-      font-size:16px;
+      font-weight: bold;
+      vertical-align: bottom;
+      line-height: 18px;
     }
   }
 }

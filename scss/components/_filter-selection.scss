@@ -45,4 +45,32 @@
   &__filter {
     @include truncateSingleLine;
   }
+  @include breakpoint(md) {
+    li {
+      &:not(:first-child) {
+        position: relative;
+        &:hover {
+          background: $gallery;
+        }
+        a {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          right: 0;
+          top:0;
+          text-align: right;
+          padding-top:15px;
+          padding-right:10px;
+        }
+      }
+      div:first-child {
+        padding-left:10px;
+      }
+    }
+  }
+  @include breakpoint(lg) {
+    div:last-child {
+      padding-right:10px;
+    }
+  }
 }
