@@ -99,8 +99,11 @@ $(function() {
       if($('.remove-all').length == 0){ // Append only once
         filterHeader.prepend(removeAllLink);
       }
-      // Calculate count
-      countFilters();
+
+      // Calculate count - for time range we calculate the count later
+      if(!el.is(addRange)) {
+        countFilters();
+      }
   }
 
   // Remove selected filters from filter selection block (cart)
@@ -178,19 +181,19 @@ $(function() {
        url: urlToGet,
        dataType: 'json',
        success: function(data){
-
          // Loop through the array and add to filter
          function getData(callback){
-           $.each(data, function(index, element) {
+           $.each(data.reverse(), function(index, element) {
              id = element.id;
              label = element.label;
-             addToFilter();
+             addToFilter(el);
              callback();
            });
          }
 
          getData(removeDups);
 
+         // Remove any duplicates in the range
          function removeDups() {
             var listData = {};
             $('.remove-link').each(function() {
@@ -202,14 +205,16 @@ $(function() {
                 }
 
             });
+            // Calculate count
+            countFilters();
           }
 
          if(el.is(addAllRange)){
            urlToPost = url + '/add-all';
            postForm(urlToPost);
            // For UAT - Store the number of values in the response & add to el
-           var respLen = data.length;
-           el.attr('data-test-range', respLen);
+           var dataLen = data.length;
+           el.attr('data-test-range', dataLen);
          }
 
        },
@@ -221,6 +226,9 @@ $(function() {
 
    // Ajax Post the form in the background to update job with status
    function postRanges(urlToPost, callback){
+     if(el.is(addRange)){
+       urlToPost = $('#filter-form').attr('action');
+     }
      $.ajax({
         type: "POST",
         url: urlToPost,
