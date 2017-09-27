@@ -178,14 +178,31 @@ $(function() {
        url: urlToGet,
        dataType: 'json',
        success: function(data){
-         // Drop the contents of the existing basket
-         filterSelectList.empty();
+
          // Loop through the array and add to filter
-         $.each(data.reverse(), function(index, element) {
-           id = element.id;
-           label = element.label;
-           addToFilter();
-         });
+         function getData(callback){
+           $.each(data, function(index, element) {
+             id = element.id;
+             label = element.label;
+             addToFilter();
+             callback();
+           });
+         }
+
+         getData(removeDups);
+
+         function removeDups() {
+            var listData = {};
+            $('.remove-link').each(function() {
+                var listID = $(this).find('a').attr('id');
+                if (listData[listID] == true){
+                    $(this).parents('li').remove();
+                } else {
+                    listData[listID] = true;
+                }
+
+            });
+          }
 
          if(el.is(addAllRange)){
            urlToPost = url + '/add-all';
@@ -194,6 +211,7 @@ $(function() {
            var respLen = data.length;
            el.attr('data-test-range', respLen);
          }
+
        },
        error: function(){
          console.log('Get error:' + urlToGet);
