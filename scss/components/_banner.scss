@@ -19,14 +19,23 @@
         text-transform: uppercase;
         padding: 5px 8px;
         font-size: 16px;
+        position: relative;
+        top: -2px;
+
+        @include breakpoint(sm) {
+            display: block;
+            float: left;
+            margin-top: 8px;
+            margin-right: 8px;
+        }
     }
 
     &__body {
         display: inline-block;
-        padding-top: $baseline;
         padding-bottom: $baseline;
-
+        
         @include breakpoint(md) {
+            padding-top: $baseline;
             margin-left: $col;
         }
     }
