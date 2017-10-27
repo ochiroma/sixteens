@@ -16,9 +16,6 @@ $(function() {
   var checkBox = $('.checkbox__input'),
       addAll = $('input.add-all'),
       removeList = $('.remove-list'),
-      addRange = $('.add-range'),
-      removeAllRange = $('.remove-all-range'),
-      addAllRange = $('input.add-all-range'),
       filterSelectList = $('.filter-selection ul'),
       filterHeader = $('.filter-selection__header'),
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
@@ -64,17 +61,12 @@ $(function() {
     }
 
     // Case - Remove link is clicked
-    if(el.is(removeAll) || el.is(removeAllRange) || el.is(removeOne) || el.is(removeList)) {
+    if(el.is(removeAll) || el.is(removeOne) || el.is(removeList)) {
       removeFilter(el);
     }
 
     // Run the postForm function with the appropriate url
-    //If we are adding ranges (time select) get the range response
-    if(el.is(addRange) || el.is(addAllRange)){
-      postRanges(urlToPost, getRanges);
-    } else {
       postForm(urlToPost);
-    }
 
     // Checkboxes need to return true to select/deselect
     if(!el.is(checkBox)) {
@@ -100,10 +92,8 @@ $(function() {
         filterHeader.prepend(removeAllLink);
       }
 
-      // Calculate count - for time range we calculate the count later
-      if(!el.is(addRange)) {
-        countFilters();
-      }
+      // Calculate count
+      countFilters();
   }
 
   // Remove selected filters from filter selection block (cart)
@@ -118,13 +108,11 @@ $(function() {
       id = el.find('a').attr('id');
       el.parents('li').remove();
       urlToPost = url + '/remove/' + id;
-      if(!addRange.length){
-        $('.checkbox__input[name="'+id+'"]').prop('checked', false)
-        .removeClass('checked');
-      }
+      $('.checkbox__input[name="'+id+'"]').prop('checked', false)
+      .removeClass('checked');
 
     // Case - If remove all link clicked
-    } else if (el.is(removeAll) || el.is(removeAllRange)){
+    } else if (el.is(removeAll)){
         urlToPost = url + '/remove-all';
         $('.checkbox__input').removeClass('checked').prop('checked', false);
         filterSelectList.empty();
@@ -167,78 +155,4 @@ $(function() {
      });
    }
 
-  // Ajax call to the server to get the available ranges (time select)
-  function getRanges(){
-    if(el.is(addRange)){
-      urlToGet = url + '/options.json';
-    }
-    if(el.is(addAllRange)){
-      urlToGet = url + '/all-options.json';
-    }
-
-    $.ajax({
-       type: "GET",
-       url: urlToGet,
-       dataType: 'json',
-       success: function(data){
-         // Loop through the array and add to filter
-         function getData(callback){
-           $.each(data.reverse(), function(index, element) {
-             id = element.id;
-             label = element.label;
-             addToFilter(el);
-             callback();
-           });
-         }
-
-         getData(removeDups);
-
-         // Remove any duplicates in the range
-         function removeDups() {
-            var listData = {};
-            $('.remove-link').each(function() {
-                var listID = $(this).find('a').attr('id');
-                if (listData[listID] == true){
-                    $(this).parents('li').remove();
-                } else {
-                    listData[listID] = true;
-                }
-
-            });
-            // Calculate count
-            countFilters();
-          }
-
-         if(el.is(addAllRange)){
-           urlToPost = url + '/add-all';
-           postForm(urlToPost);
-           // For UAT - Store the number of values in the response & add to el
-           var dataLen = data.length;
-           el.attr('data-test-range', dataLen);
-         }
-
-       },
-       error: function(){
-         console.log('Get error:' + urlToGet);
-       }
-     });
-   }
-
-   // Ajax Post the form in the background to update job with status
-   function postRanges(urlToPost, callback){
-     if(el.is(addRange)){
-       urlToPost = $('#filter-form').attr('action');
-     }
-     $.ajax({
-        type: "POST",
-        url: urlToPost,
-        data: $("#filter-form").serialize(),
-        success: function(data){
-          callback();
-        },
-        error: function(){
-          console.log('Post error');
-        }
-      });
-    }
  });
