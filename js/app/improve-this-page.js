@@ -3,27 +3,16 @@ $(document).ready(function() {
 
     $( "#feedback-form-url" ).val(pageURL);
 
-    $( "#feedback-form-no" ).click(function(e) {
+    $( "a.js-toggle" ).click(function(e) {
         e.preventDefault();
 
-        $( "#feedback-form" ).removeClass("js-hidden");
-        $( "#feedback-form-header" ).addClass("js-hidden");
-        $(" #description-field ").focus();
-    });
+        var id = $(this).attr('id');
+        $( "#feedback-form" ).toggleClass("js-hidden");
+        $( "#feedback-form-header" ).toggleClass("js-hidden");
 
-    $( "#feedback-form-anything-wrong" ).click(function(e) {
-        e.preventDefault();
-
-        $( "#feedback-form" ).removeClass("js-hidden");
-        $( "#feedback-form-header" ).addClass("js-hidden");
-        $(" #description-field ").focus();
-    });
-
-    $( "#feedback-form-close" ).click(function(e) {
-        e.preventDefault();
-
-        $( "#feedback-form" ).addClass("js-hidden");
-        $( "#feedback-form-header" ).removeClass("js-hidden");
+        if (id !== "feedback-form-close") {
+            $(" #description-field ").focus();
+        }
     });
 
     $( "#feedback-form-yes" ).click(function(e) {
