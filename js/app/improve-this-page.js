@@ -8,6 +8,7 @@ $(document).ready(function() {
 
         $( "#feedback-form" ).removeClass("js-hidden");
         $( "#feedback-form-header" ).addClass("js-hidden");
+        $(" #description-field ").focus();
     });
 
     $( "#feedback-form-anything-wrong" ).click(function(e) {
@@ -15,6 +16,7 @@ $(document).ready(function() {
 
         $( "#feedback-form" ).removeClass("js-hidden");
         $( "#feedback-form-header" ).addClass("js-hidden");
+        $(" #description-field ").focus();
     });
 
     $( "#feedback-form-close" ).click(function(e) {
