@@ -478,6 +478,10 @@
 	white-space: normal;
 }
 
+.text-align-top {
+	vertical-align: top;
+}
+
 // Opacity value with fallback
 @mixin opacity($trans) {
     zoom: 1;
