@@ -88,7 +88,7 @@ $(function() {
           '/remove-all">Remove all</a>'
       // Append elements
       filterSelectList.prepend(filterSelectItem);
-      if($('.remove-all').length == 0){ // Append only once
+      if($('.remove-all').length == 0 && filterSelectList.children().length >= 2){ // Append only once
         filterHeader.prepend(removeAllLink);
       }
 
@@ -129,7 +129,7 @@ $(function() {
     }
 
     // Remove the remove all link if there is no contents
-    if(filterSelectList.children('li').length === 0) {
+    if(filterSelectList.children('li').length < 2) {
       removeAll.remove();
     }
 

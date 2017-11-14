@@ -33,7 +33,7 @@
         text-decoration: underline;
         padding: 5px 0 3px 0;
         display: inline-block;
-        
+
         &:hover {
             color: $white;
         }
@@ -98,6 +98,16 @@
                 margin: 0 $col * 4;
             }
         }
+    }
+
+    &--light {
+      padding:0 0 0 $baseline * 2;
+      background:none;
+      border-left: 8px $poppy solid;
+      color:$thunder;
+      a {
+        color:$poppy;
+      }
     }
 }
 
