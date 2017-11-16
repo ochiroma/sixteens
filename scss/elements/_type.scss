@@ -133,6 +133,7 @@ strong {
 // Mixin for silent styling to bunch up spacing between elements in big blocks of text (ie markdown)
 @mixin markdown {
     overflow: visible;
+    clear: both;
 
     h4 {
         font-weight: 700;
@@ -145,6 +146,11 @@ strong {
 
     p {
         margin-top: 0;
+
+        &:empty {
+            display:none;
+        }
+
     }
 
     ul {
