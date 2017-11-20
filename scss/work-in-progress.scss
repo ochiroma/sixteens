@@ -1,5 +1,10 @@
+// Variables for the build
+$old-ie: false;
+
 // Production files to include:
 @import 'utilities/colours';
+@import 'utilities/breakpoints';
+@import 'utilities/grid';
 
 // Work in progress files:
-@import 'work-in-progress/example-pattern';
+@import 'work-in-progress/alternative-buttons';
