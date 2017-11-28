@@ -13,7 +13,6 @@ function formSubmit(){
 }
 
 function gtmDataLayer(data) {
-
     if(selectedTimeType === "latest"){
       var date = data[1].value;
       window.dataLayer.push({
