@@ -42,6 +42,9 @@
 }
 
 .filter-overview {
+  &__error {
+    border-left: thick solid $poppy;
+  }
   &__filter {
     @include truncateSingleLine;
   }
