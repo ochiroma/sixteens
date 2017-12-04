@@ -17,8 +17,8 @@ $.fn.showMoreList = function(options) {
     // Check to see if the length of the list is greater than the specified
     // number to display (avoids a show all link being added by mistake)
     if(items.length > opts.show){
-      // If there an element that displays the total number of elements
-      // Add the show link after it
+      // If element exists that displays the total number of elements
+      // Add the show link after it, if not add after the list.
       if (listSize){
         link.insertAfter(listSize);
       } else {
@@ -28,7 +28,7 @@ $.fn.showMoreList = function(options) {
       // Add elements to the hidden block
       $.each(items, function(i) {
         if(i > opts.show){
-            $(this).appendTo(element);
+          $(this).appendTo(element);
         }
       });
     }
