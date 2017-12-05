@@ -35,14 +35,14 @@
 
             @media (min-width: 641px) {
                 width: 70%;
-                font-size: 19px;
+                font-size: 16px;
                 line-height: 1.31579;
             }
 
             &__error {
-                -webkit-box-shadow: 0 0 0 2px #ffbf47;
-                -moz-box-shadow: 0 0 0 2px #ffbf47;
-                box-shadow: 0 0 0 2px #ffbf47;
+                -webkit-box-shadow: 0 0 0 2px $poppy;
+                -moz-box-shadow: 0 0 0 2px $poppy;
+                box-shadow: 0 0 0 2px $poppy;
             }
 
         }
