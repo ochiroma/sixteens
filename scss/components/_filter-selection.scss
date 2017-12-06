@@ -42,6 +42,9 @@
 }
 
 .filter-overview {
+  &__error {
+    border-left: thick solid $poppy;
+  }
   &__filter {
     @include truncateSingleLine;
   }
@@ -72,6 +75,20 @@
     div:last-child {
       padding-right:$col;
     }
+  }
+
+  &__error-container{
+      position: relative;
+      @include breakpoint(sm) {
+        min-height:30px;
+      }
+
+  }
+
+  &__error-message{
+      position: absolute;
+      left: 0;
+      top: -35px;
   }
 }
 

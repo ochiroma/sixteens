@@ -70,7 +70,7 @@
         border-radius: 50%;
         zoom: 1;
         filter: alpha(opacity=0);
-        opacity: 0; 
+        opacity: 0;
     }
 
     [type=radio]:focus + label::before {
@@ -100,6 +100,17 @@
         padding-top: 6px;
     }
 
+    [type=radio]:checked ~ &__content.multiple-choice__error:before {
+        content: "";
+        vertical-align: bottom;
+        background-color: $poppy;
+        width:  4px;
+        height: 100%;
+        position: absolute;
+        left: 18px;
+        top: 46px;
+    }
+
     [type=radio]:checked ~ &__content:before {
         content: "";
         vertical-align: bottom;
@@ -110,7 +121,7 @@
         left: 18px;
         top: 46px;
     }
-    
+
     input:checked + label::after {
         zoom: 1;
         filter: alpha(opacity=100);
