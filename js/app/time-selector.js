@@ -17,6 +17,26 @@ $(document).ready(function() {
         removeAllCheck();
     })
 
+    var endDateChange = function() {
+        if ($("#date-range-error-message").length > 0) {
+            var data = $('#time-form').serializeArray().reduce(function(obj, item) {
+                obj[item.name] = item.value;
+                return obj;
+            }, {});
+
+            var endMonth = getMonthFromString(data["end-month"]);
+            var startMonth = getMonthFromString(data["start-month"]);
+
+            if ((endMonth >= startMonth && data["start-year"] <= data["end-year"]) || (data["start-year"] < data["end-year"])) {
+                $("#multiple-choice-content-range").removeClass("multiple-choice__error");
+                $("#date-range-error-message").remove();
+            }
+        }
+    }
+
+    $("#end-year").change(endDateChange)
+    $("#end-month").change(endDateChange)
+
     $("#time-save-and-return").click(function(e) {
         var data = $('#time-form').serializeArray().reduce(function(obj, item) {
             obj[item.name] = item.value;
