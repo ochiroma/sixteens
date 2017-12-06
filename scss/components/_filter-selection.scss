@@ -76,6 +76,20 @@
       padding-right:$col;
     }
   }
+
+  &__error-container{
+      position: relative;
+      @include breakpoint(sm) {
+        min-height:30px;
+      }
+
+  }
+
+  &__error-message{
+      position: absolute;
+      left: 0;
+      top: -35px;
+  }
 }
 
 // This is to add a small top padding to the icon on the hierarchy "browse" link

@@ -17,7 +17,7 @@ $(document).ready(function() {
         })
 
         if (errorDimensions.length > 0 && $("#options-error").length === 0) {
-            $("#options-info").append("<div id=\"options-error\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\">Add at least one to '" + errorDimensions + "'</div>")
+            $("#error-container").append("<div id=\"options-error\" class=\"font-size--16 form-error filter-overview__error-message\">Add at least one to '" + errorDimensions + "'</div>")
         }
     })
 })
