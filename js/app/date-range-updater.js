@@ -9,7 +9,6 @@ $(document).ready(function() {
 
         if ($("#end-year").val() === "Select") {
             $("#end-year").val(year);
-            return
         }
 
         var currEndYear = parseInt($("#end-year").val());
@@ -35,7 +34,7 @@ $(document).ready(function() {
 
         $("#end-year option").each(function() { // Remove all values before the current end year
             var optYear = parseInt($(this).val())
-            if (optYear < currYear || optYear === "Select") {
+            if (optYear < currYear || $(this).val() === "Select") {
                 $(this).remove();
             }
         })
