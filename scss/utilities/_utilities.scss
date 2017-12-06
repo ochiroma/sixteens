@@ -603,7 +603,7 @@
 @include body-adjust-util;
 
 // Make all links within the component underlined
-.underline-all-links a:not(.btn) {
+.link-adjust a:not(.btn) {
 	@extend .underline-link;
 	&:focus {
 		@include box-shadow(0 0 0 5px $carrot);
