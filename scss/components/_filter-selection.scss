@@ -1,0 +1,98 @@
+// Filter Selection (Shopping basket) & Filter Overview
+
+.filter-selection {
+  &__header {
+    background: $gallery;
+    padding:15px;
+
+    h2 {
+      font-size: 20px;
+      margin: 0;
+      padding:0;
+      display: inline-block;
+    }
+    a {
+      float:right;
+      text-align: right;
+      padding:0;
+    }
+  }
+
+  ul {
+    border-left: 1px solid $gallery;
+    border-right: 1px solid $gallery;
+    margin: 0;
+    li {
+      border-bottom: 1px solid $gallery;
+      padding: 15px;
+      margin: 0;
+      overflow: hidden;
+      span {
+        float: left;
+      }
+      @include breakpoint(md) {
+        span.remove-link {
+          float:right;
+          text-align: right;
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+.filter-overview {
+  &__error {
+    border-left: thick solid $poppy;
+  }
+  &__filter {
+    @include truncateSingleLine;
+  }
+  @include breakpoint(md) {
+    li {
+      &:not(:first-child) {
+        position: relative;
+        &:hover {
+          background: $gallery;
+        }
+        a {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          right: 0;
+          top:0;
+          text-align: right;
+          padding-top:$col;
+          padding-right:$col;
+        }
+      }
+      div:first-child {
+        padding-left:$col;
+      }
+    }
+  }
+  @include breakpoint(lg) {
+    div:last-child {
+      padding-right:$col;
+    }
+  }
+
+  &__error-container{
+      position: relative;
+      @include breakpoint(sm) {
+        min-height:30px;
+      }
+
+  }
+
+  &__error-message{
+      position: absolute;
+      left: 0;
+      top: -35px;
+  }
+}
+
+// This is to add a small top padding to the icon on the hierarchy "browse" link
+.view-link div {
+  padding-top:3px;
+}
