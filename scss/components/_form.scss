@@ -20,9 +20,9 @@
         }
 
         &__error {
-            -webkit-box-shadow: 0 0 0 2px #ffbf47;
-            -moz-box-shadow: 0 0 0 2px #ffbf47;
-            box-shadow: 0 0 0 2px #ffbf47;
+            -webkit-box-shadow: 0 0 0 2px $poppy;
+            -moz-box-shadow: 0 0 0 2px $poppy;
+            box-shadow: 0 0 0 2px $poppy;
         }
 
     }
@@ -38,6 +38,11 @@
         display: block;
         color: #6f777b;
         font-weight: normal;
+    }
+
+    &-helper{
+        color: #6f777b;
+        font-size: 14;
     }
 
     &-error{
