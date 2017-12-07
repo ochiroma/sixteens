@@ -48,6 +48,15 @@
         }
     }
 
+    &__age{
+        &--text {
+            width: 100px;
+            height: 35px;
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+    }
+
     // Error message animations
     @keyframes showError {
         from {
