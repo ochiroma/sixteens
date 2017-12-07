@@ -20,4 +20,4 @@ $(document).ready(function() {
             $("#error-container").append("<div id=\"options-error\" class=\"font-size--16 form-error filter-overview__error-message\">Add at least one to '" + errorDimensions + "'</div>")
         }
     })
-})
+});

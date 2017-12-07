@@ -20,5 +20,21 @@
 		}
 	}
 
+	&--pipe-seperated {
+		list-style:none;
+		display: inline;
+		margin:0;
+		padding:0;
+		li {
+			display: inline;
+			padding:0;
+			line-height: 28px;
+			span {
+				color: $iron;
+				padding: 0 5px 0 8px;
+			}
+		}
+	}
+
 
 }

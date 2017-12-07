@@ -41,7 +41,8 @@ $(document).ready(function() {
         var data = $('#time-form').serializeArray().reduce(function(obj, item) {
             obj[item.name] = item.value;
             return obj;
-        }, {}); 
+        }, {});
+
 
         var selection = data["time-selection"];
 

@@ -64,6 +64,13 @@
         outline: none;
     }
 
+    &--dark-bg {
+      background: $gallery;
+      .show-hide__title:hover {
+        background: $iron-light;
+      }
+    }
+
     &--dark {
 
         //border: 1px solid $thunder;
@@ -103,6 +110,10 @@
 
         @include breakpoint(md) {
             padding-right: ($col * 2);
+        }
+
+        &--link-style {
+          color:$matisse;
         }
     }
 
