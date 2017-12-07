@@ -17,8 +17,6 @@ $(document).ready(function() {
         removeAllCheck();
     })
 
-<<<<<<< Updated upstream
-=======
     var endDateChange = function() {
         if ($("#date-range-error-message").length > 0) {
             var data = $('#time-form').serializeArray().reduce(function(obj, item) {
@@ -54,8 +52,6 @@ $(document).ready(function() {
                 var youngestPossible = parseInt(data["youngest-age"]);
                 var oldestPossible = parseInt(data["oldest-age"]);
 
-                console.log("unhappy")
-
                 if (youngest < youngestPossible || youngest > oldestPossible || oldest < youngestPossible || oldest >  oldestPossible) {
                     e.preventDefault();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
@@ -90,7 +86,6 @@ $(document).ready(function() {
         }
     })
 
->>>>>>> Stashed changes
     $("#time-save-and-return").click(function(e) {
         var data = $('#time-form').serializeArray().reduce(function(obj, item) {
             obj[item.name] = item.value;
