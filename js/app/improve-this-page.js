@@ -23,13 +23,21 @@ $(document).ready(function() {
             url: "/feedback/positive",
             data: $("#feedback-form-container").serialize(),
             beforeSend: function() {
-                $( "#feedback-form-header" ).html('Thank you. Your feedback will help us as we continue to improve the service.');
+                $( "#feedback-form-header" ).html('<span class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>');
             }
         })
     });
 
     $( "#feedback-form-container" ).on("submit", function(e) {
         e.preventDefault();
+        $(" #description-field ").removeClass("form-control__error");
+        $(" #purpose-field ").removeClass("form-control__error");
+        $(" #email-field ").removeClass("form-control__error");
+        $(" .form-error ").each(function() {
+            $(this).remove();
+        })
+
+        var hasErrors = false;
 
         if ($(" #description-field ").val() === "") {
             var descriptionError = "<span class=\"form-error\">Write some feedback</span>";
@@ -37,7 +45,7 @@ $(document).ready(function() {
                 $(" #description-field-label ").append( descriptionError );
                 $(" #description-field ").addClass("form-control__error");
             }
-            return;
+            hasErrors = true
         }
 
         if ($(" #purpose-field ").val() === "") {
@@ -46,7 +54,7 @@ $(document).ready(function() {
                 $(" #purpose-field-label ").append( descriptionError );
                 $(" #purpose-field ").addClass("form-control__error");
             }
-            return;
+            hasErrors = true
         }
 
         var email = $(" #email-field ").val();
@@ -59,9 +67,11 @@ $(document).ready(function() {
                     $(" #email-field-label ").append( emailError );
                     $(" #email-field ").addClass("form-control__error");
                 }
-                return;
+                hasErrors = true
             }
         }
+
+        if (hasErrors) { return };
 
         $.ajax({
             type: "POST",
@@ -70,7 +80,7 @@ $(document).ready(function() {
             beforeSend: function() {
                 $( "#feedback-form" ).addClass("js-hidden");
                 $( "#feedback-form-header" ).removeClass("js-hidden");
-                $( "#feedback-form-header" ).html('Thank you. Your feedback will help us as we continue to improve the service.');
+                $( "#feedback-form-header" ).html('<span class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>');
             }
         })
 
@@ -79,11 +89,10 @@ $(document).ready(function() {
             $("h1").html("Thank you");
             var displayURL = document.referrer;
             var len = displayURL.length;
-            console.log(len);
             if (len > 50) {
                 displayURL = "..." + displayURL.slice(len - 50, len);
             }
-            $("#feedback-description").html("<br>Your feedback will help us to improve the website.<br>We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a class=\"underline-link\" href=\""+document.referrer+"\">"+displayURL+"</a>")
+            $("#feedback-description").html("<div class=\"font-size--16\"><br>Your feedback will help us to improve the website.<br>We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a class=\"underline-link\" href=\""+document.referrer+"\">"+displayURL+"</a></div>")
         }
     });
 
