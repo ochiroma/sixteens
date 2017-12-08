@@ -55,6 +55,13 @@
             border: 2px solid black;
             border-radius: 5px;
         }
+
+        &--text:focus{
+            outline-style:none;
+            -webkit-box-shadow: 0 0 0 3px #ffbf47;
+            -moz-box-shadow: 0 0 0 3px #ffbf47;
+            box-shadow: 0 0 0 3px #ffbf47;
+        }
     }
 
     // Error message animations
