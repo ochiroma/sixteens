@@ -17,7 +17,7 @@ function gtmDataLayer(data) {
       var date = data[1].value;
       window.dataLayer.push({
         'event' : 'SaveTimeFilter',
-        'timeFilterType ' : 'I just want the latest data',
+        'timeFilterType' : 'I just want the latest data',
         'startMonth' : date,
         'endMonth' : date,
         'numberOfMonths' : '1'
@@ -28,7 +28,7 @@ function gtmDataLayer(data) {
       var date = data[2].value + ' ' + data[3].value;
       window.dataLayer.push({
         'event' : 'SaveTimeFilter',
-        'timeFilterType ' : 'Add a single month',
+        'timeFilterType' : 'Add a single month',
         'startMonth' : date,
         'endMonth' : date,
         'numberOfMonths' : '1'
@@ -48,7 +48,7 @@ function gtmDataLayer(data) {
 
       window.dataLayer.push({
         'event' : 'SaveTimeFilter',
-        'timeFilterType ' : 'Add a range of months',
+        'timeFilterType' : 'Add a range of months',
         'startMonth' : startDate,
         'endMonth' : endDate,
         'numberOfMonths' : months
@@ -62,7 +62,7 @@ function gtmDataLayer(data) {
 
       window.dataLayer.push({
         'event' : 'SaveTimeFilter',
-        'timeFilterType ' : 'Add months from a list',
+        'timeFilterType' : 'Add months from a list',
         'startMonth' : startDate,
         'endMonth' : endDate,
         'numberOfMonths' : dateCount
