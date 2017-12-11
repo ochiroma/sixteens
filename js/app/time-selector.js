@@ -110,7 +110,6 @@ $(document).ready(function() {
                 month = getMonthFromString(data["month-single"]);
                 year = parseInt(data["year-single"]);
 
-                e.preventDefault();
                 if (latestYear === year && month > latestMonth) {
                     e.preventDefault();
                     var dataAvailable = $("#data-available").text();
