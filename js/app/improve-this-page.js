@@ -1,5 +1,8 @@
 $(document).ready(function() {
     var pageURL = window.location.href;
+    var feedbackMessage = (
+        '<span id="feedback-form-confirmation" class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+    )
 
     $( "#feedback-form-url" ).val(pageURL);
 
@@ -23,7 +26,7 @@ $(document).ready(function() {
             url: "/feedback/positive",
             data: $("#feedback-form-container").serialize(),
             beforeSend: function() {
-                $( "#feedback-form-header" ).html('<span class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>');
+                $( "#feedback-form-header" ).html(feedbackMessage);
             }
         })
     });
@@ -80,7 +83,7 @@ $(document).ready(function() {
             beforeSend: function() {
                 $( "#feedback-form" ).addClass("js-hidden");
                 $( "#feedback-form-header" ).removeClass("js-hidden");
-                $( "#feedback-form-header" ).html('<span class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>');
+                $( "#feedback-form-header" ).html(feedbackMessage);
             }
         })
 
