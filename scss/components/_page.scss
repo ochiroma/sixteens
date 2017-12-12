@@ -86,19 +86,31 @@
 			margin-top: 0;
 			margin-bottom: ($baseline * 1);
 			font-weight: bold;
+			font-size: 38px;
+			line-height: 48px;
+
+			@include breakpoint(sm) {
+				font-size: 32px;
+				line-height: 40px;
+			}
+
+
 		}
 		&__content {
-			font-size: 21px;
+			font-size: 24px;
 			margin-top: ($baseline * 0);
 			margin-bottom: 0;
 			padding: 2px 0 14px 0;
 			line-height: 32px;
 
 			@include breakpoint(sm) {
-				font-size: 17px;
+				font-size: 20px;
 				padding: 9px 0 7px 0;
-				margin-bottom: ($baseline * 4);
 			}
+		}
+
+		&__meta {
+			font-size: 16px;
 		}
 	}
 	&-content {
