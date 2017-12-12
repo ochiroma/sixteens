@@ -148,13 +148,65 @@
                     margin-left: 0;
                 }
 
+				p, li {
+					line-height: 32px;
+					font-size: 18px;
+
+					@include breakpoint(sm) {
+						font-size: 16px;
+					}
+
+				}
+
+				ul {
+					padding-left: $col * 1.5; // 24px;
+				}
+
                 h2, h3, h4, h5, h6 {
                     font-weight: 700;
                 }
 
                 h2 {
                     line-height: 32px;
+					font-size: 30px;
+
+					@include breakpoint(sm) {
+						font-size: 24px;
+					}
                 }
+
+				h3 {
+					font-size: 24px;
+
+					@include breakpoint(sm) {
+						font-size: 18px;
+					}
+				}
+
+				h4 {
+					font-size: 20px;
+
+					@include breakpoint(sm) {
+						font-size: 16px;
+					}
+				}
+
+				h5 {
+					font-size: 18px;
+
+					@include breakpoint(sm) {
+						font-size: 14px;
+					}
+				}
+
+				h6 {
+					font-size: 16px;
+
+					@include breakpoint(sm) {
+						font-size: 14px;
+					}
+				}
+
 
             }
             // End of Neutral article specific styling
