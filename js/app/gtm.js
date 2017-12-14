@@ -17,7 +17,6 @@ function formSubmit(){
 
 function gtmDataLayer(data) {
   var selectedTimeType = data["time-selection"];
-  console.log(data);
 
   switch(selectedTimeType) {
     case "latest":
