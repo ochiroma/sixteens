@@ -2,19 +2,27 @@
 // gtm dataLayer push functions
 
 // Tracking time form selections in the cmd journey
-var timeForm = $('#time-form'), selectedTimeType;
+var timeForm = $('#time-form'), formData;
 
 function formSubmit(){
     timeForm.submit(function () {
-      selectedTimeType = $('input[type=radio]:checked', timeForm).val();
-      var formData = $(this).serializeArray();
+      formData = $(this).serializeArray().reduce(function(obj, item) {
+          obj[item.name] = item.value;
+          return obj;
+      }, {});
       gtmDataLayer(formData);
     });
 }
 
+
 function gtmDataLayer(data) {
-    if(selectedTimeType === "latest"){
-      var date = data[1].value;
+  var selectedTimeType = data["time-selection"];
+  console.log(data);
+
+  switch(selectedTimeType) {
+    case "latest":
+      var date = data["latest-month"] + ' ' + data["latest-year"];
+
       window.dataLayer.push({
         'event' : 'SaveTimeFilter',
         'timeFilterType' : 'I just want the latest data',
@@ -22,51 +30,54 @@ function gtmDataLayer(data) {
         'endMonth' : date,
         'numberOfMonths' : '1'
       });
-    }
+      break;
 
-    if(selectedTimeType === "single"){
-      var date = data[2].value + ' ' + data[3].value;
-      window.dataLayer.push({
-        'event' : 'SaveTimeFilter',
-        'timeFilterType' : 'Add a single month',
-        'startMonth' : date,
-        'endMonth' : date,
-        'numberOfMonths' : '1'
-      });
-    }
+      case "single":
+        var date = data["month-single"] + ' ' + data["year-single"];
 
-    if(selectedTimeType === "range"){
-      var startDate = data[4].value + ' ' + data[5].value,
-          endDate = data[6].value + ' ' + data[7].value;
+        window.dataLayer.push({
+          'event' : 'SaveTimeFilter',
+          'timeFilterType' : 'Add a single month',
+          'startMonth' : date,
+          'endMonth' : date,
+          'numberOfMonths' : '1'
+        });
+      break;
 
-      // Convert dates to calculate difference
-      var newStart = new Date(startDate),
-          newEnd = new Date(endDate),
-          months;
-          months = (newEnd.getFullYear() - newStart.getFullYear()) * 12;
-          months += newEnd.getMonth();
 
-      window.dataLayer.push({
-        'event' : 'SaveTimeFilter',
-        'timeFilterType' : 'Add a range of months',
-        'startMonth' : startDate,
-        'endMonth' : endDate,
-        'numberOfMonths' : months
-      });
-    }
+      case "range":
+        var startDate = data["start-month"] + ' ' + data["start-year"],
+            endDate = data["end-month"] + ' ' + data["end-year"];
 
-    if(selectedTimeType === "list"){
-      var startDate = data[3].value + ' ' + data[4].value,
-          endDate = data[5].value + ' ' + data[6].value,
+        // Convert dates to calculate difference
+        var newStart = new Date(startDate),
+            newEnd = new Date(endDate),
+            months;
+            months = (newEnd.getFullYear() - newStart.getFullYear()) * 12;
+            months += newEnd.getMonth();
+
+        window.dataLayer.push({
+          'event' : 'SaveTimeFilter',
+          'timeFilterType' : 'Add a range of months',
+          'startMonth' : startDate,
+          'endMonth' : endDate,
+          'numberOfMonths' : months
+        });
+      break;
+
+      case "list":
+      var startDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).last().val(),
+          endDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).first().val(),
           dateCount = $('input[type=checkbox]:checked', timeForm).length;
 
-      window.dataLayer.push({
-        'event' : 'SaveTimeFilter',
-        'timeFilterType' : 'Add months from a list',
-        'startMonth' : startDate,
-        'endMonth' : endDate,
-        'numberOfMonths' : dateCount
-      });
+        window.dataLayer.push({
+          'event' : 'SaveTimeFilter',
+          'timeFilterType' : 'Add months from a list',
+          'startMonth' : startDate,
+          'endMonth' : endDate,
+          'numberOfMonths' : dateCount
+        });
+      break;
     }
 }
 
