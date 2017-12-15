@@ -47,21 +47,21 @@ function gtmDataLayer(data) {
       case "range":
         var startDate = data["start-month"] + ' ' + data["start-year"],
             endDate = data["end-month"] + ' ' + data["end-year"];
-
         // Convert dates to calculate difference
         var newStart = new Date(startDate),
             newEnd = new Date(endDate),
-            months;
-            months = (newEnd.getFullYear() - newStart.getFullYear()) * 12;
-            months += newEnd.getMonth();
+            months = newEnd.getMonth() - newStart.getMonth()
+            + (12 * (newEnd.getFullYear() - newStart.getFullYear()));
+
 
         window.dataLayer.push({
           'event' : 'SaveTimeFilter',
           'timeFilterType' : 'Add a range of months',
           'startMonth' : startDate,
           'endMonth' : endDate,
-          'numberOfMonths' : months
+          'numberOfMonths' : months + 1
         });
+
       break;
 
       case "list":
