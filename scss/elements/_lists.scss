@@ -36,5 +36,32 @@
 		}
 	}
 
+	&--custom-numbered {
+		@if $old-ie != true {
+			list-style: none;
+			padding:0;
+			> li {
+				counter-increment: step-counter;
+				padding: 0;
+				margin: 0;
+				position: relative;
+				&::before {
+					content: counter(step-counter)'.';
+					font-size:24px;
+					font-weight:bold;
+					position: absolute;
+					top:0;
+					left:0;
+					@include breakpoint(sm) {
+							font-size: 22px;
+					}
+				}
+				// If the list contains a separate list, don't follow the ul ul style
+				ul {
+					list-style-type: disc;
+				}
+			}
+		}
+	}
 
 }
