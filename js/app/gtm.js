@@ -65,9 +65,9 @@ function gtmDataLayer(data) {
       break;
 
       case "list":
-      var startDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).last().val(),
-          endDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).first().val(),
-          dateCount = $('input[type=checkbox]:checked', timeForm).length;
+        var startDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).last().val(),
+            endDate = $('.checkbox-group').find('input[type=checkbox]:checked', timeForm).first().val(),
+            dateCount = $('input[type=checkbox]:checked', timeForm).length;
 
         window.dataLayer.push({
           'event' : 'SaveTimeFilter',
