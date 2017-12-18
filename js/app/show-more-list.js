@@ -27,7 +27,7 @@ $.fn.showMoreList = function(options) {
       element.appendTo($this);
       // Add elements to the hidden block
       $.each(items, function(i) {
-        if(i > opts.show){
+        if(i + 1 > opts.show){
           $(this).appendTo(element);
         }
       });
@@ -41,6 +41,7 @@ $.fn.showMoreList = function(options) {
         txt = thisElement.is(':visible') ? 'show all' : 'show less';
 
     thisElement.toggleClass('js-hidden');
+    listSize.toggleClass('js-hidden');
     link.text(txt);
   });
 
