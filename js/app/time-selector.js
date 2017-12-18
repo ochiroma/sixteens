@@ -5,7 +5,7 @@ $(document).ready(function() {
        removeAllCheck();
     })
 
-    $("#add-all").click(function(e) {
+    $("input.add-all").click(function(e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', true);
         removeAllCheck();
