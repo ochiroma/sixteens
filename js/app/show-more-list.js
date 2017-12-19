@@ -20,7 +20,7 @@ $.fn.showMoreList = function(options) {
       // If element exists that displays the total number of elements
       // Add the show link after it, if not add after the list.
       if (listSize){
-        link.insertAfter(listSize);
+        link.insertAfter($this.next(listSize));
       } else {
         link.insertAfter($this);
       }
@@ -41,7 +41,7 @@ $.fn.showMoreList = function(options) {
         txt = thisElement.is(':visible') ? 'show all' : 'show less';
 
     thisElement.toggleClass('js-hidden');
-    listSize.toggleClass('js-hidden');
+    $(this).prev(listSize).toggleClass('js-hidden');
     link.text(txt);
   });
 
