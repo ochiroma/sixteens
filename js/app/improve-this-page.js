@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     $( "#feedback-form-container" ).on("submit", function(e) {
         e.preventDefault();
-        $(".form-control").removeClass("form-control__error");
+        $(" #description-field ").removeClass("form-control__error");
         $(" #purpose-field ").removeClass("form-control__error");
         $(" #email-field ").removeClass("form-control__error");
         $(" .form-error ").each(function() {
