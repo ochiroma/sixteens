@@ -33,7 +33,7 @@ $(document).ready(function() {
 
     $( "#feedback-form-container" ).on("submit", function(e) {
         e.preventDefault();
-        $(" #description-field ").removeClass("form-control__error");
+        $(".form-control").removeClass("form-control__error");
         $(" #purpose-field ").removeClass("form-control__error");
         $(" #email-field ").removeClass("form-control__error");
         $(" .form-error ").each(function() {
@@ -44,7 +44,7 @@ $(document).ready(function() {
 
         if ($(" #description-field ").val() === "") {
             var descriptionError = "<span class=\"form-error\">Write some feedback</span>";
-            if (!$(" #description-field-label ").html().includes(descriptionError)) {
+            if (!$(" #description-field-label .form-error").length) {
                 $(" #description-field-label ").append( descriptionError );
                 $(" #description-field ").addClass("form-control__error");
             }
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
         if ($(" #purpose-field ").val() === "") {
             var descriptionError = "<span class=\"form-error\">Enter a purpose</span>";
-            if (!$(" #purpose-field-label ").html().includes(descriptionError)) {
+            if (!$(" #purpose-field-label .form-error").length) {
                 $(" #purpose-field-label ").append( descriptionError );
                 $(" #purpose-field ").addClass("form-control__error");
             }
@@ -66,7 +66,7 @@ $(document).ready(function() {
             var emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/g;
 
             if ( !emailReg.test(email) ) {
-                if (!$(" #email-field-label ").html().includes(emailError)) {
+                if (!$(" #email-field-label .form-error").length) {
                     $(" #email-field-label ").append( emailError );
                     $(" #email-field ").addClass("form-control__error");
                 }
