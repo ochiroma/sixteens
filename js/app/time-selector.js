@@ -17,7 +17,7 @@ $(document).ready(function() {
         $(".checkbox__input").prop('checked', true);
         removeAllCheck();
 
-        if ($(".checkbox__input").length < 19) {
+        if ($(".checkbox__input").length > 19) {
             $("#add-all-save-and-return").removeClass("js-hidden");
         }
     })
