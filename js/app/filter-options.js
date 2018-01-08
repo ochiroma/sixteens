@@ -27,4 +27,25 @@ $(document).ready(function() {
     if ($("li#filter-option.filter-overview__add").length > 0) {
         $("#preview-download").addClass("btn--primary-disabled");
     }
+
+    $("li#filter-option").hover(function() {
+        var label = $(this).find("#filter-option-label");
+        var labelText = label.text();
+        var url = $(this).find("a").attr("href");
+        var newLabel = "<a id=\"filter-option-label\" class=\"font-size-16\" href=\""+url+"\">"+labelText+"</a>"
+
+        label.replaceWith(newLabel);
+    }, function() {
+        var label = $(this).find("#filter-option-label");
+        var labelText = label.text();
+        var newLabel = "<span id=\"filter-option-label\" class=\"font-size-16\">"+labelText+"</a>"
+
+        label.replaceWith(newLabel);
+    });
+
+    $("li#filter-option").click(function() {
+        $(this).addClass("filter-overview__clicked");
+        var url = $(this).find("a").attr("href");
+        window.location = url;
+    })
 });

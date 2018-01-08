@@ -49,6 +49,12 @@
     border-left: thick solid $blumine;
   }
 
+  &__clicked {
+      -webkit-box-shadow: 0 0 0 3px #ffbf47;
+      -moz-box-shadow: 0 0 0 3px #ffbf47;
+      box-shadow: 0 0 0 3px #ffbf47;
+  }
+
   @include breakpoint(md) {
     li {
       &:not(:first-child) {
