@@ -3,10 +3,10 @@ $(document).ready(function() {
         var errorDimensions = [];
 
         $("li#filter-option").each(function() {
-            var filterDiv = $(this).find("a");
 
-            if (filterDiv.html().includes("Add at least one")) {
+            if ($(this).hasClass("filter-overview__add")) {
                 e.preventDefault();
+                $(this).removeClass("filter-overview__add");
                 $(this).addClass("filter-overview__error");
                 var label = $(this).find("#filter-option-label").html();
                 if (errorDimensions.length > 0) {
@@ -17,7 +17,14 @@ $(document).ready(function() {
         })
 
         if (errorDimensions.length > 0 && $("#options-error").length === 0) {
-            $("#error-container").append("<div id=\"options-error\" class=\"font-size--16 form-error filter-overview__error-message\">Add at least one to '" + errorDimensions + "'</div>")
+            var landingPageUrl = $("a.breadcrumb__link").attr("href");
+
+            $("#error-container").append("<div id=\"options-error\" class=\"font-size--16 form-error filter-overview__error-message margin-bottom--1\">Add at least one to '" + errorDimensions + "' to generate data</div>")
+            $("#error-container").append("<div class=\"font-size--16 margin-bottom--4\"> Alternatively, return to the <a href=\""+landingPageUrl+"\">landing page</a> to download the complete dataset.</div>")
         }
     })
+
+    if ($("li#filter-option.filter-overview__add").length > 0) {
+        $("#preview-download").addClass("btn--primary-disabled");
+    }
 });
