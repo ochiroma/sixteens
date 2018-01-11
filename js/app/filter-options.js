@@ -2,8 +2,12 @@ $(document).ready(function() {
     $("#preview-download").click(function(e) {
         var errorDimensions = [];
 
-        $("li#filter-option").each(function() {
+        if ($(".filter-overview__error").length > 0) {
+            e.preventDefault();
+            return
+        }
 
+        $("li#filter-option").each(function() {
             if ($(this).hasClass("filter-overview__add")) {
                 e.preventDefault();
                 $(this).removeClass("filter-overview__add");
@@ -43,9 +47,4 @@ $(document).ready(function() {
         label.replaceWith(newLabel);
     });
 
-    $("li#filter-option").click(function() {
-        $(this).addClass("filter-overview__clicked");
-        var url = $(this).find("a").attr("href");
-        window.location = url;
-    })
 });
