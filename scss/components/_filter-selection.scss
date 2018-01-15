@@ -41,6 +41,20 @@
   }
 }
 
+.dimension-name {
+  @media (max-width: 767px) {
+    position: absolute;
+    margin-left: 100px;
+    bottom: 25px;
+  }
+}
+
+/*.dimension-button {
+  @media (max-width: 641px) {
+    padding-right: 0px;
+  }
+}*/
+
 .filter-overview {
   &__error {
     border-left: thick solid $poppy;
@@ -78,6 +92,12 @@
     padding-left: 7px;
   }
   li {
+    min-width: 200px;
+
+    @media (max-width: 767px) {
+      max-height: 75px;
+    }
+
     &:not(:first-child) {
       position: relative;
     }
@@ -137,23 +157,33 @@
 }
 
 .block-with-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; /* number of lines to show */
-  line-height: 25px;        /* fallback */
-  max-height: 75px;
-  min-height: 75px;
-  position: relative;
-
-  span {
-    position: absolute;
-    top: 50%;
-    left: $col;
-    transform: translateY(-50%);
+  @media (min-width: 768px) {
+    overflow: hidden;
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-height: 25px;        /* fallback */
+    max-height: 75px;
+    min-height: 75px;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: $col;
+      transform: translateY(-50%);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+  }
+
+  @media (max-width: 767px) {
+    text-overflow: ellipsis;
+    margin-left: 85px;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
   }
 }
