@@ -59,9 +59,7 @@
 
         &--text:focus{
             outline-style:none;
-            -webkit-box-shadow: 0 0 0 3px #ffbf47;
-            -moz-box-shadow: 0 0 0 3px #ffbf47;
-            box-shadow: 0 0 0 3px #ffbf47;
+            @include box-shadow(0 0 0 3px $carrot);
         }
     }
 
@@ -110,7 +108,7 @@
             border: 1px solid $iron;
 
             &:focus {
-                outline: 3px solid $carrot;
+                outline: 3 px solid $carrot;
                 outline-offset: 0;
             }
         }

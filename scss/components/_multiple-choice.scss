@@ -74,9 +74,7 @@
     }
 
     [type=radio]:focus + label::before {
-        -webkit-box-shadow: 0 0 0 4px #ffbf47;
-        -moz-box-shadow: 0 0 0 4px #ffbf47;
-        box-shadow: 0 0 0 4px #ffbf47; 
+        @include box-shadow(0 0 0 3px $carrot);
     }
 
     [type=radio] ~ &__content {
