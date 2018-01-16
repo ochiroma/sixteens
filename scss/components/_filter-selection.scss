@@ -159,10 +159,6 @@
 .block-with-text {
   @media (min-width: 768px) {
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; /* number of lines to show */
     line-height: 25px;        /* fallback */
     max-height: 75px;
     min-height: 75px;
@@ -171,11 +167,29 @@
     span {
       position: absolute;
       top: 50%;
-      left: $col;
       transform: translateY(-50%);
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      left: $col;
+
+      @supports (-webkit-line-clamp: 3) {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+      }
+    
+      max-height: 75px;
+
+      &:after {
+        @supports not (-webkit-line-clamp: 3) {
+          content: "...";
+          text-align: right;
+          position: absolute;
+          bottom: 0;
+          top: 50px;
+          right: 30px;
+          width: 100%;
+          height: 75px;
+        }
+      }
     }
   }
 
@@ -187,3 +201,4 @@
     overflow: hidden;
   }
 }
+
