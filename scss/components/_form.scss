@@ -13,7 +13,7 @@
         padding: 5px 4px 4px;
         border: 2px solid #0b0c0c;
         margin-bottom: 40px;
-        outline-color: #ffbf47;
+        outline-color: $carrot;
 
         &__inline{
             width: 70%;
@@ -28,9 +28,7 @@
     }
 
     &-control:focus{
-        -webkit-box-shadow: 0 0 0 3px #ffbf47;
-        -moz-box-shadow: 0 0 0 3px #ffbf47;
-        box-shadow: 0 0 0 3px #ffbf47;
+        @include box-shadow(0 0 0 3px $carrot);
     }
 
     &-hint{

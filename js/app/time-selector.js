@@ -1,20 +1,32 @@
 $(document).ready(function() {
     removeAllCheck();
 
+    if ($(".checkbox__input").length === $(".checkbox__input.checked").length) {
+       if ($(".checkbox__input").length > 19) {
+            $("#add-all-save-and-return").removeClass("js-hidden");
+       }
+    }
+
     $(".checkbox__input").click(function() {
        removeAllCheck();
+       $("#add-all-save-and-return").addClass("js-hidden");
     })
 
     $("input.add-all").click(function(e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', true);
         removeAllCheck();
+
+        if ($(".checkbox__input").length > 19) {
+            $("#add-all-save-and-return").removeClass("js-hidden");
+        }
     })
 
     $("#remove-all").click(function(e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', false);
         removeAllCheck();
+        $("#add-all-save-and-return").addClass("js-hidden");
     })
 
     var endDateChange = function() {
