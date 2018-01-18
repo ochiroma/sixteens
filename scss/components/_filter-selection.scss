@@ -41,6 +41,20 @@
   }
 }
 
+.no-results-advice {
+  h3 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  ul {
+    margin-left: 10px;
+    li {
+      line-height: 2px;
+    }
+  }
+}
+
 .dimension-name {
   @media (max-width: 767px) {
     position: absolute;
