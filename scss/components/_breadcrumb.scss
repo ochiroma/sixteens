@@ -35,6 +35,27 @@
 			content: '';
 			padding: 0px 0 0 0px;
 		}
+
+		&--ellipsis {
+			display: inline-block;
+			margin: 0 8px 0 0;
+			padding: 6px 0 10px 0;
+
+			@include breakpoint(sm) {
+				line-height: 16px;
+				padding: 10px 0 6px 0;
+			}
+
+			&:after {
+				content: '...';
+				padding: 0px 0 0 8px;
+			}
+
+			&:last-child:after {
+				content: '';
+				padding: 0px 0 0 0px;
+			}
+		}
 	}
 
 	&__link {
