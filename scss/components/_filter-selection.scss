@@ -1,6 +1,11 @@
 // Filter Selection (Shopping basket) & Filter Overview
 
 .filter-selection {
+  // don't want to show basket on any mobile/tablet devices
+  @media(max-width: 991px) {
+    display: none;
+  }
+
   &__header {
     background: $gallery;
     padding:15px;
@@ -127,9 +132,32 @@
   }
 }
 
+.view-link {
+    @media (max-width: 767px) {
+      position: relative;
+      bottom: 50px;
+      margin-left: 200px;
+      text-align: right;
+    }
+
+    @media (max-width: 499px) {
+      position: relative;
+      text-align: right;
+      top: 0px;
+      margin-right: 0px;
+    }
+}
+
+.hierarchy-box {
+    @media (min-width: 500px) {
+      max-height: 50px;
+      position: relative;
+    }
+}
+
 // This is to add a small top padding to the icon on the hierarchy "browse" link
-.view-link div {
-  padding-top:4px;
+.view-link--icon {
+    padding-top:4px;
 }
 
 @mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
