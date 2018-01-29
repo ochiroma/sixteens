@@ -20,7 +20,6 @@
     &__list {
         list-style: none;
         margin: 0;
-        overflow: hidden;
 
         @include breakpoint(sm) {
             padding: $baseline 0;
