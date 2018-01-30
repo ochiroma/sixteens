@@ -37,13 +37,6 @@ dd {
     margin: 0;
 }
 
-.table-border{
-    border-style: solid;
-    border-color: #D0D2D3;
-    border-width: 1px;
-    padding: 10px 10px 10px 10px;
-}
-
 .table-chart{
     width:700px;
     font-feature-settings: "tnum" 1;
@@ -185,10 +178,19 @@ dd {
 }
 
 // Preview table for cmd
+
+.table-border{
+    border-style: solid;
+    border-color: #D0D2D3;
+    border-width: 1px;
+    padding-right: $col;
+}
+
 .table-preview {
   width: 100%;
   overflow: visible;
   overflow-x: scroll;
+  padding:$col 0 $col $col;
   &::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 3px;
@@ -211,6 +213,9 @@ dd {
         text-align: left;
         border-bottom: 1px solid $gallery;
         min-width: $col * 8;
+        &:focus {
+            outline: 3px solid $carrot;
+        }
       }
       td {
         white-space: nowrap;
