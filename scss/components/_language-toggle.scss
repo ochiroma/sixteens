@@ -3,6 +3,7 @@
     background: $iron-light;
     font-size: 12px;
     padding: 0 8px;
+    overflow: hidden;
 
     @include breakpoint(md) {
         float: right;
