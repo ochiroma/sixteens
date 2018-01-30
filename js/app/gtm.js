@@ -2,20 +2,19 @@
 // gtm dataLayer push functions
 
 // Tracking time form selections in the cmd journey
-var timeForm = $('#time-form'), formData;
-
-function formSubmit(){
+var timeForm = $('#time-form'), timeFormData;
+function timeFormSubmit(){
     timeForm.submit(function () {
-      formData = $(this).serializeArray().reduce(function(obj, item) {
+      timeFormData = $(this).serializeArray().reduce(function(obj, item) {
           obj[item.name] = item.value;
           return obj;
       }, {});
-      gtmDataLayer(formData);
+      gtmDataLayerTime(timeFormData);
     });
 }
 
-
-function gtmDataLayer(data) {
+// Push time form data to the data layer
+function gtmDataLayerTime(data) {
   var selectedTimeType = data["time-selection"];
 
   switch(selectedTimeType) {
@@ -80,7 +79,60 @@ function gtmDataLayer(data) {
     }
 }
 
-
 if(timeForm){
-  formSubmit();
+  timeFormSubmit();
+}
+
+// Tracking "Goods and services" selections
+
+var filterForm = $('#filter-form'),
+    saveButton = $('input[name="save-and-return"]'),
+    saveButtonLoc = 'saveGoodsServicesBottom'
+
+function goodsFormSubmit(){
+
+  // Store which submit button was clicked
+  saveButton.on('click', function(){
+    if($(this).hasClass('save-button-right')){
+      saveButtonLoc = 'saveGoodsServicesRight' 
+    } else {
+      saveButtonLoc = 'saveGoodsServicesBottom' 
+    }
+  });
+  
+  filterForm.submit(function () {
+
+    var selectedFilters = $('.filter-selection li span:first-child'), filters = [];
+    // Build an object of selections and it's index and add to filters array
+    $.each(selectedFilters, function(i) {
+      var filter = {};
+      i = i + 1;
+      i = i < 10 ? "0" + i : i; // Makes 01, 02, 03 etc
+      filter.id = 'goodsItem' + i;
+      filter.name = $(this).text().trim();
+      filters.push(filter);
+    });
+
+    // Create an object of key value pairs from the array
+    var filtersObj = filters.reduce(function(obj, item) {
+      obj[item.id] = item.name;
+      return obj;
+    }, {});
+
+    // Object containing the other data we need to push
+    var event = {
+      'event' : saveButtonLoc,
+      'goodsItemsAdded' : Object.keys(filtersObj).length,
+    }
+    
+    // Merge the two objects together and push to the data layer
+    var mergedObject = $.extend({}, filtersObj, event);
+    window.dataLayer.push(
+      mergedObject
+    );
+  });
+}
+
+if(filterForm){
+  goodsFormSubmit();
 }
