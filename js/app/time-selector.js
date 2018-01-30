@@ -1,32 +1,31 @@
 $(document).ready(function() {
     removeAllCheck();
+    checkSelections(true);
 
-    if ($(".checkbox__input").length === $(".checkbox__input.checked").length) {
-       if ($(".checkbox__input").length > 19) {
-            $("#add-all-save-and-return").removeClass("js-hidden");
-       }
-    }
+    $("#time-form input[type='radio']").click(function(){
+        if(this.id === "time-selection-list"){
+            checkSelections(true);
+        } else {
+            checkSelections(false);
+        }
+    });
 
     $(".checkbox__input").click(function() {
        removeAllCheck();
-       $("#add-all-save-and-return").addClass("js-hidden");
     })
 
     $("input.add-all").click(function(e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', true);
         removeAllCheck();
-
-        if ($(".checkbox__input").length > 19) {
-            $("#add-all-save-and-return").removeClass("js-hidden");
-        }
+        checkSelections(true);
     })
 
     $("#remove-all").click(function(e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', false);
         removeAllCheck();
-        $("#add-all-save-and-return").addClass("js-hidden");
+        checkSelections(false);
     })
 
     var endDateChange = function() {
@@ -201,4 +200,18 @@ function removeAllCheck() {
     } else {
         $("#remove-all").addClass("js-hidden");
     }
+}
+
+function checkSelections(bool) {
+    if (bool === false) {
+        $("#add-all-save-and-return").addClass("js-hidden");
+
+    }
+    if (bool === true) {
+        if ($(".checkbox__input").length > 19 && $(".checkbox__input").length === $(".checkbox__input:checked").length) {
+            $("#add-all-save-and-return").removeClass("js-hidden");
+        }
+    } 
+    
+
 }
