@@ -140,7 +140,7 @@
       text-align: right;
     }
 
-    @media (max-width: 499px) {
+    @media (max-width: 635px) {
       position: relative;
       text-align: right;
       top: 0px;
@@ -150,7 +150,6 @@
 
 .hierarchy-box {
     @media (min-width: 500px) {
-      max-height: 50px;
       position: relative;
     }
 }
