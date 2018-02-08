@@ -8,7 +8,6 @@ $(function() {
     var embedButtons = document.getElementsByClassName('js-embed-code-copy');
 
     if (!embedButtons.length) {
-        console.log('no embed buttons');
         return;
     }
 
