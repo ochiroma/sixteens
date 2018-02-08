@@ -173,7 +173,11 @@ dd {
     //}
 }
 
-// new tables
+////////////////////////////////////
+//      dp-table-renderer start   //
+////////////////////////////////////
+// please note that these styles are also included in the css for florence
+// to support preview in the table builder modal window
 .figure .align-right {
     text-align: right
 }
@@ -251,3 +255,6 @@ dd {
 .figure__footnote-back-link {
     font-size: 85%;
 }
+////////////////////////////////////
+//      dp-table-renderer end     //
+////////////////////////////////////
