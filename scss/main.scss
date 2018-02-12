@@ -32,6 +32,7 @@ $old-ie: false;
 @import "elements/images";
 @import "elements/lists";
 @import "elements/links";
+@import "elements/details";
 
 
 @import "components/header";
@@ -61,5 +62,6 @@ $old-ie: false;
 @import "components/pym";
 @import "components/language-toggle";
 @import "components/info";
+@import "components/embed-code";
 
 @import "shame";
