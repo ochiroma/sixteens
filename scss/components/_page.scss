@@ -75,7 +75,8 @@
 .page-neutral {
 	&-intro {
 		&__type {
-			font-size: 19px;
+			font-size: 18px;
+			line-height: 32px;
 			font-weight: $base-font-weight;
 			color: $ship-grey;
 			padding: 6px 0 10px 0;
