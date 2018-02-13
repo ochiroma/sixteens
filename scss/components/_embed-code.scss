@@ -5,6 +5,7 @@
     }
     &__code {
         font-size: 16px;
+        height: 60px;
         background-color: $gallery;
         border: 3px solid $iron;
         padding: 8px $col;
@@ -12,11 +13,13 @@
         position: relative;
 
         &:focus {
-            border: 3px solid $carrot;
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
         }
-
-
     }
+
     &__button {
         height: 60px;
         position: absolute;
@@ -24,8 +27,9 @@
         font-weight: 600;
 
         &:focus {
-            border: 3px solid $carrot;
-            outline: 0;
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
         }
 
     }
