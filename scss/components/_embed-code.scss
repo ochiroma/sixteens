@@ -11,6 +11,9 @@
         padding: 8px $col;
         overflow-x: scroll;
         position: relative;
+        border-radius: 0;
+        -webkit-appearance: none;
+        margin: 0 0 0 0; // remove 2px border top and bottom that safari adds
 
         &:focus {
             outline: 3px solid $carrot;
