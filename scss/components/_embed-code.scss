@@ -5,18 +5,24 @@
     }
     &__code {
         font-size: 16px;
+        height: 60px;
         background-color: $gallery;
         border: 3px solid $iron;
         padding: 8px $col;
         overflow-x: scroll;
         position: relative;
+        border-radius: 0;
+        -webkit-appearance: none;
+        margin: 0 0 0 0; // remove 2px border top and bottom that safari adds
 
         &:focus {
-            border: 3px solid $carrot;
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
+            position: relative;
         }
-
-
     }
+
     &__button {
         height: 60px;
         position: absolute;
@@ -24,8 +30,9 @@
         font-weight: 600;
 
         &:focus {
-            border: 3px solid $carrot;
-            outline: 0;
+            outline: 3px solid $carrot;
+            outline-offset: 0;
+            z-index: 1;
         }
 
     }
