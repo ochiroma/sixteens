@@ -58,9 +58,9 @@ $(document).ready(function() {
 
         switch(selection) {
             case "range":
-                var youngest = data["youngest"];
+                var youngest = parseInt(data["youngest"]);
                 var oldest = data["oldest"];
-                var youngestPossible = data["youngest-age"];
+                var youngestPossible = parseInt(data["youngest-age"]);
                 var oldestPossible = data["oldest-age"];
                 var youngestField = $('input[name="youngest"]').val();
                 var oldestField = $('input[name="oldest"]').val();
@@ -69,9 +69,10 @@ $(document).ready(function() {
                     
                     if(/^\d+\+?$/.test(oldestPossible) === true && oldest === oldestPossible){
                         oldest = parseInt(oldest);
+                        oldestPossible = parseInt(oldestPossible);
                     }
-    
-                    if (youngest < youngestPossible || youngest > oldestPossible || oldest < youngestPossible || oldest >  oldestPossible) {
+
+                    if (youngest < youngestPossible || youngest > parseInt(oldestPossible) || parseInt(oldest) < youngestPossible || parseInt(oldest) >  parseInt(oldestPossible)) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
                         $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages "+data["youngest-age"]+" to "+data["oldest-age"]+" available in this dataset</strong></div>");
