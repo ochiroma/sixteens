@@ -58,28 +58,37 @@ $(document).ready(function() {
 
         switch(selection) {
             case "range":
-                var youngest = parseInt(data["youngest"]);
-                var oldest = parseInt(data["oldest"]);
-                var youngestPossible = parseInt(data["youngest-age"]);
-                var oldestPossible = parseInt(data["oldest-age"]);
-
-                if (youngest < youngestPossible || youngest > oldestPossible || oldest < youngestPossible || oldest >  oldestPossible) {
-                    e.preventDefault();
-                    $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                    if ($("#range-error-message").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages "+data["youngest-age"]+" to "+data["oldest-age"]+" available in this dataset</strong></div>");
+                var youngest = data["youngest"];
+                var oldest = data["oldest"];
+                var youngestPossible = data["youngest-age"];
+                var oldestPossible = data["oldest-age"];
+                var youngestField = $('input[name="youngest"]').val();
+                var oldestField = $('input[name="oldest"]').val();
+                $('.form-error').remove();
+                if (!youngestField == "" || !oldestField == "") {
+                    
+                    if(/^\d+\+?$/.test(oldestPossible) === true && oldest === oldestPossible){
+                        oldest = parseInt(oldest);
                     }
-                    break;
-                }
-
-                if (youngest > oldest) {
-                    e.preventDefault();
-                    $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                    if ($("#age-range-error-message").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Enter a number higher than the youngest</strong></div>");
+    
+                    if (youngest < youngestPossible || youngest > oldestPossible || oldest < youngestPossible || oldest >  oldestPossible) {
+                        e.preventDefault();
+                        $("#multiple-choice-content-range").addClass("multiple-choice__error");
+                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages "+data["youngest-age"]+" to "+data["oldest-age"]+" available in this dataset</strong></div>");
                     }
-                    break;
-                }
+
+                    if (youngest > oldest) {
+                        e.preventDefault();
+                        $("#multiple-choice-content-range").addClass("multiple-choice__error");
+                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Enter a number higher than the youngest</strong></div>");
+                    }
+
+                    if (isNaN(youngest) || isNaN(oldest)) {
+                        e.preventDefault();
+                        $("#multiple-choice-content-range").addClass("multiple-choice__error");
+                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Please enter a valid number in both fields</strong></div>");
+                    }
+                }                
 
                 break;
 
