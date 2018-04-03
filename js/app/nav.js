@@ -133,7 +133,6 @@ function cloneLanguageToggle() {
 $(window).resize(function() {
     clonePrimaryItems();
     cloneSecondaryNav();
-    cloneLanguageToggle();
 });
 
 
@@ -145,7 +144,6 @@ $(document).ready(function () {
 
     clonePrimaryItems();
     cloneSecondaryNav();
-    cloneLanguageToggle();
 
     $primaryNav.addClass('nav-main--hidden').attr('aria-expanded', false);
     //$searchBar.addClass('nav-search--hidden').attr('aria-expanded', false);
