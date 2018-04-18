@@ -155,10 +155,13 @@ function simpleSelectorForm() {
         };
         $.each(selectedFilters, function(index) {
             //selections.push(selectedFilters[index].defaultValue);
-            dataLayerEvent[filterName.toLowerCase() + index] = selectedFilters[index].defaultValue;
+            var i = index + 1 < 10 ? "0" + (index + 1) : (index + 1);
+            dataLayerEvent[filterName.toLowerCase() + i ] = selectedFilters[index].defaultValue;
         });
 
         //dataLayerEvent.selections = selections;
         window.dataLayer.push( dataLayerEvent );
+        console.log(window.dataLayer);
+        debugger;
     })
 }
