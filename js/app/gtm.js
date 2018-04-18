@@ -161,7 +161,5 @@ function simpleSelectorForm() {
 
         //dataLayerEvent.selections = selections;
         window.dataLayer.push( dataLayerEvent );
-        console.log(window.dataLayer);
-        debugger;
     })
 }
