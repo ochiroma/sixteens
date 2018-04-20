@@ -28,7 +28,7 @@ function getDownloadFiles() {
     success: function(response) {
       var downloads = response.downloads;
       // Check if the response has the file data
-      if (!downloads.xls.url == '' && !downloads.csv.url == '') {
+      if (!downloads.xls.href == '' && !downloads.csv.href == '') {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
         addFilesToPage(response);
