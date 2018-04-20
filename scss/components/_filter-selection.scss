@@ -213,6 +213,7 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
       left: $col;
 
       @supports (-webkit-line-clamp: 3) {
