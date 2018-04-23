@@ -1,7 +1,6 @@
 // Language selection
 .language {
     font-size: 12px;
-    padding: 0 8px;
 
     @include breakpoint(md) {
         float: right;
@@ -19,9 +18,7 @@
 
     &__link {
         text-decoration: underline;
-        //mobile
-        &__mb {
-            text-decoration: underline;
+        @include breakpoint(sm) {
             color: $iron-light;
         }
     }

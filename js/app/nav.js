@@ -102,31 +102,6 @@ function clonePrimaryItems() {
         $detectDuplicate.remove();
     }
 
-    // OLD CODE
-    //$primaryNav.find('.nav__expandable').each(function () {
-    //    var subNav = $(this).find('.nav--primary__sub');
-    //    $(this).find(' > a').clone()
-    //        .removeClass()
-    //        .prependTo(subNav)
-    //        .wrap('<li class="nav__top-level-duplicate"></li>');
-    //});
-}
-
-function cloneLanguageToggle() {
-    var $toggle = $('.language--js'),
-        $toggleContainer = $('.language--js__container'),
-        extraClass = 'margin-top-sm--1 margin-bottom-sm--4 margin-left-sm--1';
-
-    if ($('body').hasClass('viewport-sm') && $('#nav-primary').find($toggle).length == 0) {
-        // Move toggle to menu drop-down
-        $toggle.appendTo('#nav-primary')
-            .addClass(extraClass);
-
-    } else if (!$('body').hasClass('viewport-sm') && $('#nav-primary').find($toggle).length > 0) {
-        // Move toggle back to original location on tablet or larger
-        $toggle.appendTo($toggleContainer)
-            .removeClass(extraClass);
-    }
 }
 
 
