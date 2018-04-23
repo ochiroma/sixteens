@@ -53,11 +53,11 @@ function getDownloadFiles() {
 
 function addFilesToPage(files) {
     // Get the xls data and create the link
-    var excelURL = files.downloads.xls.url,
+    var excelURL = files.downloads.xls.href,
         excelFileSize = files.downloads.xls.size,
         excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
     // Get the csv data and create the link
-    var csvURL = files.downloads.csv.url,
+    var csvURL = files.downloads.csv.href,
         csvFileSize = files.downloads.csv.size,
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
                     '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
