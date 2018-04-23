@@ -1,4 +1,3 @@
-
 // gtm dataLayer push functions
 
 // Tracking time form selections in the cmd journey
@@ -134,5 +133,33 @@ function goodsFormSubmit(){
 }
 
 if(filterForm){
-  goodsFormSubmit();
+
+    var hasBasket = document.getElementsByClassName('filter-selection').length;
+    if (hasBasket) {
+        goodsFormSubmit();
+    }
+
+    if(!hasBasket) {
+        simpleSelectorForm()
+    }
+}
+
+function simpleSelectorForm() {
+    filterForm.submit(function() {
+        var filterName = $('.page-intro__title').text();
+        var selectedFilters = $('.checkbox-group input[type=checkbox]:checked');
+        //var selections = [];
+        var dataLayerEvent = {
+            'event': 'save' + filterName,
+            'selectionsCount': selectedFilters.length
+        };
+        $.each(selectedFilters, function(index) {
+            //selections.push(selectedFilters[index].defaultValue);
+            var i = index + 1 < 10 ? "0" + (index + 1) : (index + 1);
+            dataLayerEvent[filterName.toLowerCase() + i ] = selectedFilters[index].defaultValue;
+        });
+
+        //dataLayerEvent.selections = selections;
+        window.dataLayer.push( dataLayerEvent );
+    })
 }
