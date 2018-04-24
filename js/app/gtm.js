@@ -146,7 +146,7 @@ if(filterForm){
 
 function simpleSelectorForm() {
     filterForm.submit(function() {
-        var filterName = $('.page-intro__title').text();
+        var filterName = $('.page-intro__title').text().replace(/\s/g, '');
         var selectedFilters = $('.checkbox-group input[type=checkbox]:checked');
         //var selections = [];
         var dataLayerEvent = {
@@ -161,5 +161,7 @@ function simpleSelectorForm() {
 
         //dataLayerEvent.selections = selections;
         window.dataLayer.push( dataLayerEvent );
+        console.log(window.dataLayer);
+        debugger;
     })
 }
