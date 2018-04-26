@@ -237,8 +237,9 @@
 
 			margin-top: ($baseline * 3);
 
-			ol {
+			ol, ul {
 				margin: $col 0 $col $col;
+				padding-left: $col;
 			}
 
 		}
