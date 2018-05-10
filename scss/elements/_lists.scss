@@ -28,11 +28,19 @@
 		li {
 			display: inline;
 			padding:0;
-			line-height: 28px;
-			span {
+			line-height: 24px;
+			margin-right: 16px;
+			&:after {
+			    content: "|";
+			    color: $iron;
+			    position: relative;
+                right: -10px;
+                top: -2px;
+			}
+			/*span {
 				color: $iron;
 				padding: 0 5px 0 8px;
-			}
+			}*/
 		}
 	}
 

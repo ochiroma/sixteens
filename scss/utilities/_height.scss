@@ -94,3 +94,28 @@
     }
 }
 @include min-height-util;
+
+@mixin max-height-util {
+    .max-height {
+        @for $i from 0 through 50 {
+            @include breakpoint(sm) {
+                &-sm--#{$i} {
+                    max-height: ($baseline * $i);
+                }
+            }
+        }
+        @for $i from 0 through 50 {
+            @include breakpoint(md) {
+                &-md--#{$i} {
+                    max-height: ($baseline * $i);
+                }
+            }
+        }
+        @for $i from 0 through 50 { //
+            &--#{$i} {
+                max-height: ($baseline * $i);
+            }
+        }
+    }
+}
+@include max-height-util;
