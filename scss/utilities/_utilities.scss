@@ -353,6 +353,14 @@
     }
 }
 
+.nowrap {
+    &-sm {
+        @include breakpoint(sm) {
+            white-space: nowrap;
+        }
+    }
+}
+
 .vertical-align-middle {
     position: relative;
     &__contents {
