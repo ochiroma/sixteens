@@ -43,6 +43,31 @@
 			}*/
 		}
 	}
+	//@include breakpoint(md) {
+		&-md--test {
+			overflow: hidden;
+			position: relative;
+			line-height: 1.2em;
+			text-align: justify;
+			margin-right: -1em;
+			padding-right: 1em;
+		}
+		&-md--test:before {
+			content: '...';
+			position: absolute;
+			right: 0;
+			bottom: 2px;
+		}
+		&-md--test:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			width: 1em;
+			height: 1.2em;
+			margin-top: 0.2em;
+			background: white;
+		}
+	//}
 
 	&--custom-numbered {
 		@if $old-ie != true {
