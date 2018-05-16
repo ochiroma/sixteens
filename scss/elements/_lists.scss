@@ -24,6 +24,7 @@
 		@include breakpoint(md) {
 			display: inline;
 		}
+		//ellipses sm
 		@include breakpoint(sm) {
 			position: relative;
 			display: inline-block;
@@ -53,10 +54,6 @@
                 right: -4px;
                 top: -2px;
 			}
-			/*span {
-				color: $iron;
-				padding: 0 5px 0 8px;
-			}*/
 		}
 	}
 	
