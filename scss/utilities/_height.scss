@@ -104,10 +104,11 @@
                 }
             }
         }
-        @for $i from 0 through 50 { //
+        @for $i from 0 through 50 { 
             &--#{$i} {
                 max-height: ($baseline * $i);
             }
         }
     }
 }
+@include max-height-util;
