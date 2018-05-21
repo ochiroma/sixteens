@@ -1,5 +1,12 @@
 $(document).ready(function() {
     var pageURL = window.location.href;
+    var feedbackOrigin = window.feedbackOrigin;
+    var feedbackURL = "/feedback";
+
+    if (feedbackOrigin && feedbackOrigin.length > 0) {
+        feedbackURL = feedbackOrigin + feedbackURL;
+    }
+
     var feedbackMessage = (
         '<span id="feedback-form-confirmation" class="font-size--16">Thank you. Your feedback will help us as we continue to improve the service.</span>'
     )
@@ -23,7 +30,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/feedback/positive",
+            url: feedbackURL + "/positive",
             data: $("#feedback-form-container").serialize(),
             beforeSend: function() {
                 $( "#feedback-form-header" ).html(feedbackMessage);
@@ -78,7 +85,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/feedback",
+            url: feedbackURL,
             data: $("#feedback-form-container").serialize(),
             beforeSend: function() {
                 $( "#feedback-form" ).addClass("js-hidden");
@@ -87,7 +94,7 @@ $(document).ready(function() {
             }
         })
 
-        if (window.location.pathname === "/feedback") {
+        if (window.location.pathname === feedbackURL) {
             $(this).remove();
             $("h1").html("Thank you");
             var displayURL = document.referrer;
