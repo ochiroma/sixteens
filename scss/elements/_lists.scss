@@ -32,9 +32,9 @@
 				content: "";
 				background-color: white;
 				position: absolute;
-				right: -400px;
+				right: -800px;
 				top: 0;
-				width: 408px;
+				width: 800px;
 				height: 1.5em;
 				z-index: 4;
 			}
@@ -53,6 +53,9 @@
 			    position: relative;
                 right: -4px;
                 top: -2px;
+			}
+			&:last-child:after { 
+				content: "";
 			}
 		}
 	}
