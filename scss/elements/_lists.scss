@@ -21,17 +21,79 @@
 	}
 
 	&--pipe-seperated {
+		@include breakpoint(md) {
+			display: inline;
+		}
+		//ellipses sm
+		@include breakpoint(sm) {
+			position: relative;
+			display: inline-block;
+			&:after {
+				content: "";
+				background-color: white;
+				position: absolute;
+				right: -800px;
+				top: 0;
+				width: 800px;
+				height: 1.5em;
+				z-index: 4;
+			}
+		}
 		list-style:none;
-		display: inline;
 		margin:0;
 		padding:0;
 		li {
 			display: inline;
 			padding:0;
-			line-height: 28px;
-			span {
-				color: $iron;
-				padding: 0 5px 0 8px;
+			line-height: 24px;
+			margin-right: 4px;
+			&:after {
+			    content: "|";
+			    color: $iron;
+			    position: relative;
+                right: -4px;
+                top: -2px;
+			}
+			&:last-child:after { 
+				content: "";
+			}
+		}
+	}
+	
+	&--ellipses--md {
+		@include breakpoint(md) {
+			overflow: hidden;
+			position: relative;
+			line-height: 1.2em;
+			text-align: justify;
+			margin-right: -1em;
+			padding-right: 1em;
+			&:before {
+				content: '...';
+				position: absolute;
+				right: 0;
+				bottom: 2px;
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				width: 1em;
+				height: 1.2em;
+				margin-top: 0.2em;
+				background: white;
+			}
+		}
+	}
+	
+	&--ellipses--sm {
+		@include breakpoint(sm) {
+			&:after {
+				content: "...";
+				position: absolute;
+				right: 0;
+				top: 0;
+				background-color: white;
 			}
 		}
 	}

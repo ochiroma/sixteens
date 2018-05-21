@@ -353,6 +353,33 @@
     }
 }
 
+.nowrap {
+    &-sm {
+        @include breakpoint(sm) {
+            white-space: nowrap;
+        }
+    }
+}
+
+.vertical-align-middle {
+
+    position: relative;
+    &__contents {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%)
+    }
+    &__contents--md {
+        @include breakpoint(md) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%)
+        }
+    }
+}
+
 
 // Set anything with aria-hidden attributes to correct display state
  @media only screen {
