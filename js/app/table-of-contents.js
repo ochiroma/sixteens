@@ -57,6 +57,7 @@ $(function() {
         $('.table-of-contents--sticky__select').change(function() {
             var location = $(this).find('option:selected').val();
             var title = $(this).find('option:selected').text()
+            var targetId = location;
             if (location) {
                 // expands section if show/hide
                 forceShow($(location));
@@ -86,6 +87,9 @@ $(function() {
                         //jsEnhanceTriggerAnalyticsEvent(page);
                         functionTrigger = false;
                     }
+
+                    $(targetId).attr('tabindex','-1');
+                    $(targetId).focus();
                 });
 
                 // Check if GTM dataLayer exists and if it does push
