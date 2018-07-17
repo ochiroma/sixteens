@@ -29,6 +29,10 @@
 
 		&--markdown {
 
+			&:focus {
+				outline: none;
+			}
+
 			@include breakpoint(sm) {
 				padding: 0;
 			}
