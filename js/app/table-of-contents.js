@@ -89,7 +89,7 @@ $(function() {
                     }
 
                     $(targetId).attr('tabindex','-1');
-                    $(targetId).focus();
+                    $(targetId).focus({preventScroll: true});
                 });
 
                 // Check if GTM dataLayer exists and if it does push
