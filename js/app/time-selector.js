@@ -216,7 +216,7 @@ function checkSelections(bool) {
 
     }
     if (bool === true) {
-        if ($(".checkbox__input").length > 19) {
+        if ($(".checkbox__input").length > 9) {
             $("#add-all-save-and-return").removeClass("js-hidden");
         }
     } 
