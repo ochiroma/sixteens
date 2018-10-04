@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   $("#time-form input[type='radio']").click(function(){
       if(this.id === "time-selection-list"){
-        $("#add-all-save-and-return").removeClass("js-hidden");
+          checkSelections(true);
       } else {
           checkSelections(false);
       }
@@ -18,7 +18,6 @@ $(document).ready(function() {
       e.preventDefault();
       $(".checkbox__input").prop('checked', true);
       removeAllCheck();
-      checkSelections(true);
   })
 
   $("#remove-all").click(function(e) {
@@ -217,7 +216,7 @@ function checkSelections(bool) {
 
   }
   if (bool === true) {
-      if ($(".checkbox__input").length > 19 && $(".checkbox__input").length === $(".checkbox__input:checked").length) {
+      if ($(".checkbox__input").length > 19) {
           $("#add-all-save-and-return").removeClass("js-hidden");
       }
   } 
