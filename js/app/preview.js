@@ -67,7 +67,6 @@ function addFilesToPage(files) {
         excelFileSize = files.downloads.xls.size
         excelSkipped = files.downloads.xls.skipped
 
-    // Append the files to the page
     var excelFile = "";
     if (excelFileSize > 0) {
       excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
@@ -75,12 +74,13 @@ function addFilesToPage(files) {
 
     if (excelSkipped) {
       excelFile = $('<div class="alert alert--light" id="excel-skipped">' +
-                        '<p class="margin-bottom--half padding-bottom--0">JAVASCRIPTYour filter returned too many results, no Excel file will be generated</p>' +
-                        '</div>');
+                    '<p class="margin-bottom--half padding-bottom--0">Your filter returned too many results, no Excel file will be generated</p>' +
+                    '</div>');
     }
 
-    csvFile.prependTo('#other-downloads__list');
+    // Append the files to the page
     excelFile.appendTo('#excel-file');
+    csvFile.prependTo('#other-downloads__list');
 }
 
 // Format the bytes to be readable
