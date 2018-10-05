@@ -23,24 +23,26 @@ function getDownloadFiles() {
     error: function(response) {
         // Show error message if we don't get a response
         message.appendTo('.downloads-block');
-      
+
     },
     success: function(response) {
       var downloads = response.downloads;
       // Check if the response has the file data
       if (typeof downloads != "undefined"
           && typeof downloads.csv != "undefined" && typeof downloads.xls != "undefined"
-          && typeof downloads.xls.href != "undefined" && downloads.xls.href != ''
-          && typeof downloads.csv.href != "undefined" && downloads.csv.href != '') {
+          && ( (typeof downloads.xls.href != "undefined" && downloads.xls.href != '')
+            || (typeof downloads.xls.skipped != "undefined" && downloads.xls.skipped)  )
+          && (typeof downloads.csv.href != "undefined" && downloads.csv.href != '') ) {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
+          $('#excel-skipped').remove();
         addFilesToPage(response);
       } else {
         // Poll the server every 2 seconds up to a maximum of 60 attempts (2 minutes)
         if (count < 60) {
             count++;
             loader.removeClass('js-hidden');
-            setTimeout(function() { getDownloadFiles(); }, 2000); 
+            setTimeout(function() { getDownloadFiles(); }, 2000);
         } else {
             // Show an error message if the files aren't created after 60 attempts
             loader.remove();
@@ -52,10 +54,6 @@ function getDownloadFiles() {
 }
 
 function addFilesToPage(files) {
-    // Get the xls data and create the link
-    var excelURL = files.downloads.xls.href,
-        excelFileSize = files.downloads.xls.size,
-        excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
     // Get the csv data and create the link
     var csvURL = files.downloads.csv.href,
         csvFileSize = files.downloads.csv.size,
@@ -63,10 +61,26 @@ function addFilesToPage(files) {
                     '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
                     '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</a></div></li>');
-    
+
+    // Get the xls data and create the link
+    var excelURL = files.downloads.xls.href,
+        excelFileSize = files.downloads.xls.size
+        excelSkipped = files.downloads.xls.skipped
+
     // Append the files to the page
-    excelFile.appendTo('#excel-file');
+    var excelFile = "";
+    if (excelFileSize > 0) {
+      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
+    }
+
+    if (excelSkipped) {
+      excelFile = $('<div class="alert alert--light" id="excel-skipped">' +
+                        '<p class="margin-bottom--half padding-bottom--0">JAVASCRIPTYour filter returned too many results, no Excel file will be generated</p>' +
+                        '</div>');
+    }
+
     csvFile.prependTo('#other-downloads__list');
+    excelFile.appendTo('#excel-file');
 }
 
 // Format the bytes to be readable
