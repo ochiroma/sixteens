@@ -52,6 +52,7 @@ function getDownloadFiles() {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
         $('#excel-skipped').remove();
+        $('#csv-item').remove();
         addFilesToPage(response);
       } else {
         // Poll the server every 2 seconds up to a maximum of 60 attempts (2 minutes)
