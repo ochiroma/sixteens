@@ -114,9 +114,9 @@
 .status {
     padding:$baseline * 2;
     margin: 0 0 $baseline;
-    background:$alabaster;
+    background:$gallery;
     color:$thunder;
-    
+
     @media print {
         display: none;
     }
@@ -135,7 +135,8 @@
         margin:0 0 $baseline * 2;
         font-size: 16px;
         line-height: 16px;
-        padding: 0 $baseline 0 0;
+        color:$thunder;
+        padding: 0 $baseline 0 0 ;
     }
 
     &__link {

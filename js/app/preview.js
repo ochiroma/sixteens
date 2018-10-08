@@ -35,7 +35,7 @@ function getDownloadFiles() {
           && (typeof downloads.csv.href != "undefined" && downloads.csv.href != '') ) {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
-          $('#excel-skipped').remove();
+        $('#excel-skipped').remove();
         addFilesToPage(response);
       } else {
         // Poll the server every 2 seconds up to a maximum of 60 attempts (2 minutes)
@@ -64,8 +64,8 @@ function addFilesToPage(files) {
 
     // Get the xls data and create the link
     var excelURL = files.downloads.xls.href,
-        excelFileSize = files.downloads.xls.size
-        excelSkipped = files.downloads.xls.skipped
+        excelFileSize = files.downloads.xls.size,
+        excelSkipped = files.downloads.xls.skipped;
 
     var excelFile = "";
     if (excelFileSize > 0) {
@@ -73,8 +73,11 @@ function addFilesToPage(files) {
     }
 
     if (excelSkipped) {
-      excelFile = $('<div class="alert alert--light" id="excel-skipped">' +
-                    '<p class="margin-bottom--half padding-bottom--0">Your filter returned too many results, no Excel file will be generated</p>' +
+      excelFile = $('<div class="status status--amber" id="excel-skipped">' +
+                    '<p class="flush status__content">There are too many cells to create an Excel file. ' +
+                    '<a href="/filters/' + files.links.filter_blueprint.id + '/dimensions">Adjust the filter options</a>' +
+                    ' or <a href="' + csvURL + '">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
+                    '</p>' +
                     '</div>');
     }
 
