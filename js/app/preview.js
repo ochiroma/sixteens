@@ -14,6 +14,26 @@ var loader = $('.loader-svg'),
                 '<a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="' + window.location.pathname + '">Refresh page</a>'),
     count = 0;
 
+function fileHasLoaded(downloads) {
+    if (!downloads) {
+        return false;
+    }
+
+    if (!downloads.csv && !downloads.xls) {
+        return false;
+    }
+
+    if (!downloads.xls.href && !downloads.xls.skipped) {
+        return false;
+    }
+
+    if (!downloads.csv.href && !downloads.csv.skipped) {
+        return false;
+    }
+
+    return true;
+}
+
 // Call to the filter api
 function getDownloadFiles() {
   $.ajax({
@@ -28,11 +48,7 @@ function getDownloadFiles() {
     success: function(response) {
       var downloads = response.downloads;
       // Check if the response has the file data
-      if (typeof downloads != "undefined"
-          && typeof downloads.csv != "undefined" && typeof downloads.xls != "undefined"
-          && ( (typeof downloads.xls.href != "undefined" && downloads.xls.href != '')
-            || (typeof downloads.xls.skipped != "undefined" && downloads.xls.skipped)  )
-          && (typeof downloads.csv.href != "undefined" && downloads.csv.href != '') ) {
+      if (fileHasLoaded(downloads)) {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
           $('#excel-skipped').remove();
