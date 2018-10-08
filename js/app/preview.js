@@ -19,7 +19,7 @@ function fileHasLoaded(downloads) {
         return false;
     }
 
-    if (!downloads.csv && !downloads.xls) {
+    if (!downloads.csv || !downloads.xls) {
         return false;
     }
 
