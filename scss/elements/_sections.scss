@@ -29,6 +29,10 @@
 
 		&--markdown {
 
+			&:focus {
+				outline: none;
+			}
+
 			@include breakpoint(sm) {
 				padding: 0;
 			}
@@ -148,13 +152,84 @@
                     margin-left: 0;
                 }
 
+				p, li {
+					line-height: 32px;
+					font-size: 18px;
+
+					@include breakpoint(sm) {
+						font-size: 16px;
+					}
+
+				}
+
+				ul, ol {
+					padding-left: $col * 1.5; // 24px;
+				}
+
                 h2, h3, h4, h5, h6 {
                     font-weight: 700;
                 }
 
+				h1 {
+					font-size: 38px;
+					line-height: 48px;
+
+					@include breakpoint(sm) {
+						font-size: 32px;
+						line-height: 40px;
+					}
+				}
+
                 h2 {
-                    line-height: 32px;
+					font-size: 30px;
+					line-height: 40px;
+
+					@include breakpoint(sm) {
+						font-size: 24px;
+						line-height: 32px;
+					}
                 }
+
+				h3 {
+					font-size: 24px;
+					line-height: 32px;
+
+					@include breakpoint(sm) {
+						font-size: 18px;
+						line-height: 24px;
+					}
+				}
+
+				h4 {
+					font-size: 20px;
+					line-height: 32px;
+
+					@include breakpoint(sm) {
+						font-size: 16px;
+						line-height: 24px;
+					}
+				}
+
+				h5 {
+					font-size: 18px;
+					line-height: 32px;
+
+					@include breakpoint(sm) {
+						font-size: 14px;
+						line-height: 24px;
+					}
+				}
+
+				h6 {
+					font-size: 16px;
+					line-height: 32px;
+
+					@include breakpoint(sm) {
+						font-size: 14px;
+						line-height: 24px;
+					}
+				}
+
 
             }
             // End of Neutral article specific styling
@@ -166,8 +241,9 @@
 
 			margin-top: ($baseline * 3);
 
-			ol {
+			ol, ul {
 				margin: $col 0 $col $col;
+				padding-left: $col;
 			}
 
 		}
