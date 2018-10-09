@@ -1,14 +1,6 @@
 $(document).ready(function() {
     removeAllCheck();
-    checkSelections(true);
-
-    $("#time-form input[type='radio']").click(function(){
-        if(this.id === "time-selection-list"){
-            checkSelections(true);
-        } else {
-            checkSelections(false);
-        }
-    });
+    // $("#add-all-save-and-return").removeClass("js-hidden");
 
     $(".checkbox__input").click(function() {
        removeAllCheck();
@@ -208,18 +200,4 @@ function removeAllCheck() {
     } else {
         $("#remove-all").addClass("js-hidden");
     }
-}
-
-function checkSelections(bool) {
-    if (bool === false) {
-        $("#add-all-save-and-return").addClass("js-hidden");
-
-    }
-    if (bool === true) {
-        if ($(".checkbox__input").length > 9) {
-            $("#add-all-save-and-return").removeClass("js-hidden");
-        }
-    } 
-    
-
 }
