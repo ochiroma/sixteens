@@ -1,6 +1,5 @@
 $(document).ready(function() {
     removeAllCheck();
-    // $("#add-all-save-and-return").removeClass("js-hidden");
 
     $(".checkbox__input").click(function() {
        removeAllCheck();
