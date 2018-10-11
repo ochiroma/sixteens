@@ -90,7 +90,7 @@ function addFilesToPage(files) {
     }
 
     if (excelSkipped) {
-      excelFile = $('<div class="status status--amber" id="excel-skipped">' +
+      excelFile = $('<div class="status status--amber col--lg-two-thirds col--md-two-thirds" id="excel-skipped">' +
                     '<p class="flush status__content">There are too many cells to create an Excel file. ' +
                     '<a href="/filters/' + files.links.filter_blueprint.id + '/dimensions">Adjust the filter options</a>' +
                     ' or <a href="' + csvURL + '">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
