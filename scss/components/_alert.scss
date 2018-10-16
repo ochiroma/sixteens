@@ -101,6 +101,101 @@
     }
 }
 
+.bulletin-alerts {
+    background-color: $white;
+    color: $ship-grey;
+    width: auto;
+
+    @media print {
+        display: none;
+    }
+
+    &__latest {
+        border-left: 7px solid $matisse;
+    }
+
+    &__not-latest {
+        border-left: 7px solid $carrot;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 32px;
+        padding: 0;
+        margin: ($baseline * 1) ($baseline * 2);
+        // margin-top: 0;
+        // margin-left: ($baseline * 1);
+        // margin-bottom: ($baseline * 1);
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        display: inline-block;
+    }
+
+
+    &__content {
+        font-size: 14px;
+        margin: 0;
+
+        &--large {
+            font-size: 17px;
+            margin: 0;
+        }
+    }
+
+    &__date {
+        padding: 5px 0 10px 0;
+        margin: 0;
+        font-size: 17px
+    }
+
+    &--warning {
+
+        padding: $baseline 0;
+        &__title {
+            padding-left: ($col * 4);
+            margin: $baseline 0;
+            text-align: left; //IE9 fix, puts text centre aligned
+        }
+
+        &__content {
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 4;
+            }
+        }
+    }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+          color:$poppy;
+        }
+    }
+
+    &--border {
+        border: 1px solid #fff;
+        margin-left: $baseline * 2;
+        padding: ($baseline * 1) 0;
+        span {
+            margin-top: $baseline * 1;
+            margin-left: $baseline * 2;
+        }
+        // padding-left: $baseline * 1;
+    }
+}
 // show and hide (used for corrections and notices)
 //&--show-hide {
 //
