@@ -77,9 +77,6 @@
 .breadcrumb-bulletins {
 	margin: ($baseline * 2) 0 0 0;
 	clear:both;
-	@include breakpoint(sm) {
-		padding: $baseline 0 (($baseline * 2) - 1) 0;
-	}
 
 	&__list {
 		list-style: none;
@@ -94,10 +91,7 @@
 
 		@include breakpoint(sm) {
 			line-height: 16px;
-		}
-
-		&:after {
-			content: '>';
+			display: none;
 		}
 
 		&:last-child:after {
