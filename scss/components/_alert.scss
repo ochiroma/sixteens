@@ -44,22 +44,6 @@
         }
     }
 
-    &__content {
-        font-size: 14px;
-        margin: 0;
-
-        &--large {
-            font-size: 17px;
-            margin: 0;
-        }
-    }
-
-    &__date {
-        padding: 5px 0 10px 0;
-        margin: 0;
-        font-size: 17px
-    }
-
     &--warning {
 
         padding: $baseline 0;
@@ -68,17 +52,6 @@
             padding-left: ($col * 4);
             margin: $baseline 0;
             text-align: left; //IE9 fix, puts text centre aligned
-        }
-
-        &__content {
-
-            @include breakpoint(sm) {
-                margin: 0 $col
-            }
-
-            @include breakpoint(md) {
-                margin: 0 $col * 4;
-            }
         }
     }
 }
