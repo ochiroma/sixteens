@@ -114,6 +114,9 @@
     &__link {
         font-size: 18px;
         display: inline-block;
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
     }
 
     &--warning {
@@ -121,7 +124,6 @@
         padding: $baseline 0;
         &__title {
             padding-left: ($col * 4);
-            margin: $baseline 0;
             text-align: left; //IE9 fix, puts text centre aligned
         }
     }
@@ -138,11 +140,16 @@
 
     &--border {
         border: 1px solid #fff;
-        margin-left: $baseline * 2;
         padding: ($baseline * 1) 0;
-        span {
-            margin-top: $baseline * 1;
-            margin-left: $baseline * 2;
-        }
+    }
+
+    &--expand-arrow {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    &--info-box {//fix positioning of info-box on bulletin pages
+        top: $baseline * 1 !important;
+        margin: 0 !important;
     }
 }

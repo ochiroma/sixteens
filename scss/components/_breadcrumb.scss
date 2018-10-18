@@ -89,9 +89,18 @@
 		margin: 0;
 		padding: 0;
 
+		span {//breadcrumb > icon
+			opacity: 0.6;
+		}
+
 		@include breakpoint(sm) {
 			line-height: 16px;
 			display: none;
+
+
+			&:nth-last-child(2) {
+				display: inline-block;
+			}
 		}
 
 		&:last-child:after {
