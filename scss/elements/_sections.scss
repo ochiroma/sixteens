@@ -139,6 +139,41 @@
 				}
 			}
 
+			.markdown-warning-box {
+				&--container {
+					background-color: $white;
+					padding: ($baseline * 1) 0;
+					position: relative;
+				}
+
+				&--icon {
+					font-weight: 700;
+					display: inline-block;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					padding-top: 1px;
+					min-width: 38px;
+					min-height: 38px;
+					margin-top: -19px;
+					font-size: 26px;
+					border: 3px solid #323132;
+					border-radius: 50%;
+					color: #fff;
+					background: #323132;
+					line-height: 29px;
+					text-align: center;
+				}
+
+				&--text {
+					p {
+						font-weight: 700;
+						margin: 0;
+						padding: 0;
+					}
+				}
+			}
+
             // Neutral article specific styling
             &--neutral-article {
                 padding-left: 0;
