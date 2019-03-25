@@ -14,7 +14,7 @@
 
 		&-number {
 			position: relative;
-			margin-left: ($col * -3);
+			margin-right: ($col);
 			//padding-left: 6px;
 			//width: ($col * 3);
 			display: block;
@@ -38,18 +38,107 @@
 			}
 
 			@include breakpoint(md) {
-				padding: 0 0 0 ($col * 3);
 				margin-right: ($col * 3);
 			}
 
 			@include breakpoint(lg) {
-				margin-right: ($col * 4);
+				margin-right: ($col * 2);
 			}
 
 			@include markdown;
 
 			position: relative;
 
+			p {
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 32px;
+				margin: 0 0 ($baseline * 3) 0;
+				padding: 0;
+
+				@include breakpoint(sm) {
+					font-size: 16px;
+				}
+			}
+
+			ul, ol {
+				margin-bottom: ($baseline * 4);
+  				padding-left: ($col * 2);
+			}
+
+			li {
+				margin: 0 0 $baseline 0;
+				line-height: 32px;
+				font-weight: 400;
+				font-size: 18px;
+				padding: 0;
+				@include breakpoint(sm) {
+					font-size: 16px;
+				}
+			}
+
+			a {
+				text-decoration: underline;
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 32px;
+				@include breakpoint(sm) {
+					font-size: 16px;
+				}
+			  }
+			
+			// All headings should be bold and have padding above, 
+			// but only if not under a heading equal or lower level to itself
+			@for $i from 1 through 6 {
+				h#{$i} {
+				 	padding: ($baseline * 3) 0 0 0;
+					font-weight: bold;
+					@if $i < 3 {
+						line-height: (40px);
+						@include breakpoint(sm) {
+							line-height: 32px;
+						}
+					} @else {
+						line-height: (32px);
+						@include breakpoint(sm) {
+							line-height: 24px;
+						}
+					}
+				}
+
+				// Remove padding on sibling subheadings 
+				@for $j from $i through 6 {
+					h#{$i} + h#{$j}{
+						padding-top: 0;
+				   }
+				}
+			}
+
+			h1, h2 {
+				font-size: 30px;
+				margin: ($baseline * 4) 0 ($baseline * 4) 0;
+				@include breakpoint(sm) {
+					font-size: 24px;
+					margin: ($baseline * 3) 0 ($baseline * 2) 0;
+				}
+			}
+			h3 {
+				font-size: 24px;
+				margin: ($baseline * 4) 0 ($baseline * 2) 0;
+				@include breakpoint(sm) {
+					font-size: 18px;
+					margin: ($baseline * 3) 0 ($baseline * 2) 0;
+				}
+			}
+			h4, h5, h6 {
+				font-size: 18px;
+				margin: ($baseline *3) 0 ($baseline * 2) 0;
+				@include breakpoint(sm) {
+					font-size: 16px;
+					margin: ($baseline * 2) 0 ($baseline * 2) 0;
+				}
+			}
+		
 			.markdown-chart-container, .markdown-table-container {
 				margin-bottom: ($baseline * 4);
 
@@ -148,6 +237,7 @@
 					background-color: $white;
 					padding: ($baseline * 1) 0;
 					position: relative;
+					margin-bottom: 24px;
 				}
 
 				&--icon {
@@ -172,100 +262,19 @@
 				&--text {
 					p {
 						font-weight: 700;
-						margin: 0;
+						margin-bottom: ($baseline * 3);
 						padding: 0;
+						font-size: 18px;
+						line-height: 32px;
 					}
 				}
 			}
 
             // Neutral article specific styling
             &--neutral-article {
-                padding-left: 0;
-                margin-right: 0;
-
                 .pym-interactive--full-width {
                     margin-left: 0;
                 }
-
-				p, li {
-					line-height: 32px;
-					font-size: 18px;
-
-					@include breakpoint(sm) {
-						font-size: 16px;
-					}
-
-				}
-
-				ul, ol {
-					padding-left: $col * 1.5; // 24px;
-				}
-
-                h2, h3, h4, h5, h6 {
-                    font-weight: 700;
-                }
-
-				h1 {
-					font-size: 38px;
-					line-height: 48px;
-
-					@include breakpoint(sm) {
-						font-size: 32px;
-						line-height: 40px;
-					}
-				}
-
-                h2 {
-					font-size: 30px;
-					line-height: 40px;
-
-					@include breakpoint(sm) {
-						font-size: 24px;
-						line-height: 32px;
-					}
-                }
-
-				h3 {
-					font-size: 24px;
-					line-height: 32px;
-
-					@include breakpoint(sm) {
-						font-size: 18px;
-						line-height: 24px;
-					}
-				}
-
-				h4 {
-					font-size: 20px;
-					line-height: 32px;
-
-					@include breakpoint(sm) {
-						font-size: 16px;
-						line-height: 24px;
-					}
-				}
-
-				h5 {
-					font-size: 18px;
-					line-height: 32px;
-
-					@include breakpoint(sm) {
-						font-size: 14px;
-						line-height: 24px;
-					}
-				}
-
-				h6 {
-					font-size: 16px;
-					line-height: 32px;
-
-					@include breakpoint(sm) {
-						font-size: 14px;
-						line-height: 24px;
-					}
-				}
-
-
             }
             // End of Neutral article specific styling
 
