@@ -142,10 +142,9 @@
 			}
 
 			h5, h6 {
-					font-size: 18px;
+					font-size: 16px;
 					margin: ($baseline * 2) 0 ($baseline) 0;
 					@include breakpoint(sm) {
-						font-size: 16px;
 						margin: ($baseline * 2) 0 ($baseline * 2) 0;
 					}
 			}
@@ -163,6 +162,11 @@
 			// Bullet points under a charts note title
 			h5 + ol, h5 + ul, h6 + ol, h6 + li {
 				margin-top: $baseline;
+			}
+
+			.font-xsmall {
+				font-size: 14px;
+				line-height: 24px;
 			}
 		
 			.markdown-chart-container, .markdown-table-container {
