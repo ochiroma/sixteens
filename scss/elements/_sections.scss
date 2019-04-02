@@ -87,7 +87,7 @@
 				}
 			  }
 			
-			// All headings should be bold and have padding above, 
+			// All headings should be bold. They should have padding above, 
 			// but only if not under a heading equal or lower level to itself
 			@for $i from 1 through 6 {
 				h#{$i} {
@@ -108,7 +108,7 @@
 
 				// Remove padding on sibling subheadings 
 				@for $j from $i through 6 {
-					h#{$i} + h#{$j}{
+					h#{$i} + h#{$j} {
 						padding-top: 0;
 				   }
 				}
@@ -148,6 +148,10 @@
 						margin: ($baseline * 2) 0 ($baseline * 2) 0;
 					}
 			}
+
+			// Special instances of headings
+
+
 
 			// Chart subtitles
 			h4 + h5  {

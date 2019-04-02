@@ -45,7 +45,7 @@
         position: absolute;
         right: 16px;
         //top: 27px;
-        top: 53%;
+        top: 32%;
         content: "";
         @extend .icon;
     }
@@ -55,7 +55,7 @@
         position: absolute;
         right: 16px;
         //top: 27px;
-        top: 53%;
+        top: 32%;
         content: "";
         @extend .icon;
     }
@@ -104,6 +104,12 @@
         @include breakpoint(md) {
             padding-right: ($col * 2);
         }
+    }
+
+    // Remove padding above show/hide headings
+    @for $i from 1 through 6 {
+        h#{$i} {
+        padding-top: 0;
     }
 
     &__content {
