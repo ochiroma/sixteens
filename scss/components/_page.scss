@@ -121,6 +121,14 @@
 	}
 }
 
+.page-compendium {
+	&_intro {
+		&-content {
+			padding-bottom: ($baseline * 2);
+		}
+	}
+}
+
 .page-bulletins {
 	a {
 		text-decoration: underline;
