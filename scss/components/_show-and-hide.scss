@@ -126,6 +126,13 @@
         }
     }
 
+    // Remove padding above show/hide headings
+    @for $i from 1 through 6 {
+        h#{$i} {
+            padding-top: 0;
+        }
+    }
+
     &__content {
 
         //padding: 0 0 ($baseline * 2) 0;

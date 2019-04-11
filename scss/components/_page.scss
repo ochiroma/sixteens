@@ -7,7 +7,6 @@
 			display: block;
 			font-size: 21px;
 			font-weight: $base-font-weight;
-			color: $ship-grey;
 			padding: 5px 0 3px 0;
 		}
 
@@ -75,9 +74,9 @@
 .page-neutral {
 	&-intro {
 		&__type {
-			font-size: 19px;
+			font-size: 18px;
+			line-height: 32px;
 			font-weight: $base-font-weight;
-			color: $ship-grey;
 			padding: 6px 0 10px 0;
 			margin-top: $baseline;
 		}
@@ -118,6 +117,14 @@
 
 		&__main-content {
 			overflow: visible;
+		}
+	}
+}
+
+.page-compendium {
+	&_intro {
+		&-content {
+			padding-bottom: ($baseline * 2);
 		}
 	}
 }

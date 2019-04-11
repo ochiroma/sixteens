@@ -48,7 +48,7 @@
             padding-top: 20px;
             padding-bottom: 12px;
             background: $white;
-            color: $ship-grey;
+            color: $base-text-colour;
             height: ($baseline * 7);
 
             @include breakpoint(sm) {
