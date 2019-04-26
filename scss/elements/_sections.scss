@@ -167,17 +167,6 @@
 			h5 + ol, h5 + ul, h6 + ol, h6 + li {
 				margin-top: $baseline;
 			}
-
-			.cmd-heading {
-				padding-left: ($baseline * 6);
-				@include breakpoint(sm) { 
-					padding-left: ($baseline * 4);
-				}
-			}
-
-			.cmd-list {
-				padding: 0px;
-			}
 		
 			.font-xsmall {
 				font-size: 14px;
