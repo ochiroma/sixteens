@@ -154,7 +154,7 @@
 
 
 			// Chart subtitles
-			h4 + h5  {
+			h4 + h5 {
 				margin: ($baseline *3) 0 ($baseline * 2) 0;
 				font-weight: normal;
 				font-size: 18px;
@@ -167,7 +167,7 @@
 			h5 + ol, h5 + ul, h6 + ol, h6 + li {
 				margin-top: $baseline;
 			}
-
+		
 			.font-xsmall {
 				font-size: 14px;
 				line-height: 24px;
@@ -323,9 +323,7 @@
 				margin: $col 0 $col $col;
 				padding-left: $col;
 			}
-
 		}
-
 	}
 
 }

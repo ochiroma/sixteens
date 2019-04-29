@@ -21,24 +21,30 @@
 	}
 
 	&--pipe-seperated {
-		list-style:none;
-		margin:0;
-		padding:0;
-		display: inline;
-		//ellipses sm
-		&-ellipses{
-			@include breakpoint(sm) {
-				position: relative;
-				display: inline-block;
-				&:after {
-					content: "";
-					background-color: white;
-					position: absolute;
-					right: -800px;
-					top: 0;
-					width: 800px;
-					height: 1.5em;
-					z-index: 4;
+		ul, ol, dl {
+			list-style:none;
+			margin:0;
+			padding:0;
+			display: inline;
+			//ellipses sm
+			&-ellipses {
+				margin:0;
+				padding:0;
+				display: inline;
+				list-style:none;
+				@include breakpoint(sm) {
+					position: relative;
+					display: inline-block;
+					&:after {
+						content: "";
+						background-color: white;
+						position: absolute;
+						right: -800px;
+						top: 0;
+						width: 800px;
+						height: 1.5em;
+						z-index: 4;
+					}
 				}
 			}
 		}
@@ -102,7 +108,7 @@
 	&--custom-numbered {
 		@if $old-ie != true {
 			list-style: none;
-			padding:0;
+			padding: 0;
 			> li {
 				counter-increment: step-counter;
 				padding: 0;
@@ -110,13 +116,14 @@
 				position: relative;
 				&::before {
 					content: counter(step-counter)'.';
-					font-size:24px;
-					font-weight:bold;
+					font-size: 30px;
+					font-weight: bold;
 					position: absolute;
-					top:0;
-					left:0;
+					top: $baseline;
+					left: 0;
 					@include breakpoint(sm) {
-							font-size: 22px;
+							font-size: 24px;
+							top: 4px;
 					}
 				}
 				// If the list contains a separate list, don't follow the ul ul style
