@@ -27,8 +27,6 @@ table {
         padding: 6px 0 2px 0;
     }
 
-
-
 }
 
 dl {
@@ -43,6 +41,10 @@ dd {
     width:700px;
     font-feature-settings: "tnum" 1;
     text-align:right;
+}
+
+.white-background{
+    background-color: white;
 }
 
 // Time series data table
@@ -176,13 +178,29 @@ dd {
 }
 
 // Preview table for cmd
+
+.table-border{
+    border-style: solid;
+    border-color: #D0D2D3;
+    border-width: 1px;
+    padding-right: $col;
+}
+
 .table-preview {
-  max-width:90%;
-  min-width:90%;
-  overflow: hidden;
-  &:hover {
-    overflow-x: scroll
+  width: 100%;
+  overflow: visible;
+  overflow-x: scroll;
+  padding:$col 0 $col $col;
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 8px;
   }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    background-color: #D0D2D3;
+  }
+
   table {
     display: table;
     border-collapse: collapse;
@@ -195,6 +213,9 @@ dd {
         text-align: left;
         border-bottom: 1px solid $gallery;
         min-width: $col * 8;
+        &:focus {
+            outline: 3px solid $carrot;
+        }
       }
       td {
         white-space: nowrap;

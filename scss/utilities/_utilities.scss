@@ -353,6 +353,33 @@
     }
 }
 
+.nowrap {
+    &-sm {
+        @include breakpoint(sm) {
+            white-space: nowrap;
+        }
+    }
+}
+
+.vertical-align-middle {
+
+    position: relative;
+    &__contents {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%)
+    }
+    &__contents--md {
+        @include breakpoint(md) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            -webkit-transform: translateY(-50%)
+        }
+    }
+}
+
 
 // Set anything with aria-hidden attributes to correct display state
  @media only screen {
@@ -478,6 +505,10 @@
 	white-space: normal;
 }
 
+.text-align-top {
+	vertical-align: top;
+}
+
 // Opacity value with fallback
 @mixin opacity($trans) {
     zoom: 1;
@@ -502,7 +533,7 @@
 // Remove the defauly focus and use our own.
 .show-focus {
     &:focus {
-        @include box-shadow(0 0 0 5px $carrot);
+        @include box-shadow(0 0 0 3px $carrot);
         outline:0;
     }
 }
@@ -599,10 +630,10 @@
 @include body-adjust-util;
 
 // Make all links within the component underlined
-.underline-all-links a:not(.btn) {
+.link-adjust a:not(.btn) {
 	@extend .underline-link;
 	&:focus {
-		@include box-shadow(0 0 0 5px $carrot);
+		@include box-shadow(0 0 0 3px $carrot);
 		outline: 0;
 	}
 }

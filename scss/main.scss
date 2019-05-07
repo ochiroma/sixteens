@@ -19,8 +19,10 @@ $old-ie: false;
 @import "utilities/height";
 @import "utilities/widths";
 @import "utilities/background-colour";
+@import "utilities/text-colour";
 @import "utilities/font-size";
 @import "utilities/fonts";
+@import "utilities/line-height";
 
 
 @import "elements/type";
@@ -28,10 +30,12 @@ $old-ie: false;
 @import "elements/sections";
 @import "elements/inputs-and-labels";
 @import "elements/tables-and-data";
+@import "elements/dp-table-renderer";
 @import "elements/images";
 @import "elements/lists";
 @import "elements/links";
 @import "elements/checkbox";
+@import "elements/details";
 
 
 @import "components/header";
@@ -66,5 +70,6 @@ $old-ie: false;
 @import "components/multiple-choice";
 @import "components/improve-this-page";
 @import "components/form";
+@import "components/embed-code";
 
 @import "shame";
