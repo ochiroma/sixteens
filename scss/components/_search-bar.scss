@@ -53,8 +53,7 @@
         line-height: $base-line-height;
         font-size: 17px;
         color: $iron-light;
-        padding: 12px $col 12px $col;
-        background-color: $abbey;
+        padding: 12px $col 12px 0;
         position: relative;
 
         @if $old-ie == false {
@@ -73,7 +72,7 @@
         border: none;
         padding: 6px $col 4px $col;
         height: ($baseline * 6);
-        background: lighten($primary, 65%);
+        background: white;
         -webkit-appearance: textfield; // Fix for safari hiding 'x' behind padding
 
         &:focus {
@@ -114,13 +113,13 @@
         color: $white;
         border: none;
         padding: 0;
-        background-color: $primary;
+        background-color: #89a911;
         height: ($baseline * 6);
         position: relative;
 
         &:hover,
         &:focus {
-            background-color: darken($primary, 8%);
+            background-color: #79960f;
         }
 
         &:focus {
