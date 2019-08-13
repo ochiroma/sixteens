@@ -116,13 +116,14 @@
         color: $white;
         border: none;
         padding: 0;
-        background-color: #7e9a3a;
+        background-color: darken($brandgreen, 2%);
         height: ($baseline * 6);
         position: relative;
+        transition: all .3s;
 
         &:hover,
         &:focus {
-            background-color: #738c35;
+          background-color: darken($brandgreen, 5%);
         }
 
         &:focus {
