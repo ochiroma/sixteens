@@ -62,7 +62,7 @@ function cloneSecondaryNav() {
     if ($('body').hasClass('viewport-sm') && $('.js-nav-clone__list').find($navLink).length > 0) {
         // Remove from separate UL and add into primary
         $navLink.each(function() {
-            $(this).parent().addClass('hidden');
+            $(this).parent().hide();
             $(this)
                 .removeClass('secondary-nav__link')
                 .insertAfter('.primary-nav__item:last')
@@ -70,7 +70,7 @@ function cloneSecondaryNav() {
                 .wrap('<li class="primary-nav__item">');
 
         });
-    } else if (!$('body').hasClass('viewport-sm') && $('.secondary-nav__item').hasClass('hidden')) {
+    } else if (!$('body').hasClass('viewport-sm') && $('.secondary-nav__item').is(':hidden')) {
         // Remove from primary nav and add into separate secondary list
         $navLink.each(function(i) {
             var index = i + 1;
@@ -79,7 +79,7 @@ function cloneSecondaryNav() {
                .removeClass('primary-nav__link col')
                .addClass('secondary-nav__link')
                .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
-            $(this).parent().removeClass('hidden');
+            $(this).parent().show();
         });
     }
 }
