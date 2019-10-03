@@ -137,7 +137,7 @@ $(function() {
 
         //Offsets page to make room for sticky nav if arrive on page directly at section
         if (locationHash) {
-            $(window).load(function() {
+            $(window).on('load',function() {
                 $('html, body').scrollTop($('#' + locationHash).offset().top - stickyTocHeight());
             });
         }

@@ -62,6 +62,7 @@ function cloneSecondaryNav() {
     if ($('body').hasClass('viewport-sm') && $('.js-nav-clone__list').find($navLink).length > 0) {
         // Remove from separate UL and add into primary
         $navLink.each(function() {
+            $(this).parent().hide();
             $(this)
                 .removeClass('secondary-nav__link')
                 .insertAfter('.primary-nav__item:last')
@@ -78,6 +79,7 @@ function cloneSecondaryNav() {
                .removeClass('primary-nav__link col')
                .addClass('secondary-nav__link')
                .appendTo('.js-nav-clone__list li:nth-child(' + index + ')');
+            $(this).parent().show();
         });
     }
 }
