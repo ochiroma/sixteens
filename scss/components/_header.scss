@@ -378,7 +378,7 @@
     position: relative; // So language toggle has relative parent
     height: ($baseline * 9);
 
-    &-separator {
+    &--separator {
         background-color: $ship-grey;
         height: 2px;
     }
