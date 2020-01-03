@@ -4,6 +4,11 @@
 	background-color: $ship-grey;
 	color: $iron-light;
 
+	&-sticky {
+		bottom: 0;
+		width: 100%;
+	}
+
 	a {
 		color: $iron;
 		text-decoration: underline;
@@ -43,13 +48,13 @@
 		border-top: 1px solid $silver;
 		padding: $col*2 0 $col 0;
 
-			&__img {
-				display: inline-block;
-			}
+		&__img {
+			display: inline-block;
+		}
 
-			&__text {
-				display: inline-block;
-				margin: $col 0 $col $col;
-			}
+		&__text {
+			display: inline-block;
+			margin: $col 0 $col $col;
+		}
 	}
 }
