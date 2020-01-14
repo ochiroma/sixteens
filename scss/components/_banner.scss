@@ -1,6 +1,18 @@
 .banner {
-    background-color: $astral;
-    color: $white;
+    background-color: $white;
+
+    &--prototype {
+        background-color: $carrot;
+        color: $white;
+    }
+
+    &__wrapper {
+        border-bottom: 1px solid $iron;
+
+        &--prototype {
+            border-bottom: none;
+        }
+    }
 
     &__icon {
         vertical-align: middle;
@@ -13,14 +25,15 @@
     }
 
     &__text-icon {
-        background-color: $ship-grey;
+        background-color: $matisse;
         color: $iron-light;
         font-weight: 700;
         text-transform: uppercase;
         padding: 5px 8px;
         font-size: 16px;
         position: relative;
-        top: -2px;
+        top: 50%;
+        transform: translateY(50%);
 
         @include breakpoint(sm) {
             display: block;
@@ -31,10 +44,11 @@
     }
 
     &__body {
-        display: inline-block;
+        display: flex;
         padding-bottom: $baseline;
         
         @include breakpoint(md) {
+            display: inline-block;
             padding-top: $baseline;
             margin-left: $col;
         }
@@ -51,15 +65,11 @@
         font-size: 16px;
 
         & > a {
-            color: $white;
             text-decoration: underline;
 
             &:focus {
-                background-color: $white;
                 color: $base-text-colour;
             }
         }
     }
-
-       
 }
