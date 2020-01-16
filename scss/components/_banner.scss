@@ -1,17 +1,17 @@
 .banner {
     background-color: $white;
 
-    &--prototype {
+    &--carrot {
         background-color: $carrot;
         color: $white;
     }
 
-    &__wrapper {
+    &--bottom-border {
         border-bottom: 1px solid $iron;
+    }
 
-        &--prototype {
-            border-bottom: none;
-        }
+    &--no-border {
+        border-bottom: none;
     }
 
     &__icon {
@@ -45,6 +45,7 @@
 
     &__body {
         display: flex;
+        display: -ms-flexbox;
         padding-bottom: $baseline;
         
         @include breakpoint(md) {
