@@ -14,10 +14,18 @@
         border-bottom: none;
     }
 
+    &__container {
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
     &__icon {
         vertical-align: middle;
         position: relative;
-        top: -2px;
 
         @include breakpoint(sm) {
             display: none;
