@@ -1,0 +1,41 @@
+.cookies-banner {
+    background-color: #f3f2f1;
+    padding: 20px 0;
+    box-sizing: border-box;
+
+    @include breakpoint(md-max) {
+        padding: 10px 0;
+    }
+
+    &__wrapper {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: left;
+
+        @include breakpoint(md-max) {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        margin-right: 8px;
+
+        @include breakpoint(md-max) {
+            margin-top: 8px;
+            margin-right: 0px;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+}
