@@ -12,6 +12,10 @@
         margin-right: auto;
     }
 
+    &__body {
+        padding: 0;
+    }
+
     &__buttons {
         display: flex;
         justify-content: left;
@@ -37,5 +41,10 @@
 
     a {
         text-decoration: none;
+    }
+
+    p {
+        padding: 0;
+        margin: 8px 0;
     }
 }
