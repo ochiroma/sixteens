@@ -12,13 +12,20 @@
         margin-right: auto;
     }
 
+    &__heading {
+        font-weight: 800;
+    }
+
     &__body {
         padding: 0;
     }
 
     &__buttons {
         display: flex;
+        display: -ms-flexbox;
         justify-content: left;
+        align-items: center;
+        margin-top: 1rem;
 
         @include breakpoint(md-max) {
             flex-direction: column;
