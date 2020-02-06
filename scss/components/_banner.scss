@@ -45,7 +45,6 @@
         @include breakpoint(sm) {
             display: block;
             float: left;
-            margin-top: 8px;
             margin-right: 8px;
             transform: translateY(50%);
         }
