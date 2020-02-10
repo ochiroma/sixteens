@@ -16,7 +16,7 @@ function submitCookieForm(e) {
     $('.js-accept-cookies').addClass("btn--primary-disabled")
     $.ajax({
         type: "GET",
-        url: "/cookies/accept-all",
+        url: "/cookie/accept-all",
         error: function (error) {
             console.log('Error with accepting all cookies:', error.statusText);
             $('.js-accept-cookies').removeProp('disabled')
