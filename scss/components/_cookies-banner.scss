@@ -44,6 +44,21 @@
             width: 100%;
             display: block;
         }
+
+        &--hide {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.25;
+            outline: 0;
+            border: 0;
+            background: none;
+            text-decoration: underline;
+            color: $matisse;
+            padding: 0;
+            margin-top: 10px;
+        }
     }
 
     a {
