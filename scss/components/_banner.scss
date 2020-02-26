@@ -14,10 +14,20 @@
         border-bottom: none;
     }
 
+    &__container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
     &__icon {
         vertical-align: middle;
         position: relative;
-        top: -2px;
 
         @include breakpoint(sm) {
             display: none;
@@ -37,7 +47,6 @@
         @include breakpoint(sm) {
             display: block;
             float: left;
-            margin-top: 8px;
             margin-right: 8px;
             transform: translateY(50%);
         }
