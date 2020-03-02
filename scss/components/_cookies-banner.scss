@@ -71,7 +71,7 @@
 
     &__preferences-success {
         display: block;
-        border-left: 7px solid #0F8243;
+        border-left: 7px solid $salem;
         background: #cfe6d9;
     }
 
@@ -79,7 +79,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding-left: 1.5rem;
+        padding: 8px 0 8px 16px;
 
         h2 {
             margin-top: 20px;
