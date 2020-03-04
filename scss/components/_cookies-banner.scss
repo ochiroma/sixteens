@@ -71,7 +71,7 @@
 
     &__preferences-success {
         display: block;
-        border-left: 7px solid $salem;
+        border-left: $baseline solid $salem;
         background: $lily-white;
     }
 
@@ -79,6 +79,6 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 8px 0 8px 16px;
+        padding: $baseline 0 $baseline $col;
     }
 }
