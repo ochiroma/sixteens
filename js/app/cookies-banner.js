@@ -2,6 +2,8 @@
 var oneYearInSeconds = 31622400;
 var url = window.location.hostname;
 var cookiesDomain = extractDomainFromUrl(url);
+var cookiesPreference = true;
+var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
 
 function initCookiesBanner() {
     $('.js-hide-cookies-banner').click(function(e) {
@@ -12,11 +14,13 @@ function initCookiesBanner() {
 
 function submitCookieForm(e) {
     e.preventDefault();
-    $('.js-accept-cookies').prop('disabled')
-        .addClass("btn--primary-disabled");
+    var cookiesBanner = $('.js-accept-cookies');
+    
+    cookiesBanner.prop('disabled')
+    cookiesBanner.addClass("btn--primary-disabled");
 
-    document.cookie = "cookies_preferences_set=true; max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";";
-    document.cookie = "cookies_policy=%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D; max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";";
+    document.cookie = "cookies_preferences_set=" + cookiesPreference + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";";
+    document.cookie = "cookies_policy=" + encodedCookiesPolicy + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";";
 
     $('.js-cookies-banner-inform').addClass('hidden');
     $('.js-cookies-banner-confirmation').removeClass('hidden');
