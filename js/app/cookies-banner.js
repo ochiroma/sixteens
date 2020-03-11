@@ -2,7 +2,6 @@
 var oneYearInSeconds = 31622400;
 var url = window.location.hostname;
 var cookiesDomain = extractDomainFromUrl(url);
-console.log(cookiesDomain);
 var cookiesPreference = true;
 var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
 var cookiesPath = "/";
