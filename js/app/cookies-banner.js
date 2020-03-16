@@ -1,3 +1,6 @@
+// get preferences cookie
+var cookiesSet = hasCookiesPreferencesSet()
+
 // cookies settings
 var oneYearInSeconds = 31622400;
 var url = window.location.hostname;
@@ -5,20 +8,32 @@ var cookiesDomain = extractDomainFromUrl(url);
 var cookiesPreference = true;
 var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
 var cookiesPath = "/";
+var cookiesBanner = $(".js-cookies-banner-form");
+
+document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner())
+
+function determineWhetherToRenderBanner() {
+    cookiesBanner.addClass("hidden");
+
+    if (!cookiesSet) {
+        cookiesBanner.removeClass("hidden");
+        initCookiesBanner();
+    }
+}
 
 function initCookiesBanner() {
     $('.js-hide-cookies-banner').click(function(e) {
-        $('.js-cookies-banner-form').addClass("hidden");
+        cookiesBanner.addClass("hidden");
     });
-    $(".js-cookies-banner-form").on('submit', submitCookieForm)
+    cookiesBanner.on('submit', submitCookieForm)
 }
 
 function submitCookieForm(e) {
     e.preventDefault();
-    var cookiesBanner = $('.js-accept-cookies');
+    var cookiesAcceptBanner = $('.js-accept-cookies');
     
-    cookiesBanner.prop('disabled')
-    cookiesBanner.addClass("btn--primary-disabled");
+    cookiesAcceptBanner.prop('disabled')
+    cookiesAcceptBanner.addClass("btn--primary-disabled");
 
     document.cookie = "cookies_preferences_set=" + cookiesPreference + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";" + "path=" + cookiesPath + ";";
     document.cookie = "cookies_policy=" + encodedCookiesPolicy + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";" + "path=" + cookiesPath + ";";
@@ -41,6 +56,17 @@ function extractDomainFromUrl(url) {
     return "." + secondLevelDomain + topLevelDomain;
 }
 
-$(function() {
-    initCookiesBanner();
-});
+function hasCookiesPreferencesSet() {
+    var cookies = document.cookie.split(";");
+
+    cookies = cookies.map(function (el) {
+        return el.trim();
+    });
+
+    for (var i = 0; i < cookies.length; i++) {
+        if (cookies[i] === "cookies_preferences_set=true") {
+            return true;
+        }
+    }
+    return false;
+}
