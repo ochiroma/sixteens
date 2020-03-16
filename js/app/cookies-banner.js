@@ -43,7 +43,7 @@ function submitCookieForm(e) {
 }
 
 function extractDomainFromUrl(url) {
-    if (url.includes('localhost')) {
+    if (url.indexOf('localhost') >= 0) {
         return 'localhost';
     }
 
