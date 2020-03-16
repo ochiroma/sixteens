@@ -1,22 +1,20 @@
-// get preferences cookie
-var cookiesSet = hasCookiesPreferencesSet()
-
 // cookies settings
+var cookiesSet = hasCookiesPreferencesSet();
+var cookiesBanner = $(".js-cookies-banner-form");
+
 var oneYearInSeconds = 31622400;
 var url = window.location.hostname;
 var cookiesDomain = extractDomainFromUrl(url);
 var cookiesPreference = true;
 var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
 var cookiesPath = "/";
-var cookiesBanner = $(".js-cookies-banner-form");
 
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner())
 
 function determineWhetherToRenderBanner() {
-    cookiesBanner.addClass("hidden");
-
-    if (!cookiesSet) {
-        cookiesBanner.removeClass("hidden");
+    if (cookiesSet) {
+        cookiesBanner.addClass("hidden");
+    } else {
         initCookiesBanner();
     }
 }
@@ -57,16 +55,5 @@ function extractDomainFromUrl(url) {
 }
 
 function hasCookiesPreferencesSet() {
-    var cookies = document.cookie.split(";");
-
-    cookies = cookies.map(function (el) {
-        return el.trim();
-    });
-
-    for (var i = 0; i < cookies.length; i++) {
-        if (cookies[i] === "cookies_preferences_set=true") {
-            return true;
-        }
-    }
-    return false;
+    return document.cookie.indexOf("cookies_preferences_set=true") > -1
 }
