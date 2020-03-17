@@ -9,7 +9,7 @@ var cookiesPreference = true;
 var encodedCookiesPolicy = "%7B%22essential%22%3Atrue%2C%22usage%22%3Atrue%7D";
 var cookiesPath = "/";
 
-document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner())
+document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
 
 function determineWhetherToRenderBanner() {
     if (cookiesSet) {
@@ -20,17 +20,17 @@ function determineWhetherToRenderBanner() {
 }
 
 function initCookiesBanner() {
-    $('.js-hide-cookies-banner').click(function(e) {
+    $('.js-hide-cookies-banner').click(function (e) {
         cookiesBanner.addClass("hidden");
     });
-    cookiesBanner.on('submit', submitCookieForm)
+    cookiesBanner.on('submit', submitCookieForm);
 }
 
 function submitCookieForm(e) {
     e.preventDefault();
     var cookiesAcceptBanner = $('.js-accept-cookies');
-    
-    cookiesAcceptBanner.prop('disabled')
+
+    cookiesAcceptBanner.prop('disabled');
     cookiesAcceptBanner.addClass("btn--primary-disabled");
 
     document.cookie = "cookies_preferences_set=" + cookiesPreference + ";" + "max-age=" + oneYearInSeconds + ";" + "domain=" + cookiesDomain + ";" + "path=" + cookiesPath + ";";
@@ -55,5 +55,5 @@ function extractDomainFromUrl(url) {
 }
 
 function hasCookiesPreferencesSet() {
-    return document.cookie.indexOf("cookies_preferences_set=true") > -1
+    return document.cookie.indexOf("cookies_preferences_set=true") > -1;
 }
