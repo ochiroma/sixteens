@@ -48,6 +48,10 @@
 		@include breakpoint(lg) {
 			border-right: 1px solid $iron;
 		}
+
+		&--no-border {
+			border-right: none;
+		}
 	}
 
 	&__image {
