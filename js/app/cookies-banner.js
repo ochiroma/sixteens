@@ -12,7 +12,7 @@ var cookiesPath = "/";
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
 
 function determineWhetherToRenderBanner() {
-    if (cookiesSet) {
+    if (cookiesSet || userIsOnCookiesPreferencesPage()) {
         cookiesBanner.addClass("hidden");
     } else {
         initCookiesBanner();
@@ -56,4 +56,12 @@ function extractDomainFromUrl(url) {
 
 function hasCookiesPreferencesSet() {
     return document.cookie.indexOf("cookies_preferences_set=true") > -1;
+}
+
+function userIsOnCookiesPreferencesPage() {
+    var href = window.location.href.split("/")
+
+    // check that last element in href array is 'cookies' - in case we add further pages within the cookies path
+    var isCookiesPreferencesPage = href[href.length - 1] === "cookies"
+    return isCookiesPreferencesPage
 }
