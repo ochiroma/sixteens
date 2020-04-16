@@ -11,8 +11,5 @@ image_resource:
 inputs:
   - name: sixteens
 
-outputs:
-  - name: build
-
 run:
   path: sixteens/ci/scripts/audit.sh
