@@ -52,6 +52,19 @@
         }
     }
 
+    &__heading {
+        font-size: 30px;
+        line-height: 1.33;
+        color: $mine-shaft;
+        letter-spacing: -0.02px;
+        margin-left: $col;
+        
+        @include breakpoint(sm) {
+            font-size: 24px;
+            margin-left: 0;
+        }
+    }
+
     &__body {
         display: flex;
         display: -ms-flexbox;
@@ -80,6 +93,14 @@
             &:focus {
                 color: $base-text-colour;
             }
+        }
+    }
+
+    &__link {
+        font-size: 17px;
+
+        @include breakpoint(sm) {
+            font-size: 16px;
         }
     }
 }
