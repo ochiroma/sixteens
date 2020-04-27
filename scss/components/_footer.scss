@@ -10,7 +10,7 @@
 	}
 
 	a {
-		color: $iron;
+		color: $quartz;
 		text-decoration: underline;
 
 		&:hover {
@@ -29,6 +29,10 @@
 		&__heading {
 			margin-top: ($baseline * 4);
 			margin-bottom: 0;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 1.33;
+			color: $quartz;
 		}
 
 		&__list {
@@ -40,6 +44,8 @@
 		&__item {
 			margin: 0;
 			padding: 6px 0 2px 0;
+			font-size: 18px;
+			color: $quartz;
 		}
 
 	}
@@ -55,6 +61,8 @@
 		&__text {
 			display: inline-block;
 			margin: $col 0 $col $col;
+			font-size: 18px;
+			vertical-align: super;
 		}
 	}
 }
