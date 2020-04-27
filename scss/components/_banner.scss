@@ -103,4 +103,8 @@
             font-size: 16px;
         }
     }
+
+    &__bottom-border {
+        border-bottom: 2px solid darken($pineapple-yellow, 15%);
+    }
 }
