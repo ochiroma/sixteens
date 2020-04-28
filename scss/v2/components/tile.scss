@@ -8,8 +8,7 @@
   padding-left: 16px;
   padding-right: 16px;
   padding-bottom: 16px;
-  margin: 0px 0px 2px 0px;
-  float: left;
+  margin: 16px 0px 2px 0px;
 
   &__single {
     width: 192px
@@ -17,10 +16,6 @@
 
   &__double {
     width: 432px
-  }
-
-  &__content {
-    float: left;
   }
 
   &__title {
