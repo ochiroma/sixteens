@@ -1,8 +1,8 @@
 //footer.scss
 
 .footer {
-	background-color: $ship-grey;
-	color: $iron-light;
+	background-color: $grey1;
+	color: $grey5;
 
 	&--sticky {
 		bottom: 0;
@@ -10,7 +10,7 @@
 	}
 
 	a {
-		color: $quartz;
+		color: $grey5;
 		text-decoration: underline;
 
 		&:hover {
@@ -32,7 +32,7 @@
 			font-size: 24px;
 			font-weight: 800;
 			line-height: 1.33;
-			color: $quartz;
+			color: $grey5;
 		}
 
 		&__list {
@@ -45,13 +45,13 @@
 			margin: 0;
 			padding: 6px 0 2px 0;
 			font-size: 18px;
-			color: $quartz;
+			color: $grey5;
 		}
 
 	}
 
 	&-license {
-		border-top: 1px solid $silver;
+		border-top: 1px solid $grey2;
 		padding: $col*2 0 $col 0;
 
 		&__img {
