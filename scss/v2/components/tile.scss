@@ -1,18 +1,25 @@
 .tile {
-
   font-size: 18px;
   line-height: 1.78;
   color: #707071;
   overflow: hidden;
+  box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+  background-color: #f5f5f6;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+  margin: 40px 0px 2px 0;
+  float: left;
 
-  &__panel {
-    width: 224px;
-    height: 364px;
-    box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
-    background-color: #f5f5f6;
-    padding-left: 16px;
-    padding-right: 16px;
-    margin: 40px 16px 2px 0;
+  &__single {
+    width: 192px
+  }
+
+  &__double {
+    width: 432px
+  }
+
+  &__content {
     float: left;
   }
 
