@@ -1,0 +1,80 @@
+.promo {
+    &__container {
+        display: block;
+
+        &:focus {
+            outline: 2px solid $pineapple-yellow;
+            outline-offset: 2px;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__heading {
+        font-size: 30px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: -0.02px;
+    
+        @include breakpoint(sm) {
+            font-size: 18px;
+            line-height: 1.78;
+        }
+    }
+
+    &__description {
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: -0.13px;
+        color: #ffffff;
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: normal;
+        }
+    }
+
+    &__background {
+        &--blue-gradient {
+            background-image: linear-gradient(to bottom, $night-blue, $ocean-blue);
+            color: $white;
+        }
+
+        &--plum-gradient {
+            background-image: linear-gradient(to bottom, $plum-purple, $flamingo-pink);
+            color: $white;
+        }
+    }
+
+    &__body {
+        display: flex;
+        justify-content: space-evenly;
+        height: 100%;
+        align-items: center;
+
+        &--column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+
+    &__unicode {
+        font-size: 75px;
+        font-family: initial;
+    }
+
+    &__content {
+        @include breakpoint(sm) {
+            flex-basis: 75%;
+        }
+    }
+}
