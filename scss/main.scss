@@ -2,6 +2,9 @@
 
 $old-ie: false;
 
+
+@import "v2/components/promo";
+
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
@@ -74,6 +77,5 @@ $old-ie: false;
 @import "components/improve-this-page";
 @import "components/form";
 @import "components/embed-code";
-@import "v2/components/promo";
 
 @import "shame";
