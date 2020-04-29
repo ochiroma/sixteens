@@ -3,7 +3,7 @@
         display: block;
 
         &:focus {
-            outline: 2px solid $pineapple-yellow;
+            outline: 2px solid $sun-yellow;
             outline-offset: 2px;
             text-decoration: none;
         }
@@ -56,10 +56,9 @@
 
     &__body {
         display: flex;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         height: 100%;
         align-items: center;
-        padding-left: $baseline;
 
         &--column {
             display: flex;
@@ -71,7 +70,6 @@
 
     &__unicode {
         font-size: 75px;
-        font-family: initial;
     }
 
     &__content {
