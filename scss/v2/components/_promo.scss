@@ -56,9 +56,10 @@
 
     &__body {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         height: 100%;
         align-items: center;
+        padding-left: $baseline;
 
         &--column {
             display: flex;
