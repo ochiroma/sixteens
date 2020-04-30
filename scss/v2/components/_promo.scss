@@ -25,11 +25,6 @@
             font-size: 18px;
             line-height: 1.78;
         }
-
-        @include breakpoint(md) {
-            font-size: 18px;
-            line-height: 1.78;
-        }
     }
 
     &__description {
@@ -97,7 +92,7 @@
         }
 
         @include breakpoint(md) {
-            flex-basis: 80%;
+            flex-basis: 70%;
         }
     }
 }
