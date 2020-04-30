@@ -105,6 +105,6 @@
     }
 
     &__bottom-shadow {
-        box-shadow: 0 2px 0 0 #af8e0c;
+        box-shadow: 0 2px 0 0 darken($sun-yellow, 15%);
     }
 }
