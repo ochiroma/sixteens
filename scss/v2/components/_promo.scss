@@ -14,17 +14,26 @@
     }
 
     &__heading {
-        font-size: 30px;
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.33;
-        letter-spacing: -0.02px;
-    
         @include breakpoint(sm) {
             font-size: 18px;
             line-height: 1.78;
         }
+
+        @include breakpoint(md) {
+            font-size: 24px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 30px;
+            line-height: 1.33;
+            letter-spacing: -0.02px;
+        }
+
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
     }
 
     &__description {
@@ -82,17 +91,17 @@
         }
     }
 
-    &__unicode {
-        font-size: 75px;
-    }
-
-    &__content {
+    &__copy {
         @include breakpoint(sm) {
             flex-basis: 75%;
         }
 
         @include breakpoint(md) {
             flex-basis: 70%;
+        }
+        
+        @include breakpoint(lg) {
+            flex-basis: auto;
         }
     }
 }
