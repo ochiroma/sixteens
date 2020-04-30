@@ -13,52 +13,6 @@
         }
     }
 
-    &__heading {
-        @include breakpoint(sm) {
-            font-size: 18px;
-            line-height: 1.78;
-        }
-
-        @include breakpoint(md) {
-            font-size: 24px;
-            line-height: 1.78;
-        }
-
-        @include breakpoint(lg) {
-            font-size: 30px;
-            line-height: 1.33;
-            letter-spacing: -0.02px;
-        }
-
-        font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.33;
-    }
-
-    &__description {
-        width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        font-size: 18px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.22;
-        letter-spacing: -0.13px;
-        color: #ffffff;
-
-        @include breakpoint(sm) {
-            font-size: 16px;
-            line-height: normal;
-        }
-
-        @include breakpoint(md) {
-            font-size: 16px;
-            line-height: normal;
-        }
-    }
-
     &__background {
         &--blue-gradient {
             background-image: linear-gradient(to bottom, $night-blue, $ocean-blue);
@@ -102,6 +56,52 @@
         
         @include breakpoint(lg) {
             flex-basis: auto;
+        }
+    }
+
+    &__heading {
+        @include breakpoint(sm) {
+            font-size: 18px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(md) {
+            font-size: 24px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 30px;
+            line-height: 1.33;
+            letter-spacing: -0.02px;
+        }
+
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+    }
+
+    &__description {
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        font-size: 18px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: -0.13px;
+        color: #ffffff;
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: normal;
+        }
+
+        @include breakpoint(md) {
+            font-size: 16px;
+            line-height: normal;
         }
     }
 }
