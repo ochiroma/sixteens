@@ -9,8 +9,21 @@
   padding-right: 16px;
   padding-bottom: 16px;
   margin: 16px 0px 2px 0px;
+
+  &:focus {
+    outline: 2px solid $sun-yellow;
+    outline-offset: 2px;
+    box-shadow: none; 
+  }
+
   @include breakpoint(sm) {
     font-size: 16px;
+  }
+
+  &--highlighted-content {
+    @include breakpoint(md) {
+      height: 446px;
+    }
   }
 
   &__split-bar {
@@ -69,6 +82,17 @@
       box-shadow: 0 4px 0 0 $black;
       background-color: $sun-yellow;
     }
+
+    &--highlighted-content-title {
+      line-height: 1.33;
+      font-weight: 800;
+
+      &:hover {
+        box-shadow: 0 4px 0 0 $black;
+        background-color: $sun-yellow;
+        text-decoration: none !important;
+      }
+    }
   }
 
   &__button {
@@ -81,6 +105,32 @@
     color: #ffffff;
     line-height: 1.86;
     box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+  }
+
+  &__highlighted-content-image-container {
+    // Remove margin from the image container so that the image can stretch across the width.
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
+  &__highlighted-content-image {
+    width: 100%;
+    height: auto;
+  }
+
+  &__highlighted-content-summary {
+    font-size: 18px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.78;
+    letter-spacing: normal;
+    color: $black;
+
+    @include breakpoint(sm) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
   }
 
   h2 {
