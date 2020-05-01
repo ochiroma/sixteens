@@ -4,8 +4,6 @@ $old-ie: false;
 
 @import "v2/utilities/colour-palette";
 
-@import "v2/components/tile";
-
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
@@ -42,6 +40,7 @@ $old-ie: false;
 @import "elements/radio";
 @import "elements/details";
 
+@import "v2/components/tile";
 
 @import "components/header";
 @import "components/main";
