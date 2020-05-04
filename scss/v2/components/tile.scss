@@ -24,6 +24,12 @@
     @include breakpoint(md) {
       height: 446px;
     }
+
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+    }
   }
 
   &__split-bar {
@@ -81,6 +87,7 @@
     &:hover {
       box-shadow: 0 4px 0 0 $black;
       background-color: $sun-yellow;
+      color: $black;
     }
 
     &--highlighted-content-title {
@@ -116,6 +123,10 @@
   &__highlighted-content-image {
     width: 100%;
     height: auto;
+
+    @include breakpoint(sm) {
+      max-height: 180px;
+    }
   }
 
   &__highlighted-content-summary {
