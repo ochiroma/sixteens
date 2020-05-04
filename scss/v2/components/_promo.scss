@@ -1,0 +1,93 @@
+.promo {
+    &__container {
+        display: block;
+
+        &:focus {
+            outline: 2px solid $sun-yellow;
+            outline-offset: 2px;
+            text-decoration: none;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__background {
+        &--blue-gradient {
+            background-image: linear-gradient(to bottom, $night-blue, $ocean-blue);
+            color: $white;
+        }
+
+        &--plum-gradient {
+            background-image: linear-gradient(to right, $indigo-blue, $plum-purple);
+            color: $white;
+        }
+    }
+
+    &__body {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+
+        &:before,
+        &:after {
+          content: '';
+          display: block;
+        }
+
+        &--column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+    }
+
+    &__copy {
+        @include breakpoint(sm) {
+            flex-basis: 75%;
+        }
+
+        @include breakpoint(md) {
+            flex-basis: 70%;
+        }
+        
+        @include breakpoint(lg) {
+            flex-basis: auto;
+        }
+    }
+
+    &__heading {
+        @include breakpoint(sm) {
+            font-size: 18px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(md) {
+            font-size: 24px;
+            line-height: 1.78;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 30px;
+            line-height: 1.33;
+        }
+
+        font-weight: bold;
+        line-height: 1.33;
+    }
+
+    &__description {
+        width: 100%;
+        font-size: 16px;
+        line-height: normal;
+        color: $white;
+
+        @include breakpoint(lg) {
+            font-size: 18px;
+            line-height: 1.22;
+        }
+    }
+}
