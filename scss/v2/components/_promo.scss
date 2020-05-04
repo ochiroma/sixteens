@@ -73,35 +73,21 @@
         @include breakpoint(lg) {
             font-size: 30px;
             line-height: 1.33;
-            letter-spacing: -0.02px;
         }
 
         font-weight: bold;
-        font-stretch: normal;
-        font-style: normal;
         line-height: 1.33;
     }
 
     &__description {
         width: 100%;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-        font-size: 18px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.22;
-        letter-spacing: -0.13px;
-        color: #ffffff;
+        font-size: 16px;
+        line-height: normal;
+        color: $white;
 
-        @include breakpoint(sm) {
-            font-size: 16px;
-            line-height: normal;
-        }
-
-        @include breakpoint(md) {
-            font-size: 16px;
-            line-height: normal;
+        @include breakpoint(lg) {
+            font-size: 18px;
+            line-height: 1.22;
         }
     }
 }
