@@ -115,7 +115,7 @@
   }
 
   &__highlighted-content-image-container {
-    // Remove margin from the image container so that the image can stretch across the width.
+    // Remove margin from the image container so that the image can stretch across the full width of the tile.
     margin-left: -16px;
     margin-right: -16px;
   }
@@ -131,11 +131,7 @@
 
   &__highlighted-content-summary {
     font-size: 18px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.78;
-    letter-spacing: normal;
     color: $black;
 
     @include breakpoint(sm) {
