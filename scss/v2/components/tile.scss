@@ -3,7 +3,7 @@
   line-height: 1.78;
   color: $grey2;
   overflow: hidden;
-  box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+  box-shadow: 0 2px 0 0 rgba($grey1, .3);
   background-color: $grey5;
   padding-left: 16px;
   padding-right: 16px;
@@ -91,7 +91,10 @@
     text-align: center;
     color: #ffffff;
     line-height: 1.86;
-    box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+    box-shadow: 0 2px 0 0 rgba($ocean-blue, .3);
+    &:hover {
+      background-color: darken($ocean-blue, 5%);
+    }
   }
 
   h2 {
