@@ -3,7 +3,7 @@
   line-height: 1.78;
   color: $grey2;
   overflow: hidden;
-  box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+  box-shadow: 0 2px 0 0 rgba($grey1, .3);
   background-color: $grey5;
   padding-left: 16px;
   padding-right: 16px;
@@ -50,20 +50,28 @@
   }
 
   &__figure {
-    width: 192px;
-    height: 82px;
     font-size: 60px;
     font-weight: 600;
     line-height: 1.37;
     color: $black;
+    @include breakpoint(md) {
+      margin: 8px 0px 8px 0px;
+    }
+    @include breakpoint(lg) {
+      margin: 8px 0px 8px 0px;
+    }
     @include breakpoint(sm) {
       font-size: 42px;
+      margin: 8px 0px 8px 0px;
+
     }
   }
 
   &__trend {
     width: 208px;
-
+    @include breakpoint(sm){
+        width:240px;
+    }
     &__icon {
       color: $black;
       font-weight: bolder;
@@ -74,6 +82,9 @@
       display: inline-block;
       width: 176px;
       padding-left: 8px;
+      @include breakpoint(sm){
+          width:224px;
+      }
     }
   }
 
@@ -118,7 +129,10 @@
     text-align: center;
     color: #ffffff;
     line-height: 1.86;
-    box-shadow: 0 2px 0 0 rgba(65, 64, 66, 0.35);
+    box-shadow: 0 2px 0 0 rgba($ocean-blue, .3);
+    &:hover {
+      background-color: darken($ocean-blue, 5%);
+    }
   }
 
   &__highlighted-content-image-container {
