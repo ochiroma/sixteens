@@ -74,15 +74,11 @@
             font-size: 30px;
             line-height: 1.33;
         }
-
         font-weight: bold;
-        line-height: 1.33;
     }
 
     &__description {
-        width: 100%;
         font-size: 16px;
-        line-height: normal;
         color: $white;
 
         @include breakpoint(lg) {
