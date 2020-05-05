@@ -94,10 +94,17 @@
       line-height: 1.33;
       font-weight: 800;
 
-      &:hover {
+      &:focus {
         box-shadow: 0 4px 0 0 $black;
         background-color: $sun-yellow;
         text-decoration: none !important;
+        color: $black !important;
+      }
+
+      &:hover {
+        color: $night-blue;
+        box-shadow: none;
+        background-color: transparent;
       }
     }
   }
