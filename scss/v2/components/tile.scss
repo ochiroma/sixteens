@@ -94,10 +94,17 @@
     text-decoration: underline;
     margin-left: 0px;
 
-    &:hover {
+    &:focus {
       box-shadow: 0px 4px 0px 0px $black;
       background-color: $sun-yellow;
+      text-decoration: none;
       color: $black;
+    }
+
+    &:hover {
+      color: $night-blue;
+      box-shadow: none;
+      background-color: transparent;
     }
 
     &--highlighted-content-title {
