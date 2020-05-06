@@ -12,7 +12,7 @@ $old-ie: false;
 @import "utilities/colours";
 @import "utilities/ellipsis";
 @import "utilities/utilities";
-@import "utilities/print";  //remove this and create a seperate print css set with media="print" in the link tag for old browser support
+@import "utilities/print"; //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
 @import "utilities/flexbox";
 @import "utilities/borders";
@@ -40,6 +40,7 @@ $old-ie: false;
 @import "elements/radio";
 @import "elements/details";
 
+@import "v2/components/tile";
 
 @import "components/header";
 @import "components/main";
