@@ -20,6 +20,7 @@
   }
 
   &__highlighted-content {
+    height: 340px;
     @include breakpoint(md) {
       height: 446px;
     }

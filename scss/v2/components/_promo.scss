@@ -2,6 +2,11 @@
     &__container {
         display: block;
 
+        @include breakpoint(sm) {
+            margin-left: -16px;
+            margin-right: -16px;
+        }
+
         &:focus {
             outline: 2px solid $sun-yellow;
             outline-offset: 2px;
