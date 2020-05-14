@@ -149,6 +149,47 @@
         }
     }
 
+    &__list {
+
+        &-item  {
+
+            &-title {
+                font-size: 18px;
+
+                @include breakpoint(md) {
+                    $height-of-title: 18px * 4;
+                    display: inline-block;
+                    position: relative;
+                    max-height: $height-of-title;
+                    overflow: hidden;
+                    
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: $height-of-title / 2;
+                        right: 0;
+                        width: 28px;
+                        height: 28px;
+                        background: $grey5;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        right: 12px;
+                        top: 32px;
+                        content: "...";
+                    }
+                }
+
+            }
+
+            &-content {
+                font-size: 18px
+            }
+        }
+
+    }
+
     &__highlighted-content-image-container {
         // Remove margin from the image container so that the image can stretch across the full width of the tile.
         margin-left: -16px;
