@@ -85,6 +85,7 @@
     &__description {
         font-size: 16px;
         color: $white;
+        width: 100%;
 
         @include breakpoint(lg) {
             font-size: 18px;
