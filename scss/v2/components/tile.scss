@@ -19,6 +19,12 @@
         line-height: 1.5;
     }
 
+    &--latest-releases {
+        @include breakpoint(md) {
+            height: 521px;
+        }
+    }
+
     &__highlighted-content {
         height: 340px;
 
