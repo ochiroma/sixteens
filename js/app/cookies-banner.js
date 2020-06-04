@@ -12,9 +12,9 @@ var cookiesPath = "/";
 document.addEventListener("DOMContentLoaded", determineWhetherToRenderBanner());
 
 function determineWhetherToRenderBanner() {
-    if (cookiesSet || userIsOnCookiesPreferencesPage()) {
-        cookiesBanner.addClass("hidden");
-    } else {
+    const cookiesAreNotSet = !cookiesSet || userIsOnCookiesPreferencesPage()
+    if (cookiesAreNotSet) {
+        cookiesBanner.removeClass("cookies-banner--hidden")
         initCookiesBanner();
     }
 }

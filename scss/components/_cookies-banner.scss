@@ -7,6 +7,10 @@
         padding: 10px 0;
     }
 
+    .js &--hidden {
+        display: none !important;
+    }
+
     &__wrapper {
         margin-left: auto;
         margin-right: auto;
