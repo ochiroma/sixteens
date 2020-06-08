@@ -26,6 +26,17 @@
         }
     }
 
+    &__content-container {
+        &--space-between {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            justify-content: space-between;
+            height: 77%;
+            
+        }
+    }
+
     &__highlighted-content {
         height: 340px;
 
