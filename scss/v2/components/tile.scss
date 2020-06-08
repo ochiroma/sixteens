@@ -19,9 +19,10 @@
         line-height: 1.5;
     }
 
-    &--latest-releases {
+    &--employment-figures-stacked {
+        // Fixed height on md to ensure employment figures tile is flush with population tile
         @include breakpoint(md) {
-            height: 521px;
+            height: 840px;
         }
     }
 
