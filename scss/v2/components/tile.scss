@@ -33,7 +33,6 @@
             flex: 1 1 auto;
             justify-content: space-between;
             height: 77%;
-            
         }
     }
 
@@ -111,7 +110,6 @@
             }
         }
     }
-
     &__link {
         font-size: 18px;
         line-height: 1.78;
@@ -230,7 +228,7 @@
         }
     }
 
-    &__highlighted-content-summary {
+    &__text-description {
         font-size: inherit;
         line-height: 1.78;
         color: $black;
