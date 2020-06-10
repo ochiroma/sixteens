@@ -22,7 +22,7 @@
     &--employment-figures-stacked {
         // Fixed height on md to ensure employment figures tile is flush with population tile
         @include breakpoint(md) {
-            height: 840px;
+            height: 776px;
         }
     }
 
