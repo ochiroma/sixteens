@@ -39,7 +39,7 @@ function showSearch(toggleElement, searchElement) {
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-search-1')
         .addClass('icon-cancel');
-    toggleElement.find('.nav--controls__text').text('Hide');
+    toggleElement.find('.nav--controls__text').text('Hide search');
     searchElement.removeClass('nav-search--hidden');
     searchElement.attr('aria-expanded', true);
 }
