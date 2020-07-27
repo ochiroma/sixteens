@@ -75,7 +75,8 @@ input, select {
 
 .select {
     background-color: white;
-    border: 1px solid $iron;
+		border: 1px solid $iron;
+		height: auto;
 }
 
 @if $old-ie != true {
