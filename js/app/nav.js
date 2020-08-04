@@ -24,18 +24,21 @@ function collapseSubnav(element) {
 
 function showMenu(toggleElement, menuElement) {
     toggleElement.addClass('menu-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', true);
     menuElement.removeClass('nav-main--hidden');
     menuElement.attr('aria-expanded', true);
 }
 
 function hideMenu(toggleElement, menuElement) {
     toggleElement.removeClass('menu-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', false);
     menuElement.addClass('nav-main--hidden');
     menuElement.attr('aria-expanded', false);
 }
 
 function showSearch(toggleElement, searchElement) {
     toggleElement.addClass('search-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', true);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-search-1')
         .addClass('icon-cancel');
@@ -46,6 +49,7 @@ function showSearch(toggleElement, searchElement) {
 
 function hideSearch(toggleElement, searchElement) {
     toggleElement.removeClass('search-is-expanded');
+    toggleElement.find('a').attr('aria-expanded', false);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-cancel')
         .addClass('icon-search-1');
