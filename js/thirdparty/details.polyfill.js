@@ -13,6 +13,10 @@
   var KEY_ENTER = 13
   var KEY_SPACE = 32
 
+  if (NATIVE_DETAILS) {
+    return;
+  }
+
   // Add event construct for modern browsers or IE
   // which fires the callback with a pre-converted target reference
   function addEvent (node, type, callback) {
