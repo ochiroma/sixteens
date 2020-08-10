@@ -31,6 +31,7 @@ $blue:          	#3a7db4;
 $indigo:			#560072;
 $prim:				#E8DFF0;
 $pineapple-yellow:	#fbc900;
+$night-blue: #003c57;
 
 //Colour types
 $primary:       $salem;
@@ -64,7 +65,7 @@ $colours: (
 		("astral", 				$astral, 				$haze)
 		("indigo",				$indigo,				$iron-light)
 		("prim",				$prim,					$thunder)
-		("pineapple-yellow",	$pineapple-yellow, 		$thunder)
+		("pineapple-yellow",	$pineapple-yellow, 		$thunder, $night-blue)
 );
 
 
