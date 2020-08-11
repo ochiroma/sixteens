@@ -400,6 +400,10 @@
      }
  }
 
+.datepicker__icon[aria-hidden*=true] {
+  visibility: initial;
+}
+
 #viewport {
 
     &-sm {
