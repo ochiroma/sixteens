@@ -10,8 +10,10 @@ if ($('#preview-and-download').length) {
 
 // Vars
 var loader = $('.loader-svg'),
-    message = $('<h3 class="margin-bottom">There has been an error creating your files. Try refreshing the page.</h3>' +
+    message = $('<h3 class="margin-bottom" role="alert">There has been an error creating your files. Try refreshing the page.</h3>' +
                 '<a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="' + window.location.pathname + '">Refresh page</a>'),
+    preparingAlert = $('<div aria-label="Preparing your download" role="alert"></div>'),
+    downloadReady = $('<div role="alert" aria-label="The download is ready"></div>'),
     count = 0;
 
 function fileHasLoaded(downloads) {
@@ -53,12 +55,17 @@ function getDownloadFiles() {
         $('#other-downloads').removeClass('js-hidden');
         $('#excel-skipped').remove();
         $('#csv-item').remove();
+        $('#excel-file').attr('aria-hidden', false);
+        downloadReady.prependTo('#excel-file');
         addFilesToPage(response);
       } else {
         // Poll the server every 2 seconds up to a maximum of 60 attempts (2 minutes)
         if (count < 60) {
             count++;
             loader.removeClass('js-hidden');
+            if (count === 1) {
+                preparingAlert.prependTo(loader);
+            }
             setTimeout(function() { getDownloadFiles(); }, 2000);
         } else {
             // Show an error message if the files aren't created after 60 attempts
