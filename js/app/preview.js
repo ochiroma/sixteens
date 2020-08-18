@@ -50,7 +50,7 @@ function getDownloadFiles() {
     success: function(response) {
       var downloads = response.downloads;
       // Check if the response has the file data
-      if (fileHasLoaded(downloads) || count === 10) {
+      if (fileHasLoaded(downloads)) {
         loader.remove();
         $('#other-downloads').removeClass('js-hidden');
         $('#excel-skipped').remove();
