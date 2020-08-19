@@ -85,7 +85,7 @@ function addFilesToPage(files) {
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
                     '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
-                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</a></div></li>');
+                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</a></div></li>');
 
     // Get the xls data and create the link
     var excelURL = files.downloads.xls.href,
@@ -94,14 +94,14 @@ function addFilesToPage(files) {
 
     var excelFile = "";
     if (excelFileSize > 0) {
-      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
+      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '" aria-label="Download the filtered dataset as an excel file (' + formatBytes(excelFileSize) + ')"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
     }
 
     if (excelSkipped) {
       excelFile = $('<div class="status status--amber col--lg-two-thirds col--md-two-thirds" id="excel-skipped">' +
                     '<p class="flush status__content">There are too many cells to create an Excel file. ' +
                     '<a href="/filters/' + files.links.filter_blueprint.id + '/dimensions">Adjust the filter options</a>' +
-                    ' or <a href="' + csvURL + '">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
+                    ' or <a href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')">download the CSV (' + formatBytes(csvFileSize) + ')</a>.' +
                     '</p>' +
                     '</div>');
     }
