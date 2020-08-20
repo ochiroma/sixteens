@@ -63,6 +63,7 @@ function getDownloadFiles() {
         if (count < 60) {
             count++;
             loader.removeClass('js-hidden');
+            $('#excel-file').attr('aria-hidden', true);
             if (count === 1) {
                 preparingAlert.prependTo(loader);
             }
