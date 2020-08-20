@@ -107,6 +107,12 @@
         * {
             font-family: $base-font-family;
         }
+
+        @include breakpoint(sm) {
+            .highcharts-legend {
+                display: none;
+            }
+        }
     }
 
     &__controls__download {
