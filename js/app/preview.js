@@ -85,7 +85,7 @@ function addFilesToPage(files) {
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
                     '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
-                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</a></div></li>');
+                    '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><span role="text"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</span></a></div></li>');
 
     // Get the xls data and create the link
     var excelURL = files.downloads.xls.href,
@@ -94,7 +94,7 @@ function addFilesToPage(files) {
 
     var excelFile = "";
     if (excelFileSize > 0) {
-      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '" aria-label="Download the filtered dataset as an excel file (' + formatBytes(excelFileSize) + ')"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></a>');
+      excelFile = $('<a id="excel-download" class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href=" ' + excelURL + '" aria-label="Download the filtered dataset as an excel file (' + formatBytes(excelFileSize) + ')"><span role="text"><strong>Excel file</strong> <span class="font-size--14">('+ formatBytes(excelFileSize) +')</span></span></a>');
     }
 
     if (excelSkipped) {
