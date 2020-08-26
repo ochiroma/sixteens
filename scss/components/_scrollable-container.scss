@@ -17,6 +17,7 @@
         position: absolute;
         z-index: 200;
         top: 0;
+        display: none;
     }
 
     &:before {
@@ -24,8 +25,16 @@
         box-shadow: inset 1px 0 0 0 #bfc1c3,inset -5px 0 0 0 rgba(191,193,195,.4)
     }
 
+    &.scroll-container__left-shadow:before {
+        display: block;
+    }
+
     &:after {
         right: 0;
         box-shadow: inset -1px 0 0 0 #bfc1c3,inset -5px 0 0 0 rgba(191,193,195,.4);
+    }
+
+    &.scroll-container__right-shadow:after {
+        display: block;
     }
 }
