@@ -5,7 +5,11 @@
 .scrollable-container {
     overflow: visible;
     overflow-x: scroll;
-    width: 100%;
+    width: $col * 45;
+
+    @include breakpoint(md-max) {
+        width: 100%;
+    }
 }
 
 .scrollable-container__overflow{
