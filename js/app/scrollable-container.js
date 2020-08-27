@@ -11,7 +11,8 @@ $(function () {
         }
 
         var scrollLeftMax = element.scrollWidth - element.clientWidth;
-        if (scrollLeft === scrollLeftMax) {
+        // Can be greater due to iOS overscroll
+        if (scrollLeft >= scrollLeftMax) {
             $element.removeClass('scroll-container__right-shadow')
         }
         else {
