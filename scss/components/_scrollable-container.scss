@@ -7,7 +7,7 @@
     overflow-x: scroll;
     width: $col * 45;
 
-    @include breakpoint(md-max) {
+    @include breakpoint(sm) {
         width: 100%;
     }
 }
