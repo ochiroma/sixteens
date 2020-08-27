@@ -2,6 +2,11 @@ function toggleSubnav(element) {
     element
         .toggleClass('js-expandable-active')
         .find('.js-expandable__content').toggleClass('js-nav-hidden');
+    toggleAriaHidden(element.find('a:first'));
+}
+
+function toggleAriaHidden(element) {
+    element.attr('aria-expanded', element.attr('aria-expanded') === 'false');
 }
 
 function expandSubnav(element) {
@@ -96,7 +101,7 @@ function clonePrimaryItems() {
         $('.js-expandable').each(function () {
             var $this = $(this),
                 $thisHref = $this.find('a:first').attr('href'),
-                $thisText = $this.find('a:first').html(),
+                $thisText = $this.find('.submenu-title').html(),
                 $childList = $this.find('.js-expandable__content'),
                 $newLink = '<a class="primary-nav__child-link" href="' + $thisHref + '">' + $thisText + '</a>',
                 $newItem = '<li class="primary-nav__child-item js-nav__duplicate js-expandable__child">' + $newLink + '</li>';
