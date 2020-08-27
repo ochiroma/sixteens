@@ -1,4 +1,3 @@
-'use strict';
 $(function () {
     function showHideShadows(element) {
         var scrollLeft = element.scrollLeft;
@@ -21,7 +20,8 @@ $(function () {
     }
 
     var observer = new ResizeObserver(function (entries) {
-        for (entry of entries) {
+        for (var i = 0; i < entries.length; ++i) {
+            var entry = entries[i];
             var container = entry.target;
             var $container = $(container);
             var hasOverflow = container.scrollWidth > $container.width();
