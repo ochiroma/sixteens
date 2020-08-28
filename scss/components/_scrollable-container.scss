@@ -1,13 +1,19 @@
 .scrollable-container__parent {
     position: relative;
+
+    @include breakpoint(md) {
+        // Grow the parent to the size of the child
+        display: inline-block;
+    }
 }
 
 .scrollable-container {
     overflow: visible;
-    overflow-x: scroll;
+    // Don't show scrollbars if we don't need them on Windows
+    overflow-x: auto;
     width: $col * 45;
 
-    @include breakpoint(md-max) {
+    @include breakpoint(sm) {
         width: 100%;
     }
 }
