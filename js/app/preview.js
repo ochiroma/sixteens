@@ -83,7 +83,7 @@ function addFilesToPage(files) {
     var csvURL = files.downloads.csv.href,
         csvFileSize = files.downloads.csv.size,
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
-                    '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
+                    '<span class="inline-block padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
                     '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><span role="text"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</span></a></div></li>');
 
