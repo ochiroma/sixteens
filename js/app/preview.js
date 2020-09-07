@@ -12,8 +12,8 @@ if ($('#preview-and-download').length) {
 var loader = $('.loader-svg'),
     message = $('<h3 class="margin-bottom" role="alert">There has been an error creating your files. Try refreshing the page.</h3>' +
                 '<a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="' + window.location.pathname + '">Refresh page</a>'),
-    preparingAlert = $('<div aria-label="Preparing your download" role="alert"></div>'),
-    downloadReady = $('<div role="alert" aria-label="The download is ready"></div>'),
+    preparingAlert = $('<p role="alert" class="visuallyhidden">Preparing your download</p>'),
+    downloadReady = $('<p role="alert" class="visuallyhidden">The download is ready</p>'),
     count = 0;
 
 function fileHasLoaded(downloads) {
