@@ -64,7 +64,7 @@ function getDownloadFiles() {
             count++;
             loader.removeClass('js-hidden');
             $('#excel-file').attr('aria-hidden', true);
-            if (count === 1) {
+            if (count === 2) {
                 preparingAlert.prependTo(loader);
             }
             setTimeout(function() { getDownloadFiles(); }, 2000);
