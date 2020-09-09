@@ -12,8 +12,8 @@ if ($('#preview-and-download').length) {
 var loader = $('.loader-svg'),
     message = $('<h3 class="margin-bottom" role="alert">There has been an error creating your files. Try refreshing the page.</h3>' +
                 '<a class="btn btn--primary btn--thick margin-bottom--4 btn--focus font-size--19" href="' + window.location.pathname + '">Refresh page</a>'),
-    preparingAlert = $('<div aria-label="Preparing your download" role="alert"></div>'),
-    downloadReady = $('<div role="alert" aria-label="The download is ready"></div>'),
+    preparingAlert = $('<p role="alert" class="visuallyhidden">Preparing your download</p>'),
+    downloadReady = $('<p role="alert" class="visuallyhidden">The download is ready</p>'),
     count = 0;
 
 function fileHasLoaded(downloads) {
@@ -64,7 +64,7 @@ function getDownloadFiles() {
             count++;
             loader.removeClass('js-hidden');
             $('#excel-file').attr('aria-hidden', true);
-            if (count === 1) {
+            if (count === 2) {
                 preparingAlert.prependTo(loader);
             }
             setTimeout(function() { getDownloadFiles(); }, 2000);
@@ -83,7 +83,7 @@ function addFilesToPage(files) {
     var csvURL = files.downloads.csv.href,
         csvFileSize = files.downloads.csv.size,
         csvFile = $('<li class="padding-left--1 margin-top--0 margin-bottom--1 white-background clearfix">' +
-                    '<span class="inline-block width--24 padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
+                    '<span class="inline-block padding-top--2">Filtered dataset (<span class="uppercase">csv</span> format)</span>' +
                     '<div class="width--12 inline-block float-right text-right">' +
                     '<a id="csv-download" class="btn btn--primary margin-top--1 margin-bottom--1 margin-right--half width--11" href="' + csvURL + '" aria-label="Download the filtered dataset as csv (' + formatBytes(csvFileSize) + ')"><span role="text"><strong>csv</strong> ('+ formatBytes(csvFileSize) +')</span></a></div></li>');
 
