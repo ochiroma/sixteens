@@ -818,9 +818,14 @@
 			margin: 0;
 			padding: 6px 0 2px 0;
 		}
-		dd,
-		dt {
-			display: inline-block;
+
+		dt, dd {
+			display: inline;
+		}
+
+		dt:not(:first-of-type):before {
+			content: '\A';
+			white-space: pre;
 		}
 
 		.stand-out {
