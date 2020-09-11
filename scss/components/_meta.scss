@@ -33,7 +33,6 @@
 	}
 
 	&__item {
-		// border-right: 1px solid $iron;
 		padding-left: $col;
 		margin-top: 0;
 		margin-bottom: ($baseline * 3);
@@ -58,6 +57,17 @@
 		height: 47px;
 		float: left;
 		margin-right: 16px;
+	}
+
+	&__list {
+		list-style: none;
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-left: 0;
+
+		.meta__item {
+			padding: 0 0 0 $col;
+		}
 	}
 
 }
