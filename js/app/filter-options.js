@@ -7,12 +7,12 @@ $(document).ready(function() {
             return
         }
 
-        $("li#filter-option").each(function() {
+        $(".js-filter-option").each(function() {
             if ($(this).hasClass("filter-overview__add")) {
                 e.preventDefault();
                 $(this).removeClass("filter-overview__add");
                 $(this).addClass("filter-overview__error");
-                var label = $(this).find("#filter-option-label").html();
+                var label = $(this).find(".js-filter-option-label").html();
                 if (errorDimensions.length > 0) {
                     label = " " + label;
                 }
@@ -32,17 +32,17 @@ $(document).ready(function() {
         }
     })
 
-    $("li#filter-option").hover(function() {
-        var label = $(this).find("#filter-option-label");
+    $(".js-filter-option").hover(function() {
+        var label = $(this).find(".js-filter-option-label");
         var labelText = label.text();
         var url = $(this).find("a").attr("href");
-        var newLabel = "<a id=\"filter-option-label\" class=\"font-size-16\" href=\""+url+"\">"+labelText+"</a>"
+        var newLabel = "<a class=\"js-filter-option-label font-size-16\" href=\""+url+"\">"+labelText+"</a>"
 
         label.replaceWith(newLabel);
     }, function() {
-        var label = $(this).find("#filter-option-label");
+        var label = $(this).find(".js-filter-option-label");
         var labelText = label.text();
-        var newLabel = "<span id=\"filter-option-label\" class=\"font-size-16\">"+labelText+"</a>"
+        var newLabel = "<span class=\"js-filter-option-label font-size-16\">"+labelText+"</a>"
 
         label.replaceWith(newLabel);
     });
