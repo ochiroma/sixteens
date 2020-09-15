@@ -10,16 +10,14 @@
     @include breakpoint(md) {
         border-top: 1px solid $thunder;
         border-bottom: 1px solid $thunder;
-        height: 88px;
-    }
-
-    @include breakpoint(lg) {
-        height: 64px;
     }
 
     &__list {
         list-style: none;
-        margin: 0;
+        margin: 0 auto;
+        font-size: 0;
+        display: flex;
+        align-items: stretch;
 
         @include breakpoint(sm) {
             padding: $baseline 0;
@@ -32,22 +30,16 @@
         margin: 0;
         padding: 0;
         cursor: pointer;
+        display: inline-block;
 
         @include breakpoint(sm) {
             height: $baseline * 6;
         }
 
         @include breakpoint(md) {
-            float: left;
-            height: 86px;
-
             &:nth-child(6) a {
                 border-right: 1px solid $thunder;
             }
-        }
-
-        @include breakpoint(lg) {
-            height: 62px;
         }
 
         //children show on hover
@@ -109,13 +101,12 @@
             display: inline-block;
             padding: 5px $baseline*2 3px $baseline*2;
             border-left: 1px solid $thunder;
-            height: 86px;
             font-size: 13px; // smaller font on medium for retina screens
         }
 
         @include breakpoint(lg) {
-            height: 62px;
             font-size: 14px;
+            height: 100%;
         }
 
         //set focus styling - has to be on link to work (hover styling on li)
@@ -333,14 +324,12 @@
     @include breakpoint(sm) {
         display: none;
     }
-    display: block;
 }
 
 .nav-search--hidden {
     @include breakpoint(sm) {
         display: none;
     }
-    display: block;
 }
 
 // HEADER - LOGO, LANGUAGE SELECTION AND SECONDARY NAV LINKS
