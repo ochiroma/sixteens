@@ -20,7 +20,7 @@
         align-items: stretch;
 
         @include breakpoint(sm) {
-            padding: $baseline 0;
+            padding: 0 0 $baseline 0;
             display: block;
         }
 
@@ -37,6 +37,7 @@
         @include breakpoint(sm) {
             height: $baseline * 6;
             display: block;
+            padding-left: 16px;
         }
 
         @include breakpoint(md) {
@@ -201,6 +202,7 @@
         color: $iron-light;
         overflow: hidden;
         margin: 0;
+        padding-left: 32px;
     }
 }
 
