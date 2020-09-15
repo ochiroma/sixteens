@@ -21,6 +21,7 @@
 
         @include breakpoint(sm) {
             padding: $baseline 0;
+            display: block;
         }
 
         padding: 0; // fix for IE8
@@ -31,9 +32,11 @@
         padding: 0;
         cursor: pointer;
         display: inline-block;
+        position: relative;
 
         @include breakpoint(sm) {
             height: $baseline * 6;
+            display: block;
         }
 
         @include breakpoint(md) {
@@ -54,7 +57,7 @@
             }
 
             @include breakpoint(lg) {
-                top: 62px;  //2px less to cover borders on parent
+                top: 100%;
             }
         }
 
@@ -91,6 +94,7 @@
     &__link {
         color: $iron-light;
         text-decoration: none;
+        height: 100%;
 
         @include breakpoint(sm) {
             height: ($baseline * 6);
@@ -106,7 +110,6 @@
 
         @include breakpoint(lg) {
             font-size: 14px;
-            height: 100%;
         }
 
         //set focus styling - has to be on link to work (hover styling on li)
