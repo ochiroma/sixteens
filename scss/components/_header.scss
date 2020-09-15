@@ -49,16 +49,12 @@
         //children show on hover
         &:hover > ul,
         &--focus > ul {
+            top: 100%;
             @include breakpoint(md) {
                 background-color: $thunder;
                 color: $white;
                 text-decoration: none;
                 display: block;
-                top: 86px; //2px less to cover borders on parent
-            }
-
-            @include breakpoint(lg) {
-                top: 100%;
             }
         }
 
@@ -125,15 +121,12 @@
 
         //show sub-menu on keyboard focus of link
         &:focus + ul {
+            top: 100%;
+
             @include breakpoint(md) {
                 background-color: $thunder;
                 text-decoration: none;
                 display: block;
-                top: 86px; //2px less to cover same colour border on parent <li>
-            }
-
-            @include breakpoint(lg) {
-                top: 62px;
             }
         }
 
