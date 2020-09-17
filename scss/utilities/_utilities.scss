@@ -110,6 +110,10 @@
         }
     }
 
+    &--0 {
+        margin: 0 !important;
+    }
+
 }
 
 
@@ -184,7 +188,11 @@
 		  	padding-left: 0 !important;
 		  	padding-right: 0 !important;
 		}
-	}
+    }
+
+    &--0 {
+        padding: 0 !important;
+    }
 
 }
 
@@ -207,6 +215,14 @@
         &--md {
             display: inline-block !important;
         }
+    }
+}
+
+.flex {
+    display: flex !important;
+
+    &.stretch {
+        align-items: stretch !important;
     }
 }
 
