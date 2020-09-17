@@ -221,8 +221,20 @@
 .flex {
     display: flex !important;
 
-    &.stretch {
+    &.align-items-stretch {
         align-items: stretch !important;
+    }
+
+    &.flex-wrap-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    .flex-basis {
+        @include breakpoint(sm) {
+            &-sm--full {
+                flex-basis: 100% !important;
+            }
+        }
     }
 }
 
