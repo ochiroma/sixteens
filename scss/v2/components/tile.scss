@@ -19,13 +19,6 @@
         line-height: 1.5;
     }
 
-    &--employment-figures-stacked {
-        // Fixed height on md to ensure employment figures tile is flush with population tile
-        @include breakpoint(md) {
-            height: 776px;
-        }
-    }
-
     &__content-container {
         &--space-between {
             display: flex;
@@ -37,16 +30,11 @@
     }
 
     &__highlighted-content {
-        height: 340px;
-
         @include breakpoint(xs) {
-            height: auto;
             min-height: 340px;
         }
 
-        @include breakpoint(md) {
-            height: 446px;
-        }
+        height: 100%;
     }
 
     &__split-bar {

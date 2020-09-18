@@ -229,6 +229,20 @@
         flex-wrap: wrap !important;
     }
 
+    &.content {
+        &-space-between {
+            justify-content: space-between;
+        }
+
+        @include breakpoint(lg) {
+            &-lg--flex-start {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+
+
     .flex-basis {
         @include breakpoint(sm) {
             &-sm--full {
