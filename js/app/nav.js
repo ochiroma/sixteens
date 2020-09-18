@@ -208,6 +208,20 @@ $(document).ready(function () {
         }
     });
 
+
+    $expandableItem.focusin(function () {
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'true')
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'true')
+        }
+    });
+    $expandableItem.focusout(function ()  {
+        if (!$('body').hasClass('viewport-sm')) {
+            $(this).find('.primary-nav__link').attr('aria-expanded', 'false')
+            $(this).find('.js-expandable__content').attr('aria-expanded', 'false')
+        }
+    });
+
     // Close menu on click of the page
     $('body').not('js-expandable .js-expandable__child').click(function() {
         $('.primary-nav__item--focus').removeClass('primary-nav__item--focus');
