@@ -1,10 +1,15 @@
 .promo {
     &__container {
         display: block;
+        height: 100%;
 
         @include breakpoint(sm) {
             margin-left: -16px;
             margin-right: -16px;
+        }
+
+        > section {
+            height: 100%;
         }
 
         &:focus {

@@ -10,19 +10,18 @@
     @include breakpoint(md) {
         border-top: 1px solid $thunder;
         border-bottom: 1px solid $thunder;
-        height: 88px;
-    }
-
-    @include breakpoint(lg) {
-        height: 64px;
     }
 
     &__list {
         list-style: none;
-        margin: 0;
+        margin: 0 auto;
+        font-size: 0;
+        display: flex;
+        align-items: stretch;
 
         @include breakpoint(sm) {
-            padding: $baseline 0;
+            padding: 0 0 $baseline 0;
+            display: block;
         }
 
         padding: 0; // fix for IE8
@@ -32,37 +31,30 @@
         margin: 0;
         padding: 0;
         cursor: pointer;
+        display: inline-block;
+        position: relative;
 
         @include breakpoint(sm) {
             height: $baseline * 6;
+            display: block;
+            padding-left: 16px;
         }
 
         @include breakpoint(md) {
-            float: left;
-            height: 86px;
-
             &:nth-child(6) a {
                 border-right: 1px solid $thunder;
             }
         }
 
-        @include breakpoint(lg) {
-            height: 62px;
-        }
-
         //children show on hover
         &:hover > ul,
         &--focus > ul {
+            top: 100%;
             @include breakpoint(md) {
                 background-color: $thunder;
                 color: $white;
                 text-decoration: none;
                 display: block;
-                top: 86px; //2px less to cover borders on parent
-            }
-
-            @include breakpoint(lg) {
-                top: 62px;  //2px less to cover borders on parent
             }
         }
 
@@ -99,6 +91,7 @@
     &__link {
         color: $iron-light;
         text-decoration: none;
+        height: 100%;
 
         @include breakpoint(sm) {
             height: ($baseline * 6);
@@ -107,14 +100,12 @@
 
         @include breakpoint(md) {
             display: inline-block;
-            padding: 5px $baseline*2 3px $baseline*2;
+            padding: 5px $baseline*2 9px $baseline*2;
             border-left: 1px solid $thunder;
-            height: 86px;
             font-size: 13px; // smaller font on medium for retina screens
         }
 
         @include breakpoint(lg) {
-            height: 62px;
             font-size: 14px;
         }
 
@@ -130,15 +121,12 @@
 
         //show sub-menu on keyboard focus of link
         &:focus + ul {
+            top: 100%;
+
             @include breakpoint(md) {
                 background-color: $thunder;
                 text-decoration: none;
                 display: block;
-                top: 86px; //2px less to cover same colour border on parent <li>
-            }
-
-            @include breakpoint(lg) {
-                top: 62px;
             }
         }
 
@@ -207,6 +195,7 @@
         color: $iron-light;
         overflow: hidden;
         margin: 0;
+        padding-left: 32px;
     }
 }
 
@@ -279,6 +268,8 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    align-items: stretch;
 
     @include breakpoint(md) {
         display: none;
@@ -287,13 +278,15 @@
     &__item {
         padding: 0;
         margin: 0;
+        display: inline-block;
+        width: 50%;
     }
 
     &__menu {
         background-color: $ship-grey;
         font-size: 17px;
         float: left;
-        width: 50%;
+        width: 100%;
         //padding-left: $col;
         padding: $baseline*2 $col;
         color: $iron-light;
@@ -308,7 +301,7 @@
         background-color: $ship-grey;
         font-size: 17px;
         float: left;
-        width: 50%;
+        width: 100%;
         //padding-left: $col;
         padding: $baseline*2 $col;
         color: $iron-light;
@@ -333,14 +326,12 @@
     @include breakpoint(sm) {
         display: none;
     }
-    display: block;
 }
 
 .nav-search--hidden {
     @include breakpoint(sm) {
         display: none;
     }
-    display: block;
 }
 
 // HEADER - LOGO, LANGUAGE SELECTION AND SECONDARY NAV LINKS

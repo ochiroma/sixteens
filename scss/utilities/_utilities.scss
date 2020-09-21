@@ -110,6 +110,10 @@
         }
     }
 
+    &--0 {
+        margin: 0 !important;
+    }
+
 }
 
 
@@ -184,7 +188,11 @@
 		  	padding-left: 0 !important;
 		  	padding-right: 0 !important;
 		}
-	}
+    }
+
+    &--0 {
+        padding: 0 !important;
+    }
 
 }
 
@@ -206,6 +214,40 @@
     @include breakpoint(md) {
         &--md {
             display: inline-block !important;
+        }
+    }
+}
+
+.flex {
+    display: flex !important;
+
+    &.align-items-stretch {
+        align-items: stretch !important;
+    }
+
+    &.flex-wrap-wrap {
+        flex-wrap: wrap !important;
+    }
+
+    &.content {
+        &-space-between {
+            justify-content: space-between;
+        }
+
+        @include breakpoint(lg) {
+            &-lg--flex-start {
+                justify-content: flex-start;
+            }
+        }
+    }
+
+
+
+    .flex-basis {
+        @include breakpoint(sm) {
+            &-sm--full {
+                flex-basis: 100% !important;
+            }
         }
     }
 }
