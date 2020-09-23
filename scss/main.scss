@@ -7,6 +7,7 @@ $old-ie: false;
 @import "utilities/colours";
 @import "utilities/reset";
 @import "utilities/breakpoints";
+@import "utilities/flexbox";
 @import "utilities/grid";
 @import "utilities/grid-type";
 @import "utilities/colours";
@@ -14,7 +15,6 @@ $old-ie: false;
 @import "utilities/utilities";
 @import "utilities/print"; //remove this and create a seperate print css set with media="print" in the link tag for old browser support
 @import "utilities/icons";
-@import "utilities/flexbox";
 @import "utilities/borders";
 @import "utilities/margins";
 @import "utilities/padding";
