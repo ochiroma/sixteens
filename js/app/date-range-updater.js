@@ -42,13 +42,13 @@ $(document).ready(function () {
 
     $("#start-year-grouped").change(function () {
         var year = $(this).val();
-        var endYerGrouped = $("#end-year-grouped")
+        var endYearGrouped = $("#end-year-grouped")
 
-        if (endYerGrouped.val() === "Select") {
-            endYerGrouped.val(year);
+        if (endYearGrouped.val() === "Select") {
+            endYearGrouped.val(year);
         }
 
-        var currEndYear = parseInt(endYerGrouped.val());
+        var currEndYear = parseInt(endYearGrouped.val());
         var currYear = parseInt(year);
 
         // Add the missing end years if current start year is before end
@@ -58,7 +58,7 @@ $(document).ready(function () {
             for (var i = 1; i <= diffYears; i++) {
                 var optYear = currEndYear - i;
                 if ($("#end-year-grouped option[value='" + optYear.toString() + "']").length === 0) {
-                    endYerGrouped.prepend($('<option>', {
+                    endYearGrouped.prepend($('<option>', {
                         value: optYear.toString(),
                         text: optYear.toString(),
                     }))
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
         if (currEndYear < currYear) {
             // Set the end year to be equal to the start year
-            endYerGrouped.val(year);
+            endYearGrouped.val(year);
         }
 
         // Remove all values before the current end year
