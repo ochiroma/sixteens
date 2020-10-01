@@ -190,7 +190,8 @@ $(document).ready(function () {
                     e.preventDefault();
                     errorList.push("#grouped-range");
                     var groupedRange = $("#grouped-range")
-                    groupedRange.addClass("multiple-choice__error");
+                    var contentList = $("#multiple-choice-content-list")
+                    contentList.addClass("multiple-choice__error");
                     if ($("#grouped-range-error-message").length === 0) {
                         groupedRange.prepend("<div id=\"grouped-range-error-message\" class=\"margin-bottom--1 font-size--16 form-error\"><strong>Select a range of years</strong></div>");
                     }
