@@ -4,8 +4,9 @@ $(document).ready(function () {
         $("#end-month").val(month); // Set start month to be equal to the end
     })
 
-    $("#start-year").change(function () {
-        var year = $(this).val();
+    var updateEndYearRange = function () {
+        startYear = $("#start-year");
+        var year = startYear.val();
         var endYear = $("#end-year")
         if (endYear.val() === "Select") {
             endYear.val(year);
@@ -38,10 +39,11 @@ $(document).ready(function () {
                 $(this).remove();
             }
         })
-    })
+    }
 
-    $("#start-year-grouped").change(function () {
-        var year = $(this).val();
+    var updateEndYearGroupedRange = function () {
+        startYearGrouped = $("#start-year-grouped");
+        var year = startYearGrouped.val();
         var endYearGrouped = $("#end-year-grouped")
 
         if (endYearGrouped.val() === "Select") {
@@ -78,5 +80,9 @@ $(document).ready(function () {
                 $(this).remove();
             }
         })
-    })
+    }
+    updateEndYearRange();
+    updateEndYearGroupedRange();
+    $("#start-year").change(updateEndYearRange)
+    $("#start-year-grouped").change(updateEndYearGroupedRange)
 });

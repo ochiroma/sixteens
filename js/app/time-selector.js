@@ -91,7 +91,7 @@ $(document).ready(function () {
                     }
                     $('html, body').animate({
                         scrollTop: $("#multiple-choice-content-list").offset().top
-                    }, 2000);
+                    }, 1000);
                 }
         }
     })
@@ -200,7 +200,7 @@ $(document).ready(function () {
                     // Always go to the first error on form
                     $('html, body').animate({
                         scrollTop: $(errorList[0]).offset().top
-                    }, 2000);
+                    }, 1000);
                 }
         }
     })
