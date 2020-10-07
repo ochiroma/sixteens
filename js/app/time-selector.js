@@ -1,25 +1,25 @@
-$(document).ready(function() {
+$(document).ready(function () {
     removeAllCheck();
 
-    $(".checkbox__input").click(function() {
-       removeAllCheck();
+    $(".checkbox__input").click(function () {
+        removeAllCheck();
     })
 
-    $("input.add-all").click(function(e) {
+    $("input.add-all").click(function (e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', true);
         removeAllCheck();
     })
 
-    $("#remove-all").click(function(e) {
+    $("#remove-all").click(function (e) {
         e.preventDefault();
         $(".checkbox__input").prop('checked', false);
         removeAllCheck();
     })
 
-    var endDateChange = function() {
+    var endDateChange = function () {
         if ($("#date-range-error-message").length > 0) {
-            var data = $('#time-form').serializeArray().reduce(function(obj, item) {
+            var data = $('#time-form').serializeArray().reduce(function (obj, item) {
                 obj[item.name] = item.value;
                 return obj;
             }, {});
@@ -37,15 +37,15 @@ $(document).ready(function() {
     $("#end-year").change(endDateChange)
     $("#end-month").change(endDateChange)
 
-    $("#age-save-and-return").click(function(e) {
-        var data = $('#age-form').serializeArray().reduce(function(obj, item) {
+    $("#age-save-and-return").click(function (e) {
+        var data = $('#age-form').serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
             return obj;
         }, {});
 
         var selection = data["age-selection"];
 
-        switch(selection) {
+        switch (selection) {
             case "range":
                 var youngest = parseInt(data["youngest"]);
                 var oldest = data["oldest"];
@@ -55,16 +55,16 @@ $(document).ready(function() {
                 var oldestField = $('input[name="oldest"]').val();
                 $('.form-error').remove();
                 if (!youngestField == "" || !oldestField == "") {
-                    
-                    if(/^\d+\+?$/.test(oldestPossible) === true && oldest === oldestPossible){
+
+                    if (/^\d+\+?$/.test(oldestPossible) === true && oldest === oldestPossible) {
                         oldest = parseInt(oldest);
                         oldestPossible = parseInt(oldestPossible);
                     }
 
-                    if (youngest < youngestPossible || youngest > parseInt(oldestPossible) || parseInt(oldest) < youngestPossible || parseInt(oldest) >  parseInt(oldestPossible)) {
+                    if (youngest < youngestPossible || youngest > parseInt(oldestPossible) || parseInt(oldest) < youngestPossible || parseInt(oldest) > parseInt(oldestPossible)) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages "+data["youngest-age"]+" to "+data["oldest-age"]+" available in this dataset</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages " + data["youngest-age"] + " to " + data["oldest-age"] + " available in this dataset</strong></div>");
                     }
 
                     if (youngest > oldest) {
@@ -78,7 +78,7 @@ $(document).ready(function() {
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
                         $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Please enter a valid number in both fields</strong></div>");
                     }
-                }                
+                }
 
                 break;
 
@@ -91,13 +91,13 @@ $(document).ready(function() {
                     }
                     $('html, body').animate({
                         scrollTop: $("#multiple-choice-content-list").offset().top
-                    }, 2000);
+                    }, 1000);
                 }
         }
     })
 
-    $("#time-save-and-return").click(function(e) {
-        var data = $('#time-form').serializeArray().reduce(function(obj, item) {
+    $("#time-save-and-return").click(function (e) {
+        var data = $('#time-form').serializeArray().reduce(function (obj, item) {
             obj[item.name] = item.value;
             return obj;
         }, {});
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
         var selection = data["time-selection"];
 
-        switch(selection) {
+        switch (selection) {
             case "single":
                 if (data["month-single"] === "Select" || data["year-single"] === "Select") {
                     e.preventDefault();
@@ -125,7 +125,7 @@ $(document).ready(function() {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-single").addClass("multiple-choice__error");
                     if ($("#date-single-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-single").prepend("<div id=\"date-single-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>"+dataAvailable+"</strong></div>");
+                        $("#multiple-choice-content-single").prepend("<div id=\"date-single-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
                 }
@@ -158,7 +158,7 @@ $(document).ready(function() {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#date-range-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>"+dataAvailable+"</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
                 }
@@ -168,33 +168,62 @@ $(document).ready(function() {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#date-range-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>"+dataAvailable+"</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
                 }
 
                 break;
             case "list":
+                checkForAndRemoveExistingErrors();
+                var errorList = [];
                 if ($(".checkbox__input:checked").length === 0) {
                     e.preventDefault();
-                    $("#multiple-choice-content-list").addClass("multiple-choice__error");
+                    var contentList = $("#multiple-choice-content-list")
+                    contentList.addClass("multiple-choice__error");
                     if ($("#list-error-message").length === 0) {
-                        $("#multiple-choice-content-list").prepend("<div id=\"list-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Select at least one month</strong></div>");
+                        contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\"><strong>Select at least one month</strong></div>");
                     }
+                    errorList.push("#multiple-choice-content-list");
+                }
+                if (data["start-year-grouped"] === "Select" || data["end-year-grouped"] === "Select") {
+                    e.preventDefault();
+                    errorList.push("#grouped-range");
+                    var groupedRange = $("#grouped-range")
+                    var contentList = $("#multiple-choice-content-list")
+                    contentList.addClass("multiple-choice__error");
+                    if ($("#grouped-range-error-message").length === 0) {
+                        groupedRange.prepend("<div id=\"grouped-range-error-message\" class=\"margin-bottom--1 font-size--16 form-error\"><strong>Select a range of years</strong></div>");
+                    }
+                }
+                if (errorList.length) {
+                    // Always go to the first error on form
                     $('html, body').animate({
-                        scrollTop: $("#multiple-choice-content-list").offset().top
-                    }, 2000);
+                        scrollTop: $(errorList[0]).offset().top
+                    }, 1000);
                 }
         }
     })
 })
 
-function getMonthFromString(mon){
-    return new Date(Date.parse(mon +" 1, 2012")).getMonth()+1
- }
+function checkForAndRemoveExistingErrors() {
+    var listError = $("#list-error-message")
+    var groupedRangeError = $("#grouped-range-error-message")
+
+    if (listError.length > 0) {
+        listError.remove();
+    }
+    if (groupedRangeError.length > 0) {
+        groupedRangeError.remove();
+    }
+}
+
+function getMonthFromString(mon) {
+    return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1
+}
 
 function removeAllCheck() {
-    if ($(".checkbox__input:checked").length > 1 ) {
+    if ($(".checkbox__input:checked").length > 1) {
         $("#remove-all").removeClass("js-hidden");
     } else {
         $("#remove-all").addClass("js-hidden");
