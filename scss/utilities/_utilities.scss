@@ -671,3 +671,10 @@
 .clearfix {
     @extend %clearfix;
 }
+
+.float-left-mobile {
+    @include breakpoint(sm) {
+        float: left !important;
+        text-align: left !important;
+   }
+}
