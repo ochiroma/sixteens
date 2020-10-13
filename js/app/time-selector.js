@@ -180,7 +180,7 @@ $(document).ready(function () {
                 var isLastYearSelected = (latestYear === parseInt(data["end-year-grouped"]))
                 var isFirstYearSelected = (firstYear === parseInt(data["start-year-grouped"]))
 
-                for (let i = 0; i < checkedMonths.length; i++) {
+                for (var i = 0; i < checkedMonths.length; i++) {
                     if (isLastYearSelected || isFirstYearSelected) {
                         var monthValue = getMonthFromString(checkedMonths[i].value)
                         var isDataSelectionTooHigh = isLastYearSelected && (monthValue > latestMonth)
