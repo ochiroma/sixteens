@@ -39,6 +39,13 @@ $(document).ready(function () {
                 $(this).remove();
             }
         })
+        // Select removed (from middle) and replaced at beginning
+        if ($("#end-year option[value='Select']").length === 0) {
+            endYear.prepend($('<option>', {
+                value: "Select",
+                text: "Select",
+            }))
+        }
     }
 
     var updateEndYearGroupedRange = function () {
@@ -80,9 +87,32 @@ $(document).ready(function () {
                 $(this).remove();
             }
         })
+        // Select removed (from middle) and replaced at beginning
+        if ($("#end-year-grouped option[value='Select']").length === 0) {
+            endYearGrouped.prepend($('<option>', {
+                value: "Select",
+                text: "Select",
+            }))
+        }
     }
-    updateEndYearRange();
-    updateEndYearGroupedRange();
-    $("#start-year").change(updateEndYearRange)
-    $("#start-year-grouped").change(updateEndYearGroupedRange)
+
+    // Setup the initial states and options for the date ranges
+    function setupDateRanges() {
+        // Configure initial states of date ranges
+        var endYearGrouped = $("#end-year-grouped")
+        var endYear = $("#end-year")
+        var pageLoadEndYearGroupedValue = endYearGrouped.val()
+        var pageLoadEndYearValue = endYear.val()
+        updateEndYearRange();
+        updateEndYearGroupedRange();
+        $("#end-year-grouped").val(pageLoadEndYearGroupedValue)
+        $("#end-year").val(pageLoadEndYearValue)
+
+        // Setup event listeners for change of state on date ranges
+        $("#start-year").change(updateEndYearRange)
+        $("#start-year-grouped").change(updateEndYearGroupedRange)
+    }
+
+    setupDateRanges();
+
 });
