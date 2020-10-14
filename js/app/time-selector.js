@@ -104,7 +104,10 @@ $(document).ready(function () {
 
 
         var selection = data["time-selection"];
-
+        var latestMonth = getMonthFromString(data["latest-month"]);
+        var firstMonth = getMonthFromString(data["first-month"]);
+        var latestYear = parseInt(data["latest-year"]);
+        var firstYear = parseInt(data["first-year"]);
         switch (selection) {
             case "single":
                 if (data["month-single"] === "Select" || data["year-single"] === "Select") {
@@ -115,8 +118,6 @@ $(document).ready(function () {
                     }
                 }
 
-                latestMonth = getMonthFromString(data["latest-month"]);
-                latestYear = parseInt(data["latest-year"]);
                 month = getMonthFromString(data["month-single"]);
                 year = parseInt(data["year-single"]);
 
@@ -150,8 +151,6 @@ $(document).ready(function () {
                         $("#range-error-message").remove();
                     }
                 }
-                latestMonth = getMonthFromString(data["latest-month"]);
-                latestYear = parseInt(data["latest-year"]);
 
                 if (latestYear == parseInt(data["end-year"]) && endMonth > latestMonth) {
                     e.preventDefault();
@@ -177,7 +176,29 @@ $(document).ready(function () {
             case "list":
                 checkForAndRemoveExistingErrors();
                 var errorList = [];
-                if ($(".checkbox__input:checked").length === 0) {
+                var checkedMonths = $(".checkbox__input:checked")
+                var isLastYearSelected = (latestYear === parseInt(data["end-year-grouped"]))
+                var isFirstYearSelected = (firstYear === parseInt(data["start-year-grouped"]))
+
+                for (var i = 0; i < checkedMonths.length; i++) {
+                    if (isLastYearSelected || isFirstYearSelected) {
+                        var monthValue = getMonthFromString(checkedMonths[i].value)
+                        var isDataSelectionTooHigh = isLastYearSelected && (monthValue > latestMonth)
+                        var isDataSelectionTooLow = isFirstYearSelected && (monthValue < firstMonth)
+                        if (isDataSelectionTooHigh || isDataSelectionTooLow) {
+                            e.preventDefault();
+                            var contentList = $("#multiple-choice-content-list")
+                            var dataAvailable = $("#data-available").text();
+                            contentList.addClass("multiple-choice__error");
+                            if ($("#list-error-message").length === 0) {
+                                contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
+                            }
+                            errorList.push("#multiple-choice-content-list");
+                        }
+                    }
+                }
+
+                if (checkedMonths.length === 0) {
                     e.preventDefault();
                     var contentList = $("#multiple-choice-content-list")
                     contentList.addClass("multiple-choice__error");
