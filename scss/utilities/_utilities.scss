@@ -503,6 +503,7 @@
             @include breakpoint(sm) {
                 text-align: left !important;
             }
+          }
 
     &--md {
         @include breakpoint(md) {
