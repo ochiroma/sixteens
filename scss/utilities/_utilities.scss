@@ -500,7 +500,7 @@
     text-align: left !important;
 
     &--sm {
-            @include breakpoint(md) {
+            @include breakpoint(sm) {
                 text-align: left !important;
             }
 
