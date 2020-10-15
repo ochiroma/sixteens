@@ -499,6 +499,11 @@
 .text-left {
     text-align: left !important;
 
+    &--sm {
+            @include breakpoint(md) {
+                text-align: left !important;
+            }
+
     &--md {
         @include breakpoint(md) {
             text-align: left !important;
