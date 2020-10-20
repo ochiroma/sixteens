@@ -64,19 +64,22 @@ $(document).ready(function () {
                     if (youngest < youngestPossible || youngest > parseInt(oldestPossible) || parseInt(oldest) < youngestPossible || parseInt(oldest) > parseInt(oldestPossible)) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Ages " + data["youngest-age"] + " to " + data["oldest-age"] + " available in this dataset</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Ages " + data["youngest-age"] + " to " + data["oldest-age"] + " available in this dataset</strong></div>");
+                        $("#age-range-error-message").focus();
                     }
 
                     if (youngest > oldest) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Enter a number higher than the youngest</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Enter a number higher than the youngest</strong></div>");
+                        $("#range-error-message").focus();
                     }
 
                     if (isNaN(youngest) || isNaN(oldest)) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
-                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Please enter a valid number in both fields</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Please enter a valid number in both fields</strong></div>");
+                        $("#range-error-message").focus();
                     }
                 }
 
@@ -87,11 +90,13 @@ $(document).ready(function () {
                     e.preventDefault();
                     $("#multiple-choice-content-list").addClass("multiple-choice__error");
                     if ($("#list-error-message").length === 0) {
-                        $("#multiple-choice-content-list").prepend("<div id=\"list-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Select at least one age</strong></div>");
+                        $("#multiple-choice-content-list").prepend("<div id=\"list-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Select at least one age</strong></div>");
                     }
                     $('html, body').animate({
                         scrollTop: $("#multiple-choice-content-list").offset().top
-                    }, 1000);
+                    }, 1000, "swing", function () {
+                        $("#list-error-message").focus();
+                    });
                 }
         }
     })
@@ -114,8 +119,9 @@ $(document).ready(function () {
                     e.preventDefault();
                     $("#multiple-choice-content-single").addClass("multiple-choice__error");
                     if ($("#single-error-message").length === 0) {
-                        $("#multiple-choice-content-single").prepend("<div id=\"single-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Select month and year</strong></div>");
+                        $("#multiple-choice-content-single").prepend("<div id=\"single-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>Select month and year</strong></div>");
                     }
+                    $("#single-error-message").focus();
                 }
 
                 month = getMonthFromString(data["month-single"]);
@@ -126,9 +132,11 @@ $(document).ready(function () {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-single").addClass("multiple-choice__error");
                     if ($("#date-single-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-single").prepend("<div id=\"date-single-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
+                        $("#multiple-choice-content-single").prepend("<div id=\"date-single-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
+                    $("#date-single-error-message-data-available").focus();
+
                 }
                 break;
             case "range":
@@ -136,8 +144,9 @@ $(document).ready(function () {
                     e.preventDefault();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#range-error-message").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>Select a range</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>Select a range</strong></div>");
                     }
+                    $("#range-error-message").focus();
                     break;
                 }
                 var endMonth = getMonthFromString(data["end-month"]);
@@ -147,9 +156,10 @@ $(document).ready(function () {
                     e.preventDefault();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#date-range-error-message").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>End date must be after the start date</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>End date must be after the start date</strong></div>");
                         $("#range-error-message").remove();
                     }
+                    $("#date-range-error-message").focus();
                 }
 
                 if (latestYear == parseInt(data["end-year"]) && endMonth > latestMonth) {
@@ -157,9 +167,10 @@ $(document).ready(function () {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#date-range-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
+                    $("#date-range-error-message-data-available").focus();
                 }
 
                 if (latestYear === parseInt(data["start-year"]) && startMonth > latestMonth) {
@@ -167,9 +178,11 @@ $(document).ready(function () {
                     var dataAvailable = $("#data-available").text();
                     $("#multiple-choice-content-range").addClass("multiple-choice__error");
                     if ($("#date-range-error-message-data-available").length === 0) {
-                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
+                        $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
+                        $("#date-range-error-message-data-available").focus();
                     }
+                    $("#date-range-error-message-data-available").focus();
                 }
 
                 break;
@@ -191,9 +204,9 @@ $(document).ready(function () {
                             var dataAvailable = $("#data-available").text();
                             contentList.addClass("multiple-choice__error");
                             if ($("#list-error-message").length === 0) {
-                                contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\"><strong>" + dataAvailable + "</strong></div>");
+                                contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>" + dataAvailable + "</strong></div> ");
                             }
-                            errorList.push("#multiple-choice-content-list");
+                            errorList.push("#list-error-message");
                         }
                     }
                 }
@@ -203,25 +216,28 @@ $(document).ready(function () {
                     var contentList = $("#multiple-choice-content-list")
                     contentList.addClass("multiple-choice__error");
                     if ($("#list-error-message").length === 0) {
-                        contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\"><strong>Select at least one month</strong></div>");
+                        contentList.prepend("<div id=\"list-error-message\" class=\"margin-left--2 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Select at least one month</strong></div>");
                     }
-                    errorList.push("#multiple-choice-content-list");
+                    errorList.push("#list-error-message");
                 }
                 if (data["start-year-grouped"] === "Select" || data["end-year-grouped"] === "Select") {
                     e.preventDefault();
-                    errorList.push("#grouped-range");
                     var groupedRange = $("#grouped-range")
                     var contentList = $("#multiple-choice-content-list")
                     contentList.addClass("multiple-choice__error");
                     if ($("#grouped-range-error-message").length === 0) {
-                        groupedRange.prepend("<div id=\"grouped-range-error-message\" class=\"margin-bottom--1 font-size--16 form-error\"><strong>Select a range of years</strong></div>");
+                        groupedRange.prepend("<div id=\"grouped-range-error-message\" class=\"margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Select a range of years</strong></div>");
                     }
+                    errorList.push("#grouped-range-error-message");
                 }
                 if (errorList.length) {
                     // Always go to the first error on form
                     $('html, body').animate({
                         scrollTop: $(errorList[0]).offset().top
-                    }, 1000);
+                    }, 1000, "swing", function () {
+                        $(errorList[0]).focus();
+                    });
+
                 }
         }
     })
