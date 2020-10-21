@@ -65,21 +65,18 @@ $(document).ready(function () {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
                         $("#multiple-choice-content-range").prepend("<div id=\"age-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Ages " + data["youngest-age"] + " to " + data["oldest-age"] + " available in this dataset</strong></div>");
-                        $("#age-range-error-message").focus();
                     }
 
                     if (youngest > oldest) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
                         $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Enter a number higher than the youngest</strong></div>");
-                        $("#range-error-message").focus();
                     }
 
                     if (isNaN(youngest) || isNaN(oldest)) {
                         e.preventDefault();
                         $("#multiple-choice-content-range").addClass("multiple-choice__error");
                         $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert' tabindex=-1><strong>Please enter a valid number in both fields</strong></div>");
-                        $("#range-error-message").focus();
                     }
                 }
 
@@ -94,9 +91,7 @@ $(document).ready(function () {
                     }
                     $('html, body').animate({
                         scrollTop: $("#multiple-choice-content-list").offset().top
-                    }, 1000, "swing", function () {
-                        $("#list-error-message").focus();
-                    });
+                    }, 1000);
                 }
         }
     })
@@ -121,7 +116,6 @@ $(document).ready(function () {
                     if ($("#single-error-message").length === 0) {
                         $("#multiple-choice-content-single").prepend("<div id=\"single-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>Select month and year</strong></div>");
                     }
-                    $("#single-error-message").focus();
                 }
 
                 month = getMonthFromString(data["month-single"]);
@@ -135,7 +129,6 @@ $(document).ready(function () {
                         $("#multiple-choice-content-single").prepend("<div id=\"date-single-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
-                    $("#date-single-error-message-data-available").focus();
 
                 }
                 break;
@@ -146,7 +139,6 @@ $(document).ready(function () {
                     if ($("#range-error-message").length === 0) {
                         $("#multiple-choice-content-range").prepend("<div id=\"range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>Select a range</strong></div>");
                     }
-                    $("#range-error-message").focus();
                     break;
                 }
                 var endMonth = getMonthFromString(data["end-month"]);
@@ -159,7 +151,6 @@ $(document).ready(function () {
                         $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>End date must be after the start date</strong></div>");
                         $("#range-error-message").remove();
                     }
-                    $("#date-range-error-message").focus();
                 }
 
                 if (latestYear == parseInt(data["end-year"]) && endMonth > latestMonth) {
@@ -170,7 +161,6 @@ $(document).ready(function () {
                         $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
                     }
-                    $("#date-range-error-message-data-available").focus();
                 }
 
                 if (latestYear === parseInt(data["start-year"]) && startMonth > latestMonth) {
@@ -180,9 +170,7 @@ $(document).ready(function () {
                     if ($("#date-range-error-message-data-available").length === 0) {
                         $("#multiple-choice-content-range").prepend("<div id=\"date-range-error-message-data-available\" class=\"margin-left--1 margin-bottom--1 font-size--16 form-error\" role='alert'  tabindex=-1><strong>" + dataAvailable + "</strong></div>");
                         $("#range-error-message").remove();
-                        $("#date-range-error-message-data-available").focus();
                     }
-                    $("#date-range-error-message-data-available").focus();
                 }
 
                 break;
@@ -234,10 +222,7 @@ $(document).ready(function () {
                     // Always go to the first error on form
                     $('html, body').animate({
                         scrollTop: $(errorList[0]).offset().top
-                    }, 1000, "swing", function () {
-                        $(errorList[0]).focus();
-                    });
-
+                    }, 1000);
                 }
         }
     })
