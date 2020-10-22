@@ -21,12 +21,14 @@
         &__error {
             outline: 3px solid $poppy;
             outline-offset: -2px;
+            border: none;
         }
     }
 
     &-control:focus{
         outline: 3px solid $carrot;
         outline-offset: -2px;
+        border: none;
     }
 
     &-hint{

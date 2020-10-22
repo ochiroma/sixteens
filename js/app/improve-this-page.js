@@ -50,7 +50,7 @@ $(document).ready(function() {
         var hasErrors = false;
 
         if ($(" #description-field ").val() === "") {
-            var descriptionError = "<span class=\"form-error\">Write some feedback</span>";
+            var descriptionError = "<span class=\"form-error\" role=\"alert\">Write some feedback</span>";
             if (!$(" #description-field-label .form-error").length) {
                 $(" #description-field-label ").append( descriptionError );
                 $(" #description-field ").addClass("form-control__error");
@@ -58,18 +58,9 @@ $(document).ready(function() {
             hasErrors = true
         }
 
-        if ($(" #purpose-field ").val() === "") {
-            var descriptionError = "<span class=\"form-error\">Enter a purpose</span>";
-            if (!$(" #purpose-field-label .form-error").length) {
-                $(" #purpose-field-label ").append( descriptionError );
-                $(" #purpose-field ").addClass("form-control__error");
-            }
-            hasErrors = true
-        }
-
         var email = $(" #email-field ").val();
         if (email != "") {
-            var emailError = "<span class=\"form-error\">This is not a valid email address, correct it or delete it</span>";
+            var emailError = "<span class=\"form-error\" role=\"alert\">This is not a valid email address, correct it or delete it</span>";
             var emailReg = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/g;
 
             if ( !emailReg.test(email) ) {
