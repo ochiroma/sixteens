@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
 
     var feedbackMessage = (
-        '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+        '<span id="feedback-form-confirmation" aria-live="polite" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
     )
 
     $( "#feedback-form-url" ).val(pageURL);
