@@ -42,23 +42,33 @@ function hideMenu(toggleElement, menuElement) {
 }
 
 function showSearch(toggleElement, searchElement) {
+    var langAttribute = $('html')[0].lang;
     toggleElement.addClass('search-is-expanded');
     toggleElement.find('a').attr('aria-expanded', true);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-search-1')
         .addClass('icon-cancel');
-    toggleElement.find('.nav--controls__text').text('Hide search');
+    if (langAttribute == 'en') {
+        toggleElement.find('.nav--controls__text').text('Hide search');
+    } else {
+        toggleElement.find('.nav--controls__text').text('Cuddio');
+    }
     searchElement.removeClass('nav-search--hidden');
     searchElement.attr('aria-expanded', true);
 }
 
 function hideSearch(toggleElement, searchElement) {
+    var langAttribute = $('html')[0].lang;
     toggleElement.removeClass('search-is-expanded');
     toggleElement.find('a').attr('aria-expanded', false);
     toggleElement.find('.nav--controls__icon')
         .removeClass('icon-cancel')
         .addClass('icon-search-1');
-    toggleElement.find('.nav--controls__text').text('Search');
+    if (langAttribute == 'en') {
+        toggleElement.find('.nav--controls__text').text('Search');
+    } else {
+        toggleElement.find('.nav--controls__text').text('Chwilio');
+    }
     searchElement.addClass('nav-search--hidden');
     searchElement.attr('aria-expanded', false);
 }
