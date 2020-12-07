@@ -65,9 +65,6 @@ $(function() {
       removeFilter(el);
     }
 
-    // Run the postForm function with the appropriate url
-      postForm(urlToPost);
-
     // Checkboxes need to return true to select/deselect
     if(!el.is(checkBox)) {
       return false;
@@ -142,17 +139,4 @@ $(function() {
     var countChildren = filterSelectList.children().length;
     $('span', filterHeader).text(countChildren);
   }
-
-  // Ajax Post the form in the background to update job with status
-  function postForm(urlToPost){
-    $.ajax({
-       type: "POST",
-       url: urlToPost,
-       data: $("#filter-form").serialize(),
-       error: function(){
-         console.log('Post error');
-       }
-     });
-   }
-
- });
+});
