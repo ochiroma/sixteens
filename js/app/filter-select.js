@@ -21,11 +21,12 @@ $(function() {
       el, id, label, filterSelectItem, removeOne, removeAll, removeAllLink;
 
   // url
-  var urlToPost = $('#filter-form').attr('action'),
-      url = window.location.pathname;
+  var url = window.location.pathname;
+  var urlToPost;
 
-  $(document).on('click', '.js-filter', function(){
+  $(document).on('click', '.js-filter', function() {
     el = $(this);
+    urlToPost = $('#filter-form').attr('action')
     removeAll = $('.remove-all');
     removeOne = $('.remove-link');
 
@@ -66,14 +67,13 @@ $(function() {
     }
 
     // Run the postForm function with the appropriate url
-      postForm(urlToPost);
+    postForm(urlToPost)
 
     // Checkboxes need to return true to select/deselect
     if(!el.is(checkBox)) {
       return false;
     }
-
-  });
+  })
 
   // Add the selected item/s to the filter selection block (cart)
   function addToFilter(el) {
