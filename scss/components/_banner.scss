@@ -1,6 +1,15 @@
 .banner {
     background-color: $white;
 
+    &--half-padding {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &--vertical-center {
+        align-items: center;
+    }
+
     &--carrot {
         background-color: $carrot;
         color: $white;
