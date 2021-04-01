@@ -7,10 +7,11 @@
         margin-left: 0;
         
         p {
-            font-size: 1.22222rem;
+            font-size: 1.3rem;
             font-weight: 700;
             line-height: 1.4;
             margin-bottom: 0.5rem;
+            quotes: "“" "”" "‘" "’";
         }
 
         p:before {
