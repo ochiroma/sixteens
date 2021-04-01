@@ -1,0 +1,33 @@
+.quote {
+    border-left: 0.3rem solid #e2e2e3;
+    margin: 2rem 0 2rem 0;
+    padding-left: 1.5rem;
+
+    &--body {
+        margin-left: 0;
+        
+        p {
+            font-size: 1.22222rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 0.5rem;
+        }
+
+        p:before {
+            content: open-quote;
+            display: inline;
+            margin-left: -0.45rem;
+        }
+
+        p:after {
+            content: close-quote
+        }
+    }
+    &--source {
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.4;
+        margin-top: 1rem;
+    }
+}
