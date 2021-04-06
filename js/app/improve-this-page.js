@@ -93,7 +93,7 @@ $(document).ready(function () {
                 var formHeader = $("#feedback-form-header")
                 $("#feedback-form").addClass("js-hidden");
                 formHeader.removeClass("js-hidden");
-                formHeader.html(feedbackMessage);
+                formHeader.html(feedbackMessage).focus();
             }
         })
 
