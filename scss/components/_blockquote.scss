@@ -1,11 +1,10 @@
 .quote {
-    border-left: 0.33rem solid #e2e2e3;
+    border-left: 0.33rem solid $grey4;
     margin: 2.25rem 0 2.25rem 0;
     padding-left: 1.6rem;
 
     blockquote {
         margin: 0;
-    
     }
 
     &--body {
@@ -28,7 +27,7 @@
         }
 
         p:after {
-            content: close-quote
+            content: close-quote;
         }
     }
     &--source {
