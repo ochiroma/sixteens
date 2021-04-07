@@ -1,17 +1,24 @@
 .quote {
-    border-left: 0.3rem solid #e2e2e3;
-    margin: 2rem 0 2rem 0;
-    padding-left: 1.5rem;
+    border-left: 0.33rem solid #e2e2e3;
+    margin: 2.25rem 0 2.25rem 0;
+    padding-left: 1.6rem;
+
+    blockquote {
+        margin: 0;
+    
+    }
 
     &--body {
         margin-left: 0;
         
         p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             line-height: 1.4;
+            margin: 0;
             margin-bottom: 0.5rem;
             quotes: "“" "”" "‘" "’";
+            padding: 0;
         }
 
         p:before {
@@ -25,7 +32,7 @@
         }
     }
     &--source {
-        font-size: 1rem;
+        font-size: 1.13rem;
         font-style: normal;
         font-weight: 700;
         line-height: 1.4;
