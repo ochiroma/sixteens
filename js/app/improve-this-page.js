@@ -8,7 +8,7 @@ $(document).ready(function () {
     }
 
     var feedbackMessage = (
-        '<span id="feedback-form-confirmation" class="font-size--18" tabindex="-1">Thank you. Your feedback will help us as we continue to improve the service.</span>'
+        '<span id="feedback-form-confirmation" class="font-size--18">Thank you. Your feedback will help us as we continue to improve the service.</span>'
     )
 
     $("#feedback-form-url").val(pageURL);
@@ -33,7 +33,7 @@ $(document).ready(function () {
             url: feedbackURL + "/positive",
             data: $("#feedback-form-container").serialize(),
             beforeSend: function () {
-                $("#feedback-form-header").html(feedbackMessage).focus();
+                $("#feedback-form-header").html(feedbackMessage);
             }
         })
     });
@@ -93,7 +93,11 @@ $(document).ready(function () {
                 var formHeader = $("#feedback-form-header")
                 $("#feedback-form").addClass("js-hidden");
                 formHeader.removeClass("js-hidden");
-                formHeader.html(feedbackMessage).focus();
+                formHeader.html(feedbackMessage);
+            },
+            //HTML must be injected twice so that NVDA in Firefox reads updated content, this is hack fix due to an issue with NVDA
+            complete: function () {
+                $("#feedback-form-header").html(feedbackMessage);
             }
         })
 
