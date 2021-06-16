@@ -24,17 +24,19 @@ $(document).ready(function () {
       var breadcrumbs = $("a.breadcrumb__link");
       var landingPageUrl = breadcrumbs[breadcrumbs.length - 1].href;
       const $errorContainer = $("#error-container");
-      $errorContainer.attr("role", "alert");
-      $errorContainer.append(
-        '<div id="options-error" class="font-size--18 form-error filter-overview__error-message margin-bottom--1">Add at least one filter to \'' +
-          errorDimensions +
-          "' to generate data</div>"
-      );
-      $errorContainer.append(
-        '<div class="font-size--18 margin-bottom--4"> Alternatively, return to the <a href="' +
-          landingPageUrl +
-          '">landing page</a> to download the complete dataset.</div>'
-      );
+      if ($errorContainer.length > 0) {
+        $errorContainer.attr("role", "alert");
+        $errorContainer.append(
+          '<div id="options-error" class="font-size--18 form-error filter-overview__error-message margin-bottom--1">Add at least one filter to \'' +
+            errorDimensions +
+            "' to generate data</div>"
+        );
+        $errorContainer.append(
+          '<div class="font-size--18 margin-bottom--4"> Alternatively, return to the <a href="' +
+            landingPageUrl +
+            '">landing page</a> to download the complete dataset.</div>'
+        );
+      }
     }
   });
 
