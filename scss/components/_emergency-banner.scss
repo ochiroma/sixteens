@@ -2,6 +2,7 @@
 $gov_black: #0b0c0c;
 $gov_red: #b10e1e;
 $gov_teal: #28a197;
+$gov_grey: #b1b4b6;
 
 .page-type--homepage .emergency-banner {
   padding: 27px 0;
@@ -13,7 +14,7 @@ $gov_teal: #28a197;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.25;
-  background-color: #b1b4b6;
+  background-color: $gov_grey;
   color: $white;
   margin-top: 2px;
   padding: 18px 0;
@@ -27,20 +28,18 @@ $gov_teal: #28a197;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 700;
     font-size: 30px;
-    line-height: 42px;
+    line-height: 1.4;
     margin: 0;
     padding: 0;
     @include breakpoint(md-max) {
       font-size: 26px;
-      line-height: 36.4px;
     }
   }
   .page-type--homepage &__heading {
     font-size: 36px;
-    line-height: 50.4px;
+    line-height: 1.4;
     @include breakpoint(md-max) {
       font-size: 28px;
-      line-height: 39.2px;
     }
   }
 
@@ -49,7 +48,7 @@ $gov_teal: #28a197;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 400;
     font-size: 18px;
-    line-height: 28.8px;
+    line-height: 1.6;
     color: $white;
     margin: 0 0 18px 0;
     padding: 0;
@@ -60,7 +59,7 @@ $gov_teal: #28a197;
   .page-type--homepage &__description {
     margin: 18px 0;
     @include breakpoint(md-max) {
-      line-height: 25.2px;
+      line-height: 1.4;
     }
   }
 
@@ -70,7 +69,7 @@ $gov_teal: #28a197;
     font-weight: 400;
     text-decoration: underline;
     color: $white;
-    line-height: 28.8px;
+    line-height: 1.6;
     &:visited {
       color: $white;
     }
@@ -81,7 +80,7 @@ $gov_teal: #28a197;
   }
   @include breakpoint(md-max) {
     .page-type--homepage &__link {
-      line-height: 25.2px;
+      line-height: 1.4;
     }
   }
 
