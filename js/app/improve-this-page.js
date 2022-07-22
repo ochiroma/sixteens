@@ -37,7 +37,7 @@ $(document).ready(function () {
             }
         })
     });
-    
+
     $("#feedback-form-container").on("submit", function (e) {
         e.preventDefault();
         var emailField = $(" #email-field ")
@@ -99,7 +99,16 @@ $(document).ready(function () {
                 $("#feedback-form-header").html(feedbackMessage);
             }
         })
+
+        if (window.location.pathname === feedbackURL) {
+            $(this).remove();
+            $("h1").html("Thank you");
+            var displayURL = document.referrer;
+            var len = displayURL.length;
+            if (len > 50) {
+                displayURL = "..." + displayURL.slice(len - 50, len);
+            }
+            $("#feedback-description").html("<div class=\"font-size--16\"><br>Your feedback will help us to improve the website. We are unable to respond to all enquiries. If your matter is urgent, please <a href=\"/aboutus/contactus\">contact us</a>.<br><br>Return to <a class=\"underline-link\" href=\"" + document.referrer + "\">" + displayURL + "</a></div>")
+        }
     });
-
-
 });
