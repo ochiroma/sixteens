@@ -1,0 +1,246 @@
+//_alert.scss
+
+.alert {
+    background-color: $abbey;
+    padding: ($baseline * 2) 0 ($baseline * 3) 0;
+    color: $iron;
+
+    @media print {
+        display: none;
+    }
+
+    &__title {
+        font-size: 24px;
+        line-height: 24px;
+        margin-top: 0;
+        margin-bottom: ($baseline * 1);
+        padding: 3px 0 5px 0;
+
+        a {
+            color: $iron;
+
+            &:hover {
+                color: $white;
+            }
+
+        }
+
+    }
+
+    &__link {
+        color: $iron;
+        font-size: 16px;
+        text-decoration: underline;
+        padding: 5px 0 3px 0;
+        display: inline-block;
+
+        &:hover {
+            color: $white;
+        }
+
+        &:focus {
+            color: $thunder;
+            background: $iron;
+        }
+    }
+
+    &__content {
+        font-size: 14px;
+        margin: 0;
+
+        &--large {
+            font-size: 17px;
+            margin: 0;
+        }
+    }
+
+    &__date {
+        padding: 5px 0 10px 0;
+        margin: 0;
+        font-size: 17px
+    }
+
+    &--warning {
+
+        padding: $baseline 0;
+
+        &__title {
+            padding-left: ($col * 4);
+            margin: $baseline 0;
+            text-align: left; //IE9 fix, puts text centre aligned
+        }
+
+        &__content {
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 4;
+            }
+        }
+    }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+          color:$poppy;
+        }
+    }
+}
+
+.status {
+    padding:$baseline * 2;
+    margin: 0 0 $baseline;
+    background:$gallery;
+    color:$thunder;
+
+    @media print {
+        display: none;
+    }
+
+    &--green {
+        border-left: 8px $salem solid;
+    }
+    &--amber {
+        border-left: 8px $carrot solid;
+    }
+    &--red {
+        border-left: 8px $poppy solid;
+    }
+    &--blue {
+        border-left: 8px $blue solid;
+    }
+
+    &__content {
+        margin:0 0 $baseline * 2;
+        font-size: 16px;
+        line-height: 24px;
+        color:$thunder;
+        padding: 0 $baseline 0 0 ;
+    }
+
+    &__link {
+        text-decoration: underline;
+    }
+}
+
+.alert-release-banner {
+    background-color: $white;
+    color: $ship-grey;
+    width: auto;
+
+    @media print {
+        display: none;
+    }
+
+    &__latest {
+        border-left: 7px solid $matisse;
+    }
+
+    &__not-latest {
+        border-left: 7px solid $carrot;
+    }
+
+    &__title {
+        font-size: 18px;
+        line-height: 32px;
+        padding: 0;
+        margin: ($baseline * 1) ($baseline * 2);
+
+        a {
+            color: $matisse;
+        }
+        
+        @include breakpoint(sm) {
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    &__link {
+        font-size: 18px;
+        display: inline-block;
+        
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__content {
+        font-size: 14px;
+        margin: 0;
+
+        &--large {
+            font-size: 17px;
+            margin: 0;
+        }
+    }
+
+    &__date {
+        padding: 5px 0 10px 0;
+        margin: 0;
+        font-size: 17px
+    }
+}
+
+
+.alert-bulletins {
+    background-color: $white;
+    color: $ship-grey;
+    width: auto;
+
+    @media print {
+        display: none;
+    }
+
+    &--warning {
+
+        padding: $baseline 0;
+
+        &__title {
+            padding-left: ($col * 4);
+            text-align: left; //IE9 fix, puts text centre aligned
+        }
+
+        &__content {
+
+            @include breakpoint(sm) {
+                margin: 0 $col
+            }
+
+            @include breakpoint(md) {
+                margin: 0 $col * 4;
+            }
+        }
+    }
+
+    &--light {
+        padding:0 0 0 $baseline * 2;
+        background:none;
+        border-left: 8px $poppy solid;
+        color:$thunder;
+        a {
+            color:$poppy;
+        }
+    }
+
+    &--border {
+        border: 1px solid #fff;
+        padding: ($baseline * 1) 0;
+    }
+
+    &--expand-arrow {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    &--info-box {//fix positioning of info-box on bulletin pages
+        top: $baseline * 1 !important;
+        margin: 0 !important;
+    }
+}

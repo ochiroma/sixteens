@@ -1,0 +1,132 @@
+.banner {
+    background-color: $white;
+
+    &--half-padding {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    &--vertical-center {
+        align-items: center;
+    }
+
+    &--carrot {
+        background-color: $carrot;
+        color: $white;
+    }
+
+    &--bottom-border {
+        border-bottom: 1px solid $iron;
+    }
+
+    &--no-border {
+        border-bottom: none;
+    }
+
+    &__container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        align-items: center;
+        margin-left: 16px;
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
+    &__icon {
+        vertical-align: middle;
+        position: relative;
+
+        @include breakpoint(sm) {
+            display: none;
+        }
+    }
+
+    &__text-icon {
+        background-color: $matisse;
+        color: $iron-light;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 5px 8px;
+        font-size: 16px;
+        position: relative;
+        top: 50%;
+
+        @include breakpoint(sm) {
+            display: block;
+            float: left;
+            margin-right: 8px;
+            transform: translateY(5%);
+            margin-bottom: 10px;
+            margin-top: 8px;
+        }
+
+        &--double-line {
+            top: 0;
+            @include breakpoint(md) {
+                top: -18px
+            } 
+        }
+    }
+
+    &__heading {
+        font-size: 30px;
+        line-height: 1.33;
+        color: $mine-shaft;
+        letter-spacing: -0.02px;
+        margin-left: $col;
+        
+        @include breakpoint(sm) {
+            font-size: 24px;
+            margin-left: 0;
+        }
+    }
+
+    &__body {
+        display: flex;
+        display: -ms-flexbox;
+        padding-bottom: $baseline;
+        
+        @include breakpoint(md) {
+            display: inline-block;
+            padding-top: $baseline;
+            margin-left: $col;
+        }
+
+        @include breakpoint(sm) {
+            display: block;
+        }
+    }
+
+    @media print {
+        display: none;
+    }
+
+    p {
+        margin: 0;
+        padding-top: 5px;
+        padding-bottom: 3px;
+        font-size: 16px;
+
+        & > a {
+            text-decoration: underline;
+
+            &:focus {
+                color: $base-text-colour;
+            }
+        }
+    }
+
+    &__link {
+        font-size: 17px;
+
+        @include breakpoint(sm) {
+            font-size: 16px;
+        }
+    }
+
+    &__bottom-shadow {
+        box-shadow: 0 2px 0 0 darken($sun-yellow, 15%);
+    }
+}
